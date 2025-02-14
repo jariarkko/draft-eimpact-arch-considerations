@@ -64,8 +64,14 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
-   2.  Security Considerations
-   3.  IANA Considerations
+   2.  Potential Architectural Aspects
+     2.1.  Dynamic Scaling
+     2.2.  Transport
+     2.3.  TBD
+     2.4.  TBD
+   3.  Recommendations for Further Work and Research
+   4.  Security Considerations
+   5.  IANA Considerations
    Acknowledgments
    Authors' Addresses
 
@@ -107,7 +113,8 @@ Table of Contents
    potentially impacting jitter.
 
    This document discusses some of these architectural aspects and
-   considerations related to them.
+   considerations related to them, and tries to give guidance where such
+   guidance can be given.
 
    The scope of the document is advice on Internet and protocol
    architecture, such as what architecture or capabilities new protocol
@@ -123,11 +130,25 @@ Table of Contents
    except those that pertain to architecture or significant protocol
    features.
 
-2.  Security Considerations
+2.  Potential Architectural Aspects
+
+2.1.  Dynamic Scaling
+
+2.2.  Transport
+
+2.3.  TBD
+
+2.4.  TBD
+
+3.  Recommendations for Further Work and Research
+
+   TBD
+
+4.  Security Considerations
 
    This document has no security-related discussion.
 
-3.  IANA Considerations
+5.  IANA Considerations
 
    This document has no IANA actions.
 
