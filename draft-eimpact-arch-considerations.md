@@ -29,6 +29,10 @@ author:
     organization: Ericsson
     email: jari.arkko@gmail.com
 
+ -
+    fullname: +OtherPeople
+    organization: ...
+
 normative:
 
 informative:
