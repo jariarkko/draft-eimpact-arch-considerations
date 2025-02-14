@@ -230,6 +230,29 @@ advantages:
 
 Hence, it is very likely that extending the life of protocols and equipment with higher flexibility could provide a better environmental benefit than tightly optimizing only for today’s uses.
 
+## Compact encoding
+
+This is about better encoding methods, such as using binary instead of text.
+### Analysis
+
+Better encoding methods are clearly benefical for improving the detailed-level effectiveness
+of communications.
+
+The main questions are, however:
+
+* Is the effect of this is at a magnitude comparable to the other
+things, or if it is just absolutely tiny? Particularly considering
+that much of the traffic on the Internet is video, and much of that is
+other content than, e.g., HTTP headers. This needs more research.
+
+* At what layer is the compactness achieved? Are link, IP, or
+  transport layer mechanisms that can compact some of the verbose
+  messaging useful, or should each and every protocol have optimal
+  compacting?
+  
+* Tradeoffs related to compressing (particularly if AI-based
+  computationally expensive methods are used).
+
 ## TBD
 
 ## ...
