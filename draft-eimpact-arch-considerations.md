@@ -101,9 +101,22 @@ features.
 
 # Potential Architectural Aspects
 
+## Measurement
+
+You have to know what is going on before you can improve. Some level
+of measurements are necessary for improving sustainability.
+
+### Motivation 
+
+### Analysis
+
+### Recommendation
+
 ## Dynamic Scaling
 
 The ability to adjust resources to need, and possibly turn some of them off during periods of low usage. Examples include the set of servers needed for a service, how many duplicate links are needed to carry high-volume traffic, whether one needs all base stations with overlapping coverage areas to be on, etc.
+
+### Motivation 
 
 ### Analysis
 
@@ -143,6 +156,8 @@ cache or pre-fetch information.
 This behavior will have an effect on sustainability as well, e.g., in
 what periods the endpoint and network systems are active or when they
 could be in reduced activity or sleep states.
+
+### Motivation 
 
 ### Analysis
 
@@ -206,6 +221,8 @@ the best end-user and energy performance.
 
 The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. [suggestion from Michael: This includes devising tools to inform network administrators and their users of the potential benefits of hardware upgrades, so that they can better decide to avoid unnecessary upgrades or delay them.]
 
+### Motivation 
+
 ### Analysis
 
 When we engineer protocols and network equipment, we are inclined to
@@ -234,6 +251,8 @@ Hence, it is very likely that extending the life of protocols and equipment with
 
 This is about better encoding methods, such as using binary instead of text.
 
+### Motivation 
+
 ### Analysis
 
 Better encoding methods are clearly benefical for improving the detailed-level effectiveness
@@ -257,6 +276,10 @@ other content than, e.g., HTTP headers. This needs more research.
 ## TBD
 
 ## ...
+
+# Other Considerations
+
+Transparency etc.
 
 # Recommendations for Further Work and Research
 
