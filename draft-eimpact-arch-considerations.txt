@@ -9,8 +9,7 @@ Expires: 18 August 2025                                              ...
                                                         14 February 2025
 
 
-  Architectural Considerations for Building Sustainable Communication
-                                Systems
+    Architectural Considerations for Sustainable Internet Technology
                 draft-eimpact-arch-considerations-latest
 
 Abstract
