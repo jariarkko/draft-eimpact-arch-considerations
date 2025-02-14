@@ -19,11 +19,11 @@
 # Change the file extension to match the format (.xml for XML, etc...)
 #
 ###
-title: "TODO - Your title"
-abbrev: "TODO - Abbreviation"
+title: "Architectural Considerations for Building Sustainable Communication Systems"
+abbrev: "Sustainable Internet Architecture"
 category: info
 
-docname: draft-todo-yourname-protocol-latest
+docname: draft-eimpact-arch-considerations-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
@@ -36,8 +36,8 @@ keyword:
  - unicorn
  - sparkling distributed ledger
 venue:
-  group: WG
-  type: Working Group
+  group: E-Impact
+  type: Program
   mail: WG@example.com
   arch: https://example.com/WG
   github: USER/REPO
@@ -45,9 +45,9 @@ venue:
 
 author:
  -
-    fullname: Your Name Here
-    organization: Your Organization Here
-    email: your.email@example.com
+    fullname: Jari Arkko
+    organization: Ericsson
+    email: jari.arkko@gmail.com
 
 normative:
 
