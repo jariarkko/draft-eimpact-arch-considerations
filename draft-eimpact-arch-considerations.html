@@ -8,7 +8,8 @@
 <meta content="Jari Arkko" name="author">
 <meta content="+OtherPeople" name="author">
 <meta content="
-       TODO Abstract 
+       This document discusses protocol and network architecture aspects that
+may have an impact on the sustainability of network technology. 
     " name="description">
 <meta content="xml2rfc 3.26.0" name="generator">
 <meta content="next generation" name="keyword">
@@ -1086,7 +1087,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Architectural Considerations for Sustainable Internet Technology</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">TODO Abstract<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This document discusses protocol and network architecture aspects that
+may have an impact on the sustainability of network technology.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1171,34 +1173,47 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">Protocol and network architecture can have an impact on
-sustainability. At the very least the right architecture can make it
-possible to have a positive impact, but of course the architecture
-alone is not enough. The possibilities offered by the architecture
-need to be employed by implementations and practical deployments.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">To give some examples of architectural aspects that potentially have a
-sustainability impacts, these can be about enabling information (e.g.,
-energy consumption data) and using that information, making dynamic
-scaling of resources possible, resource selection performed in a
-sustainability-aware fashion, unicast vs. multicast architectures,
-textual vs. binary encoding, and improvements in the chattiness of
-protocols.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">But there are also often tradeoffs, such as side-effects of
+<p id="section-1-1">Sustainability is an important consideration in networking. Both for
+ensuring that networking technology can enable societies to operate in
+a sustainable manner and that the networks themselves are sustainable.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">This document discusses protocol and network architecture aspects that
+may have an impact on the sustainability of network technology.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">Where good design and architecture can improve the sustainability of
+networks, we should of course apply them when designing new protocols
+and building networks.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">But what is such good design and architecture? Are there guidelines
+that can be given? Intuitively, protocol and network architecture may
+in some cases have an impact on sustainability. At the very least the
+right design and architecture can make it possible to have a positive
+impact, but of course the architecture alone is not enough. The
+possibilities offered by the architecture need to be employed by
+implementations and practical deployments.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-5">To give an example of architectural aspect that potentially has a
+sustainability impact, enabling the collection of information (e.g.,
+energy consumption data) and then using that information to make
+smarter decisions is one. Other examples include making it possible to
+scale resources or
+resource selection processes performed in a
+sustainability-aware fashion. The use of communication primitives that maximise
+utility in a given problem (e.g., using multicast) or the use
+technologies that reduce the number or size of messages needed for a
+given task (e.g., binary encoding instead of textual) are some further examples.<a href="#section-1-5" class="pilcrow">¶</a></p>
+<p id="section-1-6">But there are likely also often tradeoffs, such as side-effects of
 architectural choices, e.g., dynamic scaling of a router network
-potentially impacting jitter.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">This document discusses some of these architectural aspects and
-considerations related to them.<a href="#section-1-4" class="pilcrow">¶</a></p>
-<p id="section-1-5">The scope of the document is advice on Internet and protocol
+potentially impacting jitter.<a href="#section-1-6" class="pilcrow">¶</a></p>
+<p id="section-1-7">This document discusses some of these architectural aspects and
+considerations related to them.<a href="#section-1-7" class="pilcrow">¶</a></p>
+<p id="section-1-8">The scope of the document is advice on Internet and protocol
 architecture, such as what architecture or capabilities new protocol
 designs or features should have, what kind of operational network
 architectures should be deployed, and how all of these can be designed
-to best address sustainability concerns.<a href="#section-1-5" class="pilcrow">¶</a></p>
-<p id="section-1-6">The document is intended to help engineering efforts in the IETF,
+to best address sustainability concerns.<a href="#section-1-8" class="pilcrow">¶</a></p>
+<p id="section-1-9">The document is intended to help engineering efforts in the IETF,
 provide guidance for operationals in the operator community, or point
-to research directions in the IRTF.<a href="#section-1-6" class="pilcrow">¶</a></p>
-<p id="section-1-7">This document is not focused on general issues around sustainability,
+to research directions in the IRTF.<a href="#section-1-9" class="pilcrow">¶</a></p>
+<p id="section-1-10">This document is not focused on general issues around sustainability,
 except those that pertain to architecture or significant protocol
-features.<a href="#section-1-7" class="pilcrow">¶</a></p>
+features.<a href="#section-1-10" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
