@@ -82,7 +82,8 @@ architectural choices, e.g., dynamic scaling of a router network
 potentially impacting jitter.
 
 This document discusses some of these architectural aspects and
-considerations related to them.
+considerations related to them, and tries to give guidance where such
+guidance can be given.
 
 The scope of the document is advice on Internet and protocol
 architecture, such as what architecture or capabilities new protocol
@@ -97,6 +98,20 @@ to research directions in the IRTF.
 This document is not focused on general issues around sustainability,
 except those that pertain to architecture or significant protocol
 features.
+
+# Potential Architectural Aspects
+
+## Dynamic Scaling
+
+## Transport
+
+## TBD
+
+## TBD
+
+# Recommendations for Further Work and Research
+
+TBD
 
 # Security Considerations
 

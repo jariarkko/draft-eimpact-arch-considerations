@@ -13,3 +13,7 @@ else
 	    https://github.com/martinthomson/i-d-template $(LIBDIR)
 endif
 endif
+
+copy:
+	ssh root@arkko.com mkdir -p /var/www/www.arkko.com/html/ietf/eimpact/arch
+	scp draft-eimpact-arch-considerations.txt root@arkko.com:/var/www/www.arkko.com/html/ietf/eimpact/arch
