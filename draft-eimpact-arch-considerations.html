@@ -1157,9 +1157,19 @@ may have an impact on the sustainability of network technology.<a href="#section
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
                 <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-dynamic-scaling" class="internal xref">Dynamic Scaling</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1.2.1">
+                    <p id="section-toc.1-1.2.2.1.2.1.1" class="keepWithNext"><a href="#section-2.1.1" class="auto internal xref">2.1.1</a>.  <a href="#name-analysis" class="internal xref">Analysis</a></p>
+</li>
+                </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2">
-                <p id="section-toc.1-1.2.2.2.1" class="keepWithNext"><a href="#section-2.2" class="auto internal xref">2.2</a>.  <a href="#name-transport" class="internal xref">Transport</a></p>
+                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="auto internal xref">2.2</a>.  <a href="#name-transport" class="internal xref">Transport</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2.2.1">
+                    <p id="section-toc.1-1.2.2.2.2.1.1"><a href="#section-2.2.1" class="auto internal xref">2.2.1</a>.  <a href="#name-analysis-2" class="internal xref">Analysis</a></p>
+</li>
+                </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3">
                 <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="auto internal xref">2.3</a>.  <a href="#name-tbd" class="internal xref">TBD</a></p>
@@ -1246,14 +1256,114 @@ features.<a href="#section-1-10" class="pilcrow">¶</a></p>
 <section id="section-2.1">
         <h3 id="name-dynamic-scaling">
 <a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-dynamic-scaling" class="section-name selfRef">Dynamic Scaling</a>
-      </h3>
+        </h3>
+<p id="section-2.1-1">The ability to adjust resources to need, and possibly turn some of them off during periods of low usage. Examples include the set of servers needed for a service, how many duplicate links are needed to carry high-volume traffic, whether one needs all base stations with overlapping coverage areas to be on, etc.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+<div id="analysis">
+<section id="section-2.1.1">
+          <h4 id="name-analysis">
+<a href="#section-2.1.1" class="section-number selfRef">2.1.1. </a><a href="#name-analysis" class="section-name selfRef">Analysis</a>
+          </h4>
+<p id="section-2.1.1-1">Dynamic scaling could be seen as either an alternative or complementary to load stabilization, e.g., via “peak shaving”. Perhaps the most realistic angle is that both are likely needed.<a href="#section-2.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.1.1-2">The most rudimentary approach to dynamic scaling is just turning some resources off. However, often this is not sufficient and a more graceful/engineered approach potentially yields better results.<a href="#section-2.1.1-2" class="pilcrow">¶</a></p>
+<p id="section-2.1.1-3">A network architects need to understand the impacts of scaling changes on users and traffic. These may include fate of ongoing sessions, latency/jitter, packets in flight, or running processes, attempts to contact resources that are no longer present, and the time it takes for the network to converge to its new state.<a href="#section-2.1.1-3" class="pilcrow">¶</a></p>
+<p id="section-2.1.1-4">Dynamic scaling requires an understanding of load levels for the network, so information collection is required. It also requires understanding the power, time and other costs of making changes. (See draft-pignataro for discussion of tradeoffs and multi-objective optimization.)<a href="#section-2.1.1-4" class="pilcrow">¶</a></p>
+<p id="section-2.1.1-5">Some of the strategies that are useful in implementing a well working dynamic scaling include:<a href="#section-2.1.1-5" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2.1.1-6.1">
+              <p id="section-2.1.1-6.1.1">Ability to enter “no new work” mode for equipment, to enable some resources to be eventually released/turned off.<a href="#section-2.1.1-6.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.1.1-6.2">
+              <p id="section-2.1.1-6.2.1">Ability to move ongoing tasks off to other equipment, to prevent disruption of already started tasks.<a href="#section-2.1.1-6.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.1.1-6.3">
+              <p id="section-2.1.1-6.3.1">Ability to schedule changes rather than making them abruptly, with associated signaling exchanges and possible transient routing and other failures. See for instance the TVR WG work in the IETF.<a href="#section-2.1.1-6.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.1.1-6.4">
+              <p id="section-2.1.1-6.4.1">Efficient propagation of changes of new routes, new set of servers, etc. as to reduce the amount of time where state across the network is not synchronized. The needs for the propagation solution needs to be driven by dynamic scaling and sustainability as well as other aspects, such as recovery from failures.<a href="#section-2.1.1-6.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.1.1-6.5">
+              <p id="section-2.1.1-6.5.1">Never expect a fixed set of resources, plan for dynamic set of resources, and build mechanisms to deal with dynamic changes.<a href="#section-2.1.1-6.5.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.1.1-6.6">
+              <p id="section-2.1.1-6.6.1">Dynamic scaling requires automation in most cases. See draft-pignataro for a discussion of automation.<a href="#section-2.1.1-6.6.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</section>
+</div>
 </section>
 </div>
 <div id="transport">
 <section id="section-2.2">
         <h3 id="name-transport">
 <a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-transport" class="section-name selfRef">Transport</a>
-      </h3>
+        </h3>
+<p id="section-2.2-1">Transport protocols are the flexible tools that make it possible for
+communication flows between parties to adjust themselves to the
+dynamic conditions that exist in the network at any given time:
+available bandwidth, delays, congestion, the ability of a peer to send
+or receive traffic, and so on. Depending on the conditions, an
+individual flow may carry traffic at widely different rates, may pause
+for some time, etc. Various higher-level transport solutions may also
+cache or pre-fetch information.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2-2">This behavior will have an effect on sustainability as well, e.g., in
+what periods the endpoint and network systems are active or when they
+could be in reduced activity or sleep states.<a href="#section-2.2-2" class="pilcrow">¶</a></p>
+<div id="analysis-1">
+<section id="section-2.2.1">
+          <h4 id="name-analysis-2">
+<a href="#section-2.2.1" class="section-number selfRef">2.2.1. </a><a href="#name-analysis-2" class="section-name selfRef">Analysis</a>
+          </h4>
+<p id="section-2.2.1-1">A critical issue is the tradeoff involved in sending traffic. As
+argued in https://doi.org/10.23919/WONS54113.2022.9764413, reducing
+the amount of time the endpoints and the network are active can
+sometimes help save energy, e.g. in case the receiver is connected
+over a WiFi link. Similar logic applies for any technology that has a
+certain degree of energy proportionality, e.g. cellular
+communication. As a result, in general, delivering information as
+rapidly as possible would appear to be desirable.<a href="#section-2.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-2">On the other hand, bandwidth-intensive applications can influence
+other applications or users by presenting a significant load on the
+network, and consequently reducing capacity available for others, or
+increasing buffering (and with it, latency) across the network
+path. For an application with intermittent data transfers, such as
+streaming video, this would seem to speak in favor of sustained but
+lower-rate delivery instead of transmitting short high-rate bursts
+(Sammy paper: https://doi.org/10.1145/3603269.3604839). However, this
+is in contradiction with the energy-saving approach above. Thus, the
+tradeoff is: should data be sent in a way that is “friendly” to others
+(avoiding bad interference), or should it save energy by sending fast,
+increasing the chance for equipment to enter a “sleep” state?<a href="#section-2.2.1-2" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-3">At the time of writing, the common choice for video is to opt for high
+rate delivery, potentially saving energy, and possibly at the expense
+of other traffic. For non-urgent data transfers, the IETF-recommended
+default approach is the opposite: the LEDBAT congestion control
+mechanism (RFC 6817), which is designed for such use, will always
+“step out of the way” of other traffic, giving it a low rate when it
+competes with any other traffic. Alternatively, if the goal is to
+reduce energy, such traffic could be sent at a high rate, at a
+strategically good moment within a longer time interval; this would
+give network equipment an opportunity to enter a sleep state in the
+remaining time period within the interval.<a href="#section-2.2.1-3" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-4">Perhaps the issue is that the transport behavior (as with many other
+things) needs to take into account multiple parameters. For example,
+it is possible that a balanced transport algorithm would be able to
+send as much as possible as soon as possible, while tracking buffer
+growth from transmission delays and scaling back if there’s any buffer
+growth. This remains to be confirmed with experiments, however.<a href="#section-2.2.1-4" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-5">Similarly, caching and pre-fetching designs need to take into account
+not only the likehood of having acquired the right content in memory,
+but also the sustainability cost of possibly fetching too much or the
+timing of those fetching operations.<a href="#section-2.2.1-5" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-6">In general, information about the impacts of loading or not loading
+the network with additional traffic, and whether a certain sending
+pattern enables power savings through sleep modes, would be beneficial
+for the communicating endpoints. Mechanisms for making such
+information available to the endpoints would be useful.<a href="#section-2.2.1-6" class="pilcrow">¶</a></p>
+<p id="section-2.2.1-7">However, what is said here is theoretical analysis. We recommend
+simulation and experiments to confirm what strategies would provide
+the best end-user and energy performance.<a href="#section-2.2.1-7" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="tbd">
