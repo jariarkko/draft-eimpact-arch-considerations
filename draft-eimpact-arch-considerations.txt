@@ -2,10 +2,11 @@
 
 
 
-WG Working Group                                                J. Arkko
+Network Working Group                                           J. Arkko
 Internet-Draft                                                  Ericsson
-Intended status: Informational                          14 February 2025
-Expires: 18 August 2025
+Intended status: Informational                              +OtherPeople
+Expires: 18 August 2025                                              ...
+                                                        14 February 2025
 
 
   Architectural Considerations for Building Sustainable Communication
@@ -21,16 +22,13 @@ About This Document
    This note is to be removed before publishing as an RFC.
 
    The latest revision of this draft can be found at
-   https://example.com/LATEST.  Status information for this document may
-   be found at https://datatracker.ietf.org/doc/draft-eimpact-arch-
-   considerations/.
-
-   Discussion of this document takes place on the E-Impact Program
-   mailing list (mailto:WG@example.com), which is archived at
-   https://example.com/WG.
+   https://jariarkko.github.io/draft-eimpact-arch-considerations/draft-
+   eimpact-arch-considerations.html.  Status information for this
+   document may be found at https://datatracker.ietf.org/doc/draft-
+   eimpact-arch-considerations/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/USER/REPO.
+   https://github.com/jariarkko/draft-eimpact-arch-considerations.
 
 Status of This Memo
 
@@ -71,7 +69,7 @@ Table of Contents
    4.  IANA Considerations
    5.  Normative References
    Acknowledgments
-   Author's Address
+   Authors' Addresses
 
 1.  Introduction
 
@@ -108,8 +106,11 @@ Acknowledgments
 
    TODO acknowledge.
 
-Author's Address
+Authors' Addresses
 
    Jari Arkko
    Ericsson
    Email: jari.arkko@gmail.com
+
+
+   +OtherPeople
