@@ -92,6 +92,20 @@ Table of Contents
    This document discusses some of these architectural aspects and
    considerations related to them.
 
+   The scope of the document is advice on Internet and protocol
+   architecture, such as what architecture or capabilities new protocol
+   designs or features should have, what kind of operational network
+   architectures should be deployed, and how all of these can be
+   designed to best address sustainability concerns.
+
+   The document is intended to help engineering efforts in the IETF,
+   provide guidance for operationals in the operator community, or point
+   to research directions in the IRTF.
+
+   This document is not focused on general issues around sustainability,
+   except those that pertain to architecture or significant protocol
+   features.
+
 2.  Security Considerations
 
    This document has no security-related discussion.
