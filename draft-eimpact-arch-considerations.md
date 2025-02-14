@@ -251,7 +251,7 @@ Hence, it is very likely that extending the life of protocols and equipment with
 
 This is about better encoding methods, such as using binary instead of text.
 
-### Motivation 
+### Motivation
 
 ### Analysis
 
