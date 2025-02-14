@@ -233,6 +233,7 @@ Hence, it is very likely that extending the life of protocols and equipment with
 ## Compact encoding
 
 This is about better encoding methods, such as using binary instead of text.
+
 ### Analysis
 
 Better encoding methods are clearly benefical for improving the detailed-level effectiveness
@@ -249,7 +250,7 @@ other content than, e.g., HTTP headers. This needs more research.
   transport layer mechanisms that can compact some of the verbose
   messaging useful, or should each and every protocol have optimal
   compacting?
-  
+
 * Tradeoffs related to compressing (particularly if AI-based
   computationally expensive methods are used).
 
