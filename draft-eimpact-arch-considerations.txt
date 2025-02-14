@@ -65,19 +65,28 @@ Table of Contents
 
    1.  Introduction
    2.  Potential Architectural Aspects
-     2.1.  Dynamic Scaling
-       2.1.1.  Analysis
-     2.2.  Transport
-       2.2.1.  Analysis
-     2.3.  Equipment Longevity
-       2.3.1.  Analysis
-     2.4.  Compact encoding
-       2.4.1.  Analysis
-     2.5.  TBD
-     2.6.  ...
-   3.  Recommendations for Further Work and Research
-   4.  Security Considerations
-   5.  IANA Considerations
+     2.1.  Measurement
+       2.1.1.  Motivation
+       2.1.2.  Analysis
+       2.1.3.  Recommendation
+     2.2.  Dynamic Scaling
+       2.2.1.  Motivation
+       2.2.2.  Analysis
+     2.3.  Transport
+       2.3.1.  Motivation
+       2.3.2.  Analysis
+     2.4.  Equipment Longevity
+       2.4.1.  Motivation
+       2.4.2.  Analysis
+     2.5.  Compact encoding
+       2.5.1.  Motivation
+       2.5.2.  Analysis
+     2.6.  TBD
+     2.7.  ...
+   3.  Other Considerations
+   4.  Recommendations for Further Work and Research
+   5.  Security Considerations
+   6.  IANA Considerations
    Acknowledgments
    Authors' Addresses
 
@@ -138,7 +147,18 @@ Table of Contents
 
 2.  Potential Architectural Aspects
 
-2.1.  Dynamic Scaling
+2.1.  Measurement
+
+   You have to know what is going on before you can improve.  Some level
+   of measurements are necessary for improving sustainability.
+
+2.1.1.  Motivation
+
+2.1.2.  Analysis
+
+2.1.3.  Recommendation
+
+2.2.  Dynamic Scaling
 
    The ability to adjust resources to need, and possibly turn some of
    them off during periods of low usage.  Examples include the set of
@@ -146,7 +166,9 @@ Table of Contents
    carry high-volume traffic, whether one needs all base stations with
    overlapping coverage areas to be on, etc.
 
-2.1.1.  Analysis
+2.2.1.  Motivation
+
+2.2.2.  Analysis
 
    Dynamic scaling could be seen as either an alternative or
    complementary to load stabilization, e.g., via “peak shaving”.
@@ -193,7 +215,7 @@ Table of Contents
    *  Dynamic scaling requires automation in most cases.  See draft-
       pignataro for a discussion of automation.
 
-2.2.  Transport
+2.3.  Transport
 
    Transport protocols are the flexible tools that make it possible for
    communication flows between parties to adjust themselves to the
@@ -208,7 +230,9 @@ Table of Contents
    what periods the endpoint and network systems are active or when they
    could be in reduced activity or sleep states.
 
-2.2.1.  Analysis
+2.3.1.  Motivation
+
+2.3.2.  Analysis
 
    A critical issue is the tradeoff involved in sending traffic.  As
    argued in https://doi.org/10.23919/WONS54113.2022.9764413, reducing
@@ -268,7 +292,7 @@ Table of Contents
    simulation and experiments to confirm what strategies would provide
    the best end-user and energy performance.
 
-2.3.  Equipment Longevity
+2.4.  Equipment Longevity
 
    The ability to extend the useful life of protocols and/or network
    equipment in order to amortize the embedded energy costs over a
@@ -279,7 +303,9 @@ Table of Contents
    upgrades, so that they can better decide to avoid unnecessary
    upgrades or delay them.]
 
-2.3.1.  Analysis
+2.4.1.  Motivation
+
+2.4.2.  Analysis
 
    When we engineer protocols and network equipment, we are inclined to
    design them in a highly optimized manner for a very specific set of
@@ -314,12 +340,14 @@ Table of Contents
    equipment with higher flexibility could provide a better
    environmental benefit than tightly optimizing only for today’s uses.
 
-2.4.  Compact encoding
+2.5.  Compact encoding
 
    This is about better encoding methods, such as using binary instead
    of text.
 
-2.4.1.  Analysis
+2.5.1.  Motivation
+
+2.5.2.  Analysis
 
    Better encoding methods are clearly benefical for improving the
    detailed-level effectiveness of communications.
@@ -340,11 +368,15 @@ Table of Contents
    *  Tradeoffs related to compressing (particularly if AI-based
       computationally expensive methods are used).
 
-2.5.  TBD
+2.6.  TBD
 
-2.6.  ...
+2.7.  ...
 
-3.  Recommendations for Further Work and Research
+3.  Other Considerations
+
+   Transparency etc.
+
+4.  Recommendations for Further Work and Research
 
    Transport-related optimizations that enable devices to consume less
    power by sleeping more appear potential, but require further
@@ -354,11 +386,11 @@ Table of Contents
 
    ...
 
-4.  Security Considerations
+5.  Security Considerations
 
    This document has no security-related discussion.
 
-5.  IANA Considerations
+6.  IANA Considerations
 
    This document has no IANA actions.
 
