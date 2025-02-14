@@ -1,5 +1,5 @@
 ---
-title: "Architectural Considerations for Building Sustainable Communication Systems"
+title: "Architectural Considerations for Sustainable Internet Technology"
 abbrev: "Sustainable Internet Architecture"
 category: info
 
