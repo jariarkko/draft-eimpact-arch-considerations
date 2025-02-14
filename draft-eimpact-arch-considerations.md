@@ -202,13 +202,47 @@ However, what is said here is theoretical analysis. We recommend
 simulation and experiments to confirm what strategies would provide
 the best end-user and energy performance.
 
-## TBD
+## Equipment Longevity
+
+The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. [suggestion from Michael: This includes devising tools to inform network administrators and their users of the potential benefits of hardware upgrades, so that they can better decide to avoid unnecessary upgrades or delay them.]
+
+### Analysis
+
+When we engineer protocols and network equipment, we are inclined to
+design them in a highly optimized manner for a very specific set of
+requirements, use cases and context. While this is necessary in
+certain cases (e.g. constrained nodes with limits on processing
+capacity or long lived battery powered devices), there are cetainly
+cases where such optimized equipment is not absolutely required. The
+vast majority of infrastucture network nodes on the Internet utilize
+only a faction of their design capacity most of the time.
+
+Designing the equipment with an eye on longevity comes with a set of
+advantages:
+
+* It allows the same equipment and protocols could be reused in a different context in the future. e.g. A core router of today can become an edge router in a near future and an access router in the further future if the protocol implementations are adaptable.
+
+* It can reduce complexity in implementations as well as in network management that are usually indicated in highly optimized systems
+
+* It can let network equipment operate for a longer period and can reduce the frequency of hardware upgrades, in turn reducing the environmental impact associated with manufacturing, transporting, and disposing of the old/new hardware.
+
+* One key disadvantage may be that not optimizing may result in the need for premature upgrades for capacity and this needs to be taken into account.
+
+Hence, it is very likely that extending the life of protocols and equipment with higher flexibility could provide a better environmental benefit than tightly optimizing only for today’s uses.
 
 ## TBD
+
+## ...
 
 # Recommendations for Further Work and Research
 
+Transport-related optimizations that enable devices to consume less
+power by sleeping more appear potential, but require further research,
+perhaps as part of the efforts in the SUSTAIN RG.
+
 TBD
+
+...
 
 # Security Considerations
 
