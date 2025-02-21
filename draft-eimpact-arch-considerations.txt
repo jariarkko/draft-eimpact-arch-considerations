@@ -94,10 +94,9 @@ Table of Contents
        2.1.2.  Analysis
        2.1.3.  Recommendation
      2.2.  Modelling
-       2.2.1.  Definition
-       2.2.2.  Motivation
-       2.2.3.  Analysis
-       2.2.4.  Recommendation
+       2.2.1.  Motivation
+       2.2.2.  Analysis
+       2.2.3.  Recommendation
      2.3.  Dynamic Scaling
        2.3.1.  Motivation
        2.3.2.  Analysis
@@ -115,12 +114,10 @@ Table of Contents
        2.6.2.  Analysis
        2.6.3.  Recommendation
      2.7.  Measurement Architecture
-     2.8.  TBD
-     2.9.  ...
-   3.  Other Considerations
-   4.  Recommendations for Further Work and Research
-   5.  Security Considerations
-   6.  IANA Considerations
+     2.8.  ...
+   3.  Recommendations for Further Work and Research
+   4.  Security Considerations
+   5.  IANA Considerations
    Acknowledgments
    Authors' Addresses
 
@@ -214,8 +211,6 @@ Table of Contents
 
 2.2.  Modelling
 
-2.2.1.  Definition
-
    The paucity of up-to-date information on equipment and system
    parameters, especially power consumption and maximum throughput,
    makes estimating the power consumption and energy efficiency of these
@@ -224,13 +219,13 @@ Table of Contents
    and possibly inaccurate.  In almost all cases physical measurement
    has to be replaced by partial measurement and mathematical modelling.
 
-2.2.2.  Motivation
+2.2.1.  Motivation
 
    Where power optimization choices are made, accurate information is
    required to decide the right choice.  Modelling instead of
    measurements may have to be used in some cases.
 
-2.2.3.  Analysis
+2.2.2.  Analysis
 
    To date, two approaches to network power modelling are accepted as
    providing a realistic estimate of network power consumption.  These
@@ -265,7 +260,7 @@ Table of Contents
    and DC computing.  I am not sure to what extent we need to work on
    modeling networks and devices in our architecture exercise.
 
-2.2.4.  Recommendation
+2.2.3.  Recommendation
 
    TBD
 
@@ -579,15 +574,11 @@ Table of Contents
    Is measurement architectures in scope of this activity or left for
    the GREEN WG?
 
-2.8.  TBD
+2.8.  ...
 
-2.9.  ...
+   Add other considerations as needed: Transparency etc.
 
-3.  Other Considerations
-
-   Transparency etc.
-
-4.  Recommendations for Further Work and Research
+3.  Recommendations for Further Work and Research
 
    Transport-related optimizations that enable devices to consume less
    power by sleeping more appear potential, but require further
@@ -597,11 +588,11 @@ Table of Contents
 
    ...
 
-5.  Security Considerations
+4.  Security Considerations
 
    This document has no security-related discussion.
 
-6.  IANA Considerations
+5.  IANA Considerations
 
    This document has no IANA actions.
 
