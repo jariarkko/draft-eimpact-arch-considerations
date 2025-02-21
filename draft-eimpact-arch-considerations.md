@@ -470,13 +470,9 @@ TBD implementation and deployment guidance
 
 Is measurement architectures in scope of this activity or left for the GREEN WG?
 
-## TBD
-
 ## ...
 
-# Other Considerations
-
-Transparency etc.
+Add other considerations as needed: Transparency etc.
 
 # Recommendations for Further Work and Research
 
