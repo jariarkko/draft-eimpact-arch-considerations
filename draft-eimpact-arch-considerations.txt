@@ -95,28 +95,28 @@ Table of Contents
        2.1.3.  Recommendation
      2.2.  Modelling
        2.2.1.  Definition
-     2.3.  Motivation
-       2.3.1.  Analysis
-       2.3.2.  Recommendation
-     2.4.  Dynamic Scaling
+       2.2.2.  Motivation
+       2.2.3.  Analysis
+       2.2.4.  Recommendation
+     2.3.  Dynamic Scaling
+       2.3.1.  Motivation
+       2.3.2.  Analysis
+       2.3.3.  Recommendation
+     2.4.  Transport
        2.4.1.  Motivation
        2.4.2.  Analysis
        2.4.3.  Recommendation
-     2.5.  Transport
+     2.5.  Equipment Longevity
        2.5.1.  Motivation
        2.5.2.  Analysis
        2.5.3.  Recommendation
-     2.6.  Equipment Longevity
+     2.6.  Compact encoding
        2.6.1.  Motivation
        2.6.2.  Analysis
        2.6.3.  Recommendation
-     2.7.  Compact encoding
-       2.7.1.  Motivation
-       2.7.2.  Analysis
-       2.7.3.  Recommendation
-     2.8.  Measurement Architecture
-     2.9.  TBD
-     2.10. ...
+     2.7.  Measurement Architecture
+     2.8.  TBD
+     2.9.  ...
    3.  Other Considerations
    4.  Recommendations for Further Work and Research
    5.  Security Considerations
@@ -224,13 +224,13 @@ Table of Contents
    and possibly inaccurate.  In almost all cases physical measurement
    has to be replaced by partial measurement and mathematical modelling.
 
-2.3.  Motivation
+2.2.2.  Motivation
 
    Where power optimization choices are made, accurate information is
    required to decide the right choice.  Modelling instead of
    measurements may have to be used in some cases.
 
-2.3.1.  Analysis
+2.2.3.  Analysis
 
    To date, two approaches to network power modelling are accepted as
    providing a realistic estimate of network power consumption.  These
@@ -265,11 +265,11 @@ Table of Contents
    and DC computing.  I am not sure to what extent we need to work on
    modeling networks and devices in our architecture exercise.
 
-2.3.2.  Recommendation
+2.2.4.  Recommendation
 
    TBD
 
-2.4.  Dynamic Scaling
+2.3.  Dynamic Scaling
 
    The ability to adjust resources to need, and possibly turn some of
    them off during periods of low usage.  Examples include the set of
@@ -277,7 +277,7 @@ Table of Contents
    carry high-volume traffic, whether one needs all base stations with
    overlapping coverage areas to be on, etc.
 
-2.4.1.  Motivation
+2.3.1.  Motivation
 
    Outside implementation improvements, dynamic scaling is perhaps the
    method with most promise for reducing power consumption related
@@ -289,7 +289,7 @@ Table of Contents
    actual need at a given time, significant power consumption reductions
    can be achieved.
 
-2.4.2.  Analysis
+2.3.2.  Analysis
 
    Dynamic scaling could be seen as either an alternative or
    complementary to load stabilization, e.g., via “peak shaving”.
@@ -372,14 +372,14 @@ Table of Contents
    time periods in order to reduce the server demand and the current
    energy usage, and hence, energy costs (comsnets14-Vmathew.pdf)
 
-2.4.3.  Recommendation
+2.3.3.  Recommendation
 
    The guidelines above need to be considered specifically for each
    protocol and system design.
 
    TBD implementation and deployment guidance
 
-2.5.  Transport
+2.4.  Transport
 
    Transport protocols are the flexible tools that make it possible for
    communication flows between parties to adjust themselves to the
@@ -394,7 +394,7 @@ Table of Contents
    what periods the endpoint and network systems are active or when they
    could be in reduced activity or sleep states.
 
-2.5.1.  Motivation
+2.4.1.  Motivation
 
    Transport behaviour would have a possibility of impacting how much
    downtime or sleep can be had in the communication system, either on
@@ -404,7 +404,7 @@ Table of Contents
    Improvements through transport behaviour are only useful if the
    involved systems have power proportionality.
 
-2.5.2.  Analysis
+2.4.2.  Analysis
 
    A critical issue is the tradeoff involved in sending traffic.  As
    argued in https://doi.org/10.23919/WONS54113.2022.9764413, reducing
@@ -462,7 +462,7 @@ Table of Contents
 
    (TBD add something about LEDBAT per Emile's comment)
 
-2.5.3.  Recommendation
+2.4.3.  Recommendation
 
    What is said here is, however, just a theoretical analysis.  We
    recommend simulation and experiments to confirm what strategies would
@@ -471,7 +471,7 @@ Table of Contents
 
    TBD implementation and deployment guidance
 
-2.6.  Equipment Longevity
+2.5.  Equipment Longevity
 
    The ability to extend the useful life of protocols and/or network
    equipment in order to amortize the embedded energy costs over a
@@ -482,7 +482,7 @@ Table of Contents
    upgrades, so that they can better decide to avoid unnecessary
    upgrades or delay them.)
 
-2.6.1.  Motivation
+2.5.1.  Motivation
 
    Embedded carbon and raw materials can be a significant part of the
    overall environmental impact of systems.  If this can be improved for
@@ -494,7 +494,7 @@ Table of Contents
    such as when using a high-end and power-hungry router in place of
    small routers.
 
-2.6.2.  Analysis
+2.5.2.  Analysis
 
    When we engineer protocols and network equipment, we are inclined to
    design them in a highly optimized manner for a very specific set of
@@ -529,24 +529,24 @@ Table of Contents
    equipment with higher flexibility could provide a better
    environmental benefit than tightly optimizing only for today’s uses.
 
-2.6.3.  Recommendation
+2.5.3.  Recommendation
 
    The guidelines above should be considered for any new system design.
 
    TBD implementation and deployment guidance
 
-2.7.  Compact encoding
+2.6.  Compact encoding
 
    This is about better encoding methods, such as using binary instead
    of text.
 
-2.7.1.  Motivation
+2.6.1.  Motivation
 
    Better encoding can obviously reduce the length of message sents.  It
    remains a question mark how big overall impact this is, however.  It
    should only be performed if it gives a measurable overall impact.
 
-2.7.2.  Analysis
+2.6.2.  Analysis
 
    Better encoding methods are clearly benefical for improving the
    detailed-level effectiveness of communications.
@@ -567,21 +567,21 @@ Table of Contents
    *  Tradeoffs related to compressing (particularly if AI-based
       computationally expensive methods are used).
 
-2.7.3.  Recommendation
+2.6.3.  Recommendation
 
    More research is needed to quantify the likely sources of measurable
    impacts.
 
    TBD implementation and deployment guidance
 
-2.8.  Measurement Architecture
+2.7.  Measurement Architecture
 
    Is measurement architectures in scope of this activity or left for
    the GREEN WG?
 
-2.9.  TBD
+2.8.  TBD
 
-2.10.  ...
+2.9.  ...
 
 3.  Other Considerations
 
