@@ -386,7 +386,7 @@ TBD implementation and deployment guidance
 
 ## Equipment Longevity
 
-The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. (Suggestion from Michael: This includes devising tools to inform network administrators and their users of the potential benefits of hardware upgrades, so that they can better decide to avoid unnecessary upgrades or delay them.)
+The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. This includes devising tools to inform network administrators and their users of the potential benefits of network equipment upgrades, so that they can make better choices on what upgrades are necessary and when.
 
 ### Motivation
 
@@ -426,9 +426,7 @@ Hence, it is very likely that extending the life of protocols and equipment with
 
 ### Recommendation
 
-The guidelines above should be considered for any new system design.
-
-TBD implementation and deployment guidance
+The guidelines above should be considered for any new system design. If some aspect of protocol or network equipment design choice could be made more generic and flexible without a significant performance and sustainability impact, it needs to be studied in further detail. Specifically, the potential additional sustainability costs due to forgoing optimization need to be weighed against the potential savings in embedded carbon and raw material costs brought about by premature upgrades. There are also cases where equipment upgrades are done to provide better peak performance characteristics (e.g. higher advertised speeds towards consumers) and these need to be viewed as well with the same tradeoffs in mind. Finally, when designing networks it is recommended to consider whether it is possible to reuse retiring equipment in a different location or for a different function (e.g. move it to lower traffic geographies, core routers become edge/access routers etc.)
 
 ## Compact encoding
 
