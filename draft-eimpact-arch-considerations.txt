@@ -100,7 +100,7 @@ Table of Contents
      2.3.  Transport
        2.3.1.  Motivation
        2.3.2.  Analysis
-       2.3.3.  Recommednation
+       2.3.3.  Recommendation
      2.4.  Equipment Longevity
        2.4.1.  Motivation
        2.4.2.  Analysis
@@ -109,8 +109,9 @@ Table of Contents
        2.5.1.  Motivation
        2.5.2.  Analysis
        2.5.3.  Recommendation
-     2.6.  TBD
-     2.7.  ...
+     2.6.  Measurement Architecture
+     2.7.  TBD
+     2.8.  ...
    3.  Other Considerations
    4.  Recommendations for Further Work and Research
    5.  Security Considerations
@@ -204,6 +205,8 @@ Table of Contents
 
 2.1.3.  Recommendation
 
+   TBD
+
 2.2.  Dynamic Scaling
 
    The ability to adjust resources to need, and possibly turn some of
@@ -276,6 +279,8 @@ Table of Contents
    The guidelines above need to be considered specifically for each
    protocol and system design.
 
+   TBD implementation and deployment guidance
+
 2.3.  Transport
 
    Transport protocols are the flexible tools that make it possible for
@@ -297,6 +302,9 @@ Table of Contents
    downtime or sleep can be had in the communication system, either on
    the end systems or routers or other equipment in between.  The
    savings can be significant, at least in wireless systems.
+
+   Improvements through transport behaviour are only useful if the
+   involved systems have power proportionality.
 
 2.3.2.  Analysis
 
@@ -356,12 +364,14 @@ Table of Contents
 
    (TBD add something about LEDBAT per Emile's comment)
 
-2.3.3.  Recommednation
+2.3.3.  Recommendation
 
    What is said here is, however, just a theoretical analysis.  We
    recommend simulation and experiments to confirm what strategies would
    provide the best end-user and energy performance.  Perhaps work for
    the IRTF SUSTAIN RG.
+
+   TBD implementation and deployment guidance
 
 2.4.  Equipment Longevity
 
@@ -380,6 +390,11 @@ Table of Contents
    overall environmental impact of systems.  If this can be improved for
    devices that are manufactured in large quantities, the improvements
    can be significant.
+
+   Long equipment lifetimes are only useful if the longer lifetimes can
+   be achieved without compromising other aspects of sustainability,
+   such as when using a high-end and power-hungry router in place of
+   small routers.
 
 2.4.2.  Analysis
 
@@ -420,6 +435,8 @@ Table of Contents
 
    The guidelines above should be considered for any new system design.
 
+   TBD implementation and deployment guidance
+
 2.5.  Compact encoding
 
    This is about better encoding methods, such as using binary instead
@@ -428,7 +445,8 @@ Table of Contents
 2.5.1.  Motivation
 
    Better encoding can obviously reduce the length of message sents.  It
-   remains a question mark how big overall impact this is, however.
+   remains a question mark how big overall impact this is, however.  It
+   should only be performed if it gives a measurable overall impact.
 
 2.5.2.  Analysis
 
@@ -456,9 +474,16 @@ Table of Contents
    More research is needed to quantify the likely sources of measurable
    impacts.
 
-2.6.  TBD
+   TBD implementation and deployment guidance
 
-2.7.  ...
+2.6.  Measurement Architecture
+
+   Is measurement architectures in scope of this activity or left for
+   the GREEN WG?
+
+2.7.  TBD
+
+2.8.  ...
 
 3.  Other Considerations
 
