@@ -194,19 +194,43 @@ TBD
 
 The paucity of up-to-date information on equipment and system parameters, especially power consumption and maximum throughput, makes estimating the power consumption and energy efficiency of these systems extremely challenging. In addition the rapid evolution of technology and products in ICT makes the estimation quickly out-dated and possibly inaccurate. In almost all cases physical measurement has to be replaced by partial measurement and mathematical modelling.
 
-### Motivation
+## Motivation
 
 Where power optimization choices are made, accurate information is required to decide the right choice. Modelling instead of measurements may have to be used in some cases.
 
 ### Analysis
 
-To date, two approaches to network power modelling are accepted as providing a realistic estimate of network power consumption. These approaches are referred to as “bottom-up” and “top-down”.  I think the bottom-up approach is what is used by Malmodin and Talia. This paper [Unifying Top-Down and Bottom-Up Approaches to Evaluate Network Energy Consumption | IEEE Journals & Magazine | IEEE Xplore] surveys both approaches and provide a new approach which unifies both of them. The unified approach is used to estimate the power consumption of access, aggregation and core networks. 
+To date, two approaches to network power modelling are accepted as
+providing a realistic estimate of network power consumption. These
+approaches are referred to as “bottom-up” and “top-down”.  I think the
+bottom-up approach is what is used by Malmodin and Talia. This paper
+(Unifying Top-Down and Bottom-Up Approaches to Evaluate Network Energy
+Consumption IEEE Journals & Magazine IEEE Xplore) surveys both
+approaches and provide a new approach which unifies both of them. The
+unified approach is used to estimate the power consumption of access,
+aggregation and core networks.
 
-This paper [Modeling Data-Plane Power Consumption of Future Internet Architectures | IEEE Conference Publication | IEEE Xplore] provides a model for IP Routers and the routers of other future Internet architectures (FIA) such as SCION and NEBULA. They use a generic model which captures the commonalities of IP router as well as the peculiarities of FIA routers. They conduct a large-scale simulation based on this router model to estimate the power consumption for different network architectures.
+This paper (Modeling Data-Plane Power Consumption of Future Internet
+Architectures IEEE Conference Publication IEEE Xplore) provides a
+model for IP Routers and the routers of other future Internet
+architectures (FIA) such as SCION and NEBULA. They use a generic model
+which captures the commonalities of IP router as well as the
+peculiarities of FIA routers. They conduct a large-scale simulation
+based on this router model to estimate the power consumption for
+different network architectures.
 
-Since routers and other network devices and functions can be virtualized, this article [1] provides  comprehensive "graphical, analytical survey of the literature, over the period 2010–2020, on the measurement of power consumption and relevant power models of virtual entities as they apply to the telco cloud." This paper A Methodology and Testbed to Develop an Energy Model for 5G Virtualized RANs | IEEE Conference Publication | IEEE Xplore got best paper award for GreenNet 2024, but I am not sure if we are interested to model 5G vRAN.
+Since routers and other network devices and functions can be
+virtualized, this article (1) provides comprehensive "graphical,
+analytical survey of the literature, over the period 2010–2020, on the
+measurement of power consumption and relevant power models of virtual
+entities as they apply to the telco cloud." This paper A Methodology
+and Testbed to Develop an Energy Model for 5G Virtualized RANs IEEE
+Conference Publication IEEE Xplore got best paper award for GreenNet
+2024, but I am not sure if we are interested to model 5G vRAN.
 
-There are plethora of publications on modeling communication networks and DC computing. I am not sure to what extent we need to work on modeling networks and devices in our architecture exercise.
+There are plethora of publications on modeling communication networks
+and DC computing. I am not sure to what extent we need to work on
+modeling networks and devices in our architecture exercise.
 
 ### Recommendation
 
@@ -214,7 +238,11 @@ TBD
 
 ## Dynamic Scaling
 
-The ability to adjust resources to need, and possibly turn some of them off during periods of low usage. Examples include the set of servers needed for a service, how many duplicate links are needed to carry high-volume traffic, whether one needs all base stations with overlapping coverage areas to be on, etc.
+The ability to adjust resources to need, and possibly turn some of
+them off during periods of low usage. Examples include the set of
+servers needed for a service, how many duplicate links are needed to
+carry high-volume traffic, whether one needs all base stations with
+overlapping coverage areas to be on, etc.
 
 ### Motivation
 
@@ -350,7 +378,7 @@ TBD implementation and deployment guidance
 
 ## Equipment Longevity
 
-The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. [suggestion from Michael: This includes devising tools to inform network administrators and their users of the potential benefits of hardware upgrades, so that they can better decide to avoid unnecessary upgrades or delay them.]
+The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. (Suggestion from Michael: This includes devising tools to inform network administrators and their users of the potential benefits of hardware upgrades, so that they can better decide to avoid unnecessary upgrades or delay them.)
 
 ### Motivation
 
