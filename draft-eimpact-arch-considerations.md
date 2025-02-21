@@ -186,6 +186,8 @@ etc. information and how they are shared)
 
 ### Recommendation
 
+TBD
+
 ## Dynamic Scaling
 
 The ability to adjust resources to need, and possibly turn some of them off during periods of low usage. Examples include the set of servers needed for a service, how many duplicate links are needed to carry high-volume traffic, whether one needs all base stations with overlapping coverage areas to be on, etc.
@@ -230,6 +232,8 @@ Some of the strategies that are useful in implementing a well working dynamic sc
 
 The guidelines above need to be considered specifically for each protocol and system design.
 
+TBD implementation and deployment guidance
+
 ## Transport
 
 Transport protocols are the flexible tools that make it possible for
@@ -247,7 +251,13 @@ could be in reduced activity or sleep states.
 
 ### Motivation
 
-Transport behaviour would have a possibility of impacting how much downtime or sleep can be had in the communication system, either on the end systems or routers or other equipment in between. The savings can be significant, at least in wireless systems.
+Transport behaviour would have a possibility of impacting how much
+downtime or sleep can be had in the communication system, either on
+the end systems or routers or other equipment in between. The savings
+can be significant, at least in wireless systems.
+
+Improvements through transport behaviour are only useful if the
+involved systems have power proportionality.
 
 ### Analysis
 
@@ -305,12 +315,14 @@ information available to the endpoints would be useful.
 
 (TBD add something about LEDBAT per Emile's comment)
 
-### Recommednation
+### Recommendation
 
 What is said here is, however, just a theoretical analysis. We
 recommend simulation and experiments to confirm what strategies would
 provide the best end-user and energy performance. Perhaps work for the
 IRTF SUSTAIN RG.
+
+TBD implementation and deployment guidance
 
 ## Equipment Longevity
 
@@ -318,7 +330,15 @@ The ability to extend the useful life of protocols and/or network equipment in o
 
 ### Motivation
 
-Embedded carbon and raw materials can be a significant part of the overall environmental impact of systems. If this can be improved for devices that are manufactured in large quantities, the improvements can be significant.
+Embedded carbon and raw materials can be a significant part of the
+overall environmental impact of systems. If this can be improved for
+devices that are manufactured in large quantities, the improvements
+can be significant.
+
+Long equipment lifetimes are only useful if the longer lifetimes can
+be achieved without compromising other aspects of sustainability, such
+as when using a high-end and power-hungry router in place of small
+routers.
 
 ### Analysis
 
@@ -348,13 +368,17 @@ Hence, it is very likely that extending the life of protocols and equipment with
 
 The guidelines above should be considered for any new system design.
 
+TBD implementation and deployment guidance
+
 ## Compact encoding
 
 This is about better encoding methods, such as using binary instead of text.
 
 ### Motivation
 
-Better encoding can obviously reduce the length of message sents. It remains a question mark how big overall impact this is, however.
+Better encoding can obviously reduce the length of message sents. It
+remains a question mark how big overall impact this is, however. It
+should only be performed if it gives a measurable overall impact.
 
 ### Analysis
 
@@ -379,6 +403,12 @@ other content than, e.g., HTTP headers. This needs more research.
 ### Recommendation
 
 More research is needed to quantify the likely sources of measurable impacts.
+
+TBD implementation and deployment guidance
+
+## Measurement Architecture
+
+Is measurement architectures in scope of this activity or left for the GREEN WG?
 
 ## TBD
 
