@@ -30,6 +30,62 @@ author:
     email: jari.arkko@gmail.com
 
  -
+    fullname: Suresh Krishnan
+    organization: Cisco
+    email: sureshk@cisco.com
+
+ -
+    fullname: Michael Welzl
+    organization: University of Oslo
+    email: michawe@ifi.uio.no
+
+ -
+    fullname: Alexander Clemm
+    email: alex@clemm.org
+
+ -
+    fullname: Ali Rezaki
+    organization: Nokia
+    email: ali.rezaki@nokia.com
+
+ -
+    fullname: Eve Schooler
+    email: eve.schooler@gmail.com
+
+ -
+    fullname: Sebastien Rumley
+    organization: HEFR
+    email: sebastien.rumley@hefr.ch
+
+ -
+    fullname: Hesham ElBakoury
+    email: helbakoury@gmail.com
+
+ -
+    fullname: Emile Stephan
+    organization: Orange
+    email: emile.stephan@orange.com
+
+ -
+    fullname: Marisol Palmero
+    organization: Cisco
+    email: mpalmero@cisco.com
+
+ -
+    fullname: Ari Keränen
+    organization: Ericsson
+    email: ari.keranen@ericsson.com
+
+ -
+    fullname: Luis M. Contreras
+    organization: Telefonica
+    email: contreras.ietf@gmail.com
+
+ -
+    fullname: Jan Lindblad
+    email: jan.lindblad+ietf@for.eco
+
+ -
     fullname: +OtherPeople
     organization: ...
 
@@ -104,11 +160,29 @@ features.
 ## Measurement
 
 You have to know what is going on before you can improve. Some level
-of measurements are necessary for improving sustainability.
+of measurements are necessary for improving sustainability. This is
+particularly the case when looking at the systems as a whole and in
+post-analysis.
+
+But it may also be true for some dynamic situations
+where power-saving decisions for instance depend on knowing the
+relative power consumption of different activities, such as when a
+power-off decision involves understanding the cost of shutdown and
+startup procedures and other reconfiguration elsewhere in the network.
 
 ### Motivation
 
+Measurements are a necessary mechanism for both post-analysis and
+potentially some of the dynamic decisions taken by systems. Without
+measurements, only aggregate power consumption can be measured, but
+for instance no per-device data about real power usage will be
+available, and as such, there's limited basis for deciding on
+improvements.
+
 ### Analysis
+
+(TBD add something about integrating lifecycle, datasheet
+etc. information and how they are shared)
 
 ### Recommendation
 
@@ -117,6 +191,16 @@ of measurements are necessary for improving sustainability.
 The ability to adjust resources to need, and possibly turn some of them off during periods of low usage. Examples include the set of servers needed for a service, how many duplicate links are needed to carry high-volume traffic, whether one needs all base stations with overlapping coverage areas to be on, etc.
 
 ### Motivation
+
+Outside implementation improvements, dynamic scaling is perhaps the
+method with most promise for reducing power consumption related
+environmental impacts. Dynamic scaling would not have an impact in
+situations where there's only a single router, base station, or server
+serving a particular route, area, or function. However, most large
+systems have significant amount of redundancy and spare
+capacity. Where such capacity can be turned on or off to match the
+actual need at a given time, significant power consumption reductions
+can be achieved.
 
 ### Analysis
 
@@ -142,6 +226,10 @@ Some of the strategies that are useful in implementing a well working dynamic sc
 
 * Dynamic scaling requires automation in most cases. See draft-pignataro for a discussion of automation.
 
+### Recommendation
+
+The guidelines above need to be considered specifically for each protocol and system design.
+
 ## Transport
 
 Transport protocols are the flexible tools that make it possible for
@@ -158,6 +246,8 @@ what periods the endpoint and network systems are active or when they
 could be in reduced activity or sleep states.
 
 ### Motivation
+
+Transport behaviour would have a possibility of impacting how much downtime or sleep can be had in the communication system, either on the end systems or routers or other equipment in between. The savings can be significant, at least in wireless systems.
 
 ### Analysis
 
@@ -213,15 +303,22 @@ pattern enables power savings through sleep modes, would be beneficial
 for the communicating endpoints. Mechanisms for making such
 information available to the endpoints would be useful.
 
-However, what is said here is theoretical analysis. We recommend
-simulation and experiments to confirm what strategies would provide
-the best end-user and energy performance.
+(TBD add something about LEDBAT per Emile's comment)
+
+### Recommednation
+
+What is said here is, however, just a theoretical analysis. We
+recommend simulation and experiments to confirm what strategies would
+provide the best end-user and energy performance. Perhaps work for the
+IRTF SUSTAIN RG.
 
 ## Equipment Longevity
 
 The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. [suggestion from Michael: This includes devising tools to inform network administrators and their users of the potential benefits of hardware upgrades, so that they can better decide to avoid unnecessary upgrades or delay them.]
 
 ### Motivation
+
+Embedded carbon and raw materials can be a significant part of the overall environmental impact of systems. If this can be improved for devices that are manufactured in large quantities, the improvements can be significant.
 
 ### Analysis
 
@@ -247,11 +344,17 @@ advantages:
 
 Hence, it is very likely that extending the life of protocols and equipment with higher flexibility could provide a better environmental benefit than tightly optimizing only for today’s uses.
 
+### Recommendation
+
+The guidelines above should be considered for any new system design.
+
 ## Compact encoding
 
 This is about better encoding methods, such as using binary instead of text.
 
 ### Motivation
+
+Better encoding can obviously reduce the length of message sents. It remains a question mark how big overall impact this is, however.
 
 ### Analysis
 
@@ -272,6 +375,10 @@ other content than, e.g., HTTP headers. This needs more research.
 
 * Tradeoffs related to compressing (particularly if AI-based
   computationally expensive methods are used).
+
+### Recommendation
+
+More research is needed to quantify the likely sources of measurable impacts.
 
 ## TBD
 
