@@ -6,19 +6,31 @@
 <meta content="initial-scale=1.0" name="viewport">
 <title>Architectural Considerations for Sustainable Internet Technology</title>
 <meta content="Jari Arkko" name="author">
+<meta content="Suresh Krishnan" name="author">
+<meta content="Michael Welzl" name="author">
+<meta content="Alexander Clemm" name="author">
+<meta content="Ali Rezaki" name="author">
+<meta content="Eve Schooler" name="author">
+<meta content="Sebastien Rumley" name="author">
+<meta content="Hesham ElBakoury" name="author">
+<meta content="Emile Stephan" name="author">
+<meta content="Marisol Palmero" name="author">
+<meta content="Ari Keränen" name="author">
+<meta content="Luis M. Contreras" name="author">
+<meta content="Jan Lindblad" name="author">
 <meta content="+OtherPeople" name="author">
 <meta content="
        This document discusses protocol and network architecture aspects that
 may have an impact on the sustainability of network technology. 
     " name="description">
-<meta content="xml2rfc 3.26.0" name="generator">
+<meta content="xml2rfc 3.27.0" name="generator">
 <meta content="next generation" name="keyword">
 <meta content="unicorn" name="keyword">
 <meta content="sparkling distributed ledger" name="keyword">
 <meta content="draft-eimpact-arch-considerations-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.26.0
-    Python 3.12.8
+  xml2rfc 3.27.0
+    Python 3.12.9
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
@@ -439,7 +451,7 @@ dl {
     margin-bottom: 0;
   }
 }
-dl > dt {
+dl:not(.dlNewline) > dt {
   float: left;
   margin-right: 2ch;
   min-width: 8ch;
@@ -1051,8 +1063,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <td class="right">February 2025</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Arkko &amp; +OtherPeople</td>
-<td class="center">Expires 18 August 2025</td>
+<td class="left">Arkko, et al.</td>
+<td class="center">Expires 25 August 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,17 +1077,61 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-eimpact-arch-considerations-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-02-14" class="published">14 February 2025</time>
+<time datetime="2025-02-21" class="published">21 February 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-08-18">18 August 2025</time></dd>
+<dd class="expires"><time datetime="2025-08-25">25 August 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
       <div class="author-name">J. Arkko</div>
 <div class="org">Ericsson</div>
+</div>
+<div class="author">
+      <div class="author-name">S. Krishnan</div>
+<div class="org">Cisco</div>
+</div>
+<div class="author">
+      <div class="author-name">M. Welzl</div>
+<div class="org">University of Oslo</div>
+</div>
+<div class="author">
+      <div class="author-name">A. Clemm</div>
+</div>
+<div class="author">
+      <div class="author-name">A. Rezaki</div>
+<div class="org">Nokia</div>
+</div>
+<div class="author">
+      <div class="author-name">E. Schooler</div>
+</div>
+<div class="author">
+      <div class="author-name">S. Rumley</div>
+<div class="org">HEFR</div>
+</div>
+<div class="author">
+      <div class="author-name">H. ElBakoury</div>
+</div>
+<div class="author">
+      <div class="author-name">E. Stephan</div>
+<div class="org">Orange</div>
+</div>
+<div class="author">
+      <div class="author-name">M. Palmero</div>
+<div class="org">Cisco</div>
+</div>
+<div class="author">
+      <div class="author-name">A. Keränen</div>
+<div class="org">Ericsson</div>
+</div>
+<div class="author">
+      <div class="author-name">L. M. Contreras</div>
+<div class="org">Telefonica</div>
+</div>
+<div class="author">
+      <div class="author-name">J. Lindblad</div>
 </div>
 <div class="author">
       <div class="author-name">+OtherPeople</div>
@@ -1120,7 +1176,7 @@ may have an impact on the sustainability of network technology.<a href="#section
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 18 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 25 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1178,6 +1234,9 @@ may have an impact on the sustainability of network technology.<a href="#section
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2.2.2">
                     <p id="section-toc.1-1.2.2.2.2.2.1"><a href="#section-2.2.2" class="auto internal xref">2.2.2</a>.  <a href="#name-analysis-2" class="internal xref">Analysis</a></p>
 </li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2.2.3">
+                    <p id="section-toc.1-1.2.2.2.2.3.1"><a href="#section-2.2.3" class="auto internal xref">2.2.3</a>.  <a href="#name-recommendation-2" class="internal xref">Recommendation</a></p>
+</li>
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3">
@@ -1188,6 +1247,9 @@ may have an impact on the sustainability of network technology.<a href="#section
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.2">
                     <p id="section-toc.1-1.2.2.3.2.2.1"><a href="#section-2.3.2" class="auto internal xref">2.3.2</a>.  <a href="#name-analysis-3" class="internal xref">Analysis</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.3">
+                    <p id="section-toc.1-1.2.2.3.2.3.1"><a href="#section-2.3.3" class="auto internal xref">2.3.3</a>.  <a href="#name-recommednation" class="internal xref">Recommednation</a></p>
 </li>
                 </ul>
 </li>
@@ -1200,6 +1262,9 @@ may have an impact on the sustainability of network technology.<a href="#section
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.4.2.2">
                     <p id="section-toc.1-1.2.2.4.2.2.1"><a href="#section-2.4.2" class="auto internal xref">2.4.2</a>.  <a href="#name-analysis-4" class="internal xref">Analysis</a></p>
 </li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.4.2.3">
+                    <p id="section-toc.1-1.2.2.4.2.3.1"><a href="#section-2.4.3" class="auto internal xref">2.4.3</a>.  <a href="#name-recommendation-3" class="internal xref">Recommendation</a></p>
+</li>
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.5">
@@ -1210,6 +1275,9 @@ may have an impact on the sustainability of network technology.<a href="#section
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.5.2.2">
                     <p id="section-toc.1-1.2.2.5.2.2.1"><a href="#section-2.5.2" class="auto internal xref">2.5.2</a>.  <a href="#name-analysis-5" class="internal xref">Analysis</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.5.2.3">
+                    <p id="section-toc.1-1.2.2.5.2.3.1"><a href="#section-2.5.3" class="auto internal xref">2.5.3</a>.  <a href="#name-recommendation-4" class="internal xref">Recommendation</a></p>
 </li>
                 </ul>
 </li>
@@ -1303,19 +1371,34 @@ features.<a href="#section-1-10" class="pilcrow">¶</a></p>
 <a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-measurement" class="section-name selfRef">Measurement</a>
         </h3>
 <p id="section-2.1-1">You have to know what is going on before you can improve. Some level
-of measurements are necessary for improving sustainability.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+of measurements are necessary for improving sustainability. This is
+particularly the case when looking at the systems as a whole and in
+post-analysis.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.1-2">But it may also be true for some dynamic situations
+where power-saving decisions for instance depend on knowing the
+relative power consumption of different activities, such as when a
+power-off decision involves understanding the cost of shutdown and
+startup procedures and other reconfiguration elsewhere in the network.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
 <div id="motivation">
 <section id="section-2.1.1">
           <h4 id="name-motivation">
 <a href="#section-2.1.1" class="section-number selfRef">2.1.1. </a><a href="#name-motivation" class="section-name selfRef">Motivation</a>
-        </h4>
+          </h4>
+<p id="section-2.1.1-1">Measurements are a necessary mechanism for both post-analysis and
+potentially some of the dynamic decisions taken by systems. Without
+measurements, only aggregate power consumption can be measured, but
+for instance no per-device data about real power usage will be
+available, and as such, there's limited basis for deciding on
+improvements.<a href="#section-2.1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="analysis">
 <section id="section-2.1.2">
           <h4 id="name-analysis">
 <a href="#section-2.1.2" class="section-number selfRef">2.1.2. </a><a href="#name-analysis" class="section-name selfRef">Analysis</a>
-        </h4>
+          </h4>
+<p id="section-2.1.2-1">(TBD add something about integrating lifecycle, datasheet
+etc. information and how they are shared)<a href="#section-2.1.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="recommendation">
@@ -1337,7 +1420,16 @@ of measurements are necessary for improving sustainability.<a href="#section-2.1
 <section id="section-2.2.1">
           <h4 id="name-motivation-2">
 <a href="#section-2.2.1" class="section-number selfRef">2.2.1. </a><a href="#name-motivation-2" class="section-name selfRef">Motivation</a>
-        </h4>
+          </h4>
+<p id="section-2.2.1-1">Outside implementation improvements, dynamic scaling is perhaps the
+method with most promise for reducing power consumption related
+environmental impacts. Dynamic scaling would not have an impact in
+situations where there's only a single router, base station, or server
+serving a particular route, area, or function. However, most large
+systems have significant amount of redundancy and spare
+capacity. Where such capacity can be turned on or off to match the
+actual need at a given time, significant power consumption reductions
+can be achieved.<a href="#section-2.2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="analysis-1">
@@ -1372,6 +1464,14 @@ of measurements are necessary for improving sustainability.<a href="#section-2.1
           </ul>
 </section>
 </div>
+<div id="recommendation-1">
+<section id="section-2.2.3">
+          <h4 id="name-recommendation-2">
+<a href="#section-2.2.3" class="section-number selfRef">2.2.3. </a><a href="#name-recommendation-2" class="section-name selfRef">Recommendation</a>
+          </h4>
+<p id="section-2.2.3-1">The guidelines above need to be considered specifically for each protocol and system design.<a href="#section-2.2.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="transport">
@@ -1394,7 +1494,8 @@ could be in reduced activity or sleep states.<a href="#section-2.3-2" class="pil
 <section id="section-2.3.1">
           <h4 id="name-motivation-3">
 <a href="#section-2.3.1" class="section-number selfRef">2.3.1. </a><a href="#name-motivation-3" class="section-name selfRef">Motivation</a>
-        </h4>
+          </h4>
+<p id="section-2.3.1-1">Transport behaviour would have a possibility of impacting how much downtime or sleep can be had in the communication system, either on the end systems or routers or other equipment in between. The savings can be significant, at least in wireless systems.<a href="#section-2.3.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="analysis-2">
@@ -1448,9 +1549,18 @@ the network with additional traffic, and whether a certain sending
 pattern enables power savings through sleep modes, would be beneficial
 for the communicating endpoints. Mechanisms for making such
 information available to the endpoints would be useful.<a href="#section-2.3.2-6" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-7">However, what is said here is theoretical analysis. We recommend
-simulation and experiments to confirm what strategies would provide
-the best end-user and energy performance.<a href="#section-2.3.2-7" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-7">(TBD add something about LEDBAT per Emile's comment)<a href="#section-2.3.2-7" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="recommednation">
+<section id="section-2.3.3">
+          <h4 id="name-recommednation">
+<a href="#section-2.3.3" class="section-number selfRef">2.3.3. </a><a href="#name-recommednation" class="section-name selfRef">Recommednation</a>
+          </h4>
+<p id="section-2.3.3-1">What is said here is, however, just a theoretical analysis. We
+recommend simulation and experiments to confirm what strategies would
+provide the best end-user and energy performance. Perhaps work for the
+IRTF SUSTAIN RG.<a href="#section-2.3.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1465,7 +1575,8 @@ the best end-user and energy performance.<a href="#section-2.3.2-7" class="pilcr
 <section id="section-2.4.1">
           <h4 id="name-motivation-4">
 <a href="#section-2.4.1" class="section-number selfRef">2.4.1. </a><a href="#name-motivation-4" class="section-name selfRef">Motivation</a>
-        </h4>
+          </h4>
+<p id="section-2.4.1-1">Embedded carbon and raw materials can be a significant part of the overall environmental impact of systems. If this can be improved for devices that are manufactured in large quantities, the improvements can be significant.<a href="#section-2.4.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="analysis-3">
@@ -1500,6 +1611,14 @@ advantages:<a href="#section-2.4.2-2" class="pilcrow">¶</a></p>
 <p id="section-2.4.2-4">Hence, it is very likely that extending the life of protocols and equipment with higher flexibility could provide a better environmental benefit than tightly optimizing only for today’s uses.<a href="#section-2.4.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
+<div id="recommendation-2">
+<section id="section-2.4.3">
+          <h4 id="name-recommendation-3">
+<a href="#section-2.4.3" class="section-number selfRef">2.4.3. </a><a href="#name-recommendation-3" class="section-name selfRef">Recommendation</a>
+          </h4>
+<p id="section-2.4.3-1">The guidelines above should be considered for any new system design.<a href="#section-2.4.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="compact-encoding">
@@ -1512,7 +1631,8 @@ advantages:<a href="#section-2.4.2-2" class="pilcrow">¶</a></p>
 <section id="section-2.5.1">
           <h4 id="name-motivation-5">
 <a href="#section-2.5.1" class="section-number selfRef">2.5.1. </a><a href="#name-motivation-5" class="section-name selfRef">Motivation</a>
-        </h4>
+          </h4>
+<p id="section-2.5.1-1">Better encoding can obviously reduce the length of message sents. It remains a question mark how big overall impact this is, however.<a href="#section-2.5.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="analysis-4">
@@ -1541,6 +1661,14 @@ compacting?<a href="#section-2.5.2-3.2.1" class="pilcrow">¶</a></p>
 computationally expensive methods are used).<a href="#section-2.5.2-3.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
+</section>
+</div>
+<div id="recommendation-3">
+<section id="section-2.5.3">
+          <h4 id="name-recommendation-4">
+<a href="#section-2.5.3" class="section-number selfRef">2.5.3. </a><a href="#name-recommendation-4" class="section-name selfRef">Recommendation</a>
+          </h4>
+<p id="section-2.5.3-1">More research is needed to quantify the likely sources of measurable impacts.<a href="#section-2.5.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1616,6 +1744,98 @@ perhaps as part of the efforts in the SUSTAIN RG.<a href="#section-4-1" class="p
 <div class="email">
 <span>Email:</span>
 <a href="mailto:jari.arkko@gmail.com" class="email">jari.arkko@gmail.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Suresh Krishnan</span></div>
+<div dir="auto" class="left"><span class="org">Cisco</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:sureshk@cisco.com" class="email">sureshk@cisco.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Michael Welzl</span></div>
+<div dir="auto" class="left"><span class="org">University of Oslo</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:michawe@ifi.uio.no" class="email">michawe@ifi.uio.no</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Alexander Clemm</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:alex@clemm.org" class="email">alex@clemm.org</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Ali Rezaki</span></div>
+<div dir="auto" class="left"><span class="org">Nokia</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:ali.rezaki@nokia.com" class="email">ali.rezaki@nokia.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Eve Schooler</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:eve.schooler@gmail.com" class="email">eve.schooler@gmail.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Sebastien Rumley</span></div>
+<div dir="auto" class="left"><span class="org">HEFR</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:sebastien.rumley@hefr.ch" class="email">sebastien.rumley@hefr.ch</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Hesham ElBakoury</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:helbakoury@gmail.com" class="email">helbakoury@gmail.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Emile Stephan</span></div>
+<div dir="auto" class="left"><span class="org">Orange</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:emile.stephan@orange.com" class="email">emile.stephan@orange.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Marisol Palmero</span></div>
+<div dir="auto" class="left"><span class="org">Cisco</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:mpalmero@cisco.com" class="email">mpalmero@cisco.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Ari Keränen</span></div>
+<div dir="auto" class="left"><span class="org">Ericsson</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:ari.keranen@ericsson.com" class="email">ari.keranen@ericsson.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Luis M. Contreras</span></div>
+<div dir="auto" class="left"><span class="org">Telefonica</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:contreras.ietf@gmail.com" class="email">contreras.ietf@gmail.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Jan Lindblad</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:jan.lindblad+ietf@for.eco" class="email">jan.lindblad+ietf@for.eco</a>
 </div>
 </address>
 <address class="vcard">

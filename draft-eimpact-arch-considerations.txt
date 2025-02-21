@@ -4,9 +4,33 @@
 
 Network Working Group                                           J. Arkko
 Internet-Draft                                                  Ericsson
-Intended status: Informational                              +OtherPeople
-Expires: 18 August 2025                                              ...
-                                                        14 February 2025
+Intended status: Informational                               S. Krishnan
+Expires: 25 August 2025                                            Cisco
+                                                                M. Welzl
+                                                      University of Oslo
+                                                                A. Clemm
+                                                                        
+                                                               A. Rezaki
+                                                                   Nokia
+                                                             E. Schooler
+                                                                        
+                                                               S. Rumley
+                                                                    HEFR
+                                                            H. ElBakoury
+                                                                        
+                                                              E. Stephan
+                                                                  Orange
+                                                              M. Palmero
+                                                                   Cisco
+                                                              A. Keränen
+                                                                Ericsson
+                                                         L. M. Contreras
+                                                              Telefonica
+                                                             J. Lindblad
+                                                                        
+                                                            +OtherPeople
+                                                                     ...
+                                                        21 February 2025
 
 
     Architectural Considerations for Sustainable Internet Technology
@@ -45,7 +69,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 August 2025.
+   This Internet-Draft will expire on 25 August 2025.
 
 Copyright Notice
 
@@ -72,15 +96,19 @@ Table of Contents
      2.2.  Dynamic Scaling
        2.2.1.  Motivation
        2.2.2.  Analysis
+       2.2.3.  Recommendation
      2.3.  Transport
        2.3.1.  Motivation
        2.3.2.  Analysis
+       2.3.3.  Recommednation
      2.4.  Equipment Longevity
        2.4.1.  Motivation
        2.4.2.  Analysis
+       2.4.3.  Recommendation
      2.5.  Compact encoding
        2.5.1.  Motivation
        2.5.2.  Analysis
+       2.5.3.  Recommendation
      2.6.  TBD
      2.7.  ...
    3.  Other Considerations
@@ -150,11 +178,29 @@ Table of Contents
 2.1.  Measurement
 
    You have to know what is going on before you can improve.  Some level
-   of measurements are necessary for improving sustainability.
+   of measurements are necessary for improving sustainability.  This is
+   particularly the case when looking at the systems as a whole and in
+   post-analysis.
+
+   But it may also be true for some dynamic situations where power-
+   saving decisions for instance depend on knowing the relative power
+   consumption of different activities, such as when a power-off
+   decision involves understanding the cost of shutdown and startup
+   procedures and other reconfiguration elsewhere in the network.
 
 2.1.1.  Motivation
 
+   Measurements are a necessary mechanism for both post-analysis and
+   potentially some of the dynamic decisions taken by systems.  Without
+   measurements, only aggregate power consumption can be measured, but
+   for instance no per-device data about real power usage will be
+   available, and as such, there's limited basis for deciding on
+   improvements.
+
 2.1.2.  Analysis
+
+   (TBD add something about integrating lifecycle, datasheet etc.
+   information and how they are shared)
 
 2.1.3.  Recommendation
 
@@ -167,6 +213,16 @@ Table of Contents
    overlapping coverage areas to be on, etc.
 
 2.2.1.  Motivation
+
+   Outside implementation improvements, dynamic scaling is perhaps the
+   method with most promise for reducing power consumption related
+   environmental impacts.  Dynamic scaling would not have an impact in
+   situations where there's only a single router, base station, or
+   server serving a particular route, area, or function.  However, most
+   large systems have significant amount of redundancy and spare
+   capacity.  Where such capacity can be turned on or off to match the
+   actual need at a given time, significant power consumption reductions
+   can be achieved.
 
 2.2.2.  Analysis
 
@@ -215,6 +271,11 @@ Table of Contents
    *  Dynamic scaling requires automation in most cases.  See draft-
       pignataro for a discussion of automation.
 
+2.2.3.  Recommendation
+
+   The guidelines above need to be considered specifically for each
+   protocol and system design.
+
 2.3.  Transport
 
    Transport protocols are the flexible tools that make it possible for
@@ -231,6 +292,11 @@ Table of Contents
    could be in reduced activity or sleep states.
 
 2.3.1.  Motivation
+
+   Transport behaviour would have a possibility of impacting how much
+   downtime or sleep can be had in the communication system, either on
+   the end systems or routers or other equipment in between.  The
+   savings can be significant, at least in wireless systems.
 
 2.3.2.  Analysis
 
@@ -288,9 +354,14 @@ Table of Contents
    beneficial for the communicating endpoints.  Mechanisms for making
    such information available to the endpoints would be useful.
 
-   However, what is said here is theoretical analysis.  We recommend
-   simulation and experiments to confirm what strategies would provide
-   the best end-user and energy performance.
+   (TBD add something about LEDBAT per Emile's comment)
+
+2.3.3.  Recommednation
+
+   What is said here is, however, just a theoretical analysis.  We
+   recommend simulation and experiments to confirm what strategies would
+   provide the best end-user and energy performance.  Perhaps work for
+   the IRTF SUSTAIN RG.
 
 2.4.  Equipment Longevity
 
@@ -304,6 +375,11 @@ Table of Contents
    upgrades or delay them.]
 
 2.4.1.  Motivation
+
+   Embedded carbon and raw materials can be a significant part of the
+   overall environmental impact of systems.  If this can be improved for
+   devices that are manufactured in large quantities, the improvements
+   can be significant.
 
 2.4.2.  Analysis
 
@@ -340,12 +416,19 @@ Table of Contents
    equipment with higher flexibility could provide a better
    environmental benefit than tightly optimizing only for today’s uses.
 
+2.4.3.  Recommendation
+
+   The guidelines above should be considered for any new system design.
+
 2.5.  Compact encoding
 
    This is about better encoding methods, such as using binary instead
    of text.
 
 2.5.1.  Motivation
+
+   Better encoding can obviously reduce the length of message sents.  It
+   remains a question mark how big overall impact this is, however.
 
 2.5.2.  Analysis
 
@@ -367,6 +450,11 @@ Table of Contents
 
    *  Tradeoffs related to compressing (particularly if AI-based
       computationally expensive methods are used).
+
+2.5.3.  Recommendation
+
+   More research is needed to quantify the likely sources of measurable
+   impacts.
 
 2.6.  TBD
 
@@ -403,6 +491,62 @@ Authors' Addresses
    Jari Arkko
    Ericsson
    Email: jari.arkko@gmail.com
+
+
+   Suresh Krishnan
+   Cisco
+   Email: sureshk@cisco.com
+
+
+   Michael Welzl
+   University of Oslo
+   Email: michawe@ifi.uio.no
+
+
+   Alexander Clemm
+   Email: alex@clemm.org
+
+
+   Ali Rezaki
+   Nokia
+   Email: ali.rezaki@nokia.com
+
+
+   Eve Schooler
+   Email: eve.schooler@gmail.com
+
+
+   Sebastien Rumley
+   HEFR
+   Email: sebastien.rumley@hefr.ch
+
+
+   Hesham ElBakoury
+   Email: helbakoury@gmail.com
+
+
+   Emile Stephan
+   Orange
+   Email: emile.stephan@orange.com
+
+
+   Marisol Palmero
+   Cisco
+   Email: mpalmero@cisco.com
+
+
+   Ari Keränen
+   Ericsson
+   Email: ari.keranen@ericsson.com
+
+
+   Luis M. Contreras
+   Telefonica
+   Email: contreras.ietf@gmail.com
+
+
+   Jan Lindblad
+   Email: jan.lindblad+ietf@for.eco
 
 
    +OtherPeople
