@@ -83,6 +83,7 @@ author:
 
  -
     fullname: Jan Lindblad
+    organization: All For Eco
     email: jan.lindblad+ietf@for.eco
 
  -
@@ -181,12 +182,113 @@ improvements.
 
 ### Analysis
 
-(TBD add something about integrating lifecycle, datasheet
-etc. information and how they are shared)
+Operators know their total energy consumption already (see the
+utility bill), and it's not particularly hard to measure the energy
+consumption of individial network devices either.  Still, there are a
+number of desirable use cases where the measurement situation needs to
+improve.
+
+#### Measuring Power Efficiency
+
+When assessing the power consumption (Scope 2) of an IT-organization,
+emission accountants are generally looking for a metric of the
+delivered value per unit of energy.
+
+A commonly used method is to equate the delivered value with the number
+of bits sent or received.  But applying this to a video conferencing
+operation, for example, would mean that if a 10% improvement of the
+compression algorithm is introduced at unchanged power usage, the
+operation would suddenly seem to be 10% less efficient.
+
+There are many more strange effects like the one above with this
+approach.  The value definition needs to be more stable than depending
+on the number of transmitted bits.
+
+#### Customer Attribution
+
+When organizations assess their Scope 3 emissions, they need to sum up
+their share of emissions from all their suppliers, one of which for
+example, might be a cloud hosting service.  In order for the supplier
+to provide an emission share value back to the customer, the provider
+needs to develop an attribution formula.
+
+#### Continuous Improvement
+
+In order for an organization to continuously keep pushing for a more
+power efficient operation, knowing the power consumption totals,
+possibly divided up by customer, is typically not enough.
+
+In order to get information that is actionable, a more granular data
+collection is required.  How much power goes to compute, network,
+security, monitoring and management?  Is our cooling as efficient as
+the industry standard?
+
+#### Development of Science
+
+Scientists working on power efficiency need real world data to work
+with.  Data collection for such purposes might not need to be always
+on, but needs to have a clear content declaration, transparent
+provenance and computation methods that allow comparisons.
 
 ### Recommendation
 
-TBD
+In order to meet the needs in these use cases, the following
+architectural design principles are proposed.
+
+#### Collect Metrics from Existing Equipment
+
+Since the need to deliver on the use cases described is urgent, the
+industry has to accept working with the capabilities of existing
+equipment in the field.  A plug-in architecture with modules that can
+work with (read from and control) devices of any kind, including
+traditional networking hardware devices, cooling systems, software
+stacks, and occasionally static datasheets.
+
+#### Content Declaration for all Collected Metrics
+
+A warehouse filled with data collected from diverse sources is useless
+without proper labling.  Create metadata that describes the
+collected data.  What are the source(s)?  What measurement units?
+Precision?  What is included/excluded in these numbers?
+
+The metadata itself must also have a formal description.  Use YANG for
+the metadata schema.  Keep the metadata attached to the dataflow it
+describes, so that the relation is clear to each component that has
+anything to do with it, including components added by other
+organizations at a later point in time.
+
+#### Collection, Aggregation, Processing, Display, Decisions
+
+The collected data passes through a pipeline from collection to
+decisions. By processing we mean steps to reshape the data to
+match further aggregation and processing steps, such as unit
+conversions, sample frequency alignment, filtering, etc.
+
+Separate these architectural roles into separate modules in
+order to enable reuse, modulear development and a transparent,
+configurable pipeline.
+
+#### Configurable Pipeline for Reuse and Transparency
+
+Let the pipeline connections between the components be driven by
+configuration rather than hard coded.  This enables reconfiguration of
+the processing pipeline over time, and perhaps more importantly,
+transparency into what stages the data pass through, even without
+access to or understanding of the source code of the entire system.
+
+#### Design Together with the Users
+
+Every system should be designed involving some of its target users.
+In order for delivered metrics to be of any value, the target audience
+needs to be aware of their existence, be able to interpret them and
+understand how they can be used in their professional context.
+
+There are many target user groups for the information produced.
+Some examples are scientists, operations teams and IT-development
+organizations.  One crtitical group that is often overlooked is
+the sustainability assessment experts.  If they are not aware, don't
+understand or don't care about the produced sustainability metrics,
+the value of this work would be greatly diminished.
 
 ## Modelling
 
