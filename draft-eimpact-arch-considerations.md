@@ -238,7 +238,7 @@ Secondly, for many classes of devices the embedded carbon aspects or
 use of raw materials may be a significant sustainability issue. See
 also Section 2.2.
 
-But when it comes to energy consumption, 
+But when it comes to energy consumption,
 operators know their total energy consumption already (see the
 utility bill), and it's not particularly hard to measure the energy
 consumption of individial network devices either.  Still, there are a
@@ -290,9 +290,10 @@ provenance and computation methods that allow comparisons.
 ### Recommendation
 
 Ongoing work at the IETF's GREEN working group is already improving
-existing energy consumption metrics and frameworks. 
-Some further considerations apply, however. In order to meet the needs of the use cases discussed above, the following
-architectural design principles are proposed.
+existing energy consumption metrics and frameworks.  Some further
+considerations apply, however. In order to meet the needs of the use
+cases discussed above, the following architectural design principles
+are proposed.
 
 #### Generality
 
@@ -647,19 +648,19 @@ This is about weight that migh impact future archs as they did not exist, aka wh
 
 ### Motivation
 
-It is not so easy to focus on impacts of this or that on architectural evolution because it is difficult to focus on architecture by itself. 
+It is not so easy to focus on impacts of this or that on architectural evolution because it is difficult to focus on architecture by itself.
 But we can ask ourselves what will impact the future architecture that didn't exist explicitly in the pass.
 
 ### Analysis
 
-Resiliency might impact much more the adaptation and the design of the architecture in the future decades than it did in the past 20 years. 
+Resiliency might impact much more the adaptation and the design of the architecture in the future decades than it did in the past 20 years.
 
 It might be divided in axis like 'Resiliency to power breakage', 'Resiliency to lack of material' that can be filtered wrt their impacts on device, network ... architectures
 
 
 ### Recommendation
 
-TBD 
+TBD
 
 # Recommendations for Further Work and Research
 
