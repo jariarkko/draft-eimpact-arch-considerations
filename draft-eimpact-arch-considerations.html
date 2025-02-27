@@ -18,7 +18,6 @@
 <meta content="Ari Keränen" name="author">
 <meta content="Luis M. Contreras" name="author">
 <meta content="Jan Lindblad" name="author">
-<meta content="+OtherPeople" name="author">
 <meta content="
        This document discusses protocol and network architecture aspects that
 may have an impact on the sustainability of network technology. 
@@ -1133,10 +1132,6 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <div class="author">
       <div class="author-name">J. Lindblad</div>
 </div>
-<div class="author">
-      <div class="author-name">+OtherPeople</div>
-<div class="org">...</div>
-</div>
 </dd>
 </dl>
 </div>
@@ -1313,10 +1308,13 @@ may have an impact on the sustainability of network technology.<a href="#section
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1387,13 +1385,17 @@ features.<a href="#section-1-11" class="pilcrow">¶</a></p>
         </h3>
 <p id="section-2.1-1">You have to know what is going on before you can improve. Some level
 of measurements are necessary for improving sustainability. This is
-particularly the case when looking at the systems as a whole and in
-post-analysis.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
-<p id="section-2.1-2">But it may also be true for some dynamic situations
+particularly the case when looking at the systems as a whole in
+post-analysis. As discussed earlier, this level of measurements is
+useful input for further actions, such as deciding what parts of the
+network need further improvement.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.1-2">But measurements may also be useful for some dynamic situations
 where power-saving decisions for instance depend on knowing the
 relative power consumption of different activities, such as when a
-power-off decision involves understanding the cost of shutdown and
-startup procedures and other reconfiguration elsewhere in the network.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
+power-off decision involves understanding the relative savings during
+the shutdown period vs. the power cost of shutdown and startup procedures,
+or possible need to reconfigure other other nodes in the network due
+to the shutdown.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
 <div id="motivation">
 <section id="section-2.1.1">
           <h4 id="name-motivation">
@@ -1403,8 +1405,8 @@ startup procedures and other reconfiguration elsewhere in the network.<a href="#
 potentially some of the dynamic decisions taken by systems. Without
 measurements, only aggregate power consumption can be measured, but
 for instance no per-device data about real power usage will be
-available, and as such, there's limited basis for deciding on
-improvements.<a href="#section-2.1.1-1" class="pilcrow">¶</a></p>
+available, and as such, there's limited basis for deciding what
+improvements are most useful.<a href="#section-2.1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="analysis">
@@ -1412,8 +1414,14 @@ improvements.<a href="#section-2.1.1-1" class="pilcrow">¶</a></p>
           <h4 id="name-analysis">
 <a href="#section-2.1.2" class="section-number selfRef">2.1.2. </a><a href="#name-analysis" class="section-name selfRef">Analysis</a>
           </h4>
-<p id="section-2.1.2-1">(TBD add something about integrating lifecycle, datasheet
-etc. information and how they are shared)<a href="#section-2.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.1.2-1">While the simplest forms of sustainability-related measurements are
+about power, there's clearly room for other measurements and other
+information as well. To begin with, power consumption by itself may not be what
+matters most for sustainability, as the source of the power may be
+more significant in terms of the actual carbon footprint.<a href="#section-2.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.1.2-2">Secondly, for many classes of devices the embedded carbon aspects or
+use of raw materials may be a significant sustainability issue. See
+also Section 2.2.<a href="#section-2.1.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="recommendation">
@@ -1421,7 +1429,11 @@ etc. information and how they are shared)<a href="#section-2.1.2-1" class="pilcr
           <h4 id="name-recommendation">
 <a href="#section-2.1.3" class="section-number selfRef">2.1.3. </a><a href="#name-recommendation" class="section-name selfRef">Recommendation</a>
           </h4>
-<p id="section-2.1.3-1">TBD<a href="#section-2.1.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.1.3-1">Ongoing work at the IETF's GREEN working group is already improving
+existing energy consumption metrics and frameworks.<a href="#section-2.1.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.1.3-2">We recommend that any measurement framework or sustainability-related
+information sharing mechanism be designed to share different types of
+information, and not limited to a single metric such as power consumption.<a href="#section-2.1.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1431,7 +1443,13 @@ etc. information and how they are shared)<a href="#section-2.1.2-1" class="pilcr
         <h3 id="name-modelling">
 <a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-modelling" class="section-name selfRef">Modelling</a>
         </h3>
-<p id="section-2.2-1">The paucity of up-to-date information on equipment and system parameters, especially power consumption and maximum throughput, makes estimating the power consumption and energy efficiency of these systems extremely challenging. In addition the rapid evolution of technology and products in ICT makes the estimation quickly out-dated and possibly inaccurate. In almost all cases physical measurement has to be replaced by partial measurement and mathematical modelling.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2-1">The paucity of up-to-date information on equipment and system
+parameters, especially power consumption and maximum throughput, makes
+estimating the power consumption and energy efficiency of these
+systems extremely challenging. In addition the rapid evolution of
+technology and products in ICT makes the estimation quickly out-dated
+and possibly inaccurate. In almost all cases physical measurement has
+to be replaced by partial measurement and mathematical modelling.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
 <div id="motivation-1">
 <section id="section-2.2.1">
           <h4 id="name-motivation-2">
@@ -1447,15 +1465,11 @@ etc. information and how they are shared)<a href="#section-2.1.2-1" class="pilcr
           </h4>
 <p id="section-2.2.2-1">To date, two approaches to network power modelling are accepted as
 providing a realistic estimate of network power consumption. These
-approaches are referred to as “bottom-up” and “top-down”.  I think the
-bottom-up approach is what is used by Malmodin and Talia. This paper
-(Unifying Top-Down and Bottom-Up Approaches to Evaluate Network Energy
-Consumption IEEE Journals &amp; Magazine IEEE Xplore) surveys both
-approaches and provide a new approach which unifies both of them. The
-unified approach is used to estimate the power consumption of access,
-aggregation and core networks.<a href="#section-2.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-2.2.2-2">This paper (Modeling Data-Plane Power Consumption of Future Internet
-Architectures IEEE Conference Publication IEEE Xplore) provides a
+approaches are referred to as "bottom-up" and "top-down".  The paper
+<span>[<a href="#Unifying" class="cite xref">Unifying</a>]</span> surveys both approaches and provide a new approach which
+unifies both of them. The unified approach is used to estimate the
+power consumption of access, aggregation and core networks.<a href="#section-2.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-2">The paper <span>[<a href="#Modelling" class="cite xref">Modelling</a>]</span> provides a
 model for IP Routers and the routers of other future Internet
 architectures (FIA) such as SCION and NEBULA. They use a generic model
 which captures the commonalities of IP router as well as the
@@ -1471,8 +1485,7 @@ and Testbed to Develop an Energy Model for 5G Virtualized RANs IEEE
 Conference Publication IEEE Xplore got best paper award for GreenNet
 2024, but I am not sure if we are interested to model 5G vRAN.<a href="#section-2.2.2-3" class="pilcrow">¶</a></p>
 <p id="section-2.2.2-4">There are plethora of publications on modeling communication networks
-and DC computing. I am not sure to what extent we need to work on
-modeling networks and devices in our architecture exercise.<a href="#section-2.2.2-4" class="pilcrow">¶</a></p>
+and DC computing.<a href="#section-2.2.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="recommendation-1">
@@ -1480,7 +1493,9 @@ modeling networks and devices in our architecture exercise.<a href="#section-2.2
           <h4 id="name-recommendation-2">
 <a href="#section-2.2.3" class="section-number selfRef">2.2.3. </a><a href="#name-recommendation-2" class="section-name selfRef">Recommendation</a>
           </h4>
-<p id="section-2.2.3-1">TBD<a href="#section-2.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.2.3-1">It is still to be determined to what extent we need to work on
+modeling networks and devices in the architecture. Is this outside the
+scope of architecture?<a href="#section-2.2.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1516,10 +1531,10 @@ can be achieved.<a href="#section-2.3.1-1" class="pilcrow">¶</a></p>
           <h4 id="name-analysis-3">
 <a href="#section-2.3.2" class="section-number selfRef">2.3.2. </a><a href="#name-analysis-3" class="section-name selfRef">Analysis</a>
           </h4>
-<p id="section-2.3.2-1">Dynamic scaling could be seen as either an alternative or complementary to load stabilization, e.g., via “peak shaving”. Perhaps the most realistic angle is that both are likely needed.<a href="#section-2.3.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-1">Dynamic scaling could be seen as either an alternative or complementary to load stabilization, e.g., via "peak shaving". Perhaps the most realistic angle is that both are likely needed.<a href="#section-2.3.2-1" class="pilcrow">¶</a></p>
 <p id="section-2.3.2-2">The most rudimentary approach to dynamic scaling is just turning some resources off. However, often this is not sufficient and a more graceful/engineered approach potentially yields better results.<a href="#section-2.3.2-2" class="pilcrow">¶</a></p>
 <p id="section-2.3.2-3">A network architects need to understand the impacts of scaling changes on users and traffic. These may include fate of ongoing sessions, latency/jitter, packets in flight, or running processes, attempts to contact resources that are no longer present, and the time it takes for the network to converge to its new state.<a href="#section-2.3.2-3" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-4">Dynamic scaling requires an understanding of load levels for the network, so information collection is required. It also requires understanding the power, time and other costs of making changes. (See draft-pignataro for discussion of tradeoffs and multi-objective optimization.)<a href="#section-2.3.2-4" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-4">Dynamic scaling requires an understanding of load levels for the network, so information collection is required. It also requires understanding the power, time and other costs of making changes. (See <span>[<a href="#I-D.pignataro-enviro-sustainability-architecture" class="cite xref">I-D.pignataro-enviro-sustainability-architecture</a>]</span> for discussion of tradeoffs and multi-objective optimization.)<a href="#section-2.3.2-4" class="pilcrow">¶</a></p>
 <p id="section-2.3.2-5">Some of the strategies that are useful in implementing a well working dynamic scaling include:<a href="#section-2.3.2-5" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-2.3.2-6.1">
@@ -1820,6 +1835,27 @@ perhaps as part of the efforts in the SUSTAIN RG.<a href="#section-3-1" class="p
 <p id="section-5-1">This document has no IANA actions.<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
+<div id="sec-informative-references">
+<section id="section-6">
+      <h2 id="name-informative-references">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+      </h2>
+<dl class="references">
+<dt id="I-D.pignataro-enviro-sustainability-architecture">[I-D.pignataro-enviro-sustainability-architecture]</dt>
+      <dd>
+<span class="refAuthor">Pignataro, C.</span>, <span class="refAuthor">Rezaki, A.</span>, <span class="refAuthor">Krishnan, S.</span>, <span class="refAuthor">Arkko, J.</span>, <span class="refAuthor">Clemm, A.</span>, and <span class="refAuthor">H. ElBakoury</span>, <span class="refTitle">"Architectural Considerations for Environmental Sustainability"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-pignataro-enviro-sustainability-architecture-01</span>, <time datetime="2024-12-27" class="refDate">27 December 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-pignataro-enviro-sustainability-architecture-01">https://datatracker.ietf.org/doc/html/draft-pignataro-enviro-sustainability-architecture-01</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Modelling">[Modelling]</dt>
+      <dd>
+<span class="refAuthor">Chen, C.</span>, <span class="refAuthor">Barrera, D.</span>, and <span class="refAuthor">A. Perrig</span>, <span class="refTitle">"Modeling Data-Plane Power Consumption of Future Internet Architectures"</span>, <span class="seriesInfo">IEEE 2nd International Conference on Collaboration and Internet Computing (CIC), Pittsburgh, PA, USA, pp. 149-158, doi: 10.1109/CIC.2016.031 </span>, <time datetime="2016" class="refDate">2016</time>. </dd>
+<dd class="break"></dd>
+<dt id="Unifying">[Unifying]</dt>
+    <dd>
+<span class="refAuthor">Ishii, K.</span>, <span class="refAuthor">Kurumida, J.</span>, <span class="refAuthor">K.-i Sato</span>, <span class="refAuthor">Kudoh, T.</span>, and <span class="refAuthor">S. Namiki</span>, <span class="refTitle">"Unifying Top-Down and Bottom-Up Approaches to Evaluate Network Energy Consumption"</span>, <span class="seriesInfo">In Journal of Lightwave Technology, vol. 33, no. 21, pp. 4395-4405, doi: 10.1109/JLT.2015.2469145 </span>, <time datetime="2015-11" class="refDate">November 2015</time>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
 <div id="acknowledgments">
 <section id="appendix-A">
       <h2 id="name-acknowledgments">
@@ -1932,9 +1968,6 @@ perhaps as part of the efforts in the SUSTAIN RG.<a href="#section-3-1" class="p
 <span>Email:</span>
 <a href="mailto:jan.lindblad+ietf@for.eco" class="email">jan.lindblad+ietf@for.eco</a>
 </div>
-</address>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">+OtherPeople</span></div>
 </address>
 </section>
 </div>

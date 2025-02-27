@@ -27,9 +27,6 @@ Expires: 31 August 2025                                            Cisco
                                                          L. M. Contreras
                                                               Telefonica
                                                              J. Lindblad
-                                                                        
-                                                            +OtherPeople
-                                                                     ...
                                                         27 February 2025
 
 
@@ -118,6 +115,7 @@ Table of Contents
    3.  Recommendations for Further Work and Research
    4.  Security Considerations
    5.  IANA Considerations
+   6.  Informative References
    Acknowledgments
    Authors' Addresses
 
@@ -187,14 +185,18 @@ Table of Contents
 
    You have to know what is going on before you can improve.  Some level
    of measurements are necessary for improving sustainability.  This is
-   particularly the case when looking at the systems as a whole and in
-   post-analysis.
+   particularly the case when looking at the systems as a whole in post-
+   analysis.  As discussed earlier, this level of measurements is useful
+   input for further actions, such as deciding what parts of the network
+   need further improvement.
 
-   But it may also be true for some dynamic situations where power-
-   saving decisions for instance depend on knowing the relative power
-   consumption of different activities, such as when a power-off
-   decision involves understanding the cost of shutdown and startup
-   procedures and other reconfiguration elsewhere in the network.
+   But measurements may also be useful for some dynamic situations where
+   power-saving decisions for instance depend on knowing the relative
+   power consumption of different activities, such as when a power-off
+   decision involves understanding the relative savings during the
+   shutdown period vs. the power cost of shutdown and startup
+   procedures, or possible need to reconfigure other other nodes in the
+   network due to the shutdown.
 
 2.1.1.  Motivation
 
@@ -202,17 +204,31 @@ Table of Contents
    potentially some of the dynamic decisions taken by systems.  Without
    measurements, only aggregate power consumption can be measured, but
    for instance no per-device data about real power usage will be
-   available, and as such, there's limited basis for deciding on
-   improvements.
+   available, and as such, there's limited basis for deciding what
+   improvements are most useful.
 
 2.1.2.  Analysis
 
-   (TBD add something about integrating lifecycle, datasheet etc.
-   information and how they are shared)
+   While the simplest forms of sustainability-related measurements are
+   about power, there's clearly room for other measurements and other
+   information as well.  To begin with, power consumption by itself may
+   not be what matters most for sustainability, as the source of the
+   power may be more significant in terms of the actual carbon
+   footprint.
+
+   Secondly, for many classes of devices the embedded carbon aspects or
+   use of raw materials may be a significant sustainability issue.  See
+   also Section 2.2.
 
 2.1.3.  Recommendation
 
-   TBD
+   Ongoing work at the IETF's GREEN working group is already improving
+   existing energy consumption metrics and frameworks.
+
+   We recommend that any measurement framework or sustainability-related
+   information sharing mechanism be designed to share different types of
+   information, and not limited to a single metric such as power
+   consumption.
 
 2.2.  Modelling
 
@@ -234,22 +250,17 @@ Table of Contents
 
    To date, two approaches to network power modelling are accepted as
    providing a realistic estimate of network power consumption.  These
-   approaches are referred to as “bottom-up” and “top-down”.  I think
-   the bottom-up approach is what is used by Malmodin and Talia.  This
-   paper (Unifying Top-Down and Bottom-Up Approaches to Evaluate Network
-   Energy Consumption IEEE Journals & Magazine IEEE Xplore) surveys both
-   approaches and provide a new approach which unifies both of them.
-   The unified approach is used to estimate the power consumption of
-   access, aggregation and core networks.
+   approaches are referred to as "bottom-up" and "top-down".  The paper
+   [Unifying] surveys both approaches and provide a new approach which
+   unifies both of them.  The unified approach is used to estimate the
+   power consumption of access, aggregation and core networks.
 
-   This paper (Modeling Data-Plane Power Consumption of Future Internet
-   Architectures IEEE Conference Publication IEEE Xplore) provides a
-   model for IP Routers and the routers of other future Internet
-   architectures (FIA) such as SCION and NEBULA.  They use a generic
-   model which captures the commonalities of IP router as well as the
-   peculiarities of FIA routers.  They conduct a large-scale simulation
-   based on this router model to estimate the power consumption for
-   different network architectures.
+   The paper [Modelling] provides a model for IP Routers and the routers
+   of other future Internet architectures (FIA) such as SCION and
+   NEBULA.  They use a generic model which captures the commonalities of
+   IP router as well as the peculiarities of FIA routers.  They conduct
+   a large-scale simulation based on this router model to estimate the
+   power consumption for different network architectures.
 
    Since routers and other network devices and functions can be
    virtualized, this article (1) provides comprehensive "graphical,
@@ -262,12 +273,13 @@ Table of Contents
    vRAN.
 
    There are plethora of publications on modeling communication networks
-   and DC computing.  I am not sure to what extent we need to work on
-   modeling networks and devices in our architecture exercise.
+   and DC computing.
 
 2.2.3.  Recommendation
 
-   TBD
+   It is still to be determined to what extent we need to work on
+   modeling networks and devices in the architecture.  Is this outside
+   the scope of architecture?
 
 2.3.  Dynamic Scaling
 
@@ -292,7 +304,7 @@ Table of Contents
 2.3.2.  Analysis
 
    Dynamic scaling could be seen as either an alternative or
-   complementary to load stabilization, e.g., via “peak shaving”.
+   complementary to load stabilization, e.g., via "peak shaving".
    Perhaps the most realistic angle is that both are likely needed.
 
    The most rudimentary approach to dynamic scaling is just turning some
@@ -308,8 +320,8 @@ Table of Contents
    Dynamic scaling requires an understanding of load levels for the
    network, so information collection is required.  It also requires
    understanding the power, time and other costs of making changes.
-   (See draft-pignataro for discussion of tradeoffs and multi-objective
-   optimization.)
+   (See [I-D.pignataro-enviro-sustainability-architecture] for
+   discussion of tradeoffs and multi-objective optimization.)
 
    Some of the strategies that are useful in implementing a well working
    dynamic scaling include:
@@ -612,6 +624,30 @@ Table of Contents
 
    This document has no IANA actions.
 
+6.  Informative References
+
+   [I-D.pignataro-enviro-sustainability-architecture]
+              Pignataro, C., Rezaki, A., Krishnan, S., Arkko, J., Clemm,
+              A., and H. ElBakoury, "Architectural Considerations for
+              Environmental Sustainability", Work in Progress, Internet-
+              Draft, draft-pignataro-enviro-sustainability-architecture-
+              01, 27 December 2024,
+              <https://datatracker.ietf.org/doc/html/draft-pignataro-
+              enviro-sustainability-architecture-01>.
+
+   [Modelling]
+              Chen, C., Barrera, D., and A. Perrig, "Modeling Data-Plane
+              Power Consumption of Future Internet Architectures", IEEE
+              2nd International Conference on Collaboration and Internet
+              Computing (CIC), Pittsburgh, PA, USA, pp. 149-158, doi:
+              10.1109/CIC.2016.031 , 2016.
+
+   [Unifying] Ishii, K., Kurumida, J., K.-i Sato, Kudoh, T., and S.
+              Namiki, "Unifying Top-Down and Bottom-Up Approaches to
+              Evaluate Network Energy Consumption", In Journal of
+              Lightwave Technology, vol. 33, no. 21, pp. 4395-4405, doi:
+              10.1109/JLT.2015.2469145 , November 2015.
+
 Acknowledgments
 
    TODO acknowledge.
@@ -677,6 +713,3 @@ Authors' Addresses
 
    Jan Lindblad
    Email: jan.lindblad+ietf@for.eco
-
-
-   +OtherPeople
