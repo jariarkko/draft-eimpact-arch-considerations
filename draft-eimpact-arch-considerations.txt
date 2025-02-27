@@ -347,8 +347,9 @@ Table of Contents
    *  Never expect a fixed set of resources, plan for dynamic set of
       resources, and build mechanisms to deal with dynamic changes.
 
-   *  Dynamic scaling requires automation in most cases.  See draft-
-      pignataro for a discussion of automation.
+   *  Dynamic scaling requires automation in most cases.  See again
+      [I-D.pignataro-enviro-sustainability-architecture] for a
+      discussion of automation.
 
    From Hesham:
 
@@ -421,13 +422,13 @@ Table of Contents
 2.4.2.  Analysis
 
    A critical issue is the tradeoff involved in sending traffic.  As
-   argued in https://doi.org/10.23919/WONS54113.2022.9764413, reducing
-   the amount of time the endpoints and the network are active can
-   sometimes help save energy, e.g. in case the receiver is connected
-   over a WiFi link.  Similar logic applies for any technology that has
-   a certain degree of energy proportionality, e.g. cellular
-   communication.  As a result, in general, delivering information as
-   rapidly as possible would appear to be desirable.
+   argued in [NotTradeOff], reducing the amount of time the endpoints
+   and the network are active can sometimes help save energy, e.g. in
+   case the receiver is connected over a WiFi link.  Similar logic
+   applies for any technology that has a certain degree of energy
+   proportionality, e.g. cellular communication.  As a result, in
+   general, delivering information as rapidly as possible would appear
+   to be desirable.
 
    On the other hand, bandwidth-intensive applications can influence
    other applications or users by presenting a significant load on the
@@ -436,19 +437,18 @@ Table of Contents
    For an application with intermittent data transfers, such as
    streaming video, this would seem to speak in favor of sustained but
    lower-rate delivery instead of transmitting short high-rate bursts
-   (Sammy paper: https://doi.org/10.1145/3603269.3604839).  However,
-   this is in contradiction with the energy-saving approach above.
-   Thus, the tradeoff is: should data be sent in a way that is
-   “friendly” to others (avoiding bad interference), or should it save
-   energy by sending fast, increasing the chance for equipment to enter
-   a “sleep” state?
+   [Sammy].  However, this is in contradiction with the energy-saving
+   approach above.  Thus, the tradeoff is: should data be sent in a way
+   that is "friendly" to others (avoiding bad interference), or should
+   it save energy by sending fast, increasing the chance for equipment
+   to enter a "sleep" state?
 
    At the time of writing, the common choice for video is to opt for
    high rate delivery, potentially saving energy, and possibly at the
    expense of other traffic.  For non-urgent data transfers, the IETF-
    recommended default approach is the opposite: the LEDBAT congestion
-   control mechanism (RFC 6817), which is designed for such use, will
-   always “step out of the way” of other traffic, giving it a low rate
+   control mechanism [RFC6817], which is designed for such use, will
+   always "step out of the way" of other traffic, giving it a low rate
    when it competes with any other traffic.  Alternatively, if the goal
    is to reduce energy, such traffic could be sent at a high rate, at a
    strategically good moment within a longer time interval; this would
@@ -459,7 +459,7 @@ Table of Contents
    things) needs to take into account multiple parameters.  For example,
    it is possible that a balanced transport algorithm would be able to
    send as much as possible as soon as possible, while tracking buffer
-   growth from transmission delays and scaling back if there’s any
+   growth from transmission delays and scaling back if there's any
    buffer growth.  This remains to be confirmed with experiments,
    however.
 
@@ -666,10 +666,30 @@ Table of Contents
               Computing (CIC), Pittsburgh, PA, USA, pp. 149-158, doi:
               10.1109/CIC.2016.031 , 2016.
 
+   [NotTradeOff]
+              Welzl, M., "Not a Trade-Off: On the Wi-Fi Energy
+              Efficiency of Effective Internet Congestion Control", 17th
+              Wireless On-Demand Network Systems and Services Conference
+              (WONS), Oppdal, Norway, pp. 1-4, doi: 10.23919/
+              WONS54113.2022.9764413 , 2022.
+
+   [RFC6817]  Shalunov, S., Hazel, G., Iyengar, J., and M. Kuehlewind,
+              "Low Extra Delay Background Transport (LEDBAT)", RFC 6817,
+              DOI 10.17487/RFC6817, December 2012,
+              <https://www.rfc-editor.org/rfc/rfc6817>.
+
    [RFC9657]  Birrane, III, E., Kuhn, N., Qu, Y., Taylor, R., and L.
               Zhang, "Time-Variant Routing (TVR) Use Cases", RFC 9657,
               DOI 10.17487/RFC9657, October 2024,
               <https://www.rfc-editor.org/rfc/rfc9657>.
+
+   [Sammy]    Bruce Spang, Shravya Kunamalla, Renata Teixeira, Te-Yuan
+              Huang, Grenville Armitage, Ramesh Johari, and Nick
+              McKeown, "Sammy: smoothing video traffic to be a friendly
+              internet neighbor", In Proceedings of the ACM SIGCOMM 2023
+              Conference (ACM SIGCOMM '23). Association for Computing
+              Machinery, New York, NY, USA, 754–768.
+              https://doi.org/10.1145/3603269.3604839 , 2023.
 
    [Unifying] Ishii, K., Kurumida, J., K.-i Sato, Kudoh, T., and S.
               Namiki, "Unifying Top-Down and Bottom-Up Approaches to

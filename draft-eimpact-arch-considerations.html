@@ -1553,7 +1553,7 @@ can be achieved.<a href="#section-2.3.1-1" class="pilcrow">¶</a></p>
               <p id="section-2.3.2-6.5.1">Never expect a fixed set of resources, plan for dynamic set of resources, and build mechanisms to deal with dynamic changes.<a href="#section-2.3.2-6.5.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-2.3.2-6.6">
-              <p id="section-2.3.2-6.6.1">Dynamic scaling requires automation in most cases. See draft-pignataro for a discussion of automation.<a href="#section-2.3.2-6.6.1" class="pilcrow">¶</a></p>
+              <p id="section-2.3.2-6.6.1">Dynamic scaling requires automation in most cases. See again <span>[<a href="#I-D.pignataro-enviro-sustainability-architecture" class="cite xref">I-D.pignataro-enviro-sustainability-architecture</a>]</span> for a discussion of automation.<a href="#section-2.3.2-6.6.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-2.3.2-7">From Hesham:<a href="#section-2.3.2-7" class="pilcrow">¶</a></p>
@@ -1609,7 +1609,7 @@ involved systems have power proportionality.<a href="#section-2.4.1-2" class="pi
 <a href="#section-2.4.2" class="section-number selfRef">2.4.2. </a><a href="#name-analysis-4" class="section-name selfRef">Analysis</a>
           </h4>
 <p id="section-2.4.2-1">A critical issue is the tradeoff involved in sending traffic. As
-argued in https://doi.org/10.23919/WONS54113.2022.9764413, reducing
+argued in <span>[<a href="#NotTradeOff" class="cite xref">NotTradeOff</a>]</span>, reducing
 the amount of time the endpoints and the network are active can
 sometimes help save energy, e.g. in case the receiver is connected
 over a WiFi link. Similar logic applies for any technology that has a
@@ -1622,18 +1622,17 @@ network, and consequently reducing capacity available for others, or
 increasing buffering (and with it, latency) across the network
 path. For an application with intermittent data transfers, such as
 streaming video, this would seem to speak in favor of sustained but
-lower-rate delivery instead of transmitting short high-rate bursts
-(Sammy paper: https://doi.org/10.1145/3603269.3604839). However, this
+lower-rate delivery instead of transmitting short high-rate bursts <span>[<a href="#Sammy" class="cite xref">Sammy</a>]</span>. However, this
 is in contradiction with the energy-saving approach above. Thus, the
-tradeoff is: should data be sent in a way that is “friendly” to others
+tradeoff is: should data be sent in a way that is "friendly" to others
 (avoiding bad interference), or should it save energy by sending fast,
-increasing the chance for equipment to enter a “sleep” state?<a href="#section-2.4.2-2" class="pilcrow">¶</a></p>
+increasing the chance for equipment to enter a "sleep" state?<a href="#section-2.4.2-2" class="pilcrow">¶</a></p>
 <p id="section-2.4.2-3">At the time of writing, the common choice for video is to opt for high
 rate delivery, potentially saving energy, and possibly at the expense
 of other traffic. For non-urgent data transfers, the IETF-recommended
 default approach is the opposite: the LEDBAT congestion control
-mechanism (RFC 6817), which is designed for such use, will always
-“step out of the way” of other traffic, giving it a low rate when it
+mechanism <span>[<a href="#RFC6817" class="cite xref">RFC6817</a>]</span>, which is designed for such use, will always
+"step out of the way" of other traffic, giving it a low rate when it
 competes with any other traffic. Alternatively, if the goal is to
 reduce energy, such traffic could be sent at a high rate, at a
 strategically good moment within a longer time interval; this would
@@ -1643,7 +1642,7 @@ remaining time period within the interval.<a href="#section-2.4.2-3" class="pilc
 things) needs to take into account multiple parameters. For example,
 it is possible that a balanced transport algorithm would be able to
 send as much as possible as soon as possible, while tracking buffer
-growth from transmission delays and scaling back if there’s any buffer
+growth from transmission delays and scaling back if there's any buffer
 growth. This remains to be confirmed with experiments, however.<a href="#section-2.4.2-4" class="pilcrow">¶</a></p>
 <p id="section-2.4.2-5">Similarly, caching and pre-fetching designs need to take into account
 not only the likehood of having acquired the right content in memory,
@@ -1861,9 +1860,21 @@ perhaps as part of the efforts in the SUSTAIN RG.<a href="#section-3-1" class="p
       <dd>
 <span class="refAuthor">Chen, C.</span>, <span class="refAuthor">Barrera, D.</span>, and <span class="refAuthor">A. Perrig</span>, <span class="refTitle">"Modeling Data-Plane Power Consumption of Future Internet Architectures"</span>, <span class="seriesInfo">IEEE 2nd International Conference on Collaboration and Internet Computing (CIC), Pittsburgh, PA, USA, pp. 149-158, doi: 10.1109/CIC.2016.031 </span>, <time datetime="2016" class="refDate">2016</time>. </dd>
 <dd class="break"></dd>
+<dt id="NotTradeOff">[NotTradeOff]</dt>
+      <dd>
+<span class="refAuthor">Welzl, M.</span>, <span class="refTitle">"Not a Trade-Off: On the Wi-Fi Energy Efficiency of Effective Internet Congestion Control"</span>, <span class="seriesInfo">17th Wireless On-Demand Network Systems and Services Conference (WONS), Oppdal, Norway, pp. 1-4, doi: 10.23919/WONS54113.2022.9764413 </span>, <time datetime="2022" class="refDate">2022</time>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6817">[RFC6817]</dt>
+      <dd>
+<span class="refAuthor">Shalunov, S.</span>, <span class="refAuthor">Hazel, G.</span>, <span class="refAuthor">Iyengar, J.</span>, and <span class="refAuthor">M. Kuehlewind</span>, <span class="refTitle">"Low Extra Delay Background Transport (LEDBAT)"</span>, <span class="seriesInfo">RFC 6817</span>, <span class="seriesInfo">DOI 10.17487/RFC6817</span>, <time datetime="2012-12" class="refDate">December 2012</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6817">https://www.rfc-editor.org/rfc/rfc6817</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC9657">[RFC9657]</dt>
       <dd>
 <span class="refAuthor">Birrane, III, E.</span>, <span class="refAuthor">Kuhn, N.</span>, <span class="refAuthor">Qu, Y.</span>, <span class="refAuthor">Taylor, R.</span>, and <span class="refAuthor">L. Zhang</span>, <span class="refTitle">"Time-Variant Routing (TVR) Use Cases"</span>, <span class="seriesInfo">RFC 9657</span>, <span class="seriesInfo">DOI 10.17487/RFC9657</span>, <time datetime="2024-10" class="refDate">October 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9657">https://www.rfc-editor.org/rfc/rfc9657</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Sammy">[Sammy]</dt>
+      <dd>
+<span class="refAuthor">Bruce Spang</span>, <span class="refAuthor">Shravya Kunamalla</span>, <span class="refAuthor">Renata Teixeira</span>, <span class="refAuthor">Te-Yuan Huang</span>, <span class="refAuthor">Grenville Armitage</span>, <span class="refAuthor">Ramesh Johari</span>, and <span class="refAuthor">Nick McKeown</span>, <span class="refTitle">"Sammy: smoothing video traffic to be a friendly internet neighbor"</span>, <span class="seriesInfo">In Proceedings of the ACM SIGCOMM 2023 Conference (ACM SIGCOMM '23). Association for Computing Machinery, New York, NY, USA, 754–768. https://doi.org/10.1145/3603269.3604839 </span>, <time datetime="2023" class="refDate">2023</time>. </dd>
 <dd class="break"></dd>
 <dt id="Unifying">[Unifying]</dt>
     <dd>
