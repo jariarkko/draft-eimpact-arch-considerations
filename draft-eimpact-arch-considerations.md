@@ -85,14 +85,27 @@ author:
     fullname: Jan Lindblad
     email: jan.lindblad+ietf@for.eco
 
- -
-    fullname: +OtherPeople
-    organization: ...
-
 normative:
 
 informative:
-
+  Unifying:
+    title: "Unifying Top-Down and Bottom-Up Approaches to Evaluate Network Energy Consumption"
+    date: November 2015
+    author:
+     - ins: K. Ishii
+     - ins: J. Kurumida
+     - ins: K.-i. Sato
+     - ins: T. Kudoh
+     - ins: S. Namiki
+    seriesinfo: "In Journal of Lightwave Technology, vol. 33, no. 21, pp. 4395-4405, doi: 10.1109/JLT.2015.2469145"
+  Modelling:
+    title: "Modeling Data-Plane Power Consumption of Future Internet Architectures"
+    date: 2016
+    author:
+      - ins: C. Chen
+      - ins: D. Barrera
+      - ins: A. Perrig
+    seriesinfo: "IEEE 2nd International Conference on Collaboration and Internet Computing (CIC), Pittsburgh, PA, USA, pp. 149-158, doi: 10.1109/CIC.2016.031"
 
 --- abstract
 
@@ -197,12 +210,13 @@ matters most for sustainability, as the source of the power may be
 more significant in terms of the actual carbon footprint.
 
 Secondly, for many classes of devices the embedded carbon aspects or
-use of raw materials may be a significant sustainability issue.
+use of raw materials may be a significant sustainability issue. See
+also Section 2.2.
 
 ### Recommendation
 
 Ongoing work at the IETF's GREEN working group is already improving
-existing energy consumption metrics and frameworks. 
+existing energy consumption metrics and frameworks.
 
 We recommend that any measurement framework or sustainability-related
 information sharing mechanism be designed to share different types of
@@ -210,7 +224,13 @@ information, and not limited to a single metric such as power consumption.
 
 ## Modelling
 
-The paucity of up-to-date information on equipment and system parameters, especially power consumption and maximum throughput, makes estimating the power consumption and energy efficiency of these systems extremely challenging. In addition the rapid evolution of technology and products in ICT makes the estimation quickly out-dated and possibly inaccurate. In almost all cases physical measurement has to be replaced by partial measurement and mathematical modelling.
+The paucity of up-to-date information on equipment and system
+parameters, especially power consumption and maximum throughput, makes
+estimating the power consumption and energy efficiency of these
+systems extremely challenging. In addition the rapid evolution of
+technology and products in ICT makes the estimation quickly out-dated
+and possibly inaccurate. In almost all cases physical measurement has
+to be replaced by partial measurement and mathematical modelling.
 
 ### Motivation
 
@@ -220,16 +240,12 @@ Where power optimization choices are made, accurate information is required to d
 
 To date, two approaches to network power modelling are accepted as
 providing a realistic estimate of network power consumption. These
-approaches are referred to as “bottom-up” and “top-down”.  I think the
-bottom-up approach is what is used by Malmodin and Talia. This paper
-(Unifying Top-Down and Bottom-Up Approaches to Evaluate Network Energy
-Consumption IEEE Journals & Magazine IEEE Xplore) surveys both
-approaches and provide a new approach which unifies both of them. The
-unified approach is used to estimate the power consumption of access,
-aggregation and core networks.
+approaches are referred to as "bottom-up" and "top-down".  The paper
+{{Unifying}} surveys both approaches and provide a new approach which
+unifies both of them. The unified approach is used to estimate the
+power consumption of access, aggregation and core networks.
 
-This paper (Modeling Data-Plane Power Consumption of Future Internet
-Architectures IEEE Conference Publication IEEE Xplore) provides a
+The paper {{Modelling}} provides a
 model for IP Routers and the routers of other future Internet
 architectures (FIA) such as SCION and NEBULA. They use a generic model
 which captures the commonalities of IP router as well as the
@@ -247,12 +263,13 @@ Conference Publication IEEE Xplore got best paper award for GreenNet
 2024, but I am not sure if we are interested to model 5G vRAN.
 
 There are plethora of publications on modeling communication networks
-and DC computing. I am not sure to what extent we need to work on
-modeling networks and devices in our architecture exercise.
+and DC computing. 
 
 ### Recommendation
 
-TBD
+It is still to be determined to what extent we need to work on
+modeling networks and devices in the architecture. Is this outside the
+scope of architecture?
 
 ## Dynamic Scaling
 
@@ -276,7 +293,7 @@ can be achieved.
 
 ### Analysis
 
-Dynamic scaling could be seen as either an alternative or complementary to load stabilization, e.g., via “peak shaving”. Perhaps the most realistic angle is that both are likely needed.
+Dynamic scaling could be seen as either an alternative or complementary to load stabilization, e.g., via "peak shaving". Perhaps the most realistic angle is that both are likely needed.
 
 The most rudimentary approach to dynamic scaling is just turning some resources off. However, often this is not sufficient and a more graceful/engineered approach potentially yields better results.
 
