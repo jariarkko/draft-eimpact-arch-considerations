@@ -532,6 +532,26 @@ Is measurement architectures in scope of this activity or left for the GREEN WG?
 
 Add other considerations as needed: Transparency etc.
 
+## Resiliency
+
+This is about weight that migh impact future archs as they did not exist, aka where implicit, in the pass.
+
+### Motivation
+
+It is not so easy to focus on impacts of this or that on architectural evolution because it is difficult to focus on architecture by itself. 
+But we can ask ourselves what will impact the future architecture that didn't exist explicitly in the pass.
+
+### Analysis
+
+Resiliency might impact much more the adaptation and the design of the architecture in the future decades than it did in the past 20 years. 
+
+It might be divided in axis like 'Resiliency to power breakage', 'Resiliency to lack of material' that can be filtered wrt their impacts on device, network ... architectures
+
+
+### Recommendation
+
+TBD 
+
 # Recommendations for Further Work and Research
 
 Transport-related optimizations that enable devices to consume less
