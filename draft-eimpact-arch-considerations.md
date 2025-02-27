@@ -25,12 +25,12 @@ venue:
 
 author:
  -
-    fullname: Jari Arkko
+    fullname: Jari Arkko (Ed.)
     organization: Ericsson
     email: jari.arkko@gmail.com
 
  -
-    fullname: Suresh Krishnan
+    fullname: Suresh Krishnan (Ed.)
     organization: Cisco
     email: sureshk@cisco.com
 
@@ -124,18 +124,23 @@ implementations and practical deployments.
 
 To give an example of architectural aspect that potentially has a
 sustainability impact, enabling the collection of information (e.g.,
-energy consumption data) and then using that information to make
-smarter decisions is one. Other examples include making it possible to
-scale resources or
-resource selection processes performed in a
-sustainability-aware fashion. The use of communication primitives that maximise
-utility in a given problem (e.g., using multicast) or the use
-technologies that reduce the number or size of messages needed for a
-given task (e.g., binary encoding instead of textual) are some further examples.
+energy consumption) and then using that information to make
+smarter decisions is one. For instance, understanding power
+consumption of individual nodes can be valuable input to future purchasing
+decisions or development efforts to improve the power consumption.
 
-But there are likely also often tradeoffs, such as side-effects of
-architectural choices, e.g., dynamic scaling of a router network
-potentially impacting jitter.
+Other architectural examples include making it possible to scale
+resources or resource selection processes performed in a
+sustainability-aware fashion. The use of communication primitives that
+maximise utility in a given problem (e.g., using multicast) or the use
+technologies that reduce the number or size of messages needed for a
+given task (e.g., binary encoding instead of textual) are some further
+examples.
+
+Of course, some of these aspects may have a major impact on
+sustainability, where others may only have a minor effect.  There are
+also tradeoffs, such as side-effects of architectural choices, e.g.,
+dynamic scaling of a router network potentially impacting jitter.
 
 This document discusses some of these architectural aspects and
 considerations related to them, and tries to give guidance where such
