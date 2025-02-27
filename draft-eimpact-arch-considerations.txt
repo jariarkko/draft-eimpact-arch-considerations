@@ -2,10 +2,10 @@
 
 
 
-Network Working Group                                           J. Arkko
+Network Working Group                                        J. A. (Ed.)
 Internet-Draft                                                  Ericsson
-Intended status: Informational                               S. Krishnan
-Expires: 25 August 2025                                            Cisco
+Intended status: Informational                               S. K. (Ed.)
+Expires: 31 August 2025                                            Cisco
                                                                 M. Welzl
                                                       University of Oslo
                                                                 A. Clemm
@@ -30,7 +30,7 @@ Expires: 25 August 2025                                            Cisco
                                                                         
                                                             +OtherPeople
                                                                      ...
-                                                        21 February 2025
+                                                        27 February 2025
 
 
     Architectural Considerations for Sustainable Internet Technology
@@ -69,7 +69,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 25 August 2025.
+   This Internet-Draft will expire on 31 August 2025.
 
 Copyright Notice
 
@@ -145,18 +145,23 @@ Table of Contents
 
    To give an example of architectural aspect that potentially has a
    sustainability impact, enabling the collection of information (e.g.,
-   energy consumption data) and then using that information to make
-   smarter decisions is one.  Other examples include making it possible
-   to scale resources or resource selection processes performed in a
+   energy consumption) and then using that information to make smarter
+   decisions is one.  For instance, understanding power consumption of
+   individual nodes can be valuable input to future purchasing decisions
+   or development efforts to improve the power consumption.
+
+   Other architectural examples include making it possible to scale
+   resources or resource selection processes performed in a
    sustainability-aware fashion.  The use of communication primitives
    that maximise utility in a given problem (e.g., using multicast) or
    the use technologies that reduce the number or size of messages
    needed for a given task (e.g., binary encoding instead of textual)
    are some further examples.
 
-   But there are likely also often tradeoffs, such as side-effects of
-   architectural choices, e.g., dynamic scaling of a router network
-   potentially impacting jitter.
+   Of course, some of these aspects may have a major impact on
+   sustainability, where others may only have a minor effect.  There are
+   also tradeoffs, such as side-effects of architectural choices, e.g.,
+   dynamic scaling of a router network potentially impacting jitter.
 
    This document discusses some of these architectural aspects and
    considerations related to them, and tries to give guidance where such
@@ -613,12 +618,12 @@ Acknowledgments
 
 Authors' Addresses
 
-   Jari Arkko
+   Jari Arkko (Ed.)
    Ericsson
    Email: jari.arkko@gmail.com
 
 
-   Suresh Krishnan
+   Suresh Krishnan (Ed.)
    Cisco
    Email: sureshk@cisco.com
 

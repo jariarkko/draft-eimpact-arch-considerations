@@ -5,8 +5,8 @@
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
 <title>Architectural Considerations for Sustainable Internet Technology</title>
-<meta content="Jari Arkko" name="author">
-<meta content="Suresh Krishnan" name="author">
+<meta content="Jari Arkko (Ed.)" name="author">
+<meta content="Suresh Krishnan (Ed.)" name="author">
 <meta content="Michael Welzl" name="author">
 <meta content="Alexander Clemm" name="author">
 <meta content="Ali Rezaki" name="author">
@@ -1063,8 +1063,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <td class="right">February 2025</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Arkko, et al.</td>
-<td class="center">Expires 25 August 2025</td>
+<td class="left">(Ed.), et al.</td>
+<td class="center">Expires 31 August 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1077,20 +1077,20 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-eimpact-arch-considerations-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-02-21" class="published">21 February 2025</time>
+<time datetime="2025-02-27" class="published">27 February 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-08-25">25 August 2025</time></dd>
+<dd class="expires"><time datetime="2025-08-31">31 August 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
-      <div class="author-name">J. Arkko</div>
+      <div class="author-name">J. A. (Ed.)</div>
 <div class="org">Ericsson</div>
 </div>
 <div class="author">
-      <div class="author-name">S. Krishnan</div>
+      <div class="author-name">S. K. (Ed.)</div>
 <div class="org">Cisco</div>
 </div>
 <div class="author">
@@ -1176,7 +1176,7 @@ may have an impact on the sustainability of network technology.<a href="#section
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 25 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 31 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1344,31 +1344,35 @@ possibilities offered by the architecture need to be employed by
 implementations and practical deployments.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <p id="section-1-5">To give an example of architectural aspect that potentially has a
 sustainability impact, enabling the collection of information (e.g.,
-energy consumption data) and then using that information to make
-smarter decisions is one. Other examples include making it possible to
-scale resources or
-resource selection processes performed in a
-sustainability-aware fashion. The use of communication primitives that maximise
-utility in a given problem (e.g., using multicast) or the use
+energy consumption) and then using that information to make
+smarter decisions is one. For instance, understanding power
+consumption of individual nodes can be valuable input to future purchasing
+decisions or development efforts to improve the power consumption.<a href="#section-1-5" class="pilcrow">¶</a></p>
+<p id="section-1-6">Other architectural examples include making it possible to scale
+resources or resource selection processes performed in a
+sustainability-aware fashion. The use of communication primitives that
+maximise utility in a given problem (e.g., using multicast) or the use
 technologies that reduce the number or size of messages needed for a
-given task (e.g., binary encoding instead of textual) are some further examples.<a href="#section-1-5" class="pilcrow">¶</a></p>
-<p id="section-1-6">But there are likely also often tradeoffs, such as side-effects of
-architectural choices, e.g., dynamic scaling of a router network
-potentially impacting jitter.<a href="#section-1-6" class="pilcrow">¶</a></p>
-<p id="section-1-7">This document discusses some of these architectural aspects and
+given task (e.g., binary encoding instead of textual) are some further
+examples.<a href="#section-1-6" class="pilcrow">¶</a></p>
+<p id="section-1-7">Of course, some of these aspects may have a major impact on
+sustainability, where others may only have a minor effect.  There are
+also tradeoffs, such as side-effects of architectural choices, e.g.,
+dynamic scaling of a router network potentially impacting jitter.<a href="#section-1-7" class="pilcrow">¶</a></p>
+<p id="section-1-8">This document discusses some of these architectural aspects and
 considerations related to them, and tries to give guidance where such
-guidance can be given.<a href="#section-1-7" class="pilcrow">¶</a></p>
-<p id="section-1-8">The scope of the document is advice on Internet and protocol
+guidance can be given.<a href="#section-1-8" class="pilcrow">¶</a></p>
+<p id="section-1-9">The scope of the document is advice on Internet and protocol
 architecture, such as what architecture or capabilities new protocol
 designs or features should have, what kind of operational network
 architectures should be deployed, and how all of these can be designed
-to best address sustainability concerns.<a href="#section-1-8" class="pilcrow">¶</a></p>
-<p id="section-1-9">The document is intended to help engineering efforts in the IETF,
+to best address sustainability concerns.<a href="#section-1-9" class="pilcrow">¶</a></p>
+<p id="section-1-10">The document is intended to help engineering efforts in the IETF,
 provide guidance for operationals in the operator community, or point
-to research directions in the IRTF.<a href="#section-1-9" class="pilcrow">¶</a></p>
-<p id="section-1-10">This document is not focused on general issues around sustainability,
+to research directions in the IRTF.<a href="#section-1-10" class="pilcrow">¶</a></p>
+<p id="section-1-11">This document is not focused on general issues around sustainability,
 except those that pertain to architecture or significant protocol
-features.<a href="#section-1-10" class="pilcrow">¶</a></p>
+features.<a href="#section-1-11" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="potential-architectural-aspects">
@@ -1830,7 +1834,7 @@ perhaps as part of the efforts in the SUSTAIN RG.<a href="#section-3-1" class="p
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Jari Arkko</span></div>
+        <div dir="auto" class="left"><span class="fn nameRole">Jari Arkko (Ed.)</span></div>
 <div dir="auto" class="left"><span class="org">Ericsson</span></div>
 <div class="email">
 <span>Email:</span>
@@ -1838,7 +1842,7 @@ perhaps as part of the efforts in the SUSTAIN RG.<a href="#section-3-1" class="p
 </div>
 </address>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Suresh Krishnan</span></div>
+        <div dir="auto" class="left"><span class="fn nameRole">Suresh Krishnan (Ed.)</span></div>
 <div dir="auto" class="left"><span class="org">Cisco</span></div>
 <div class="email">
 <span>Email:</span>
