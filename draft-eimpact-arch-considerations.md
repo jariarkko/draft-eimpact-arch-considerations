@@ -88,6 +88,7 @@ author:
 normative:
 
 informative:
+  I-D.pignataro-enviro-sustainability-architecture:
   Unifying:
     title: "Unifying Top-Down and Bottom-Up Approaches to Evaluate Network Energy Consumption"
     date: November 2015
@@ -263,7 +264,7 @@ Conference Publication IEEE Xplore got best paper award for GreenNet
 2024, but I am not sure if we are interested to model 5G vRAN.
 
 There are plethora of publications on modeling communication networks
-and DC computing. 
+and DC computing.
 
 ### Recommendation
 
@@ -299,7 +300,7 @@ The most rudimentary approach to dynamic scaling is just turning some resources 
 
 A network architects need to understand the impacts of scaling changes on users and traffic. These may include fate of ongoing sessions, latency/jitter, packets in flight, or running processes, attempts to contact resources that are no longer present, and the time it takes for the network to converge to its new state.
 
-Dynamic scaling requires an understanding of load levels for the network, so information collection is required. It also requires understanding the power, time and other costs of making changes. (See draft-pignataro for discussion of tradeoffs and multi-objective optimization.)
+Dynamic scaling requires an understanding of load levels for the network, so information collection is required. It also requires understanding the power, time and other costs of making changes. (See {{I-D.pignataro-enviro-sustainability-architecture}} for discussion of tradeoffs and multi-objective optimization.)
 
 Some of the strategies that are useful in implementing a well working dynamic scaling include:
 
