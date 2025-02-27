@@ -326,7 +326,7 @@ Table of Contents
    Some of the strategies that are useful in implementing a well working
    dynamic scaling include:
 
-   *  Ability to enter “no new work” mode for equipment, to enable some
+   *  Ability to enter "no new work" mode for equipment, to enable some
       resources to be eventually released/turned off.
 
    *  Ability to move ongoing tasks off to other equipment, to prevent
@@ -334,7 +334,9 @@ Table of Contents
 
    *  Ability to schedule changes rather than making them abruptly, with
       associated signaling exchanges and possible transient routing and
-      other failures.  See for instance the TVR WG work in the IETF.
+      other failures.  See for instance the time-variant routing work in
+      the IETF [RFC9657][I-D.ietf-tvr-requirements][I-D.ietf-tvr-schedul
+      e-yang][I-D.ietf-tvr-alto-exposure].
 
    *  Efficient propagation of changes of new routes, new set of
       servers, etc. as to reduce the amount of time where state across
@@ -626,6 +628,28 @@ Table of Contents
 
 6.  Informative References
 
+   [I-D.ietf-tvr-alto-exposure]
+              Contreras, L. M., "Using ALTO for exposing Time-Variant
+              Routing information", Work in Progress, Internet-Draft,
+              draft-ietf-tvr-alto-exposure-00, 23 December 2024,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-tvr-
+              alto-exposure-00>.
+
+   [I-D.ietf-tvr-requirements]
+              King, D., Contreras, L. M., Sipos, B., and L. Zhang, "TVR
+              (Time-Variant Routing) Requirements", Work in Progress,
+              Internet-Draft, draft-ietf-tvr-requirements-04, 13
+              September 2024, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-tvr-requirements-04>.
+
+   [I-D.ietf-tvr-schedule-yang]
+              Qu, Y., Lindem, A., Kinzie, E., Fedyk, D., and M.
+              Blanchet, "YANG Data Model for Scheduled Attributes", Work
+              in Progress, Internet-Draft, draft-ietf-tvr-schedule-yang-
+              03, 20 October 2024,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-tvr-
+              schedule-yang-03>.
+
    [I-D.pignataro-enviro-sustainability-architecture]
               Pignataro, C., Rezaki, A., Krishnan, S., Arkko, J., Clemm,
               A., and H. ElBakoury, "Architectural Considerations for
@@ -641,6 +665,11 @@ Table of Contents
               2nd International Conference on Collaboration and Internet
               Computing (CIC), Pittsburgh, PA, USA, pp. 149-158, doi:
               10.1109/CIC.2016.031 , 2016.
+
+   [RFC9657]  Birrane, III, E., Kuhn, N., Qu, Y., Taylor, R., and L.
+              Zhang, "Time-Variant Routing (TVR) Use Cases", RFC 9657,
+              DOI 10.17487/RFC9657, October 2024,
+              <https://www.rfc-editor.org/rfc/rfc9657>.
 
    [Unifying] Ishii, K., Kurumida, J., K.-i Sato, Kudoh, T., and S.
               Namiki, "Unifying Top-Down and Bottom-Up Approaches to

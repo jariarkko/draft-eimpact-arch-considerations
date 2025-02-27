@@ -1538,13 +1538,13 @@ can be achieved.<a href="#section-2.3.1-1" class="pilcrow">¶</a></p>
 <p id="section-2.3.2-5">Some of the strategies that are useful in implementing a well working dynamic scaling include:<a href="#section-2.3.2-5" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-2.3.2-6.1">
-              <p id="section-2.3.2-6.1.1">Ability to enter “no new work” mode for equipment, to enable some resources to be eventually released/turned off.<a href="#section-2.3.2-6.1.1" class="pilcrow">¶</a></p>
+              <p id="section-2.3.2-6.1.1">Ability to enter "no new work" mode for equipment, to enable some resources to be eventually released/turned off.<a href="#section-2.3.2-6.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-2.3.2-6.2">
               <p id="section-2.3.2-6.2.1">Ability to move ongoing tasks off to other equipment, to prevent disruption of already started tasks.<a href="#section-2.3.2-6.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-2.3.2-6.3">
-              <p id="section-2.3.2-6.3.1">Ability to schedule changes rather than making them abruptly, with associated signaling exchanges and possible transient routing and other failures. See for instance the TVR WG work in the IETF.<a href="#section-2.3.2-6.3.1" class="pilcrow">¶</a></p>
+              <p id="section-2.3.2-6.3.1">Ability to schedule changes rather than making them abruptly, with associated signaling exchanges and possible transient routing and other failures. See for instance the time-variant routing work in the IETF <span>[<a href="#RFC9657" class="cite xref">RFC9657</a>]</span><span>[<a href="#I-D.ietf-tvr-requirements" class="cite xref">I-D.ietf-tvr-requirements</a>]</span><span>[<a href="#I-D.ietf-tvr-schedule-yang" class="cite xref">I-D.ietf-tvr-schedule-yang</a>]</span><span>[<a href="#I-D.ietf-tvr-alto-exposure" class="cite xref">I-D.ietf-tvr-alto-exposure</a>]</span>.<a href="#section-2.3.2-6.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-2.3.2-6.4">
               <p id="section-2.3.2-6.4.1">Efficient propagation of changes of new routes, new set of servers, etc. as to reduce the amount of time where state across the network is not synchronized. The needs for the propagation solution needs to be driven by dynamic scaling and sustainability as well as other aspects, such as recovery from failures.<a href="#section-2.3.2-6.4.1" class="pilcrow">¶</a></p>
@@ -1841,6 +1841,18 @@ perhaps as part of the efforts in the SUSTAIN RG.<a href="#section-3-1" class="p
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
       </h2>
 <dl class="references">
+<dt id="I-D.ietf-tvr-alto-exposure">[I-D.ietf-tvr-alto-exposure]</dt>
+      <dd>
+<span class="refAuthor">Contreras, L. M.</span>, <span class="refTitle">"Using ALTO for exposing Time-Variant Routing information"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tvr-alto-exposure-00</span>, <time datetime="2024-12-23" class="refDate">23 December 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tvr-alto-exposure-00">https://datatracker.ietf.org/doc/html/draft-ietf-tvr-alto-exposure-00</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-tvr-requirements">[I-D.ietf-tvr-requirements]</dt>
+      <dd>
+<span class="refAuthor">King, D.</span>, <span class="refAuthor">Contreras, L. M.</span>, <span class="refAuthor">Sipos, B.</span>, and <span class="refAuthor">L. Zhang</span>, <span class="refTitle">"TVR (Time-Variant Routing) Requirements"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tvr-requirements-04</span>, <time datetime="2024-09-13" class="refDate">13 September 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tvr-requirements-04">https://datatracker.ietf.org/doc/html/draft-ietf-tvr-requirements-04</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-tvr-schedule-yang">[I-D.ietf-tvr-schedule-yang]</dt>
+      <dd>
+<span class="refAuthor">Qu, Y.</span>, <span class="refAuthor">Lindem, A.</span>, <span class="refAuthor">Kinzie, E.</span>, <span class="refAuthor">Fedyk, D.</span>, and <span class="refAuthor">M. Blanchet</span>, <span class="refTitle">"YANG Data Model for Scheduled Attributes"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tvr-schedule-yang-03</span>, <time datetime="2024-10-20" class="refDate">20 October 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tvr-schedule-yang-03">https://datatracker.ietf.org/doc/html/draft-ietf-tvr-schedule-yang-03</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="I-D.pignataro-enviro-sustainability-architecture">[I-D.pignataro-enviro-sustainability-architecture]</dt>
       <dd>
 <span class="refAuthor">Pignataro, C.</span>, <span class="refAuthor">Rezaki, A.</span>, <span class="refAuthor">Krishnan, S.</span>, <span class="refAuthor">Arkko, J.</span>, <span class="refAuthor">Clemm, A.</span>, and <span class="refAuthor">H. ElBakoury</span>, <span class="refTitle">"Architectural Considerations for Environmental Sustainability"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-pignataro-enviro-sustainability-architecture-01</span>, <time datetime="2024-12-27" class="refDate">27 December 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-pignataro-enviro-sustainability-architecture-01">https://datatracker.ietf.org/doc/html/draft-pignataro-enviro-sustainability-architecture-01</a>&gt;</span>. </dd>
@@ -1848,6 +1860,10 @@ perhaps as part of the efforts in the SUSTAIN RG.<a href="#section-3-1" class="p
 <dt id="Modelling">[Modelling]</dt>
       <dd>
 <span class="refAuthor">Chen, C.</span>, <span class="refAuthor">Barrera, D.</span>, and <span class="refAuthor">A. Perrig</span>, <span class="refTitle">"Modeling Data-Plane Power Consumption of Future Internet Architectures"</span>, <span class="seriesInfo">IEEE 2nd International Conference on Collaboration and Internet Computing (CIC), Pittsburgh, PA, USA, pp. 149-158, doi: 10.1109/CIC.2016.031 </span>, <time datetime="2016" class="refDate">2016</time>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9657">[RFC9657]</dt>
+      <dd>
+<span class="refAuthor">Birrane, III, E.</span>, <span class="refAuthor">Kuhn, N.</span>, <span class="refAuthor">Qu, Y.</span>, <span class="refAuthor">Taylor, R.</span>, and <span class="refAuthor">L. Zhang</span>, <span class="refTitle">"Time-Variant Routing (TVR) Use Cases"</span>, <span class="seriesInfo">RFC 9657</span>, <span class="seriesInfo">DOI 10.17487/RFC9657</span>, <time datetime="2024-10" class="refDate">October 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9657">https://www.rfc-editor.org/rfc/rfc9657</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="Unifying">[Unifying]</dt>
     <dd>
