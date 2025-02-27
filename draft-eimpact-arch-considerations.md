@@ -166,14 +166,18 @@ features.
 
 You have to know what is going on before you can improve. Some level
 of measurements are necessary for improving sustainability. This is
-particularly the case when looking at the systems as a whole and in
-post-analysis.
+particularly the case when looking at the systems as a whole in
+post-analysis. As discussed earlier, this level of measurements is
+useful input for further actions, such as deciding what parts of the
+network need further improvement.
 
-But it may also be true for some dynamic situations
+But measurements may also be useful for some dynamic situations
 where power-saving decisions for instance depend on knowing the
 relative power consumption of different activities, such as when a
-power-off decision involves understanding the cost of shutdown and
-startup procedures and other reconfiguration elsewhere in the network.
+power-off decision involves understanding the relative savings during
+the shutdown period vs. the power cost of shutdown and startup procedures,
+or possible need to reconfigure other other nodes in the network due
+to the shutdown.
 
 ### Motivation
 
@@ -181,17 +185,28 @@ Measurements are a necessary mechanism for both post-analysis and
 potentially some of the dynamic decisions taken by systems. Without
 measurements, only aggregate power consumption can be measured, but
 for instance no per-device data about real power usage will be
-available, and as such, there's limited basis for deciding on
-improvements.
+available, and as such, there's limited basis for deciding what
+improvements are most useful.
 
 ### Analysis
 
-(TBD add something about integrating lifecycle, datasheet
-etc. information and how they are shared)
+While the simplest forms of sustainability-related measurements are
+about power, there's clearly room for other measurements and other
+information as well. To begin with, power consumption by itself may not be what
+matters most for sustainability, as the source of the power may be
+more significant in terms of the actual carbon footprint.
+
+Secondly, for many classes of devices the embedded carbon aspects or
+use of raw materials may be a significant sustainability issue.
 
 ### Recommendation
 
-TBD
+Ongoing work at the IETF's GREEN working group is already improving
+existing energy consumption metrics and frameworks. 
+
+We recommend that any measurement framework or sustainability-related
+information sharing mechanism be designed to share different types of
+information, and not limited to a single metric such as power consumption.
 
 ## Modelling
 
