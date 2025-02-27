@@ -88,6 +88,10 @@ author:
 normative:
 
 informative:
+  RFC9657:
+  I-D.ietf-tvr-requirements:
+  I-D.ietf-tvr-schedule-yang:
+  I-D.ietf-tvr-alto-exposure:
   I-D.pignataro-enviro-sustainability-architecture:
   Unifying:
     title: "Unifying Top-Down and Bottom-Up Approaches to Evaluate Network Energy Consumption"
@@ -304,11 +308,11 @@ Dynamic scaling requires an understanding of load levels for the network, so inf
 
 Some of the strategies that are useful in implementing a well working dynamic scaling include:
 
-* Ability to enter “no new work” mode for equipment, to enable some resources to be eventually released/turned off.
+* Ability to enter "no new work" mode for equipment, to enable some resources to be eventually released/turned off.
 
 * Ability to move ongoing tasks off to other equipment, to prevent disruption of already started tasks.
 
-* Ability to schedule changes rather than making them abruptly, with associated signaling exchanges and possible transient routing and other failures. See for instance the TVR WG work in the IETF.
+* Ability to schedule changes rather than making them abruptly, with associated signaling exchanges and possible transient routing and other failures. See for instance the time-variant routing work in the IETF {{RFC9657}}{{I-D.ietf-tvr-requirements}}{{I-D.ietf-tvr-schedule-yang}}{{I-D.ietf-tvr-alto-exposure}}.
 
 * Efficient propagation of changes of new routes, new set of servers, etc. as to reduce the amount of time where state across the network is not synchronized. The needs for the propagation solution needs to be driven by dynamic scaling and sustainability as well as other aspects, such as recovery from failures.
 
