@@ -25,12 +25,12 @@ venue:
 
 author:
  -
-    fullname: Jari Arkko
+    fullname: Jari Arkko (Ed.)
     organization: Ericsson
     email: jari.arkko@gmail.com
 
  -
-    fullname: Suresh Krishnan
+    fullname: Suresh Krishnan (Ed.)
     organization: Cisco
     email: sureshk@cisco.com
 
@@ -86,14 +86,51 @@ author:
     organization: All For Eco
     email: jan.lindblad+ietf@for.eco
 
- -
-    fullname: +OtherPeople
-    organization: ...
-
 normative:
 
 informative:
-
+  RFC6817:
+  RFC9657:
+  I-D.ietf-tvr-requirements:
+  I-D.ietf-tvr-schedule-yang:
+  I-D.ietf-tvr-alto-exposure:
+  I-D.pignataro-enviro-sustainability-architecture:
+  NotTradeOff:
+    title: "Not a Trade-Off: On the Wi-Fi Energy Efficiency of Effective Internet Congestion Control"
+    date: 2022
+    author:
+     - ins: M. Welzl
+    seriesinfo: "17th Wireless On-Demand Network Systems and Services Conference (WONS), Oppdal, Norway, pp. 1-4, doi: 10.23919/WONS54113.2022.9764413"
+  Sammy:
+    title: "Sammy: smoothing video traffic to be a friendly internet neighbor"
+    date: 2023
+    author:
+     - ins: Bruce Spang
+     - ins: Shravya Kunamalla
+     - ins: Renata Teixeira
+     - ins: Te-Yuan Huang
+     - ins: Grenville Armitage
+     - ins: Ramesh Johari
+     - ins: Nick McKeown
+    seriesinfo: "In Proceedings of the ACM SIGCOMM 2023 Conference (ACM SIGCOMM '23). Association for Computing Machinery, New York, NY, USA, 754–768. https://doi.org/10.1145/3603269.3604839"
+  Unifying:
+    title: "Unifying Top-Down and Bottom-Up Approaches to Evaluate Network Energy Consumption"
+    date: November 2015
+    author:
+     - ins: K. Ishii
+     - ins: J. Kurumida
+     - ins: K.-i. Sato
+     - ins: T. Kudoh
+     - ins: S. Namiki
+    seriesinfo: "In Journal of Lightwave Technology, vol. 33, no. 21, pp. 4395-4405, doi: 10.1109/JLT.2015.2469145"
+  Modelling:
+    title: "Modeling Data-Plane Power Consumption of Future Internet Architectures"
+    date: 2016
+    author:
+      - ins: C. Chen
+      - ins: D. Barrera
+      - ins: A. Perrig
+    seriesinfo: "IEEE 2nd International Conference on Collaboration and Internet Computing (CIC), Pittsburgh, PA, USA, pp. 149-158, doi: 10.1109/CIC.2016.031"
 
 --- abstract
 
@@ -125,18 +162,23 @@ implementations and practical deployments.
 
 To give an example of architectural aspect that potentially has a
 sustainability impact, enabling the collection of information (e.g.,
-energy consumption data) and then using that information to make
-smarter decisions is one. Other examples include making it possible to
-scale resources or
-resource selection processes performed in a
-sustainability-aware fashion. The use of communication primitives that maximise
-utility in a given problem (e.g., using multicast) or the use
-technologies that reduce the number or size of messages needed for a
-given task (e.g., binary encoding instead of textual) are some further examples.
+energy consumption) and then using that information to make
+smarter decisions is one. For instance, understanding power
+consumption of individual nodes can be valuable input to future purchasing
+decisions or development efforts to improve the power consumption.
 
-But there are likely also often tradeoffs, such as side-effects of
-architectural choices, e.g., dynamic scaling of a router network
-potentially impacting jitter.
+Other architectural examples include making it possible to scale
+resources or resource selection processes performed in a
+sustainability-aware fashion. The use of communication primitives that
+maximise utility in a given problem (e.g., using multicast) or the use
+technologies that reduce the number or size of messages needed for a
+given task (e.g., binary encoding instead of textual) are some further
+examples.
+
+Of course, some of these aspects may have a major impact on
+sustainability, where others may only have a minor effect.  There are
+also tradeoffs, such as side-effects of architectural choices, e.g.,
+dynamic scaling of a router network potentially impacting jitter.
 
 This document discusses some of these architectural aspects and
 considerations related to them, and tries to give guidance where such
@@ -162,14 +204,18 @@ features.
 
 You have to know what is going on before you can improve. Some level
 of measurements are necessary for improving sustainability. This is
-particularly the case when looking at the systems as a whole and in
-post-analysis.
+particularly the case when looking at the systems as a whole in
+post-analysis. As discussed earlier, this level of measurements is
+useful input for further actions, such as deciding what parts of the
+network need further improvement.
 
-But it may also be true for some dynamic situations
+But measurements may also be useful for some dynamic situations
 where power-saving decisions for instance depend on knowing the
 relative power consumption of different activities, such as when a
-power-off decision involves understanding the cost of shutdown and
-startup procedures and other reconfiguration elsewhere in the network.
+power-off decision involves understanding the relative savings during
+the shutdown period vs. the power cost of shutdown and startup procedures,
+or possible need to reconfigure other other nodes in the network due
+to the shutdown.
 
 ### Motivation
 
@@ -177,12 +223,23 @@ Measurements are a necessary mechanism for both post-analysis and
 potentially some of the dynamic decisions taken by systems. Without
 measurements, only aggregate power consumption can be measured, but
 for instance no per-device data about real power usage will be
-available, and as such, there's limited basis for deciding on
-improvements.
+available, and as such, there's limited basis for deciding what
+improvements are most useful.
 
 ### Analysis
 
-Operators know their total energy consumption already (see the
+While the simplest forms of sustainability-related measurements are
+about power, there's clearly room for other measurements and other
+information as well. To begin with, power consumption by itself may not be what
+matters most for sustainability, as the source of the power may be
+more significant in terms of the actual carbon footprint.
+
+Secondly, for many classes of devices the embedded carbon aspects or
+use of raw materials may be a significant sustainability issue. See
+also Section 2.2.
+
+But when it comes to energy consumption, 
+operators know their total energy consumption already (see the
 utility bill), and it's not particularly hard to measure the energy
 consumption of individial network devices either.  Still, there are a
 number of desirable use cases where the measurement situation needs to
@@ -232,8 +289,16 @@ provenance and computation methods that allow comparisons.
 
 ### Recommendation
 
-In order to meet the needs in these use cases, the following
+Ongoing work at the IETF's GREEN working group is already improving
+existing energy consumption metrics and frameworks. 
+Some further considerations apply, however. In order to meet the needs of the use cases discussed above, the following
 architectural design principles are proposed.
+
+#### Generality
+
+We recommend that any measurement framework or sustainability-related
+information sharing mechanism be designed to share different types of
+information, and not limited to a single metric such as power consumption.
 
 #### Collect Metrics from Existing Equipment
 
@@ -292,7 +357,13 @@ the value of this work would be greatly diminished.
 
 ## Modelling
 
-The paucity of up-to-date information on equipment and system parameters, especially power consumption and maximum throughput, makes estimating the power consumption and energy efficiency of these systems extremely challenging. In addition the rapid evolution of technology and products in ICT makes the estimation quickly out-dated and possibly inaccurate. In almost all cases physical measurement has to be replaced by partial measurement and mathematical modelling.
+The paucity of up-to-date information on equipment and system
+parameters, especially power consumption and maximum throughput, makes
+estimating the power consumption and energy efficiency of these
+systems extremely challenging. In addition the rapid evolution of
+technology and products in ICT makes the estimation quickly out-dated
+and possibly inaccurate. In almost all cases physical measurement has
+to be replaced by partial measurement and mathematical modelling.
 
 ### Motivation
 
@@ -302,16 +373,12 @@ Where power optimization choices are made, accurate information is required to d
 
 To date, two approaches to network power modelling are accepted as
 providing a realistic estimate of network power consumption. These
-approaches are referred to as “bottom-up” and “top-down”.  I think the
-bottom-up approach is what is used by Malmodin and Talia. This paper
-(Unifying Top-Down and Bottom-Up Approaches to Evaluate Network Energy
-Consumption IEEE Journals & Magazine IEEE Xplore) surveys both
-approaches and provide a new approach which unifies both of them. The
-unified approach is used to estimate the power consumption of access,
-aggregation and core networks.
+approaches are referred to as "bottom-up" and "top-down".  The paper
+{{Unifying}} surveys both approaches and provide a new approach which
+unifies both of them. The unified approach is used to estimate the
+power consumption of access, aggregation and core networks.
 
-This paper (Modeling Data-Plane Power Consumption of Future Internet
-Architectures IEEE Conference Publication IEEE Xplore) provides a
+The paper {{Modelling}} provides a
 model for IP Routers and the routers of other future Internet
 architectures (FIA) such as SCION and NEBULA. They use a generic model
 which captures the commonalities of IP router as well as the
@@ -329,12 +396,13 @@ Conference Publication IEEE Xplore got best paper award for GreenNet
 2024, but I am not sure if we are interested to model 5G vRAN.
 
 There are plethora of publications on modeling communication networks
-and DC computing. I am not sure to what extent we need to work on
-modeling networks and devices in our architecture exercise.
+and DC computing.
 
 ### Recommendation
 
-TBD
+It is still to be determined to what extent we need to work on
+modeling networks and devices in the architecture. Is this outside the
+scope of architecture?
 
 ## Dynamic Scaling
 
@@ -358,27 +426,27 @@ can be achieved.
 
 ### Analysis
 
-Dynamic scaling could be seen as either an alternative or complementary to load stabilization, e.g., via “peak shaving”. Perhaps the most realistic angle is that both are likely needed.
+Dynamic scaling could be seen as either an alternative or complementary to load stabilization, e.g., via "peak shaving". Perhaps the most realistic angle is that both are likely needed.
 
 The most rudimentary approach to dynamic scaling is just turning some resources off. However, often this is not sufficient and a more graceful/engineered approach potentially yields better results.
 
 A network architects need to understand the impacts of scaling changes on users and traffic. These may include fate of ongoing sessions, latency/jitter, packets in flight, or running processes, attempts to contact resources that are no longer present, and the time it takes for the network to converge to its new state.
 
-Dynamic scaling requires an understanding of load levels for the network, so information collection is required. It also requires understanding the power, time and other costs of making changes. (See draft-pignataro for discussion of tradeoffs and multi-objective optimization.)
+Dynamic scaling requires an understanding of load levels for the network, so information collection is required. It also requires understanding the power, time and other costs of making changes. (See {{I-D.pignataro-enviro-sustainability-architecture}} for discussion of tradeoffs and multi-objective optimization.)
 
 Some of the strategies that are useful in implementing a well working dynamic scaling include:
 
-* Ability to enter “no new work” mode for equipment, to enable some resources to be eventually released/turned off.
+* Ability to enter "no new work" mode for equipment, to enable some resources to be eventually released/turned off.
 
 * Ability to move ongoing tasks off to other equipment, to prevent disruption of already started tasks.
 
-* Ability to schedule changes rather than making them abruptly, with associated signaling exchanges and possible transient routing and other failures. See for instance the TVR WG work in the IETF.
+* Ability to schedule changes rather than making them abruptly, with associated signaling exchanges and possible transient routing and other failures. See for instance the time-variant routing work in the IETF {{RFC9657}}{{I-D.ietf-tvr-requirements}}{{I-D.ietf-tvr-schedule-yang}}{{I-D.ietf-tvr-alto-exposure}}.
 
 * Efficient propagation of changes of new routes, new set of servers, etc. as to reduce the amount of time where state across the network is not synchronized. The needs for the propagation solution needs to be driven by dynamic scaling and sustainability as well as other aspects, such as recovery from failures.
 
 * Never expect a fixed set of resources, plan for dynamic set of resources, and build mechanisms to deal with dynamic changes.
 
-* Dynamic scaling requires automation in most cases. See draft-pignataro for a discussion of automation.
+* Dynamic scaling requires automation in most cases. See again {{I-D.pignataro-enviro-sustainability-architecture}} for a discussion of automation.
 
 From Hesham:
 
@@ -424,7 +492,7 @@ involved systems have power proportionality.
 ### Analysis
 
 A critical issue is the tradeoff involved in sending traffic. As
-argued in https://doi.org/10.23919/WONS54113.2022.9764413, reducing
+argued in {{NotTradeOff}}, reducing
 the amount of time the endpoints and the network are active can
 sometimes help save energy, e.g. in case the receiver is connected
 over a WiFi link. Similar logic applies for any technology that has a
@@ -438,19 +506,18 @@ network, and consequently reducing capacity available for others, or
 increasing buffering (and with it, latency) across the network
 path. For an application with intermittent data transfers, such as
 streaming video, this would seem to speak in favor of sustained but
-lower-rate delivery instead of transmitting short high-rate bursts
-(Sammy paper: https://doi.org/10.1145/3603269.3604839). However, this
+lower-rate delivery instead of transmitting short high-rate bursts {{Sammy}}. However, this
 is in contradiction with the energy-saving approach above. Thus, the
-tradeoff is: should data be sent in a way that is “friendly” to others
+tradeoff is: should data be sent in a way that is "friendly" to others
 (avoiding bad interference), or should it save energy by sending fast,
-increasing the chance for equipment to enter a “sleep” state?
+increasing the chance for equipment to enter a "sleep" state?
 
 At the time of writing, the common choice for video is to opt for high
 rate delivery, potentially saving energy, and possibly at the expense
 of other traffic. For non-urgent data transfers, the IETF-recommended
 default approach is the opposite: the LEDBAT congestion control
-mechanism (RFC 6817), which is designed for such use, will always
-“step out of the way” of other traffic, giving it a low rate when it
+mechanism {{RFC6817}}, which is designed for such use, will always
+"step out of the way" of other traffic, giving it a low rate when it
 competes with any other traffic. Alternatively, if the goal is to
 reduce energy, such traffic could be sent at a high rate, at a
 strategically good moment within a longer time interval; this would
@@ -461,7 +528,7 @@ Perhaps the issue is that the transport behavior (as with many other
 things) needs to take into account multiple parameters. For example,
 it is possible that a balanced transport algorithm would be able to
 send as much as possible as soon as possible, while tracking buffer
-growth from transmission delays and scaling back if there’s any buffer
+growth from transmission delays and scaling back if there's any buffer
 growth. This remains to be confirmed with experiments, however.
 
 Similarly, caching and pre-fetching designs need to take into account
@@ -488,7 +555,7 @@ TBD implementation and deployment guidance
 
 ## Equipment Longevity
 
-The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. (Suggestion from Michael: This includes devising tools to inform network administrators and their users of the potential benefits of hardware upgrades, so that they can better decide to avoid unnecessary upgrades or delay them.)
+The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. This includes devising tools to inform network administrators and their users of the potential benefits of network equipment upgrades, so that they can make better choices on what upgrades are necessary and when.
 
 ### Motivation
 
@@ -528,9 +595,7 @@ Hence, it is very likely that extending the life of protocols and equipment with
 
 ### Recommendation
 
-The guidelines above should be considered for any new system design.
-
-TBD implementation and deployment guidance
+The guidelines above should be considered for any new system design. If some aspect of protocol or network equipment design choice could be made more generic and flexible without a significant performance and sustainability impact, it needs to be studied in further detail. Specifically, the potential additional sustainability costs due to forgoing optimization need to be weighed against the potential savings in embedded carbon and raw material costs brought about by premature upgrades. There are also cases where equipment upgrades are done to provide better peak performance characteristics (e.g. higher advertised speeds towards consumers) and these need to be viewed as well with the same tradeoffs in mind. Finally, when designing networks it is recommended to consider whether it is possible to reuse retiring equipment in a different location or for a different function (e.g. move it to lower traffic geographies, core routers become edge/access routers etc.)
 
 ## Compact encoding
 
@@ -575,6 +640,26 @@ Is measurement architectures in scope of this activity or left for the GREEN WG?
 ## ...
 
 Add other considerations as needed: Transparency etc.
+
+## Resiliency
+
+This is about weight that migh impact future archs as they did not exist, aka where implicit, in the pass.
+
+### Motivation
+
+It is not so easy to focus on impacts of this or that on architectural evolution because it is difficult to focus on architecture by itself. 
+But we can ask ourselves what will impact the future architecture that didn't exist explicitly in the pass.
+
+### Analysis
+
+Resiliency might impact much more the adaptation and the design of the architecture in the future decades than it did in the past 20 years. 
+
+It might be divided in axis like 'Resiliency to power breakage', 'Resiliency to lack of material' that can be filtered wrt their impacts on device, network ... architectures
+
+
+### Recommendation
+
+TBD 
 
 # Recommendations for Further Work and Research
 
