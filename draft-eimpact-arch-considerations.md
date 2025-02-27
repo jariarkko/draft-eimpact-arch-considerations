@@ -88,11 +88,30 @@ author:
 normative:
 
 informative:
+  RFC6817:
   RFC9657:
   I-D.ietf-tvr-requirements:
   I-D.ietf-tvr-schedule-yang:
   I-D.ietf-tvr-alto-exposure:
   I-D.pignataro-enviro-sustainability-architecture:
+  NotTradeOff:
+    title: "Not a Trade-Off: On the Wi-Fi Energy Efficiency of Effective Internet Congestion Control"
+    date: 2022
+    author:
+     - ins: M. Welzl
+    seriesinfo: "17th Wireless On-Demand Network Systems and Services Conference (WONS), Oppdal, Norway, pp. 1-4, doi: 10.23919/WONS54113.2022.9764413"
+  Sammy:
+    title: "Sammy: smoothing video traffic to be a friendly internet neighbor"
+    date: 2023
+    author:
+     - ins: Bruce Spang
+     - ins: Shravya Kunamalla
+     - ins: Renata Teixeira
+     - ins: Te-Yuan Huang
+     - ins: Grenville Armitage
+     - ins: Ramesh Johari
+     - ins: Nick McKeown
+    seriesinfo: "In Proceedings of the ACM SIGCOMM 2023 Conference (ACM SIGCOMM '23). Association for Computing Machinery, New York, NY, USA, 754–768. https://doi.org/10.1145/3603269.3604839"
   Unifying:
     title: "Unifying Top-Down and Bottom-Up Approaches to Evaluate Network Energy Consumption"
     date: November 2015
@@ -318,7 +337,7 @@ Some of the strategies that are useful in implementing a well working dynamic sc
 
 * Never expect a fixed set of resources, plan for dynamic set of resources, and build mechanisms to deal with dynamic changes.
 
-* Dynamic scaling requires automation in most cases. See draft-pignataro for a discussion of automation.
+* Dynamic scaling requires automation in most cases. See again {{I-D.pignataro-enviro-sustainability-architecture}} for a discussion of automation.
 
 From Hesham:
 
@@ -364,7 +383,7 @@ involved systems have power proportionality.
 ### Analysis
 
 A critical issue is the tradeoff involved in sending traffic. As
-argued in https://doi.org/10.23919/WONS54113.2022.9764413, reducing
+argued in {{NotTradeOff}}, reducing
 the amount of time the endpoints and the network are active can
 sometimes help save energy, e.g. in case the receiver is connected
 over a WiFi link. Similar logic applies for any technology that has a
@@ -378,19 +397,18 @@ network, and consequently reducing capacity available for others, or
 increasing buffering (and with it, latency) across the network
 path. For an application with intermittent data transfers, such as
 streaming video, this would seem to speak in favor of sustained but
-lower-rate delivery instead of transmitting short high-rate bursts
-(Sammy paper: https://doi.org/10.1145/3603269.3604839). However, this
+lower-rate delivery instead of transmitting short high-rate bursts {{Sammy}}. However, this
 is in contradiction with the energy-saving approach above. Thus, the
-tradeoff is: should data be sent in a way that is “friendly” to others
+tradeoff is: should data be sent in a way that is "friendly" to others
 (avoiding bad interference), or should it save energy by sending fast,
-increasing the chance for equipment to enter a “sleep” state?
+increasing the chance for equipment to enter a "sleep" state?
 
 At the time of writing, the common choice for video is to opt for high
 rate delivery, potentially saving energy, and possibly at the expense
 of other traffic. For non-urgent data transfers, the IETF-recommended
 default approach is the opposite: the LEDBAT congestion control
-mechanism (RFC 6817), which is designed for such use, will always
-“step out of the way” of other traffic, giving it a low rate when it
+mechanism {{RFC6817}}, which is designed for such use, will always
+"step out of the way" of other traffic, giving it a low rate when it
 competes with any other traffic. Alternatively, if the goal is to
 reduce energy, such traffic could be sent at a high rate, at a
 strategically good moment within a longer time interval; this would
@@ -401,7 +419,7 @@ Perhaps the issue is that the transport behavior (as with many other
 things) needs to take into account multiple parameters. For example,
 it is possible that a balanced transport algorithm would be able to
 send as much as possible as soon as possible, while tracking buffer
-growth from transmission delays and scaling back if there’s any buffer
+growth from transmission delays and scaling back if there's any buffer
 growth. This remains to be confirmed with experiments, however.
 
 Similarly, caching and pre-fetching designs need to take into account
