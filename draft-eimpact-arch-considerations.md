@@ -1,5 +1,5 @@
 ---
-title: "Architectural Considerations for Sustainable Internet Technology"
+title: "Architectural Considerations for Environmentally Sustainable Internet Technology"
 abbrev: "Sustainable Internet Architecture"
 category: info
 
@@ -43,6 +43,11 @@ author:
     fullname: Michael Welzl
     organization: University of Oslo
     email: michawe@ifi.uio.no
+
+ -
+    fullname: Jukka Manner
+    organization: Aalto University
+    email: jukka.manner@aalto.fi
 
  -
     fullname: Alexander Clemm
@@ -202,12 +207,14 @@ may have an impact on the sustainability of network technology.
 
 # Introduction
 
-Sustainability is an important consideration in networking. Both for
+Environmental sustainability is an important consideration in networking. Both for
 ensuring that networking technology can enable societies to operate in
-a sustainable manner and that the networks themselves are sustainable.
+an environmentally sustainable manner and that the networks themselves are environmentally sustainable.
 
 This document discusses protocol and network architecture aspects that
-may have an impact on the sustainability of network technology.
+may have an impact on the environmental sustainability of network technology. For brevity, we will use the term sustainability to refer to environmental sustainability. We do note that sustainability as a term is widely used to refer to different notions of sustainability, and the most well-known larger definition of sustainability can be seen from the United Nations Sustainable Development Goals (UN SDG) [REF TO UN SDGs]. 
+
+Sustainability impact and emissions from networking comes from three primary categories: hardware manufacturing, direct energy usage and construction work. This latter is out of scope of this document because networking has limited means to impact construction work. The manufacturing of networking hardware, both for fixed and wireless networks, is a significant source of emissions, and recycling of ICT equipment is still limited. Often direct energy usage of networking, and the source of the electricity, is the primary concern, but as the world moves towards greener energy production, the relative negative impact of the emissions from manufacturing rises.
 
 Where good design and architecture can improve the sustainability of
 networks, we should of course apply them when designing new protocols
@@ -226,7 +233,7 @@ sustainability impact, enabling the collection of information (e.g.,
 energy consumption) and then using that information to make
 smarter decisions is one. For instance, understanding power
 consumption of individual nodes can be valuable input to future purchasing
-decisions or development efforts to improve the power consumption.
+decisions or development efforts to improve the power consumption. Yet, as data collection is often rather easy, we should not overdo it in such a way that it leads to dark data, data that is collected and stored, but never used. All data collection consumes processing power, network resources and storage space, that all increase the emissions from the network.
 
 Other architectural examples include making it possible to scale
 resources or resource selection processes performed in a
@@ -251,15 +258,20 @@ designs or features should have, what kind of operational network
 architectures should be deployed, and how all of these can be designed
 to best address sustainability concerns.
 
+We do note that networks themselves are a service, a tool, for all the applications and services on the Internet. Networks connect data, people and services. The increase in networking and size of the Internet is driven by these applications and the usage. Therefore the emissions from networking are tied to the data volumes; with less data, the Internet would have less hardware and less energy usage. The goals of this document are not to instruct application and service developers to optimize they content. There are many forums and parties whose mission is to help these developers to implement more sustainable services, such as, the Green Software Foundation, the Green Web Foundation, Greening of Streaming, to name a few.
+
 The document is intended to help engineering efforts in the IETF,
 provide guidance for operationals in the operator community, or point
 to research directions in the IRTF.
 
-This document is not focused on general issues around sustainability,
+This document is not focused on general issues around environmental sustainability,
 except those that pertain to architecture or significant protocol
 features.
 
 # Potential Architectural Aspects
+
+This section presents architectural and protocol design aspects that can have an impact on the sustainability of networking. In each topic, we provide an overview, motivation why it would be important to consider for more sustainable networking, an analysis and recommendations for future networking professionals.
+
 
 ## Measurement
 
@@ -317,6 +329,8 @@ of bits sent or received.  But applying this to a video conferencing
 operation, for example, would mean that if a 10% improvement of the
 compression algorithm is introduced at unchanged power usage, the
 operation would suddenly seem to be 10% less efficient.
+
+JUKKA: why the above example ? We are talking about energy usage, so a 10% drop in bits could mean a 10% drop in energy usage, so value grows.
 
 There are many more strange effects like the one above with this
 approach.  The value definition needs to be more stable than depending
@@ -525,6 +539,8 @@ servers needed for a service, how many duplicate links are needed to
 carry high-volume traffic, whether one needs all base stations with
 overlapping coverage areas to be on, etc.
 
+Often networking is a critical service and redundancy is needed in fixed and wireless networks. Yet, there is a question on how much resiliency is needed and how quickly a backup or resource increase due to capacity shortage can be activated.
+
 ### Motivation
 
 Outside implementation improvements, dynamic scaling is perhaps the
@@ -536,6 +552,8 @@ systems have significant amount of redundancy and spare
 capacity. Where such capacity can be turned on or off to match the
 actual need at a given time, significant power consumption reductions
 can be achieved.
+
+JUKKA: The above is a false statement. Single cellular base stations do scale their power usage based on load.
 
 ### Analysis
 
@@ -577,6 +595,8 @@ The guidelines above need to be considered specifically for each protocol and sy
 
 TBD implementation and deployment guidance
 
+Note the different between fixed and cellular networks.
+
 ## Transport
 
 Transport protocols are the flexible tools that make it possible for
@@ -591,6 +611,8 @@ cache or pre-fetch information.
 This behavior will have an effect on sustainability as well, e.g., in
 what periods the endpoint and network systems are active or when they
 could be in reduced activity or sleep states.
+
+Cellular networks and mobile links can scale their energy usage based on load and enter a low-power state when a traffic flow ends. Thus, in theory, the faster the data is transferred, the faster the device radio chipset can enter a low-power state. SOME REFS HERE, I HAVE MANY.
 
 ### Motivation
 
