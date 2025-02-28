@@ -153,6 +153,10 @@ informative:
       - ins: R. K. Sitaraman
       - ins: P. Shenoy
     seriesinfo: "Sixth International Conference on Communication Systems and Networks (COMSNETS), Bangalore, India, pp. 1-8, doi: 10.1109/COMSNETS.2014.6734894"
+  LinkAggregation:
+    title: "IEEE Standard for Local and Metropolitan Area Networks--Link Aggregation"
+    date: May 2020
+    seriesinfo: "IEEE STD 802.1AX-2020 (Revision of IEEE STD 802.1AX-2014): 1–333. doi:10.1109/IEEESTD.2020.9105034. ISBN 978-1-5044-6428-4"
 
 --- abstract
 
@@ -477,7 +481,7 @@ Energy-aware routing generally aims at aggregating traffic flows over a subset o
 
 There are also algorithms for Green Traffic engineering. Here is an example which uses segment routing {{Segment}}. The empirical analysis of this algorithm is described in {{Experiment}}. The results of this analysis showed that the resource usage for SRv6 could be more than 70% lower than that of the SPF-based forwarding, depending on the network topology.
 
-Using load adaptive technique allows the capacity of the nodes to be dynamically adjusted according to the demand. Examples include: Adaptive Link Rate (ALR): Adapt Link Rate to suit traffic demand and Dynamically or power off links in Link Aggregation based on traffic demand which is empirically estimated based on traffic arrival. LACP (Link Aggregation Control Protocol) defined in IEEE 802.1AX can be modified to power off links in an aggregation if they are not needed.
+Using load adaptive technique allows the capacity of the nodes to be dynamically adjusted according to the demand. Examples include: Adaptive Link Rate (ALR): Adapt Link Rate to suit traffic demand and Dynamically or power off links in Link Aggregation based on traffic demand which is empirically estimated based on traffic arrival. LACP (Link Aggregation Control Protocol) defined in IEEE 802.1AX {{LinkAggregation}} can be modified to power off links in an aggregation if they are not needed.
 
 We can use dynamic load shifting such as a demand-response technique where the system temporarily reduces its energy usage in response to pricing signals from a smart grid. The proposed demand-response technique involves deferring the load from elastic requests to later time periods in order to reduce the server demand and the current energy usage, and hence, energy costs {{LoadShifting}}.
 
