@@ -111,12 +111,12 @@ Table of Contents
        2.6.1.  Motivation
        2.6.2.  Analysis
        2.6.3.  Recommendation
-     2.7.  Measurement Architecture
-     2.8.  ...
-     2.9.  Resiliency
-       2.9.1.  Motivation
-       2.9.2.  Analysis
-       2.9.3.  Recommendation
+     2.7.  Resiliency
+       2.7.1.  Motivation
+       2.7.2.  Analysis
+       2.7.3.  Recommendation
+     2.8.  Measurement Architecture
+     2.9.  ...
    3.  Recommendations for Further Work and Research
    4.  Security Considerations
    5.  IANA Considerations
@@ -727,28 +727,19 @@ Table of Contents
 
    TBD implementation and deployment guidance
 
-2.7.  Measurement Architecture
-
-   Is measurement architectures in scope of this activity or left for
-   the GREEN WG?
-
-2.8.  ...
-
-   Add other considerations as needed: Transparency etc.
-
-2.9.  Resiliency
+2.7.  Resiliency
 
    This is about weight that migh impact future archs as they did not
    exist, aka where implicit, in the pass.
 
-2.9.1.  Motivation
+2.7.1.  Motivation
 
    It is not so easy to focus on impacts of this or that on
    architectural evolution because it is difficult to focus on
    architecture by itself.  But we can ask ourselves what will impact
    the future architecture that didn't exist explicitly in the pass.
 
-2.9.2.  Analysis
+2.7.2.  Analysis
 
    Resiliency might impact much more the adaptation and the design of
    the architecture in the future decades than it did in the past 20
@@ -758,9 +749,18 @@ Table of Contents
    'Resiliency to lack of material' that can be filtered wrt their
    impacts on device, network ... architectures
 
-2.9.3.  Recommendation
+2.7.3.  Recommendation
 
    TBD
+
+2.8.  Measurement Architecture
+
+   Is measurement architectures in scope of this activity or left for
+   the GREEN WG?
+
+2.9.  ...
+
+   Add other considerations as needed: Transparency etc.
 
 3.  Recommendations for Further Work and Research
 
