@@ -145,6 +145,14 @@ informative:
       - ins: J.-V. Groningen
       - ins: C.-H. Lung
     seriesinfo: "2024 20th International Conference on Network and Service Management (CNSM)"
+  LoadShifting:
+    title: "Reducing energy costs in Internet-scale distributed systems using load shifting"
+    date: 2014
+    author:
+      - ins: V. Mathew
+      - ins: R. K. Sitaraman
+      - ins: P. Shenoy
+    seriesinfo: "Sixth International Conference on Communication Systems and Networks (COMSNETS), Bangalore, India, pp. 1-8, doi: 10.1109/COMSNETS.2014.6734894"
 
 --- abstract
 
@@ -471,7 +479,7 @@ There are also algorithms for Green Traffic engineering. Here is an example whic
 
 Using load adaptive technique allows the capacity of the nodes to be dynamically adjusted according to the demand. Examples include: Adaptive Link Rate (ALR): Adapt Link Rate to suit traffic demand and Dynamically or power off links in Link Aggregation based on traffic demand which is empirically estimated based on traffic arrival. LACP (Link Aggregation Control Protocol) defined in IEEE 802.1AX can be modified to power off links in an aggregation if they are not needed.
 
-We can use dynamic load shifting such as a demand-response technique where the system temporarily reduces its energy usage in response to pricing signals from a smart grid. The proposed demand-response technique involves deferring the load from elastic requests to later time periods in order to reduce the server demand and the current energy usage, and hence, energy costs (comsnets14-Vmathew.pdf)
+We can use dynamic load shifting such as a demand-response technique where the system temporarily reduces its energy usage in response to pricing signals from a smart grid. The proposed demand-response technique involves deferring the load from elastic requests to later time periods in order to reduce the server demand and the current energy usage, and hence, energy costs {{LoadShifting}}.
 
 ### Recommendation
 
