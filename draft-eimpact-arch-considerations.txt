@@ -488,8 +488,9 @@ Table of Contents
    Adaptive Link Rate (ALR): Adapt Link Rate to suit traffic demand and
    Dynamically or power off links in Link Aggregation based on traffic
    demand which is empirically estimated based on traffic arrival.  LACP
-   (Link Aggregation Control Protocol) defined in IEEE 802.1AX can be
-   modified to power off links in an aggregation if they are not needed.
+   (Link Aggregation Control Protocol) defined in IEEE 802.1AX
+   [LinkAggregation] can be modified to power off links in an
+   aggregation if they are not needed.
 
    We can use dynamic load shifting such as a demand-response technique
    where the system temporarily reduces its energy usage in response to
@@ -837,6 +838,12 @@ Table of Contents
               01, 27 December 2024,
               <https://datatracker.ietf.org/doc/html/draft-pignataro-
               enviro-sustainability-architecture-01>.
+
+   [LinkAggregation]
+              "IEEE Standard for Local and Metropolitan Area Networks--
+              Link Aggregation", IEEE STD 802.1AX-2020 (Revision of IEEE
+              STD 802.1AX-2014): 1–333. doi:10.1109/
+              IEEESTD.2020.9105034. ISBN 978-1-5044-6428-4 , May 2020.
 
    [LoadShifting]
               Mathew, V., Sitaraman, R. K., and P. Shenoy, "Reducing
