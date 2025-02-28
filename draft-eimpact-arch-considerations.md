@@ -332,7 +332,7 @@ match further aggregation and processing steps, such as unit
 conversions, sample frequency alignment, filtering, etc.
 
 Separate these architectural roles into separate modules in
-order to enable reuse, modulear development and a transparent,
+order to enable reuse, modular development and a transparent,
 configurable pipeline.
 
 #### Configurable Pipeline for Reuse and Transparency
