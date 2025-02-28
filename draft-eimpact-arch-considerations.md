@@ -570,7 +570,9 @@ TBD implementation and deployment guidance
 
 ## Equipment Longevity
 
-The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. This includes devising tools to inform network administrators and their users of the potential benefits of network equipment upgrades, so that they can make better choices on what upgrades are necessary and when.
+The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. This includes devising tools to inform network administrators and their users of the potential benefits of network equipment upgrades, so that they can make better choices on what upgrades are necessary and when.  
+
+It should be noted that from an environmental sustainability perspective, it is not necessarily always the best choice to upgrade network equipment whenever slightly less power-hungry and "greener" alternatives become availabe. The environmental cost of amortizing the carbon embedded inside equipment over its lifetime, for example, the carbon associated with the manufacturing of the equipment that is to be replaced, should be taken into consideration as well.  
 
 ### Motivation
 
@@ -607,6 +609,8 @@ advantages:
 * One key disadvantage may be that not optimizing may result in the need for premature upgrades for capacity and this needs to be taken into account.
 
 Hence, it is very likely that extending the life of protocols and equipment with higher flexibility could provide a better environmental benefit than tightly optimizing only for today’s uses.
+
+Another aspect that can play an important role in extending the longevity of equipment concerns software-defined networking, in the sense of designing networking equipment in such a way that new equipment capabilities and features can be introduced via software upgrades as opposed to requiring hardware replacement. This requires system architectures that incorporate the necessary infrastructure to support such upgrades in a secure manner that does not compromise equipment integrity.  
 
 ### Recommendation
 
@@ -688,7 +692,11 @@ TBD
 
 # Security Considerations
 
-This document has no security-related discussion.
+It is possible that the introduction of features and architectural properties to facilitate environmentally sustainable Internet technology introduces new attack vectors or other security ramifications. 
+
+For example, the introduction of measurements and metrics for the purpose of saving energy could be misused for the opposite effect when compromised.  For example, measurements might be be tampered with in order to cause an operator to waste energy.  Energy measurements, when abused, might also result in compromised security, for example by allowing to infer usage profiles.  They could also be abused to implement a covert communications channel in which information is leaked via tampered measurement values that are being reported.  
+
+Networking features and technology choices may have security implications regardless of why they are introduced, including for reasons of environmental sustainability.  The possibility of this needs to be taken into consideration, understood, and communicated to allow for their mitigation.  
 
 # IANA Considerations
 
