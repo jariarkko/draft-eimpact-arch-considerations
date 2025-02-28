@@ -90,6 +90,9 @@ normative:
 
 informative:
   RFC6817:
+  RFC8428:
+  RFC9193:
+  RFC9547:
   RFC9657:
   I-D.ietf-tvr-requirements:
   I-D.ietf-tvr-schedule-yang:
@@ -101,6 +104,14 @@ informative:
     author:
      - ins: M. Welzl
     seriesinfo: "17th Wireless On-Demand Network Systems and Services Conference (WONS), Oppdal, Norway, pp. 1-4, doi: 10.23919/WONS54113.2022.9764413"
+  CBORGreener:
+    title: "CBOR is Greener than JSON"
+    date: October 2022
+    author:
+      - ins: B. Moran
+      - ins: H. Birkholz
+      - ins: C. Bormann
+    seriesinfo: "Position paper in the 2022 IAB Workshop Environmental Impact of Internet Applications and Systems"
   Sammy:
     title: "Sammy: smoothing video traffic to be a friendly internet neighbor"
     date: 2023
@@ -648,7 +659,7 @@ The main questions are, however:
 * Is the effect of this is at a magnitude comparable to the other
 things, or if it is just absolutely tiny? Particularly considering
 that much of the traffic on the Internet is video, and much of that is
-other content than, e.g., HTTP headers. This needs more research.
+other content than, e.g., HTTP headers. Moran et al. argued in their 2022 paper {{CBORGreener}} {{RFC9547}} that that for a weather data example from {{RFC8428}} {{RFC9193}} there are significant savings. However, this needs more research in terms of the overall impact across different examples and the general make up of Internet traffic.
 
 * At what layer is the compactness achieved? Are link, IP, or
   transport layer mechanisms that can compact some of the verbose
