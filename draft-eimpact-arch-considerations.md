@@ -90,6 +90,9 @@ normative:
 
 informative:
   RFC6817:
+  RFC8428:
+  RFC9193:
+  RFC9547:
   RFC9657:
   I-D.ietf-tvr-requirements:
   I-D.ietf-tvr-schedule-yang:
@@ -101,6 +104,14 @@ informative:
     author:
      - ins: M. Welzl
     seriesinfo: "17th Wireless On-Demand Network Systems and Services Conference (WONS), Oppdal, Norway, pp. 1-4, doi: 10.23919/WONS54113.2022.9764413"
+  CBORGreener:
+    title: "CBOR is Greener than JSON"
+    date: October 2022
+    author:
+      - ins: B. Moran
+      - ins: H. Birkholz
+      - ins: C. Bormann
+    seriesinfo: "Position paper in the 2022 IAB Workshop Environmental Impact of Internet Applications and Systems"
   Sammy:
     title: "Sammy: smoothing video traffic to be a friendly internet neighbor"
     date: 2023
@@ -131,6 +142,51 @@ informative:
       - ins: D. Barrera
       - ins: A. Perrig
     seriesinfo: "IEEE 2nd International Conference on Collaboration and Internet Computing (CIC), Pittsburgh, PA, USA, pp. 149-158, doi: 10.1109/CIC.2016.031"
+  Segment:
+    title: "Exploiting Segment Routing and SDN Features for Green Traffic Engineering"
+    date: 2022
+    author:
+      - ins: C.-H. Lung
+      - ins: H. ElBakoury
+    seriesinfo: "IEEE 8th International Conference on Network Softwarization (NetSoft), Milan, Italy, pp. 49-54, doi: 10.1109/NetSoft54395.2022.9844091"
+  Experiment:
+    title: "Green Network Traffic Engineering Using Segment Routing: an Experiment Report"
+    date: 2024
+    author:
+      - ins: J.-V. Groningen
+      - ins: C.-H. Lung
+    seriesinfo: "2024 20th International Conference on Network and Service Management (CNSM)"
+  LoadShifting:
+    title: "Reducing energy costs in Internet-scale distributed systems using load shifting"
+    date: 2014
+    author:
+      - ins: V. Mathew
+      - ins: R. K. Sitaraman
+      - ins: P. Shenoy
+    seriesinfo: "Sixth International Conference on Communication Systems and Networks (COMSNETS), Bangalore, India, pp. 1-8, doi: 10.1109/COMSNETS.2014.6734894"
+  LinkAggregation:
+    title: "IEEE Standard for Local and Metropolitan Area Networks--Link Aggregation"
+    date: May 2020
+    seriesinfo: "IEEE STD 802.1AX-2020 (Revision of IEEE STD 802.1AX-2014): 1–333. doi:10.1109/IEEESTD.2020.9105034. ISBN 978-1-5044-6428-4"
+  Baseline:
+    title: "A New Proposed Energy Baseline Model for a Data Center as a Tool for Energy Efficiency Evaluation"
+    date: April 2019
+    author:
+      - ins: S. Livieratos
+      - ins: S. Panetsos
+      - ins: A. Fotopoulos
+      - ins: M. Karagiorgas
+    seriesinfo: "International Journal of Power and Energy Research, Vol. 3, No. 1"
+  BenchmarkingFramework:
+    title: "A Power Benchmarking Framework for Network Devices"
+    date: 2009
+    author:
+      - ins: P. Mahadevan
+      - ins: P. Sharma
+      - ins: S. Banerjee
+      - ins: P. Ranganathan
+    seriesinfo: "In L. Fratta et al. (Eds.): NETWORKING 2009, LNCS 5550, pp. 795–808"
+
 
 --- abstract
 
@@ -269,6 +325,21 @@ example, might be a cloud hosting service.  In order for the supplier
 to provide an emission share value back to the customer, the provider
 needs to develop an attribution formula.
 
+A significant challenge in accurately assessing Scope 3 emissions is
+avoiding Double Counting, where the same emission is reported by
+multiple entities. According to the GHG Protocol best practices, it is
+crucial to establish clear guidelines and agreements between suppliers
+and customers to ensure that emissions are attributed correctly and
+not counted multiple times. This requires transparent communication
+and precise emission reporting standards to ensure that all parties
+involved have a consistent understanding of which emissions belong to
+which organization.
+
+By addressing the Double Counting issue, companies can achieve more
+accurate and reliable Scope 3 emissions assessments, thereby
+contributing to better overall sustainability reporting and
+improvement efforts.
+
 #### Continuous Improvement
 
 In order for an organization to continuously keep pushing for a more
@@ -279,6 +350,42 @@ In order to get information that is actionable, a more granular data
 collection is required.  How much power goes to compute, network,
 security, monitoring and management?  Is our cooling as efficient as
 the industry standard?
+
+#### Baselining and Benchmarking
+
+Establishing a baseline is a fundamental step in the process of
+improving energy efficiency and sustainability of network
+technology. Baselining involves establishing a reference point of
+typical energy usage, which is crucial for identifying inefficiencies
+and measuring improvements over time. At this step, the controller
+uses only the collected data from datasheets and other reliable
+sources.
+
+By establishing a baseline and using benchmarking, organizations can
+determine if their networking equipment is performing normally or if
+it is deviating from expected performance, guiding necessary
+improvements. Benchmarking involves collecting performance
+measurements of networking equipment under controlled laboratory
+conditions. This process helps establish standardized performance
+metrics, allowing for comparison against baselines collected during
+regular operational conditions.
+
+The initial measurement of networking equipment's energy efficiency
+and performance, known as Baselining, should be coordinated with
+vendor specifications and industry standards to understand what is
+considered normal or optimal performance. For example, if the baseline
+indicates that your switches operate at 5 Gbps per watt, while vendor
+specifications suggest 8 Gbps per watt and the industry standard is 10
+Gbps per watt, actions should be taken to implement energy-saving
+measures and upgrades. Tracking subsequent measurements can reveal if
+efficiency improves towards the benchmark of 8-10 Gbps per watt.
+
+This practice ensures that any improvements can be quantifiably
+tracked over time, providing a clear measure of the effectiveness of
+the implemented changes and guiding further enhancements in network
+sustainability.
+
+See also {{Baseline}} and {{BenchmarkingFramework}}.
 
 #### Development of Science
 
@@ -454,11 +561,11 @@ From Hesham:
 
 Energy-aware routing generally aims at aggregating traffic flows over a subset of the network devices and links, allowing other links and interconnection devices to be switched off. These solutions shall preserve connectivity and QoS, for instance by limiting the maximum utilization over any link, or ensuring a minimum level of path diversity. The following 2 slides provides classifications of energy aware routing algorithms.
 
-There are also algorithms for Green Traffic engineering. Here is an example which uses segment routing Exploiting Segment Routing and SDN Features for Green Traffic Engineering IEEE Conference Publication IEEE Xplore. The empirical analysis of this algorithm is described in Green Network Traffic Engineering Using Segment Routing: an Experiment Report IEEE Conference Publication IEEE Xplore. The results of this analysis showed that the resource usage for SRv6 could be more than 70% lower than that of the SPF-based forwarding, depending on the network topology.
+There are also algorithms for Green Traffic engineering. Here is an example which uses segment routing {{Segment}}. The empirical analysis of this algorithm is described in {{Experiment}}. The results of this analysis showed that the resource usage for SRv6 could be more than 70% lower than that of the SPF-based forwarding, depending on the network topology.
 
-Using load adaptive technique allows the capacity of the nodes to be dynamically adjusted according to the demand. Examples include:Adaptive Link Rate (ALR): Adapt Link Rate to suit traffic demand and Dynamically or power off links in Link Aggregation based on traffic demand which is empirically estimated based on traffic arrival. LACP (Link Aggregation Control Protocol) defined in IEEE 802.1AX can be modified to power off links in an aggregation if they are not needed.
+Using load adaptive technique allows the capacity of the nodes to be dynamically adjusted according to the demand. Examples include: Adaptive Link Rate (ALR): Adapt Link Rate to suit traffic demand and Dynamically or power off links in Link Aggregation based on traffic demand which is empirically estimated based on traffic arrival. LACP (Link Aggregation Control Protocol) defined in IEEE 802.1AX {{LinkAggregation}} can be modified to power off links in an aggregation if they are not needed.
 
-We can use dynamic load shifting such as a demand-response technique where the system temporarily reduces its energy usage in response to pricing signals from a smart grid. The proposed demand-response technique involves deferring the load from elastic requests to later time periods in order to reduce the server demand and the current energy usage, and hence, energy costs (comsnets14-Vmathew.pdf)
+We can use dynamic load shifting such as a demand-response technique where the system temporarily reduces its energy usage in response to pricing signals from a smart grid. The proposed demand-response technique involves deferring the load from elastic requests to later time periods in order to reduce the server demand and the current energy usage, and hence, energy costs {{LoadShifting}}.
 
 ### Recommendation
 
@@ -557,9 +664,9 @@ TBD implementation and deployment guidance
 
 ## Equipment Longevity
 
-The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. This includes devising tools to inform network administrators and their users of the potential benefits of network equipment upgrades, so that they can make better choices on what upgrades are necessary and when.  
+The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. This includes devising tools to inform network administrators and their users of the potential benefits of network equipment upgrades, so that they can make better choices on what upgrades are necessary and when.
 
-It should be noted that from an environmental sustainability perspective, it is not necessarily always the best choice to upgrade network equipment whenever slightly less power-hungry and "greener" alternatives become availabe. The environmental cost of amortizing the carbon embedded inside equipment over its lifetime, for example, the carbon associated with the manufacturing of the equipment that is to be replaced, should be taken into consideration as well.  
+It should be noted that from an environmental sustainability perspective, it is not necessarily always the best choice to upgrade network equipment whenever slightly less power-hungry and "greener" alternatives become availabe. The environmental cost of amortizing the carbon embedded inside equipment over its lifetime, for example, the carbon associated with the manufacturing of the equipment that is to be replaced, should be taken into consideration as well.
 
 ### Motivation
 
@@ -597,7 +704,7 @@ advantages:
 
 Hence, it is very likely that extending the life of protocols and equipment with higher flexibility could provide a better environmental benefit than tightly optimizing only for today’s uses.
 
-Another aspect that can play an important role in extending the longevity of equipment concerns software-defined networking, in the sense of designing networking equipment in such a way that new equipment capabilities and features can be introduced via software upgrades as opposed to requiring hardware replacement. This requires system architectures that incorporate the necessary infrastructure to support such upgrades in a secure manner that does not compromise equipment integrity.  
+Another aspect that can play an important role in extending the longevity of equipment concerns software-defined networking, in the sense of designing networking equipment in such a way that new equipment capabilities and features can be introduced via software upgrades as opposed to requiring hardware replacement. This requires system architectures that incorporate the necessary infrastructure to support such upgrades in a secure manner that does not compromise equipment integrity.
 
 ### Recommendation
 
@@ -623,7 +730,7 @@ The main questions are, however:
 * Is the effect of this is at a magnitude comparable to the other
 things, or if it is just absolutely tiny? Particularly considering
 that much of the traffic on the Internet is video, and much of that is
-other content than, e.g., HTTP headers. This needs more research.
+other content than, e.g., HTTP headers. Moran et al. argued in their 2022 paper {{CBORGreener}} {{RFC9547}} that that for a weather data example from {{RFC8428}} {{RFC9193}} there are significant savings. However, this needs more research in terms of the overall impact across different examples and the general make up of Internet traffic.
 
 * At what layer is the compactness achieved? Are link, IP, or
   transport layer mechanisms that can compact some of the verbose
@@ -638,14 +745,6 @@ other content than, e.g., HTTP headers. This needs more research.
 More research is needed to quantify the likely sources of measurable impacts.
 
 TBD implementation and deployment guidance
-
-## Measurement Architecture
-
-Is measurement architectures in scope of this activity or left for the GREEN WG?
-
-## ...
-
-Add other considerations as needed: Transparency etc.
 
 ## Resiliency
 
@@ -667,6 +766,57 @@ It might be divided in axis like 'Resiliency to power breakage', 'Resiliency to 
 
 TBD
 
+## Sustainable by Design: Data Governance Perspective
+
+Incorporating sustainability into the design phase of network
+architecture is critical for ensuring long-term environmental and
+operational benefits. From a Data Governance point of view,
+"Sustainable by Design" involves embedding sustainability principles
+and practices into the data management frameworks and processes from
+the outset.
+
+### Motivation
+
+Data governance plays a pivotal role in shaping how data is collected,
+stored, processed, and used. By integrating sustainability into these
+processes, organizations can ensure that their data practices
+contribute to environmental goals, such as reducing carbon footprints,
+optimizing resource usage, and minimizing waste.
+
+### Analysis
+
+Key elements of Sustainable by Design in data governance include:
+
+* Data Minimization: Collecting only the data that is necessary and
+  useful, reducing storage and processing requirements, which in turn
+  lowers energy consumption.
+
+* Efficient Data Storage Solutions: Implementing energy-efficient data
+  storage technologies and practices that prioritize reduced power
+  usage and cooling needs.
+
+* Lifecycle Management: Ensuring that data is managed throughout its
+  lifecycle in a way that minimizes environmental impact, including
+  secure and sustainable data disposal practices.
+
+* Transparency and Accountability: Establishing clear data governance
+  policies that promote transparency in data usage and accountability
+  for sustainability objectives.
+
+### Recommendation
+
+Organizations should adopt data governance frameworks that incorporate
+sustainability as a core principle. This includes setting clear
+sustainability goals, measuring progress towards these goals, and
+continuously improving data management practices to enhance
+sustainability. By doing so, organizations can ensure that their data
+operations are not only effective but also environmentally
+responsible.
+
+## ...
+
+Add other considerations as needed: Transparency etc.
+
 # Recommendations for Further Work and Research
 
 Transport-related optimizations that enable devices to consume less
@@ -679,11 +829,11 @@ TBD
 
 # Security Considerations
 
-It is possible that the introduction of features and architectural properties to facilitate environmentally sustainable Internet technology introduces new attack vectors or other security ramifications. 
+It is possible that the introduction of features and architectural properties to facilitate environmentally sustainable Internet technology introduces new attack vectors or other security ramifications.
 
-For example, the introduction of measurements and metrics for the purpose of saving energy could be misused for the opposite effect when compromised.  For example, measurements might be be tampered with in order to cause an operator to waste energy.  Energy measurements, when abused, might also result in compromised security, for example by allowing to infer usage profiles.  They could also be abused to implement a covert communications channel in which information is leaked via tampered measurement values that are being reported.  
+For example, the introduction of measurements and metrics for the purpose of saving energy could be misused for the opposite effect when compromised.  For example, measurements might be be tampered with in order to cause an operator to waste energy.  Energy measurements, when abused, might also result in compromised security, for example by allowing to infer usage profiles.  They could also be abused to implement a covert communications channel in which information is leaked via tampered measurement values that are being reported.
 
-Networking features and technology choices may have security implications regardless of why they are introduced, including for reasons of environmental sustainability.  The possibility of this needs to be taken into consideration, understood, and communicated to allow for their mitigation.  
+Networking features and technology choices may have security implications regardless of why they are introduced, including for reasons of environmental sustainability.  The possibility of this needs to be taken into consideration, understood, and communicated to allow for their mitigation.
 
 # IANA Considerations
 
