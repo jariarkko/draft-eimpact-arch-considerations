@@ -1,0 +1,2420 @@
+<!DOCTYPE html>
+<html lang="en" class="Internet-Draft">
+<head>
+<meta charset="utf-8">
+<meta content="Common,Latin" name="scripts">
+<meta content="initial-scale=1.0" name="viewport">
+<title>Architectural Considerations for Sustainable Internet Technology</title>
+<meta content="Jari Arkko (Ed.)" name="author">
+<meta content="Suresh Krishnan (Ed.)" name="author">
+<meta content="Michael Welzl" name="author">
+<meta content="Alexander Clemm" name="author">
+<meta content="Ali Rezaki" name="author">
+<meta content="Eve Schooler" name="author">
+<meta content="Sebastien Rumley" name="author">
+<meta content="Hesham ElBakoury" name="author">
+<meta content="Emile Stephan" name="author">
+<meta content="Marisol Palmero" name="author">
+<meta content="Ari Keränen" name="author">
+<meta content="Luis M. Contreras" name="author">
+<meta content="Jan Lindblad" name="author">
+<meta content="
+       This document discusses protocol and network architecture aspects that
+may have an impact on the sustainability of network technology. 
+    " name="description">
+<meta content="xml2rfc 3.27.0" name="generator">
+<meta content="next generation" name="keyword">
+<meta content="unicorn" name="keyword">
+<meta content="sparkling distributed ledger" name="keyword">
+<meta content="draft-eimpact-arch-considerations-latest" name="ietf.draft">
+<!-- Generator version information:
+  xml2rfc 3.27.0
+    Python 3.12.9
+    ConfigArgParse 1.7
+    google-i18n-address 3.1.1
+    intervaltree 3.1.0
+    Jinja2 3.1.5
+    lxml 5.3.0
+    platformdirs 4.3.6
+    pycountry 24.6.1
+    PyYAML 6.0.2
+    requests 2.32.3
+    setuptools 70.3.0
+    wcwidth 0.2.13
+-->
+<link href="draft-eimpact-arch-considerations.xml" rel="alternate" type="application/rfc+xml">
+<link href="#copyright" rel="license">
+<style type="text/css">@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-cyrillic.woff2') format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-vietnamese.woff2') format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Lora Bold'), local('Lora-Bold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-bold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Lora SemiBold'), local('Lora-SemiBold'), url('https://martinthomson.github.io/rfc-css/fonts/lora-semibold-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Oxygen Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: italic;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-greek.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Sofia Sans Semi Condensed';
+  font-style: normal;
+  font-weight: 1 1000;
+  src: url('https://martinthomson.github.io/rfc-css/fonts/sofiasanssemicondensed-regular-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light dark;
+  --background-color: #fff;
+  --text-color: #222;
+  --title-color: #191919;
+  --link-color: #2a6496;
+  --highlight-color: #f9f9f9;
+  --line-color: #eee;
+  --pilcrow-weak: #ddd;
+  --pilcrow-strong: #bbb;
+  --small-font-size: 14.5px;
+  --font-mono: 'Oxygen Mono', monospace;
+  --font-title: "Sofia Sans Semi Condensed", sans-serif;
+  scrollbar-color: #bbb #eee;
+}
+body {
+  max-width: 600px;
+  margin: 75px auto;
+  padding: 0 5px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font: 16px/22px "Lora", serif;
+  scroll-behavior: smooth;
+}
+
+.ears {
+  display: none;
+}
+
+/* headings */
+section {
+  clear: both;
+}
+.section-number {
+  padding-right: 0.5em;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  font-weight: 680;
+  margin: 0.8em 0 0.3em;
+  font-size-adjust: 0.5;
+  color: var(--title-color);
+}
+h1#title {
+  font-size: 32px;
+  line-height: 40px;
+  clear: both;
+}
+h1#title, h1#rfcnum {
+  margin: 1.5em 0 0.2em;
+}
+h1#rfcnum + h1#title {
+  margin: 0.2em 0;
+}
+
+h1, h2, h3 {
+  font-size: 22px;
+  line-height: 27px;
+}
+h4, h5, h6 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+/* general structure */
+.author {
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+#abstract+p {
+  font-size: 18px;
+  line-height: 24px;
+}
+#abstract+p code, #abstract+p samp, #abstract+p tt {
+  font-size: 16px;
+  line-height: 0;
+}
+
+p {
+  padding: 0;
+  margin: 0.5em 0;
+  text-align: left;
+}
+div {
+  margin: 0;
+}
+.alignRight.art-text {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--line-color);
+  border-radius: 3px;
+  padding: 0.5em 1em 0;
+  margin-bottom: 0.5em;
+}
+.alignRight.art-text pre {
+  padding: 0;
+  width: auto;
+}
+.alignRight {
+  margin: 1em 0;
+}
+.alignRight > *:first-child {
+  border: none;
+  margin: 0;
+  float: right;
+  clear: both;
+}
+.alignRight > *:nth-child(2) {
+  clear: both;
+  display: block;
+  border: none;
+}
+svg {
+  display: block;
+}
+/* font-family isn't space-separated, but =~ will have to do */
+svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
+  font-family: var(--font-mono);
+}
+.alignCenter.art-text {
+  background-color: var(--highlight-color);
+  border: 1px solid var(--line-color);
+  border-radius: 3px;
+  padding: 0.5em 1em 0;
+  margin-bottom: 0.5em;
+}
+.alignCenter.art-text pre {
+  padding: 0;
+  width: auto;
+}
+.alignCenter {
+  margin: 1em 0;
+}
+.alignCenter > *:first-child {
+  border: none;
+  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+     support flexbox yet.
+  */
+  display: table;
+  margin: 0 auto;
+}
+
+/* lists */
+ol, ul {
+  padding: 0;
+  margin: 0 0 0.5em 2em;
+  & :is(ol, ul) {
+    margin-left: 1em;
+  }
+}
+li {
+  margin: 0 0 0.25em 0;
+}
+ul.empty, .ulEmpty {
+  list-style-type: none;
+  & li {
+    margin-top: 0.5em;
+  }
+}
+:is(ul, ol).compact, .ulCompact, .olCompact {
+  margin: 0 0 0 2em;
+  & li {
+    margin: 0;
+    & :first-child { margin-top: 0; }
+    & :last-child { margin-bottom: 0; }
+  }
+}
+
+/* definition lists */
+dl {
+  clear: left;
+  --indent: 3ch;
+  /* --indent: attr(indent ch); not supported in any browser, but we can dream */
+  &.olPercent {
+    --indent: 5ch;
+    & > dt {
+      min-width: calc(var(--indent) - 2ch);
+    }
+  }
+  &.olPercent > dt {
+    float: none;
+  }
+
+  dl > dd > & {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+}
+dl:not(.dlNewline) > dt {
+  float: left;
+  margin-right: 2ch;
+  min-width: 8ch;
+}
+dl > dd {
+  margin-bottom: .8em;
+  margin-left: var(--indent) !important; /* stupid element overrides */
+  min-height: 2ex;
+}
+:is(dl.compact, .dlCompact) > dd {
+  margin-bottom: 0;
+  & > :is(:first-child, .break:first-child + *) {
+    margin-top: 0;
+  }
+  & > :is(:last-child) {
+    margin-bottom: 0;
+  }
+}
+:is(dd, span).break {
+  display: none;
+}
+
+/* links */
+a, a[href].selfRef:hover {
+  text-decoration: none;
+}
+a[href] {
+  color: var(--link-color);
+}
+a[href].selfRef, .iref + a[href].internal {
+  color: var(--text-color);
+}
+a[href]:hover {
+  text-decoration: underline;
+}
+a[href].selfRef:hover {
+  background-color: var(--highlight-color);
+}
+a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
+  white-space: nowrap;
+}
+
+/* Figures */
+tt, code, pre {
+  background-color: var(--highlight-color);
+  font: 14px/22px var(--font-mono);
+}
+tt, code {
+  /* changing the font for inline elements leads to different ascender
+     and descender heights; as we want to retain baseline alignment,
+     remove leading to avoid altering the final height of lines
+     note: this fails if these blocks take an entire line,
+     a different solution would be great */
+  line-height: 0;
+}
+:is(h1, h2, h3, h4, h5, h6) :is(tt, code) {
+  font-size: 84%;
+}
+pre {
+  border: 1px solid var(--line-color);
+  font-size: 13.5px;
+  line-height: 16px;
+  letter-spacing: -0.2px;
+  margin: 5px;
+  padding: 5px;
+}
+img {
+  max-width: 100%;
+}
+figure {
+  margin: 0.5em 0;
+  padding: 0;
+}
+figure blockquote {
+  margin: 0.8em 0.4em 0.4em;
+}
+figcaption, caption {
+  font-style: italic;
+  margin: 0.5em 1.5em;
+  text-align: left;
+  caption-side: bottom;
+}
+@media screen {
+  /* Auto-collapse boilerplate. */
+  :is(#status-of-memo, #copyright) p {
+    margin: -2px 0;
+    max-height: 0;
+    transition: max-height 2s ease, margin 0.5s ease 0.5s;
+    overflow: hidden;
+  }
+  :is(#status-of-memo, #copyright):hover p,
+  :is(#status-of-memo, #copyright) h2:target ~ p {
+    margin: 0.5em 0;
+    max-height: 500px;
+    overflow: auto;
+  }
+  pre, svg {
+    display: inline-block;
+    /* In the horizontal direction, sometimes people make over-sized figures.
+       Scrollbars for those is therefore necessary: auto adds them as necessary..
+       In the vertical direction, the line-height can combine with the font
+       asender/descender height to produce scrollbars: hidden avoids that. */
+    overflow: auto hidden;
+  }
+  pre {
+    max-width: 100%;
+    width: calc(100% - 22px - 1em);
+  }
+  svg {
+    max-width: calc(100% - 22px - 1em);
+  }
+  figure pre {
+    display: block;
+    width: calc(100% - 25px);
+  }
+  :is(pre, svg) + .pilcrow {
+    display: inline-block;
+    vertical-align: text-bottom;
+    padding-bottom: 8px;
+  }
+}
+
+/* aside, blockquote */
+aside, blockquote {
+  margin-left: 0;
+  padding: 0 2em;
+  font-style: italic;
+}
+blockquote {
+  margin: 1em 0;
+}
+cite {
+  display: block;
+  text-align: right;
+  font-style: italic;
+}
+
+/* tables */
+table {
+  width: auto;
+  max-width: 100%;
+  margin: 0 0 1em;
+  border-collapse: collapse;
+}
+table.right {
+  margin-left: auto;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+table.left {
+  margin-right: auto;
+}
+table .text-left {
+  text-align: left;
+}
+table .text-center {
+  text-align: center;
+}
+table .text-right {
+  text-align: right;
+}
+
+thead, tbody {
+  border: 1px solid var(--line-color);
+}
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 5px 10px;
+}
+th {
+  background-color: var(--line-color);
+}
+:is(tr:nth-child(2n), thead+tbody > tr:nth-child(2n+1)) > td {
+  background-color: var(--background-color);
+}
+:is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
+  background-color: var(--highlight-color);
+}
+table caption {
+  margin: 0;
+  padding: 3px 0 3px 1em;
+}
+table p {
+  margin: 0;
+}
+
+/* pilcrow */
+a.pilcrow {
+  margin-left: 3px;
+  opacity: 0.2;
+  user-select: none;
+  &[href] {
+    color: var(--pilcrow-weak);
+    &:hover { text-decoration: none; }
+  }
+}
+@media not print {
+  :hover > a.pilcrow {
+    opacity: 1;
+  }
+  a.pilcrow[href]:hover {
+    color: var(--pilcrow-strong);
+    background-color: transparent;
+  }
+}
+@media print {
+  a.pilcrow {
+    display: none;
+  }
+}
+
+/* misc */
+hr {
+  border: 0;
+  border-top: 1px solid var(--line-color);
+}
+.bcp14 {
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: var(--small-font-size);
+}
+.role {
+  font-variant: all-small-caps;
+}
+sub, sup {
+  line-height: 1;
+  font-size: 80%;
+}
+
+/* info block */
+#identifiers {
+  margin: 0;
+  font-size: var(--small-font-size);
+  line-height: 18px;
+  --identifier-width: 15ch;
+  & dt {
+    width: var(--identifier-width);
+    min-width: var(--identifier-width);
+    clear: left;
+    float: left;
+    text-align: right;
+    margin-right: 1ch;
+  }
+  & dd {
+    margin: 0;
+    margin-left: calc(1em + var(--identifier-width)) !important;
+    min-width: 5em;
+  }
+  & .authors {
+    & .author {
+      display: inline-block;
+      margin-right: 1.5em;
+    }
+    & .org {
+      font-style: italic;
+    }
+  }
+}
+
+/* The prepared/rendered info at the very bottom of the page */
+.docInfo {
+  color: #999;
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 2em;
+}
+.docInfo .prepared {
+  float: right;
+}
+
+/* table of contents */
+#toc {
+  padding: 0.75em 0 2em 0;
+  margin-bottom: 1em;
+
+  & nav {
+    & ul {
+      margin: 0 0.5em 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    & li {
+      line-height: 1.3em;
+      margin: 2px 0;
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+    }
+  }
+  & a.xref {
+    white-space: normal;
+  }
+}
+
+.references {
+  & > dt {
+    text-align: right;
+    font-weight: bold;
+    min-width: 10ch;
+    margin-right: 1.5ch;
+    &:target::before {
+      content: "⇒";
+      margin: 0 10px 0 -25px;
+    }
+  }
+  & > dd {
+    margin-left: 12ch !important;
+    overflow: visible;
+    & .refInstance {
+      margin-bottom: 0.8em;
+    }
+    & .ascii {
+      margin-bottom: 0.25em;
+    }
+  }
+}
+
+#rfc\.index\.index + ul {
+  margin-left: 0;
+}
+
+/* authors */
+address.vcard {
+  font-style: normal;
+  max-width: 20em;
+  margin: 1em auto 1em 0;
+
+  & .nameRole {
+    font-weight: 700;
+    margin-left: 0;
+  }
+  & .label {
+    margin: 0.5em 0;
+  }
+  & .type {
+    display: none;
+  }
+  & .alternative-contact {
+    margin: 0.5em 0 0.25em 0;
+  }
+  & .non-ascii {
+    margin: 0 0 0 2em;
+  }
+  & div.left {
+    text-align: left;
+  }
+  & div.right {
+    text-align: right;
+  }
+}
+
+hr.addr {
+  border-top: 1px dashed;
+  margin: 0;
+  color: #ddd;
+  max-width: calc(100% - 16px);
+}
+@media (min-width: 500px) {
+  #authors-addresses > section {
+    column-count: 2;
+    column-gap: 20px;
+  }
+  #authors-addresses > section > h2 {
+    column-span: all;
+  }
+  /* hack for break-inside: avoid-column */
+  #authors-addresses address {
+    display: inline-block;
+    break-inside: avoid-column;
+  }
+}
+
+/* Comments */
+.rfcEditorRemove p:first-of-type {
+  font-style: italic;
+}
+.cref {
+  background-color: rgba(249, 232, 105, 0.3);
+  padding: 2px 4px;
+}
+.crefSource {
+  font-style: italic;
+}
+
+@media screen {
+  #toc nav {
+    font-family: var(--font-title);
+    font-weight: 360;
+    & > ul { margin-bottom: 2em; }
+    & ul {
+      margin: 0 0 0 4px;
+      & :is(p, li) {
+        margin: 2px 0;
+      }
+    }
+  }
+  #toc a.toplink {
+    float: right;
+  }
+}
+@media not screen {
+  #toc a.toplink {
+    display: none;
+  }
+}
+
+
+/* TOC layout for smaller screens */
+@media screen and (max-width: 929px) {
+  #toc {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    padding: 1px 0 0 0;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+    opacity: 0.6;
+  }
+  #toc h2 {
+    margin: 0;
+    padding: 2px 0 2px 6px;
+    padding-right: 1em;
+    font-size: 18px;
+    line-height: 24px;
+    min-width: 190px;
+    text-align: right;
+    background-color: #444;
+    color: white;
+    cursor: pointer;
+    &::before { /* css hamburger */
+      float: right;
+      position: relative;
+      width: 1em;
+      height: 1px;
+      left: -164px;
+      margin: 8px 0 0 0;
+      background: white none repeat scroll 0 0;
+      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+      content: "";
+    }
+  }
+  #toc nav {
+    display: none;
+    background-color: var(--background-color);
+    padding: 0.5em 1em 1em;
+    overflow: auto;
+    overscroll-behavior: contain;
+    height: calc(100vh - 48px);
+    border-left: 1px solid #ddd;
+  }
+  #toc.active {
+    opacity: 1;
+    & nav { display: block; }
+  }
+  /* Make the collapsed ToC header render white on gray also when it's a link */
+  #toc h2 a,
+  #toc h2 a:is(:link, :focus, :hover),
+  #toc a.toplink,
+  #toc a.toplink:hover {
+    color: white;
+    background-color: #444;
+    text-decoration: none;
+  }
+  #toc a.toplink {
+    margin: 2px 0.5em 0;
+  }
+}
+
+/* TOC layout for wide screens */
+@media screen and (min-width: 930px) {
+  body {
+    padding-right: 360px;
+    padding-right: calc(min(180px + 20%, 500px));
+  }
+  #toc {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    right: calc(50vw - 480px);
+    width: 312px;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+  }
+  #toc h2 {
+    margin: 0;
+    padding: 0.25em 1em 1em 0;
+  }
+  #toc nav {
+    display: block;
+    height: calc(90vh - 84px);
+    bottom: 0;
+    padding: 0.5em 0 2em;
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+  img { /* future proofing */
+    max-width: 100%;
+    height: auto;
+  }
+  #toc a.toplink {
+    margin: 8px 0.5em 0;
+  }
+}
+
+/* pagination */
+@media print {
+  body {
+    width: 100%;
+  }
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+  #n-copyright-notice {
+    border-bottom: none;
+  }
+  #toc, #n-introduction {
+    page-break-before: always;
+  }
+  #toc {
+    border-top: none;
+    padding-top: 0;
+  }
+  figure, pre, .vcard {
+    page-break-inside: avoid;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  :is(h2, h3, h4, h5, h6)+*, dd {
+    page-break-before: avoid;
+  }
+  pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 10pt;
+  }
+  table {
+    border: 1px solid #ddd;
+  }
+  td {
+    border-top: 1px solid #ddd;
+  }
+}
+
+@page :first {
+  padding-top: 0;
+  @top-left {
+    content: normal;
+    border: none;
+  }
+  @top-center {
+    content: normal;
+    border: none;
+  }
+  @top-right {
+    content: normal;
+    border: none;
+  }
+}
+
+@page {
+  size: A4;
+  margin-bottom: 45mm;
+  padding-top: 20px;
+}
+
+/* Dark mode. */
+@media (prefers-color-scheme: dark) {
+:root {
+  --background-color: #121212;
+  --text-color: #f0f0f0;
+  --title-color: #fff;
+  --link-color: #4da4f0;
+  --highlight-color: #282828;
+  --line-color: #444;
+  --pilcrow-weak: #444;
+  --pilcrow-strong: #666;
+  scrollbar-color: #777 #333;
+}
+}
+
+/* SVG Trick: a prefix match works because only black and white are allowed */
+svg :is([stroke="black"], [stroke^="#000"]) {
+  stroke: var(--text-color);
+}
+svg :is([stroke="white"], [stroke^="#fff"]) {
+  stroke: var(--background-color);
+}
+svg :is([fill="black"], [fill^="#000"], :not([fill])) {
+  fill: var(--text-color);
+}
+svg :is([fill="white"], [fill^="#fff"]) {
+  fill: var(--background-color);
+}
+</style>
+
+</head>
+<body class="xml2rfc">
+<table class="ears">
+<thead><tr>
+<td class="left">Internet-Draft</td>
+<td class="center">Sustainable Internet Architecture</td>
+<td class="right">February 2025</td>
+</tr></thead>
+<tfoot><tr>
+<td class="left">(Ed.), et al.</td>
+<td class="center">Expires 1 September 2025</td>
+<td class="right">[Page]</td>
+</tr></tfoot>
+</table>
+<div id="external-metadata" class="document-information"></div>
+<div id="internal-metadata" class="document-information">
+<dl id="identifiers">
+<dt class="label-workgroup">Workgroup:</dt>
+<dd class="workgroup">Network Working Group</dd>
+<dt class="label-internet-draft">Internet-Draft:</dt>
+<dd class="internet-draft">draft-eimpact-arch-considerations-latest</dd>
+<dt class="label-published">Published:</dt>
+<dd class="published">
+<time datetime="2025-02-28" class="published">28 February 2025</time>
+    </dd>
+<dt class="label-intended-status">Intended Status:</dt>
+<dd class="intended-status">Informational</dd>
+<dt class="label-expires">Expires:</dt>
+<dd class="expires"><time datetime="2025-09-01">1 September 2025</time></dd>
+<dt class="label-authors">Authors:</dt>
+<dd class="authors">
+<div class="author">
+      <div class="author-name">J. A. (Ed.)</div>
+<div class="org">Ericsson</div>
+</div>
+<div class="author">
+      <div class="author-name">S. K. (Ed.)</div>
+<div class="org">Cisco</div>
+</div>
+<div class="author">
+      <div class="author-name">M. Welzl</div>
+<div class="org">University of Oslo</div>
+</div>
+<div class="author">
+      <div class="author-name">A. Clemm</div>
+</div>
+<div class="author">
+      <div class="author-name">A. Rezaki</div>
+<div class="org">Nokia</div>
+</div>
+<div class="author">
+      <div class="author-name">E. Schooler</div>
+</div>
+<div class="author">
+      <div class="author-name">S. Rumley</div>
+<div class="org">HEFR</div>
+</div>
+<div class="author">
+      <div class="author-name">H. ElBakoury</div>
+</div>
+<div class="author">
+      <div class="author-name">E. Stephan</div>
+<div class="org">Orange</div>
+</div>
+<div class="author">
+      <div class="author-name">M. Palmero</div>
+<div class="org">Cisco</div>
+</div>
+<div class="author">
+      <div class="author-name">A. Keränen</div>
+<div class="org">Ericsson</div>
+</div>
+<div class="author">
+      <div class="author-name">L. M. Contreras</div>
+<div class="org">Telefonica</div>
+</div>
+<div class="author">
+      <div class="author-name">J. Lindblad</div>
+<div class="org">All For Eco</div>
+</div>
+</dd>
+</dl>
+</div>
+<h1 id="title">Architectural Considerations for Sustainable Internet Technology</h1>
+<section id="section-abstract">
+      <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
+<p id="section-abstract-1">This document discusses protocol and network architecture aspects that
+may have an impact on the sustainability of network technology.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+</section>
+<section class="note rfcEditorRemove" id="section-note.1">
+      <h2 id="name-about-this-document">
+<a href="#name-about-this-document" class="section-name selfRef">About This Document</a>
+      </h2>
+<p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
+<p id="section-note.1-2">
+        The latest revision of this draft can be found at <span><a href="https://jariarkko.github.io/draft-eimpact-arch-considerations/draft-eimpact-arch-considerations.html">https://jariarkko.github.io/draft-eimpact-arch-considerations/draft-eimpact-arch-considerations.html</a></span>.
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-eimpact-arch-considerations/">https://datatracker.ietf.org/doc/draft-eimpact-arch-considerations/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+<p id="section-note.1-3">Source for this draft and an issue tracker can be found at
+        <span><a href="https://github.com/jariarkko/draft-eimpact-arch-considerations">https://github.com/jariarkko/draft-eimpact-arch-considerations</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+</section>
+<div id="status-of-memo">
+<section id="section-boilerplate.1">
+        <h2 id="name-status-of-this-memo">
+<a href="#name-status-of-this-memo" class="section-name selfRef">Status of This Memo</a>
+        </h2>
+<p id="section-boilerplate.1-1">
+        This Internet-Draft is submitted in full conformance with the
+        provisions of BCP 78 and BCP 79.<a href="#section-boilerplate.1-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-2">
+        Internet-Drafts are working documents of the Internet Engineering Task
+        Force (IETF). Note that other groups may also distribute working
+        documents as Internet-Drafts. The list of current Internet-Drafts is
+        at <span><a href="https://datatracker.ietf.org/drafts/current/">https://datatracker.ietf.org/drafts/current/</a></span>.<a href="#section-boilerplate.1-2" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-3">
+        Internet-Drafts are draft documents valid for a maximum of six months
+        and may be updated, replaced, or obsoleted by other documents at any
+        time. It is inappropriate to use Internet-Drafts as reference
+        material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.1-4">
+        This Internet-Draft will expire on 1 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="copyright">
+<section id="section-boilerplate.2">
+        <h2 id="name-copyright-notice">
+<a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
+        </h2>
+<p id="section-boilerplate.2-1">
+            Copyright (c) 2025 IETF Trust and the persons identified as the
+            document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
+<p id="section-boilerplate.2-2">
+            This document is subject to BCP 78 and the IETF Trust's Legal
+            Provisions Relating to IETF Documents
+            (<span><a href="https://trustee.ietf.org/license-info">https://trustee.ietf.org/license-info</a></span>) in effect on the date of
+            publication of this document. Please review these documents
+            carefully, as they describe your rights and restrictions with
+            respect to this document. Code Components extracted from this
+            document must include Revised BSD License text as described in
+            Section 4.e of the Trust Legal Provisions and are provided without
+            warranty as described in the Revised BSD License.<a href="#section-boilerplate.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="toc">
+<section id="section-toc.1">
+        <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
+<a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
+        </h2>
+<nav class="toc"><ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-potential-architectural-asp" class="internal xref">Potential Architectural Aspects</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
+                <p id="section-toc.1-1.2.2.1.1"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-measurement" class="internal xref">Measurement</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1.2.1">
+                    <p id="section-toc.1-1.2.2.1.2.1.1" class="keepWithNext"><a href="#section-2.1.1" class="auto internal xref">2.1.1</a>.  <a href="#name-motivation" class="internal xref">Motivation</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1.2.2">
+                    <p id="section-toc.1-1.2.2.1.2.2.1" class="keepWithNext"><a href="#section-2.1.2" class="auto internal xref">2.1.2</a>.  <a href="#name-analysis" class="internal xref">Analysis</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1.2.3">
+                    <p id="section-toc.1-1.2.2.1.2.3.1"><a href="#section-2.1.3" class="auto internal xref">2.1.3</a>.  <a href="#name-recommendation" class="internal xref">Recommendation</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2">
+                <p id="section-toc.1-1.2.2.2.1"><a href="#section-2.2" class="auto internal xref">2.2</a>.  <a href="#name-modelling" class="internal xref">Modelling</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2.2.1">
+                    <p id="section-toc.1-1.2.2.2.2.1.1"><a href="#section-2.2.1" class="auto internal xref">2.2.1</a>.  <a href="#name-motivation-2" class="internal xref">Motivation</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2.2.2">
+                    <p id="section-toc.1-1.2.2.2.2.2.1"><a href="#section-2.2.2" class="auto internal xref">2.2.2</a>.  <a href="#name-analysis-2" class="internal xref">Analysis</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.2.2.3">
+                    <p id="section-toc.1-1.2.2.2.2.3.1"><a href="#section-2.2.3" class="auto internal xref">2.2.3</a>.  <a href="#name-recommendation-2" class="internal xref">Recommendation</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3">
+                <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="auto internal xref">2.3</a>.  <a href="#name-dynamic-scaling" class="internal xref">Dynamic Scaling</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.1">
+                    <p id="section-toc.1-1.2.2.3.2.1.1"><a href="#section-2.3.1" class="auto internal xref">2.3.1</a>.  <a href="#name-motivation-3" class="internal xref">Motivation</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.2">
+                    <p id="section-toc.1-1.2.2.3.2.2.1"><a href="#section-2.3.2" class="auto internal xref">2.3.2</a>.  <a href="#name-analysis-3" class="internal xref">Analysis</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.3.2.3">
+                    <p id="section-toc.1-1.2.2.3.2.3.1"><a href="#section-2.3.3" class="auto internal xref">2.3.3</a>.  <a href="#name-recommendation-3" class="internal xref">Recommendation</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.4">
+                <p id="section-toc.1-1.2.2.4.1"><a href="#section-2.4" class="auto internal xref">2.4</a>.  <a href="#name-transport" class="internal xref">Transport</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.4.2.1">
+                    <p id="section-toc.1-1.2.2.4.2.1.1"><a href="#section-2.4.1" class="auto internal xref">2.4.1</a>.  <a href="#name-motivation-4" class="internal xref">Motivation</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.4.2.2">
+                    <p id="section-toc.1-1.2.2.4.2.2.1"><a href="#section-2.4.2" class="auto internal xref">2.4.2</a>.  <a href="#name-analysis-4" class="internal xref">Analysis</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.4.2.3">
+                    <p id="section-toc.1-1.2.2.4.2.3.1"><a href="#section-2.4.3" class="auto internal xref">2.4.3</a>.  <a href="#name-recommendation-4" class="internal xref">Recommendation</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.5">
+                <p id="section-toc.1-1.2.2.5.1"><a href="#section-2.5" class="auto internal xref">2.5</a>.  <a href="#name-equipment-longevity" class="internal xref">Equipment Longevity</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.5.2.1">
+                    <p id="section-toc.1-1.2.2.5.2.1.1"><a href="#section-2.5.1" class="auto internal xref">2.5.1</a>.  <a href="#name-motivation-5" class="internal xref">Motivation</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.5.2.2">
+                    <p id="section-toc.1-1.2.2.5.2.2.1"><a href="#section-2.5.2" class="auto internal xref">2.5.2</a>.  <a href="#name-analysis-5" class="internal xref">Analysis</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.5.2.3">
+                    <p id="section-toc.1-1.2.2.5.2.3.1"><a href="#section-2.5.3" class="auto internal xref">2.5.3</a>.  <a href="#name-recommendation-5" class="internal xref">Recommendation</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.6">
+                <p id="section-toc.1-1.2.2.6.1"><a href="#section-2.6" class="auto internal xref">2.6</a>.  <a href="#name-compact-encoding" class="internal xref">Compact encoding</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.6.2.1">
+                    <p id="section-toc.1-1.2.2.6.2.1.1"><a href="#section-2.6.1" class="auto internal xref">2.6.1</a>.  <a href="#name-motivation-6" class="internal xref">Motivation</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.6.2.2">
+                    <p id="section-toc.1-1.2.2.6.2.2.1"><a href="#section-2.6.2" class="auto internal xref">2.6.2</a>.  <a href="#name-analysis-6" class="internal xref">Analysis</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.6.2.3">
+                    <p id="section-toc.1-1.2.2.6.2.3.1"><a href="#section-2.6.3" class="auto internal xref">2.6.3</a>.  <a href="#name-recommendation-6" class="internal xref">Recommendation</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.7">
+                <p id="section-toc.1-1.2.2.7.1"><a href="#section-2.7" class="auto internal xref">2.7</a>.  <a href="#name-resiliency" class="internal xref">Resiliency</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.7.2.1">
+                    <p id="section-toc.1-1.2.2.7.2.1.1"><a href="#section-2.7.1" class="auto internal xref">2.7.1</a>.  <a href="#name-motivation-7" class="internal xref">Motivation</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.7.2.2">
+                    <p id="section-toc.1-1.2.2.7.2.2.1"><a href="#section-2.7.2" class="auto internal xref">2.7.2</a>.  <a href="#name-analysis-7" class="internal xref">Analysis</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.7.2.3">
+                    <p id="section-toc.1-1.2.2.7.2.3.1"><a href="#section-2.7.3" class="auto internal xref">2.7.3</a>.  <a href="#name-recommendation-7" class="internal xref">Recommendation</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.8">
+                <p id="section-toc.1-1.2.2.8.1"><a href="#section-2.8" class="auto internal xref">2.8</a>.  <a href="#name-sustainable-by-design-data-" class="internal xref">Sustainable by Design: Data Governance Perspective</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.8.2.1">
+                    <p id="section-toc.1-1.2.2.8.2.1.1"><a href="#section-2.8.1" class="auto internal xref">2.8.1</a>.  <a href="#name-motivation-8" class="internal xref">Motivation</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.8.2.2">
+                    <p id="section-toc.1-1.2.2.8.2.2.1"><a href="#section-2.8.2" class="auto internal xref">2.8.2</a>.  <a href="#name-analysis-8" class="internal xref">Analysis</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.8.2.3">
+                    <p id="section-toc.1-1.2.2.8.2.3.1"><a href="#section-2.8.3" class="auto internal xref">2.8.3</a>.  <a href="#name-recommendation-8" class="internal xref">Recommendation</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.9">
+                <p id="section-toc.1-1.2.2.9.1"><a href="#section-2.9" class="auto internal xref">2.9</a>.  <a href="#name-" class="internal xref">...</a></p>
+</li>
+            </ul>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-recommendations-for-further" class="internal xref">Recommendations for Further Work and Research</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
+</li>
+        </ul>
+</nav>
+</section>
+</div>
+<div id="introduction">
+<section id="section-1">
+      <h2 id="name-introduction">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
+      </h2>
+<p id="section-1-1">Sustainability is an important consideration in networking. Both for
+ensuring that networking technology can enable societies to operate in
+a sustainable manner and that the networks themselves are sustainable.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">This document discusses protocol and network architecture aspects that
+may have an impact on the sustainability of network technology.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">Where good design and architecture can improve the sustainability of
+networks, we should of course apply them when designing new protocols
+and building networks.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">But what is such good design and architecture? Are there guidelines
+that can be given? Intuitively, protocol and network architecture may
+in some cases have an impact on sustainability. At the very least the
+right design and architecture can make it possible to have a positive
+impact, but of course the architecture alone is not enough. The
+possibilities offered by the architecture need to be employed by
+implementations and practical deployments.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-5">To give an example of architectural aspect that potentially has a
+sustainability impact, enabling the collection of information (e.g.,
+energy consumption) and then using that information to make
+smarter decisions is one. For instance, understanding power
+consumption of individual nodes can be valuable input to future purchasing
+decisions or development efforts to improve the power consumption.<a href="#section-1-5" class="pilcrow">¶</a></p>
+<p id="section-1-6">Other architectural examples include making it possible to scale
+resources or resource selection processes performed in a
+sustainability-aware fashion. The use of communication primitives that
+maximise utility in a given problem (e.g., using multicast) or the use
+technologies that reduce the number or size of messages needed for a
+given task (e.g., binary encoding instead of textual) are some further
+examples.<a href="#section-1-6" class="pilcrow">¶</a></p>
+<p id="section-1-7">Of course, some of these aspects may have a major impact on
+sustainability, where others may only have a minor effect.  There are
+also tradeoffs, such as side-effects of architectural choices, e.g.,
+dynamic scaling of a router network potentially impacting jitter.<a href="#section-1-7" class="pilcrow">¶</a></p>
+<p id="section-1-8">This document discusses some of these architectural aspects and
+considerations related to them, and tries to give guidance where such
+guidance can be given.<a href="#section-1-8" class="pilcrow">¶</a></p>
+<p id="section-1-9">The scope of the document is advice on Internet and protocol
+architecture, such as what architecture or capabilities new protocol
+designs or features should have, what kind of operational network
+architectures should be deployed, and how all of these can be designed
+to best address sustainability concerns.<a href="#section-1-9" class="pilcrow">¶</a></p>
+<p id="section-1-10">The document is intended to help engineering efforts in the IETF,
+provide guidance for operationals in the operator community, or point
+to research directions in the IRTF.<a href="#section-1-10" class="pilcrow">¶</a></p>
+<p id="section-1-11">This document is not focused on general issues around sustainability,
+except those that pertain to architecture or significant protocol
+features.<a href="#section-1-11" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="potential-architectural-aspects">
+<section id="section-2">
+      <h2 id="name-potential-architectural-asp">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-potential-architectural-asp" class="section-name selfRef">Potential Architectural Aspects</a>
+      </h2>
+<div id="measurement">
+<section id="section-2.1">
+        <h3 id="name-measurement">
+<a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-measurement" class="section-name selfRef">Measurement</a>
+        </h3>
+<p id="section-2.1-1">You have to know what is going on before you can improve. Some level
+of measurements are necessary for improving sustainability. This is
+particularly the case when looking at the systems as a whole in
+post-analysis. As discussed earlier, this level of measurements is
+useful input for further actions, such as deciding what parts of the
+network need further improvement.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.1-2">But measurements may also be useful for some dynamic situations
+where power-saving decisions for instance depend on knowing the
+relative power consumption of different activities, such as when a
+power-off decision involves understanding the relative savings during
+the shutdown period vs. the power cost of shutdown and startup procedures,
+or possible need to reconfigure other other nodes in the network due
+to the shutdown.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
+<div id="motivation">
+<section id="section-2.1.1">
+          <h4 id="name-motivation">
+<a href="#section-2.1.1" class="section-number selfRef">2.1.1. </a><a href="#name-motivation" class="section-name selfRef">Motivation</a>
+          </h4>
+<p id="section-2.1.1-1">Measurements are a necessary mechanism for both post-analysis and
+potentially some of the dynamic decisions taken by systems. Without
+measurements, only aggregate power consumption can be measured,<a href="#section-2.1.1-1" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2.1.1-2.1">
+              <p id="section-2.1.1-2.1.1">This is oddly formulated. If we can measure aggregate power consumption,
+we do have measurements...<a href="#section-2.1.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-2.1.1-3">but
+for instance no per-device data about real power usage will be
+available, and as such, there's limited basis for deciding what
+improvements are most useful.<a href="#section-2.1.1-3" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2.1.1-4.1">
+              <p id="section-2.1.1-4.1.1">My proposal : Measurements are a necessary mechanism for both post-analysis and
+potentially some of the dynamic decisions taken by systems. Without measurements of any kind,
+it is impossible to assess if the networks are functioning correctly. It is impossible
+to know if the system is efficient, to compare the system against a baseline model. It is
+also impossible to check that changes aiming at optimizing something are valuable.<a href="#section-2.1.1-4.1.1" class="pilcrow">¶</a></p>
+<p id="section-2.1.1-4.1.2">At the same time, it is not possible to measure everything. Furthermore, any
+measurement must be validated. Relevance of measurements must be periodically assessed.
+One way to validate power/energy measurements consists of comparing them with
+the utiliy bill.<a href="#section-2.1.1-4.1.2" class="pilcrow">¶</a></p>
+<p id="section-2.1.1-4.1.3">Finally, measurements made in the field must be collected and organized to allow
+later retrieval.<a href="#section-2.1.1-4.1.3" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</section>
+</div>
+<div id="analysis">
+<section id="section-2.1.2">
+          <h4 id="name-analysis">
+<a href="#section-2.1.2" class="section-number selfRef">2.1.2. </a><a href="#name-analysis" class="section-name selfRef">Analysis</a>
+          </h4>
+<p id="section-2.1.2-1">While the simplest forms of sustainability-related measurements are
+about power, there's clearly room for other measurements and other
+information as well. To begin with, power consumption by itself may not be what
+matters most for sustainability, as the source of the power may be
+more significant in terms of the actual carbon footprint.<a href="#section-2.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.1.2-2">Secondly, for many classes of devices the embedded carbon aspects or
+use of raw materials may be a significant sustainability issue. See
+also Section 2.2.<a href="#section-2.1.2-2" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2.1.2-3.1">
+              <p id="section-2.1.2-3.1.1">Third, power or energy measurements alone are of meager use if the cause
+of the consumption is not measured as well. Any power/energy measurement
+should occur alongside at least one other measurement permitting to
+obtain an energy efficiency. Hence a sound measurement architecture
+implies that a prior existing of an energy efficiency framework of some kind.<a href="#section-2.1.2-3.1.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-2.1.2-4">But when it comes to energy consumption,
+operators know their total energy consumption already (see the
+utility bill), and it's not particularly hard to measure the energy
+consumption of individial network devices either.  Still, there are a
+number of desirable use cases where the measurement situation needs to
+improve.<a href="#section-2.1.2-4" class="pilcrow">¶</a></p>
+<div id="measuring-power-efficiency">
+<section id="section-2.1.2.1">
+            <h5 id="name-measuring-power-efficiency">
+<a href="#section-2.1.2.1" class="section-number selfRef">2.1.2.1. </a><a href="#name-measuring-power-efficiency" class="section-name selfRef">Measuring Power Efficiency</a>
+            </h5>
+<p id="section-2.1.2.1-1">When assessing the power consumption (Scope 2) of an IT-organization,
+emission accountants are generally looking for a metric of the
+delivered value per unit of energy.<a href="#section-2.1.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.1.2.1-2">A commonly used method is to equate the delivered value with the number
+of bits sent or received.  But applying this to a video conferencing
+operation, for example, would mean that if a 10% improvement of the
+compression algorithm is introduced at unchanged power usage, the
+operation would suddenly seem to be 10% less efficient.
+&gt; This would also imply that a network is primarily meant to carry
+&gt; traffic at full capacity. This is not the case. Some networks, especially
+&gt; emergency networks, are designed to be <strong>available</strong> for an emergency
+&gt; communication. They are designed to be poorly loaded. Thus power efficiency
+&gt; can also be expressed at a ratio between the bandwidth made available and
+&gt; the power required to make it available.<a href="#section-2.1.2.1-2" class="pilcrow">¶</a></p>
+<p id="section-2.1.2.1-3">There are many more strange effects like the one above with this
+approach.  The value definition needs to be more stable than depending
+on the number of transmitted bits.<a href="#section-2.1.2.1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="customer-attribution">
+<section id="section-2.1.2.2">
+            <h5 id="name-customer-attribution">
+<a href="#section-2.1.2.2" class="section-number selfRef">2.1.2.2. </a><a href="#name-customer-attribution" class="section-name selfRef">Customer Attribution</a>
+            </h5>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2.1.2.2-1.1">
+                <p id="section-2.1.2.2-1.1.1">IMO this has nothing to do with measurement. This is more
+related with how we crunch measurement numbers. This is falls
+into modeling IMO.<a href="#section-2.1.2.2-1.1.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+<p id="section-2.1.2.2-2">When organizations assess their Scope 3 emissions, they need to sum up
+their share of emissions from all their suppliers, one of which for
+example, might be a cloud hosting service.  In order for the supplier
+to provide an emission share value back to the customer, the provider
+needs to develop an attribution formula.<a href="#section-2.1.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-2.1.2.2-3">A significant challenge in accurately assessing Scope 3 emissions is
+avoiding Double Counting, where the same emission is reported by
+multiple entities. According to the GHG Protocol best practices, it is
+crucial to establish clear guidelines and agreements between suppliers
+and customers to ensure that emissions are attributed correctly and
+not counted multiple times. This requires transparent communication
+and precise emission reporting standards to ensure that all parties
+involved have a consistent understanding of which emissions belong to
+which organization.<a href="#section-2.1.2.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.1.2.2-4">By addressing the Double Counting issue, companies can achieve more
+accurate and reliable Scope 3 emissions assessments, thereby
+contributing to better overall sustainability reporting and
+improvement efforts.<a href="#section-2.1.2.2-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="continuous-improvement">
+<section id="section-2.1.2.3">
+            <h5 id="name-continuous-improvement">
+<a href="#section-2.1.2.3" class="section-number selfRef">2.1.2.3. </a><a href="#name-continuous-improvement" class="section-name selfRef">Continuous Improvement</a>
+            </h5>
+<p id="section-2.1.2.3-1">In order for an organization to continuously keep pushing for a more
+power efficient operation, knowing the power consumption totals,
+possibly divided up by customer, is typically not enough.<a href="#section-2.1.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.1.2.3-2">In order to get information that is actionable, a more granular data
+collection is required.  How much power goes to compute, network,
+security, monitoring and management?  Is our cooling as efficient as
+the industry standard?<a href="#section-2.1.2.3-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="baselining-and-benchmarking">
+<section id="section-2.1.2.4">
+            <h5 id="name-baselining-and-benchmarking">
+<a href="#section-2.1.2.4" class="section-number selfRef">2.1.2.4. </a><a href="#name-baselining-and-benchmarking" class="section-name selfRef">Baselining and Benchmarking</a>
+            </h5>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2.1.2.4-1.1">
+                <p id="section-2.1.2.4-1.1.1">This is also not related with measurements. This is also modeling,
+because defining a baseline means we are making a comparison. To make
+a comparison, we implicitely realise an abstraction (we are defining
+a class of comparable things) and abstraction is modeling.<a href="#section-2.1.2.4-1.1.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+<p id="section-2.1.2.4-2">Establishing a baseline is a fundamental step in the process of
+improving energy efficiency and sustainability of network
+technology. Baselining involves establishing a reference point of
+typical energy usage, which is crucial for identifying inefficiencies
+and measuring improvements over time. At this step, the controller
+uses only the collected data from datasheets and other reliable
+sources.<a href="#section-2.1.2.4-2" class="pilcrow">¶</a></p>
+<p id="section-2.1.2.4-3">By establishing a baseline and using benchmarking, organizations can
+determine if their networking equipment is performing normally or if
+it is deviating from expected performance, guiding necessary
+improvements. Benchmarking involves collecting performance
+measurements of networking equipment under controlled laboratory
+conditions. This process helps establish standardized performance
+metrics, allowing for comparison against baselines collected during
+regular operational conditions.<a href="#section-2.1.2.4-3" class="pilcrow">¶</a></p>
+<p id="section-2.1.2.4-4">The initial measurement of networking equipment's energy efficiency
+and performance, known as Baselining, should be coordinated with
+vendor specifications and industry standards to understand what is
+considered normal or optimal performance. For example, if the baseline
+indicates that your switches operate at 5 Gbps per watt, while vendor
+specifications suggest 8 Gbps per watt and the industry standard is 10
+Gbps per watt, actions should be taken to implement energy-saving
+measures and upgrades. Tracking subsequent measurements can reveal if
+efficiency improves towards the benchmark of 8-10 Gbps per watt.<a href="#section-2.1.2.4-4" class="pilcrow">¶</a></p>
+<p id="section-2.1.2.4-5">This practice ensures that any improvements can be quantifiably
+tracked over time, providing a clear measure of the effectiveness of
+the implemented changes and guiding further enhancements in network
+sustainability.<a href="#section-2.1.2.4-5" class="pilcrow">¶</a></p>
+<p id="section-2.1.2.4-6">See also <span>[<a href="#Baseline" class="cite xref">Baseline</a>]</span> and <span>[<a href="#BenchmarkingFramework" class="cite xref">BenchmarkingFramework</a>]</span>.<a href="#section-2.1.2.4-6" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="development-of-science">
+<section id="section-2.1.2.5">
+            <h5 id="name-development-of-science">
+<a href="#section-2.1.2.5" class="section-number selfRef">2.1.2.5. </a><a href="#name-development-of-science" class="section-name selfRef">Development of Science</a>
+            </h5>
+<p id="section-2.1.2.5-1">Scientists working on power efficiency need real world data to work
+with.  Data collection for such purposes might not need to be always
+on, but needs to have a clear content declaration, transparent
+provenance and computation methods that allow comparisons.<a href="#section-2.1.2.5-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="recommendation">
+<section id="section-2.1.3">
+          <h4 id="name-recommendation">
+<a href="#section-2.1.3" class="section-number selfRef">2.1.3. </a><a href="#name-recommendation" class="section-name selfRef">Recommendation</a>
+          </h4>
+<p id="section-2.1.3-1">Ongoing work at the IETF's GREEN working group is already improving
+existing energy consumption metrics and frameworks.  Some further
+considerations apply, however. In order to meet the needs of the use
+cases discussed above, the following architectural design principles
+are proposed.<a href="#section-2.1.3-1" class="pilcrow">¶</a></p>
+<div id="generality">
+<section id="section-2.1.3.1">
+            <h5 id="name-generality">
+<a href="#section-2.1.3.1" class="section-number selfRef">2.1.3.1. </a><a href="#name-generality" class="section-name selfRef">Generality</a>
+            </h5>
+<p id="section-2.1.3.1-1">We recommend that any measurement framework or sustainability-related
+information sharing mechanism be designed to share different types of
+information, and not limited to a single metric such as power consumption.<a href="#section-2.1.3.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="collect-metrics-from-existing-equipment">
+<section id="section-2.1.3.2">
+            <h5 id="name-collect-metrics-from-existi">
+<a href="#section-2.1.3.2" class="section-number selfRef">2.1.3.2. </a><a href="#name-collect-metrics-from-existi" class="section-name selfRef">Collect Metrics from Existing Equipment</a>
+            </h5>
+<p id="section-2.1.3.2-1">Since the need to deliver on the use cases described is urgent, the
+industry has to accept working with the capabilities of existing
+equipment in the field.  A plug-in architecture with modules that can
+work with (read from and control) devices of any kind, including
+traditional networking hardware devices, cooling systems, software
+stacks, and occasionally static datasheets.<a href="#section-2.1.3.2-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="content-declaration-for-all-collected-metrics">
+<section id="section-2.1.3.3">
+            <h5 id="name-content-declaration-for-all">
+<a href="#section-2.1.3.3" class="section-number selfRef">2.1.3.3. </a><a href="#name-content-declaration-for-all" class="section-name selfRef">Content Declaration for all Collected Metrics</a>
+            </h5>
+<p id="section-2.1.3.3-1">A warehouse filled with data collected from diverse sources is useless
+without proper labling.  Create metadata that describes the
+collected data.  What are the source(s)?  What measurement units?
+Precision?  What is included/excluded in these numbers?<a href="#section-2.1.3.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.1.3.3-2">The metadata itself must also have a formal description.  Use YANG for
+the metadata schema.  Keep the metadata attached to the dataflow it
+describes, so that the relation is clear to each component that has
+anything to do with it, including components added by other
+organizations at a later point in time.<a href="#section-2.1.3.3-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="collection-aggregation-processing-display-decisions">
+<section id="section-2.1.3.4">
+            <h5 id="name-collection-aggregation-proc">
+<a href="#section-2.1.3.4" class="section-number selfRef">2.1.3.4. </a><a href="#name-collection-aggregation-proc" class="section-name selfRef">Collection, Aggregation, Processing, Display, Decisions</a>
+            </h5>
+<p id="section-2.1.3.4-1">The collected data passes through a pipeline from collection to
+decisions. By processing we mean steps to reshape the data to
+match further aggregation and processing steps, such as unit
+conversions, sample frequency alignment, filtering, etc.<a href="#section-2.1.3.4-1" class="pilcrow">¶</a></p>
+<p id="section-2.1.3.4-2">Separate these architectural roles into separate modules in
+order to enable reuse, modulear development and a transparent,
+configurable pipeline.<a href="#section-2.1.3.4-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="configurable-pipeline-for-reuse-and-transparency">
+<section id="section-2.1.3.5">
+            <h5 id="name-configurable-pipeline-for-r">
+<a href="#section-2.1.3.5" class="section-number selfRef">2.1.3.5. </a><a href="#name-configurable-pipeline-for-r" class="section-name selfRef">Configurable Pipeline for Reuse and Transparency</a>
+            </h5>
+<p id="section-2.1.3.5-1">Let the pipeline connections between the components be driven by
+configuration rather than hard coded.  This enables reconfiguration of
+the processing pipeline over time, and perhaps more importantly,
+transparency into what stages the data pass through, even without
+access to or understanding of the source code of the entire system.<a href="#section-2.1.3.5-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="design-together-with-the-users">
+<section id="section-2.1.3.6">
+            <h5 id="name-design-together-with-the-us">
+<a href="#section-2.1.3.6" class="section-number selfRef">2.1.3.6. </a><a href="#name-design-together-with-the-us" class="section-name selfRef">Design Together with the Users</a>
+            </h5>
+<p id="section-2.1.3.6-1">Every system should be designed involving some of its target users.
+In order for delivered metrics to be of any value, the target audience
+needs to be aware of their existence, be able to interpret them and
+understand how they can be used in their professional context.<a href="#section-2.1.3.6-1" class="pilcrow">¶</a></p>
+<p id="section-2.1.3.6-2">There are many target user groups for the information produced.
+Some examples are scientists, operations teams and IT-development
+organizations.  One crtitical group that is often overlooked is
+the sustainability assessment experts.  If they are not aware, don't
+understand or don't care about the produced sustainability metrics,
+the value of this work would be greatly diminished.<a href="#section-2.1.3.6-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="modelling">
+<section id="section-2.2">
+        <h3 id="name-modelling">
+<a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-modelling" class="section-name selfRef">Modelling</a>
+        </h3>
+<p id="section-2.2-1">The paucity of up-to-date information on equipment and system
+parameters, especially power consumption and maximum throughput, makes
+estimating the power consumption and energy efficiency of these
+systems extremely challenging. In addition the rapid evolution of
+technology and products in ICT makes the estimation quickly out-dated
+and possibly inaccurate. In almost all cases physical measurement has
+to be replaced by partial measurement and mathematical modelling.<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<div id="motivation-1">
+<section id="section-2.2.1">
+          <h4 id="name-motivation-2">
+<a href="#section-2.2.1" class="section-number selfRef">2.2.1. </a><a href="#name-motivation-2" class="section-name selfRef">Motivation</a>
+          </h4>
+<p id="section-2.2.1-1">Where power optimization choices are made, accurate information is required to decide the right choice. Modelling instead of measurements may have to be used in some cases.<a href="#section-2.2.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="analysis-1">
+<section id="section-2.2.2">
+          <h4 id="name-analysis-2">
+<a href="#section-2.2.2" class="section-number selfRef">2.2.2. </a><a href="#name-analysis-2" class="section-name selfRef">Analysis</a>
+          </h4>
+<p id="section-2.2.2-1">To date, two approaches to network power modelling are accepted as
+providing a realistic estimate of network power consumption. These
+approaches are referred to as "bottom-up" and "top-down".  The paper
+<span>[<a href="#Unifying" class="cite xref">Unifying</a>]</span> surveys both approaches and provide a new approach which
+unifies both of them. The unified approach is used to estimate the
+power consumption of access, aggregation and core networks.<a href="#section-2.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-2">The paper <span>[<a href="#Modelling" class="cite xref">Modelling</a>]</span> provides a
+model for IP Routers and the routers of other future Internet
+architectures (FIA) such as SCION and NEBULA. They use a generic model
+which captures the commonalities of IP router as well as the
+peculiarities of FIA routers. They conduct a large-scale simulation
+based on this router model to estimate the power consumption for
+different network architectures.<a href="#section-2.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-3">Since routers and other network devices and functions can be
+virtualized, this article (1) provides comprehensive "graphical,
+analytical survey of the literature, over the period 2010–2020, on the
+measurement of power consumption and relevant power models of virtual
+entities as they apply to the telco cloud." This paper A Methodology
+and Testbed to Develop an Energy Model for 5G Virtualized RANs IEEE
+Conference Publication IEEE Xplore got best paper award for GreenNet
+2024, but I am not sure if we are interested to model 5G vRAN.<a href="#section-2.2.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.2.2-4">There are plethora of publications on modeling communication networks
+and DC computing.<a href="#section-2.2.2-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="recommendation-1">
+<section id="section-2.2.3">
+          <h4 id="name-recommendation-2">
+<a href="#section-2.2.3" class="section-number selfRef">2.2.3. </a><a href="#name-recommendation-2" class="section-name selfRef">Recommendation</a>
+          </h4>
+<p id="section-2.2.3-1">It is still to be determined to what extent we need to work on
+modeling networks and devices in the architecture. Is this outside the
+scope of architecture?<a href="#section-2.2.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="dynamic-scaling">
+<section id="section-2.3">
+        <h3 id="name-dynamic-scaling">
+<a href="#section-2.3" class="section-number selfRef">2.3. </a><a href="#name-dynamic-scaling" class="section-name selfRef">Dynamic Scaling</a>
+        </h3>
+<p id="section-2.3-1">The ability to adjust resources to need, and possibly turn some of
+them off during periods of low usage. Examples include the set of
+servers needed for a service, how many duplicate links are needed to
+carry high-volume traffic, whether one needs all base stations with
+overlapping coverage areas to be on, etc.<a href="#section-2.3-1" class="pilcrow">¶</a></p>
+<div id="motivation-2">
+<section id="section-2.3.1">
+          <h4 id="name-motivation-3">
+<a href="#section-2.3.1" class="section-number selfRef">2.3.1. </a><a href="#name-motivation-3" class="section-name selfRef">Motivation</a>
+          </h4>
+<p id="section-2.3.1-1">Outside implementation improvements, dynamic scaling is perhaps the
+method with most promise for reducing power consumption related
+environmental impacts. Dynamic scaling would not have an impact in
+situations where there's only a single router, base station, or server
+serving a particular route, area, or function. However, most large
+systems have significant amount of redundancy and spare
+capacity. Where such capacity can be turned on or off to match the
+actual need at a given time, significant power consumption reductions
+can be achieved.<a href="#section-2.3.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="analysis-2">
+<section id="section-2.3.2">
+          <h4 id="name-analysis-3">
+<a href="#section-2.3.2" class="section-number selfRef">2.3.2. </a><a href="#name-analysis-3" class="section-name selfRef">Analysis</a>
+          </h4>
+<p id="section-2.3.2-1">Dynamic scaling could be seen as either an alternative or complementary to load stabilization, e.g., via "peak shaving". Perhaps the most realistic angle is that both are likely needed.<a href="#section-2.3.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-2">The most rudimentary approach to dynamic scaling is just turning some resources off. However, often this is not sufficient and a more graceful/engineered approach potentially yields better results.<a href="#section-2.3.2-2" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-3">A network architects need to understand the impacts of scaling changes on users and traffic. These may include fate of ongoing sessions, latency/jitter, packets in flight, or running processes, attempts to contact resources that are no longer present, and the time it takes for the network to converge to its new state.<a href="#section-2.3.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-4">Dynamic scaling requires an understanding of load levels for the network, so information collection is required. It also requires understanding the power, time and other costs of making changes. (See <span>[<a href="#I-D.pignataro-enviro-sustainability-architecture" class="cite xref">I-D.pignataro-enviro-sustainability-architecture</a>]</span> for discussion of tradeoffs and multi-objective optimization.)<a href="#section-2.3.2-4" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-5">Some of the strategies that are useful in implementing a well working dynamic scaling include:<a href="#section-2.3.2-5" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2.3.2-6.1">
+              <p id="section-2.3.2-6.1.1">Ability to enter "no new work" mode for equipment, to enable some resources to be eventually released/turned off.<a href="#section-2.3.2-6.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.3.2-6.2">
+              <p id="section-2.3.2-6.2.1">Ability to move ongoing tasks off to other equipment, to prevent disruption of already started tasks.<a href="#section-2.3.2-6.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.3.2-6.3">
+              <p id="section-2.3.2-6.3.1">Ability to schedule changes rather than making them abruptly, with associated signaling exchanges and possible transient routing and other failures. See for instance the time-variant routing work in the IETF <span>[<a href="#RFC9657" class="cite xref">RFC9657</a>]</span><span>[<a href="#I-D.ietf-tvr-requirements" class="cite xref">I-D.ietf-tvr-requirements</a>]</span><span>[<a href="#I-D.ietf-tvr-schedule-yang" class="cite xref">I-D.ietf-tvr-schedule-yang</a>]</span><span>[<a href="#I-D.ietf-tvr-alto-exposure" class="cite xref">I-D.ietf-tvr-alto-exposure</a>]</span>.<a href="#section-2.3.2-6.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.3.2-6.4">
+              <p id="section-2.3.2-6.4.1">Efficient propagation of changes of new routes, new set of servers, etc. as to reduce the amount of time where state across the network is not synchronized. The needs for the propagation solution needs to be driven by dynamic scaling and sustainability as well as other aspects, such as recovery from failures.<a href="#section-2.3.2-6.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.3.2-6.5">
+              <p id="section-2.3.2-6.5.1">Never expect a fixed set of resources, plan for dynamic set of resources, and build mechanisms to deal with dynamic changes.<a href="#section-2.3.2-6.5.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.3.2-6.6">
+              <p id="section-2.3.2-6.6.1">Dynamic scaling requires automation in most cases. See again <span>[<a href="#I-D.pignataro-enviro-sustainability-architecture" class="cite xref">I-D.pignataro-enviro-sustainability-architecture</a>]</span> for a discussion of automation.<a href="#section-2.3.2-6.6.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-2.3.2-7">From Hesham:<a href="#section-2.3.2-7" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-8">Energy-aware routing generally aims at aggregating traffic flows over a subset of the network devices and links, allowing other links and interconnection devices to be switched off. These solutions shall preserve connectivity and QoS, for instance by limiting the maximum utilization over any link, or ensuring a minimum level of path diversity. The following 2 slides provides classifications of energy aware routing algorithms.<a href="#section-2.3.2-8" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-9">There are also algorithms for Green Traffic engineering. Here is an example which uses segment routing <span>[<a href="#Segment" class="cite xref">Segment</a>]</span>. The empirical analysis of this algorithm is described in <span>[<a href="#Experiment" class="cite xref">Experiment</a>]</span>. The results of this analysis showed that the resource usage for SRv6 could be more than 70% lower than that of the SPF-based forwarding, depending on the network topology.<a href="#section-2.3.2-9" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-10">Using load adaptive technique allows the capacity of the nodes to be dynamically adjusted according to the demand. Examples include: Adaptive Link Rate (ALR): Adapt Link Rate to suit traffic demand and Dynamically or power off links in Link Aggregation based on traffic demand which is empirically estimated based on traffic arrival. LACP (Link Aggregation Control Protocol) defined in IEEE 802.1AX <span>[<a href="#LinkAggregation" class="cite xref">LinkAggregation</a>]</span> can be modified to power off links in an aggregation if they are not needed.<a href="#section-2.3.2-10" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-11">We can use dynamic load shifting such as a demand-response technique where the system temporarily reduces its energy usage in response to pricing signals from a smart grid. The proposed demand-response technique involves deferring the load from elastic requests to later time periods in order to reduce the server demand and the current energy usage, and hence, energy costs <span>[<a href="#LoadShifting" class="cite xref">LoadShifting</a>]</span>.<a href="#section-2.3.2-11" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="recommendation-2">
+<section id="section-2.3.3">
+          <h4 id="name-recommendation-3">
+<a href="#section-2.3.3" class="section-number selfRef">2.3.3. </a><a href="#name-recommendation-3" class="section-name selfRef">Recommendation</a>
+          </h4>
+<p id="section-2.3.3-1">The guidelines above need to be considered specifically for each protocol and system design.<a href="#section-2.3.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.3.3-2">TBD implementation and deployment guidance<a href="#section-2.3.3-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="transport">
+<section id="section-2.4">
+        <h3 id="name-transport">
+<a href="#section-2.4" class="section-number selfRef">2.4. </a><a href="#name-transport" class="section-name selfRef">Transport</a>
+        </h3>
+<p id="section-2.4-1">Transport protocols are the flexible tools that make it possible for
+communication flows between parties to adjust themselves to the
+dynamic conditions that exist in the network at any given time:
+available bandwidth, delays, congestion, the ability of a peer to send
+or receive traffic, and so on. Depending on the conditions, an
+individual flow may carry traffic at widely different rates, may pause
+for some time, etc. Various higher-level transport solutions may also
+cache or pre-fetch information.<a href="#section-2.4-1" class="pilcrow">¶</a></p>
+<p id="section-2.4-2">This behavior will have an effect on sustainability as well, e.g., in
+what periods the endpoint and network systems are active or when they
+could be in reduced activity or sleep states.<a href="#section-2.4-2" class="pilcrow">¶</a></p>
+<div id="motivation-3">
+<section id="section-2.4.1">
+          <h4 id="name-motivation-4">
+<a href="#section-2.4.1" class="section-number selfRef">2.4.1. </a><a href="#name-motivation-4" class="section-name selfRef">Motivation</a>
+          </h4>
+<p id="section-2.4.1-1">Transport behaviour would have a possibility of impacting how much
+downtime or sleep can be had in the communication system, either on
+the end systems or routers or other equipment in between. The savings
+can be significant, at least in wireless systems.<a href="#section-2.4.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.4.1-2">Improvements through transport behaviour are only useful if the
+involved systems have power proportionality.<a href="#section-2.4.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="analysis-3">
+<section id="section-2.4.2">
+          <h4 id="name-analysis-4">
+<a href="#section-2.4.2" class="section-number selfRef">2.4.2. </a><a href="#name-analysis-4" class="section-name selfRef">Analysis</a>
+          </h4>
+<p id="section-2.4.2-1">A critical issue is the tradeoff involved in sending traffic. As
+argued in <span>[<a href="#NotTradeOff" class="cite xref">NotTradeOff</a>]</span>, reducing
+the amount of time the endpoints and the network are active can
+sometimes help save energy, e.g. in case the receiver is connected
+over a WiFi link. Similar logic applies for any technology that has a
+certain degree of energy proportionality, e.g. cellular
+communication. As a result, in general, delivering information as
+rapidly as possible would appear to be desirable.<a href="#section-2.4.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.4.2-2">On the other hand, bandwidth-intensive applications can influence
+other applications or users by presenting a significant load on the
+network, and consequently reducing capacity available for others, or
+increasing buffering (and with it, latency) across the network
+path. For an application with intermittent data transfers, such as
+streaming video, this would seem to speak in favor of sustained but
+lower-rate delivery instead of transmitting short high-rate bursts <span>[<a href="#Sammy" class="cite xref">Sammy</a>]</span>. However, this
+is in contradiction with the energy-saving approach above. Thus, the
+tradeoff is: should data be sent in a way that is "friendly" to others
+(avoiding bad interference), or should it save energy by sending fast,
+increasing the chance for equipment to enter a "sleep" state?<a href="#section-2.4.2-2" class="pilcrow">¶</a></p>
+<p id="section-2.4.2-3">At the time of writing, the common choice for video is to opt for high
+rate delivery, potentially saving energy, and possibly at the expense
+of other traffic. For non-urgent data transfers, the IETF-recommended
+default approach is the opposite: the LEDBAT congestion control
+mechanism <span>[<a href="#RFC6817" class="cite xref">RFC6817</a>]</span>, which is designed for such use, will always
+"step out of the way" of other traffic, giving it a low rate when it
+competes with any other traffic. Alternatively, if the goal is to
+reduce energy, such traffic could be sent at a high rate, at a
+strategically good moment within a longer time interval; this would
+give network equipment an opportunity to enter a sleep state in the
+remaining time period within the interval.<a href="#section-2.4.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.4.2-4">Perhaps the issue is that the transport behavior (as with many other
+things) needs to take into account multiple parameters. For example,
+it is possible that a balanced transport algorithm would be able to
+send as much as possible as soon as possible, while tracking buffer
+growth from transmission delays and scaling back if there's any buffer
+growth. This remains to be confirmed with experiments, however.<a href="#section-2.4.2-4" class="pilcrow">¶</a></p>
+<p id="section-2.4.2-5">Similarly, caching and pre-fetching designs need to take into account
+not only the likehood of having acquired the right content in memory,
+but also the sustainability cost of possibly fetching too much or the
+timing of those fetching operations.<a href="#section-2.4.2-5" class="pilcrow">¶</a></p>
+<p id="section-2.4.2-6">In general, information about the impacts of loading or not loading
+the network with additional traffic, and whether a certain sending
+pattern enables power savings through sleep modes, would be beneficial
+for the communicating endpoints. Mechanisms for making such
+information available to the endpoints would be useful.<a href="#section-2.4.2-6" class="pilcrow">¶</a></p>
+<p id="section-2.4.2-7">(TBD add something about LEDBAT per Emile's comment)<a href="#section-2.4.2-7" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="recommendation-3">
+<section id="section-2.4.3">
+          <h4 id="name-recommendation-4">
+<a href="#section-2.4.3" class="section-number selfRef">2.4.3. </a><a href="#name-recommendation-4" class="section-name selfRef">Recommendation</a>
+          </h4>
+<p id="section-2.4.3-1">What is said here is, however, just a theoretical analysis. We
+recommend simulation and experiments to confirm what strategies would
+provide the best end-user and energy performance. Perhaps work for the
+IRTF SUSTAIN RG.<a href="#section-2.4.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.4.3-2">TBD implementation and deployment guidance<a href="#section-2.4.3-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="equipment-longevity">
+<section id="section-2.5">
+        <h3 id="name-equipment-longevity">
+<a href="#section-2.5" class="section-number selfRef">2.5. </a><a href="#name-equipment-longevity" class="section-name selfRef">Equipment Longevity</a>
+        </h3>
+<p id="section-2.5-1">The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. This includes devising tools to inform network administrators and their users of the potential benefits of network equipment upgrades, so that they can make better choices on what upgrades are necessary and when.<a href="#section-2.5-1" class="pilcrow">¶</a></p>
+<p id="section-2.5-2">It should be noted that from an environmental sustainability perspective, it is not necessarily always the best choice to upgrade network equipment whenever slightly less power-hungry and "greener" alternatives become availabe. The environmental cost of amortizing the carbon embedded inside equipment over its lifetime, for example, the carbon associated with the manufacturing of the equipment that is to be replaced, should be taken into consideration as well.<a href="#section-2.5-2" class="pilcrow">¶</a></p>
+<div id="motivation-4">
+<section id="section-2.5.1">
+          <h4 id="name-motivation-5">
+<a href="#section-2.5.1" class="section-number selfRef">2.5.1. </a><a href="#name-motivation-5" class="section-name selfRef">Motivation</a>
+          </h4>
+<p id="section-2.5.1-1">Embedded carbon and raw materials can be a significant part of the
+overall environmental impact of systems. If this can be improved for
+devices that are manufactured in large quantities, the improvements
+can be significant.<a href="#section-2.5.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.5.1-2">Long equipment lifetimes are only useful if the longer lifetimes can
+be achieved without compromising other aspects of sustainability, such
+as when using a high-end and power-hungry router in place of small
+routers.<a href="#section-2.5.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="analysis-4">
+<section id="section-2.5.2">
+          <h4 id="name-analysis-5">
+<a href="#section-2.5.2" class="section-number selfRef">2.5.2. </a><a href="#name-analysis-5" class="section-name selfRef">Analysis</a>
+          </h4>
+<p id="section-2.5.2-1">When we engineer protocols and network equipment, we are inclined to
+design them in a highly optimized manner for a very specific set of
+requirements, use cases and context. While this is necessary in
+certain cases (e.g. constrained nodes with limits on processing
+capacity or long lived battery powered devices), there are cetainly
+cases where such optimized equipment is not absolutely required. The
+vast majority of infrastucture network nodes on the Internet utilize
+only a faction of their design capacity most of the time.<a href="#section-2.5.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-2">Designing the equipment with an eye on longevity comes with a set of
+advantages:<a href="#section-2.5.2-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2.5.2-3.1">
+              <p id="section-2.5.2-3.1.1">It allows the same equipment and protocols could be reused in a different context in the future. e.g. A core router of today can become an edge router in a near future and an access router in the further future if the protocol implementations are adaptable.<a href="#section-2.5.2-3.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.5.2-3.2">
+              <p id="section-2.5.2-3.2.1">It can reduce complexity in implementations as well as in network management that are usually indicated in highly optimized systems<a href="#section-2.5.2-3.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.5.2-3.3">
+              <p id="section-2.5.2-3.3.1">It can let network equipment operate for a longer period and can reduce the frequency of hardware upgrades, in turn reducing the environmental impact associated with manufacturing, transporting, and disposing of the old/new hardware.<a href="#section-2.5.2-3.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.5.2-3.4">
+              <p id="section-2.5.2-3.4.1">One key disadvantage may be that not optimizing may result in the need for premature upgrades for capacity and this needs to be taken into account.<a href="#section-2.5.2-3.4.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-2.5.2-4">Hence, it is very likely that extending the life of protocols and equipment with higher flexibility could provide a better environmental benefit than tightly optimizing only for today’s uses.<a href="#section-2.5.2-4" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-5">Another aspect that can play an important role in extending the longevity of equipment concerns software-defined networking, in the sense of designing networking equipment in such a way that new equipment capabilities and features can be introduced via software upgrades as opposed to requiring hardware replacement. This requires system architectures that incorporate the necessary infrastructure to support such upgrades in a secure manner that does not compromise equipment integrity.<a href="#section-2.5.2-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="recommendation-4">
+<section id="section-2.5.3">
+          <h4 id="name-recommendation-5">
+<a href="#section-2.5.3" class="section-number selfRef">2.5.3. </a><a href="#name-recommendation-5" class="section-name selfRef">Recommendation</a>
+          </h4>
+<p id="section-2.5.3-1">The guidelines above should be considered for any new system design. If some aspect of protocol or network equipment design choice could be made more generic and flexible without a significant performance and sustainability impact, it needs to be studied in further detail. Specifically, the potential additional sustainability costs due to forgoing optimization need to be weighed against the potential savings in embedded carbon and raw material costs brought about by premature upgrades. There are also cases where equipment upgrades are done to provide better peak performance characteristics (e.g. higher advertised speeds towards consumers) and these need to be viewed as well with the same tradeoffs in mind. Finally, when designing networks it is recommended to consider whether it is possible to reuse retiring equipment in a different location or for a different function (e.g. move it to lower traffic geographies, core routers become edge/access routers etc.)<a href="#section-2.5.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="compact-encoding">
+<section id="section-2.6">
+        <h3 id="name-compact-encoding">
+<a href="#section-2.6" class="section-number selfRef">2.6. </a><a href="#name-compact-encoding" class="section-name selfRef">Compact encoding</a>
+        </h3>
+<p id="section-2.6-1">This is about better encoding methods, such as using binary instead of text.<a href="#section-2.6-1" class="pilcrow">¶</a></p>
+<div id="motivation-5">
+<section id="section-2.6.1">
+          <h4 id="name-motivation-6">
+<a href="#section-2.6.1" class="section-number selfRef">2.6.1. </a><a href="#name-motivation-6" class="section-name selfRef">Motivation</a>
+          </h4>
+<p id="section-2.6.1-1">Better encoding can obviously reduce the length of message sents. It
+remains a question mark how big overall impact this is, however. It
+should only be performed if it gives a measurable overall impact.<a href="#section-2.6.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="analysis-5">
+<section id="section-2.6.2">
+          <h4 id="name-analysis-6">
+<a href="#section-2.6.2" class="section-number selfRef">2.6.2. </a><a href="#name-analysis-6" class="section-name selfRef">Analysis</a>
+          </h4>
+<p id="section-2.6.2-1">Better encoding methods are clearly benefical for improving the detailed-level effectiveness
+of communications.<a href="#section-2.6.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.6.2-2">The main questions are, however:<a href="#section-2.6.2-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2.6.2-3.1">
+              <p id="section-2.6.2-3.1.1">Is the effect of this is at a magnitude comparable to the other
+things, or if it is just absolutely tiny? Particularly considering
+that much of the traffic on the Internet is video, and much of that is
+other content than, e.g., HTTP headers. Moran et al. argued in their 2022 paper <span>[<a href="#CBORGreener" class="cite xref">CBORGreener</a>]</span> <span>[<a href="#RFC9547" class="cite xref">RFC9547</a>]</span> that that for a weather data example from <span>[<a href="#RFC8428" class="cite xref">RFC8428</a>]</span> <span>[<a href="#RFC9193" class="cite xref">RFC9193</a>]</span> there are significant savings. However, this needs more research in terms of the overall impact across different examples and the general make up of Internet traffic.<a href="#section-2.6.2-3.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.6.2-3.2">
+              <p id="section-2.6.2-3.2.1">At what layer is the compactness achieved? Are link, IP, or
+transport layer mechanisms that can compact some of the verbose
+messaging useful, or should each and every protocol have optimal
+compacting?<a href="#section-2.6.2-3.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.6.2-3.3">
+              <p id="section-2.6.2-3.3.1">Tradeoffs related to compressing (particularly if AI-based
+computationally expensive methods are used).<a href="#section-2.6.2-3.3.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</section>
+</div>
+<div id="recommendation-5">
+<section id="section-2.6.3">
+          <h4 id="name-recommendation-6">
+<a href="#section-2.6.3" class="section-number selfRef">2.6.3. </a><a href="#name-recommendation-6" class="section-name selfRef">Recommendation</a>
+          </h4>
+<p id="section-2.6.3-1">More research is needed to quantify the likely sources of measurable impacts.<a href="#section-2.6.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.6.3-2">TBD implementation and deployment guidance<a href="#section-2.6.3-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="resiliency">
+<section id="section-2.7">
+        <h3 id="name-resiliency">
+<a href="#section-2.7" class="section-number selfRef">2.7. </a><a href="#name-resiliency" class="section-name selfRef">Resiliency</a>
+        </h3>
+<p id="section-2.7-1">This is about weight that migh impact future archs as they did not exist, aka where implicit, in the pass.<a href="#section-2.7-1" class="pilcrow">¶</a></p>
+<div id="motivation-6">
+<section id="section-2.7.1">
+          <h4 id="name-motivation-7">
+<a href="#section-2.7.1" class="section-number selfRef">2.7.1. </a><a href="#name-motivation-7" class="section-name selfRef">Motivation</a>
+          </h4>
+<p id="section-2.7.1-1">It is not so easy to focus on impacts of this or that on architectural evolution because it is difficult to focus on architecture by itself.
+But we can ask ourselves what will impact the future architecture that didn't exist explicitly in the pass.<a href="#section-2.7.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="analysis-6">
+<section id="section-2.7.2">
+          <h4 id="name-analysis-7">
+<a href="#section-2.7.2" class="section-number selfRef">2.7.2. </a><a href="#name-analysis-7" class="section-name selfRef">Analysis</a>
+          </h4>
+<p id="section-2.7.2-1">Resiliency might impact much more the adaptation and the design of the architecture in the future decades than it did in the past 20 years.<a href="#section-2.7.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.7.2-2">It might be divided in axis like 'Resiliency to power breakage', 'Resiliency to lack of material' that can be filtered wrt their impacts on device, network ... architectures<a href="#section-2.7.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="recommendation-6">
+<section id="section-2.7.3">
+          <h4 id="name-recommendation-7">
+<a href="#section-2.7.3" class="section-number selfRef">2.7.3. </a><a href="#name-recommendation-7" class="section-name selfRef">Recommendation</a>
+          </h4>
+<p id="section-2.7.3-1">TBD<a href="#section-2.7.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="sustainable-by-design-data-governance-perspective">
+<section id="section-2.8">
+        <h3 id="name-sustainable-by-design-data-">
+<a href="#section-2.8" class="section-number selfRef">2.8. </a><a href="#name-sustainable-by-design-data-" class="section-name selfRef">Sustainable by Design: Data Governance Perspective</a>
+        </h3>
+<p id="section-2.8-1">Incorporating sustainability into the design phase of network
+architecture is critical for ensuring long-term environmental and
+operational benefits. From a Data Governance point of view,
+"Sustainable by Design" involves embedding sustainability principles
+and practices into the data management frameworks and processes from
+the outset.<a href="#section-2.8-1" class="pilcrow">¶</a></p>
+<div id="motivation-7">
+<section id="section-2.8.1">
+          <h4 id="name-motivation-8">
+<a href="#section-2.8.1" class="section-number selfRef">2.8.1. </a><a href="#name-motivation-8" class="section-name selfRef">Motivation</a>
+          </h4>
+<p id="section-2.8.1-1">Data governance plays a pivotal role in shaping how data is collected,
+stored, processed, and used. By integrating sustainability into these
+processes, organizations can ensure that their data practices
+contribute to environmental goals, such as reducing carbon footprints,
+optimizing resource usage, and minimizing waste.<a href="#section-2.8.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="analysis-7">
+<section id="section-2.8.2">
+          <h4 id="name-analysis-8">
+<a href="#section-2.8.2" class="section-number selfRef">2.8.2. </a><a href="#name-analysis-8" class="section-name selfRef">Analysis</a>
+          </h4>
+<p id="section-2.8.2-1">Key elements of Sustainable by Design in data governance include:<a href="#section-2.8.2-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-2.8.2-2.1">
+              <p id="section-2.8.2-2.1.1">Data Minimization: Collecting only the data that is necessary and
+useful, reducing storage and processing requirements, which in turn
+lowers energy consumption.<a href="#section-2.8.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.8.2-2.2">
+              <p id="section-2.8.2-2.2.1">Efficient Data Storage Solutions: Implementing energy-efficient data
+storage technologies and practices that prioritize reduced power
+usage and cooling needs.<a href="#section-2.8.2-2.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.8.2-2.3">
+              <p id="section-2.8.2-2.3.1">Lifecycle Management: Ensuring that data is managed throughout its
+lifecycle in a way that minimizes environmental impact, including
+secure and sustainable data disposal practices.<a href="#section-2.8.2-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-2.8.2-2.4">
+              <p id="section-2.8.2-2.4.1">Transparency and Accountability: Establishing clear data governance
+policies that promote transparency in data usage and accountability
+for sustainability objectives.<a href="#section-2.8.2-2.4.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</section>
+</div>
+<div id="recommendation-7">
+<section id="section-2.8.3">
+          <h4 id="name-recommendation-8">
+<a href="#section-2.8.3" class="section-number selfRef">2.8.3. </a><a href="#name-recommendation-8" class="section-name selfRef">Recommendation</a>
+          </h4>
+<p id="section-2.8.3-1">Organizations should adopt data governance frameworks that incorporate
+sustainability as a core principle. This includes setting clear
+sustainability goals, measuring progress towards these goals, and
+continuously improving data management practices to enhance
+sustainability. By doing so, organizations can ensure that their data
+operations are not only effective but also environmentally
+responsible.<a href="#section-2.8.3-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="section">
+<section id="section-2.9">
+        <h3 id="name-">
+<a href="#section-2.9" class="section-number selfRef">2.9. </a><a href="#name-" class="section-name selfRef">...</a>
+        </h3>
+<p id="section-2.9-1">Add other considerations as needed: Transparency etc.<a href="#section-2.9-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="recommendations-for-further-work-and-research">
+<section id="section-3">
+      <h2 id="name-recommendations-for-further">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-recommendations-for-further" class="section-name selfRef">Recommendations for Further Work and Research</a>
+      </h2>
+<p id="section-3-1">Transport-related optimizations that enable devices to consume less
+power by sleeping more appear potential, but require further research,
+perhaps as part of the efforts in the SUSTAIN RG.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">TBD<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-3">...<a href="#section-3-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="security-considerations">
+<section id="section-4">
+      <h2 id="name-security-considerations">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      </h2>
+<p id="section-4-1">It is possible that the introduction of features and architectural properties to facilitate environmentally sustainable Internet technology introduces new attack vectors or other security ramifications.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-2">For example, the introduction of measurements and metrics for the purpose of saving energy could be misused for the opposite effect when compromised.  For example, measurements might be be tampered with in order to cause an operator to waste energy.  Energy measurements, when abused, might also result in compromised security, for example by allowing to infer usage profiles.  They could also be abused to implement a covert communications channel in which information is leaked via tampered measurement values that are being reported.<a href="#section-4-2" class="pilcrow">¶</a></p>
+<p id="section-4-3">Networking features and technology choices may have security implications regardless of why they are introduced, including for reasons of environmental sustainability.  The possibility of this needs to be taken into consideration, understood, and communicated to allow for their mitigation.<a href="#section-4-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="iana-considerations">
+<section id="section-5">
+      <h2 id="name-iana-considerations">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+      </h2>
+<p id="section-5-1">This document has no IANA actions.<a href="#section-5-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="sec-informative-references">
+<section id="section-6">
+      <h2 id="name-informative-references">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+      </h2>
+<dl class="references">
+<dt id="Baseline">[Baseline]</dt>
+      <dd>
+<span class="refAuthor">Livieratos, S.</span>, <span class="refAuthor">Panetsos, S.</span>, <span class="refAuthor">Fotopoulos, A.</span>, and <span class="refAuthor">M. Karagiorgas</span>, <span class="refTitle">"A New Proposed Energy Baseline Model for a Data Center as a Tool for Energy Efficiency Evaluation"</span>, <span class="seriesInfo">International Journal of Power and Energy Research, Vol. 3, No. 1 </span>, <time datetime="2019-04" class="refDate">April 2019</time>. </dd>
+<dd class="break"></dd>
+<dt id="BenchmarkingFramework">[BenchmarkingFramework]</dt>
+      <dd>
+<span class="refAuthor">Mahadevan, P.</span>, <span class="refAuthor">Sharma, P.</span>, <span class="refAuthor">Banerjee, S.</span>, and <span class="refAuthor">P. Ranganathan</span>, <span class="refTitle">"A Power Benchmarking Framework for Network Devices"</span>, <span class="seriesInfo">In L. Fratta et al. (Eds.): NETWORKING 2009, LNCS 5550, pp. 795–808 </span>, <time datetime="2009" class="refDate">2009</time>. </dd>
+<dd class="break"></dd>
+<dt id="CBORGreener">[CBORGreener]</dt>
+      <dd>
+<span class="refAuthor">Moran, B.</span>, <span class="refAuthor">Birkholz, H.</span>, and <span class="refAuthor">C. Bormann</span>, <span class="refTitle">"CBOR is Greener than JSON"</span>, <span class="seriesInfo">Position paper in the 2022 IAB Workshop Environmental Impact of Internet Applications and Systems </span>, <time datetime="2022-10" class="refDate">October 2022</time>. </dd>
+<dd class="break"></dd>
+<dt id="Experiment">[Experiment]</dt>
+      <dd>
+<span class="refAuthor">Groningen, J.</span> and <span class="refAuthor">C. Lung</span>, <span class="refTitle">"Green Network Traffic Engineering Using Segment Routing: an Experiment Report"</span>, <span class="seriesInfo">2024 20th International Conference on Network and Service Management (CNSM) </span>, <time datetime="2024" class="refDate">2024</time>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-tvr-alto-exposure">[I-D.ietf-tvr-alto-exposure]</dt>
+      <dd>
+<span class="refAuthor">Contreras, L. M.</span>, <span class="refTitle">"Using ALTO for exposing Time-Variant Routing information"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tvr-alto-exposure-00</span>, <time datetime="2024-12-23" class="refDate">23 December 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tvr-alto-exposure-00">https://datatracker.ietf.org/doc/html/draft-ietf-tvr-alto-exposure-00</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-tvr-requirements">[I-D.ietf-tvr-requirements]</dt>
+      <dd>
+<span class="refAuthor">King, D.</span>, <span class="refAuthor">Contreras, L. M.</span>, <span class="refAuthor">Sipos, B.</span>, and <span class="refAuthor">L. Zhang</span>, <span class="refTitle">"TVR (Time-Variant Routing) Requirements"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tvr-requirements-04</span>, <time datetime="2024-09-13" class="refDate">13 September 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tvr-requirements-04">https://datatracker.ietf.org/doc/html/draft-ietf-tvr-requirements-04</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-tvr-schedule-yang">[I-D.ietf-tvr-schedule-yang]</dt>
+      <dd>
+<span class="refAuthor">Qu, Y.</span>, <span class="refAuthor">Lindem, A.</span>, <span class="refAuthor">Kinzie, E.</span>, <span class="refAuthor">Fedyk, D.</span>, and <span class="refAuthor">M. Blanchet</span>, <span class="refTitle">"YANG Data Model for Scheduled Attributes"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tvr-schedule-yang-03</span>, <time datetime="2024-10-20" class="refDate">20 October 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tvr-schedule-yang-03">https://datatracker.ietf.org/doc/html/draft-ietf-tvr-schedule-yang-03</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.pignataro-enviro-sustainability-architecture">[I-D.pignataro-enviro-sustainability-architecture]</dt>
+      <dd>
+<span class="refAuthor">Pignataro, C.</span>, <span class="refAuthor">Rezaki, A.</span>, <span class="refAuthor">Krishnan, S.</span>, <span class="refAuthor">Arkko, J.</span>, <span class="refAuthor">Clemm, A.</span>, and <span class="refAuthor">H. ElBakoury</span>, <span class="refTitle">"Architectural Considerations for Environmental Sustainability"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-pignataro-enviro-sustainability-architecture-01</span>, <time datetime="2024-12-27" class="refDate">27 December 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-pignataro-enviro-sustainability-architecture-01">https://datatracker.ietf.org/doc/html/draft-pignataro-enviro-sustainability-architecture-01</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LinkAggregation">[LinkAggregation]</dt>
+      <dd>
+<span class="refTitle">"IEEE Standard for Local and Metropolitan Area Networks--Link Aggregation"</span>, <span class="seriesInfo">IEEE STD 802.1AX-2020 (Revision of IEEE STD 802.1AX-2014): 1–333. doi:10.1109/IEEESTD.2020.9105034. ISBN 978-1-5044-6428-4 </span>, <time datetime="2020-05" class="refDate">May 2020</time>. </dd>
+<dd class="break"></dd>
+<dt id="LoadShifting">[LoadShifting]</dt>
+      <dd>
+<span class="refAuthor">Mathew, V.</span>, <span class="refAuthor">Sitaraman, R. K.</span>, and <span class="refAuthor">P. Shenoy</span>, <span class="refTitle">"Reducing energy costs in Internet-scale distributed systems using load shifting"</span>, <span class="seriesInfo">Sixth International Conference on Communication Systems and Networks (COMSNETS), Bangalore, India, pp. 1-8, doi: 10.1109/COMSNETS.2014.6734894 </span>, <time datetime="2014" class="refDate">2014</time>. </dd>
+<dd class="break"></dd>
+<dt id="Modelling">[Modelling]</dt>
+      <dd>
+<span class="refAuthor">Chen, C.</span>, <span class="refAuthor">Barrera, D.</span>, and <span class="refAuthor">A. Perrig</span>, <span class="refTitle">"Modeling Data-Plane Power Consumption of Future Internet Architectures"</span>, <span class="seriesInfo">IEEE 2nd International Conference on Collaboration and Internet Computing (CIC), Pittsburgh, PA, USA, pp. 149-158, doi: 10.1109/CIC.2016.031 </span>, <time datetime="2016" class="refDate">2016</time>. </dd>
+<dd class="break"></dd>
+<dt id="NotTradeOff">[NotTradeOff]</dt>
+      <dd>
+<span class="refAuthor">Welzl, M.</span>, <span class="refTitle">"Not a Trade-Off: On the Wi-Fi Energy Efficiency of Effective Internet Congestion Control"</span>, <span class="seriesInfo">17th Wireless On-Demand Network Systems and Services Conference (WONS), Oppdal, Norway, pp. 1-4, doi: 10.23919/WONS54113.2022.9764413 </span>, <time datetime="2022" class="refDate">2022</time>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6817">[RFC6817]</dt>
+      <dd>
+<span class="refAuthor">Shalunov, S.</span>, <span class="refAuthor">Hazel, G.</span>, <span class="refAuthor">Iyengar, J.</span>, and <span class="refAuthor">M. Kuehlewind</span>, <span class="refTitle">"Low Extra Delay Background Transport (LEDBAT)"</span>, <span class="seriesInfo">RFC 6817</span>, <span class="seriesInfo">DOI 10.17487/RFC6817</span>, <time datetime="2012-12" class="refDate">December 2012</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6817">https://www.rfc-editor.org/rfc/rfc6817</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8428">[RFC8428]</dt>
+      <dd>
+<span class="refAuthor">Jennings, C.</span>, <span class="refAuthor">Shelby, Z.</span>, <span class="refAuthor">Arkko, J.</span>, <span class="refAuthor">Keranen, A.</span>, and <span class="refAuthor">C. Bormann</span>, <span class="refTitle">"Sensor Measurement Lists (SenML)"</span>, <span class="seriesInfo">RFC 8428</span>, <span class="seriesInfo">DOI 10.17487/RFC8428</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8428">https://www.rfc-editor.org/rfc/rfc8428</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9193">[RFC9193]</dt>
+      <dd>
+<span class="refAuthor">Keränen, A.</span> and <span class="refAuthor">C. Bormann</span>, <span class="refTitle">"Sensor Measurement Lists (SenML) Fields for Indicating Data Value Content-Format"</span>, <span class="seriesInfo">RFC 9193</span>, <span class="seriesInfo">DOI 10.17487/RFC9193</span>, <time datetime="2022-06" class="refDate">June 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9193">https://www.rfc-editor.org/rfc/rfc9193</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9547">[RFC9547]</dt>
+      <dd>
+<span class="refAuthor">Arkko, J.</span>, <span class="refAuthor">Perkins, C. S.</span>, and <span class="refAuthor">S. Krishnan</span>, <span class="refTitle">"Report from the IAB Workshop on Environmental Impact of Internet Applications and Systems, 2022"</span>, <span class="seriesInfo">RFC 9547</span>, <span class="seriesInfo">DOI 10.17487/RFC9547</span>, <time datetime="2024-02" class="refDate">February 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9547">https://www.rfc-editor.org/rfc/rfc9547</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9657">[RFC9657]</dt>
+      <dd>
+<span class="refAuthor">Birrane, III, E.</span>, <span class="refAuthor">Kuhn, N.</span>, <span class="refAuthor">Qu, Y.</span>, <span class="refAuthor">Taylor, R.</span>, and <span class="refAuthor">L. Zhang</span>, <span class="refTitle">"Time-Variant Routing (TVR) Use Cases"</span>, <span class="seriesInfo">RFC 9657</span>, <span class="seriesInfo">DOI 10.17487/RFC9657</span>, <time datetime="2024-10" class="refDate">October 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9657">https://www.rfc-editor.org/rfc/rfc9657</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="Sammy">[Sammy]</dt>
+      <dd>
+<span class="refAuthor">Bruce Spang</span>, <span class="refAuthor">Shravya Kunamalla</span>, <span class="refAuthor">Renata Teixeira</span>, <span class="refAuthor">Te-Yuan Huang</span>, <span class="refAuthor">Grenville Armitage</span>, <span class="refAuthor">Ramesh Johari</span>, and <span class="refAuthor">Nick McKeown</span>, <span class="refTitle">"Sammy: smoothing video traffic to be a friendly internet neighbor"</span>, <span class="seriesInfo">In Proceedings of the ACM SIGCOMM 2023 Conference (ACM SIGCOMM '23). Association for Computing Machinery, New York, NY, USA, 754–768. https://doi.org/10.1145/3603269.3604839 </span>, <time datetime="2023" class="refDate">2023</time>. </dd>
+<dd class="break"></dd>
+<dt id="Segment">[Segment]</dt>
+      <dd>
+<span class="refAuthor">Lung, C.</span> and <span class="refAuthor">H. ElBakoury</span>, <span class="refTitle">"Exploiting Segment Routing and SDN Features for Green Traffic Engineering"</span>, <span class="seriesInfo">IEEE 8th International Conference on Network Softwarization (NetSoft), Milan, Italy, pp. 49-54, doi: 10.1109/NetSoft54395.2022.9844091 </span>, <time datetime="2022" class="refDate">2022</time>. </dd>
+<dd class="break"></dd>
+<dt id="Unifying">[Unifying]</dt>
+    <dd>
+<span class="refAuthor">Ishii, K.</span>, <span class="refAuthor">Kurumida, J.</span>, <span class="refAuthor">K.-i Sato</span>, <span class="refAuthor">Kudoh, T.</span>, and <span class="refAuthor">S. Namiki</span>, <span class="refTitle">"Unifying Top-Down and Bottom-Up Approaches to Evaluate Network Energy Consumption"</span>, <span class="seriesInfo">In Journal of Lightwave Technology, vol. 33, no. 21, pp. 4395-4405, doi: 10.1109/JLT.2015.2469145 </span>, <time datetime="2015-11" class="refDate">November 2015</time>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
+<div id="acknowledgments">
+<section id="appendix-A">
+      <h2 id="name-acknowledgments">
+<a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
+      </h2>
+<p id="appendix-A-1">TODO acknowledge.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="authors-addresses">
+<section id="appendix-B">
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
+      </h2>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Jari Arkko (Ed.)</span></div>
+<div dir="auto" class="left"><span class="org">Ericsson</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:jari.arkko@gmail.com" class="email">jari.arkko@gmail.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Suresh Krishnan (Ed.)</span></div>
+<div dir="auto" class="left"><span class="org">Cisco</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:sureshk@cisco.com" class="email">sureshk@cisco.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Michael Welzl</span></div>
+<div dir="auto" class="left"><span class="org">University of Oslo</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:michawe@ifi.uio.no" class="email">michawe@ifi.uio.no</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Alexander Clemm</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:alex@clemm.org" class="email">alex@clemm.org</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Ali Rezaki</span></div>
+<div dir="auto" class="left"><span class="org">Nokia</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:ali.rezaki@nokia.com" class="email">ali.rezaki@nokia.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Eve Schooler</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:eve.schooler@gmail.com" class="email">eve.schooler@gmail.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Sebastien Rumley</span></div>
+<div dir="auto" class="left"><span class="org">HEFR</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:sebastien.rumley@hefr.ch" class="email">sebastien.rumley@hefr.ch</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Hesham ElBakoury</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:helbakoury@gmail.com" class="email">helbakoury@gmail.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Emile Stephan</span></div>
+<div dir="auto" class="left"><span class="org">Orange</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:emile.stephan@orange.com" class="email">emile.stephan@orange.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Marisol Palmero</span></div>
+<div dir="auto" class="left"><span class="org">Cisco</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:mpalmero@cisco.com" class="email">mpalmero@cisco.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Ari Keränen</span></div>
+<div dir="auto" class="left"><span class="org">Ericsson</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:ari.keranen@ericsson.com" class="email">ari.keranen@ericsson.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Luis M. Contreras</span></div>
+<div dir="auto" class="left"><span class="org">Telefonica</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:contreras.ietf@gmail.com" class="email">contreras.ietf@gmail.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Jan Lindblad</span></div>
+<div dir="auto" class="left"><span class="org">All For Eco</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:jan.lindblad+ietf@for.eco" class="email">jan.lindblad+ietf@for.eco</a>
+</div>
+</address>
+</section>
+</div>
+<script>const toc = document.getElementById("toc");
+toc.querySelector("h2").addEventListener("click", e => {
+  toc.classList.toggle("active");
+});
+toc.querySelector("nav").addEventListener("click", e => {
+  toc.classList.remove("active");
+});
+</script>
+</body>
+</html>
