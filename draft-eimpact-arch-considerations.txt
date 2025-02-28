@@ -496,7 +496,7 @@ Table of Contents
    pricing signals from a smart grid.  The proposed demand-response
    technique involves deferring the load from elastic requests to later
    time periods in order to reduce the server demand and the current
-   energy usage, and hence, energy costs (comsnets14-Vmathew.pdf)
+   energy usage, and hence, energy costs [LoadShifting].
 
 2.3.3.  Recommendation
 
@@ -837,6 +837,13 @@ Table of Contents
               01, 27 December 2024,
               <https://datatracker.ietf.org/doc/html/draft-pignataro-
               enviro-sustainability-architecture-01>.
+
+   [LoadShifting]
+              Mathew, V., Sitaraman, R. K., and P. Shenoy, "Reducing
+              energy costs in Internet-scale distributed systems using
+              load shifting", Sixth International Conference on
+              Communication Systems and Networks (COMSNETS), Bangalore,
+              India, pp. 1-8, doi: 10.1109/COMSNETS.2014.6734894 , 2014.
 
    [Modelling]
               Chen, C., Barrera, D., and A. Perrig, "Modeling Data-Plane
