@@ -652,14 +652,6 @@ More research is needed to quantify the likely sources of measurable impacts.
 
 TBD implementation and deployment guidance
 
-## Measurement Architecture
-
-Is measurement architectures in scope of this activity or left for the GREEN WG?
-
-## ...
-
-Add other considerations as needed: Transparency etc.
-
 ## Resiliency
 
 This is about weight that migh impact future archs as they did not exist, aka where implicit, in the pass.
@@ -679,6 +671,14 @@ It might be divided in axis like 'Resiliency to power breakage', 'Resiliency to 
 ### Recommendation
 
 TBD
+
+## Measurement Architecture
+
+Is measurement architectures in scope of this activity or left for the GREEN WG?
+
+## ...
+
+Add other considerations as needed: Transparency etc.
 
 # Recommendations for Further Work and Research
 
