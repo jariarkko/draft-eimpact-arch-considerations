@@ -131,6 +131,20 @@ informative:
       - ins: D. Barrera
       - ins: A. Perrig
     seriesinfo: "IEEE 2nd International Conference on Collaboration and Internet Computing (CIC), Pittsburgh, PA, USA, pp. 149-158, doi: 10.1109/CIC.2016.031"
+  Segment:
+    title: "Exploiting Segment Routing and SDN Features for Green Traffic Engineering"
+    date: 2022
+    author:
+      - ins: C.-H. Lung
+      - ins: H. ElBakoury
+    seriesinfo: "IEEE 8th International Conference on Network Softwarization (NetSoft), Milan, Italy, pp. 49-54, doi: 10.1109/NetSoft54395.2022.9844091"
+  Experiment:
+    title: "Green Network Traffic Engineering Using Segment Routing: an Experiment Report"
+    date: 2024
+    authors:
+      - ins: J. Van Groningen
+      - ins: C.-H. Lung
+    seriesinfo: "2024 20th International Conference on Network and Service Management (CNSM)"
 
 --- abstract
 
@@ -453,9 +467,9 @@ From Hesham:
 
 Energy-aware routing generally aims at aggregating traffic flows over a subset of the network devices and links, allowing other links and interconnection devices to be switched off. These solutions shall preserve connectivity and QoS, for instance by limiting the maximum utilization over any link, or ensuring a minimum level of path diversity. The following 2 slides provides classifications of energy aware routing algorithms.
 
-There are also algorithms for Green Traffic engineering. Here is an example which uses segment routing Exploiting Segment Routing and SDN Features for Green Traffic Engineering IEEE Conference Publication IEEE Xplore. The empirical analysis of this algorithm is described in Green Network Traffic Engineering Using Segment Routing: an Experiment Report IEEE Conference Publication IEEE Xplore. The results of this analysis showed that the resource usage for SRv6 could be more than 70% lower than that of the SPF-based forwarding, depending on the network topology.
+There are also algorithms for Green Traffic engineering. Here is an example which uses segment routing {{Segment}}. The empirical analysis of this algorithm is described in {{Experiment}}. The results of this analysis showed that the resource usage for SRv6 could be more than 70% lower than that of the SPF-based forwarding, depending on the network topology.
 
-Using load adaptive technique allows the capacity of the nodes to be dynamically adjusted according to the demand. Examples include:Adaptive Link Rate (ALR): Adapt Link Rate to suit traffic demand and Dynamically or power off links in Link Aggregation based on traffic demand which is empirically estimated based on traffic arrival. LACP (Link Aggregation Control Protocol) defined in IEEE 802.1AX can be modified to power off links in an aggregation if they are not needed.
+Using load adaptive technique allows the capacity of the nodes to be dynamically adjusted according to the demand. Examples include: Adaptive Link Rate (ALR): Adapt Link Rate to suit traffic demand and Dynamically or power off links in Link Aggregation based on traffic demand which is empirically estimated based on traffic arrival. LACP (Link Aggregation Control Protocol) defined in IEEE 802.1AX can be modified to power off links in an aggregation if they are not needed.
 
 We can use dynamic load shifting such as a demand-response technique where the system temporarily reduces its energy usage in response to pricing signals from a smart grid. The proposed demand-response technique involves deferring the load from elastic requests to later time periods in order to reduce the server demand and the current energy usage, and hence, energy costs (comsnets14-Vmathew.pdf)
 
