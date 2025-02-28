@@ -242,7 +242,7 @@ guidance can be given.
 
 The scope of the document is advice on Internet and protocol
 architecture, such as what architecture or capabilities new protocol
-designs or features should have, what kind of operational network
+[designs or features should have, what kind of operational network
 architectures should be deployed, and how all of these can be designed
 to best address sustainability concerns.
 
@@ -253,6 +253,99 @@ to research directions in the IRTF.
 This document is not focused on general issues around sustainability,
 except those that pertain to architecture or significant protocol
 features.
+
+# Organization of the document
+
+In general, this document aims to frame and organize efforts realized
+at the Internet and protocal architecture level intended to maximize
+the environmental sustainability of Internet. This document is thus about performing
+optimizations.
+
+Prior to performing or proposing any optimization, it is important to identify
+- which are the metrics that one wants to quantitatively minimize or maximize
+- how these metrics are derived, and if they stem (at least partially) from field measurements
+- which field measurements are required, how to collect these measurements
+and how to ensure that the measurements are relevant, calibrated and represent
+the ground reality.
+
+If these three requirements are not met, it is not be possible to
+eventually verify that a proposed or implemented optimization is valuable, or, on the contrary,
+counterproductive.
+
+Moreover, when working on a possible optimization, the first goal should be
+to estimate the gains it aims to realize. This assume the existence of a baseline
+case, i.e. initial values of the metrics-under-optimization.
+
+In light of the preceding, this document is organized in four distinct sections:
+
+- [Measurement and measurement architecture]: Capturing field measurements correctly,
+feeding them into an information system and making them available for later usage
+is not straighforward. The first section thus deals with **introspection** aspects
+of networks. The introspection system is part of the network architecture. It
+has its own architecture, made of sensors, aggregators, databases, etc. There are
+clearly aspects of this architecture to improve, notably to avoid dark-data (measurements
+that are never consulted) and bad-data (wrong measurements). This first section of
+this document collects proposals to improve the monitoring and measurement architectures.
+- [Environmental sustainability modeling]: The second section is devoted to modeling.
+Identifying meaningful, relevant metrics
+to optimize for is a key aspect toward improving sustainability. We are far from having
+a unique and obvious "sustainability score" to optimize against. Once these metrics have been
+identified, formulas and procedures to calculate them must also be identified.
+Calculating a sustainability metric does not necessarily need field measurements. Numbers
+may come out of the operator Entreprise Resource Planing (ERP) system, as utility bills,
+number of customers, or even equipment inventory. Nonetheless, progressing toward
+environmental sustainability generally goes by improving efficiency (otherwise
+it is degrowth), and targeting efficiency gains often goes by analysing measurements.
+But which measurements are needed,  how  must they be combined or scrutinized to obtain a meaningful
+figure requires one or more **models**.
+The definition of efficiency is out of the scope of this introduction.
+Actually, this document intends to collect efficiency definition proposals, as they
+are part of modeling efforts. This document also intends to identify gaps
+in network environment sustainability modeling, i.e. the fine art of turning
+measurements and other data-sources into high-level sustainability scores.
+- [Environmental sustainability optimization alleys]: Finally, this documents
+provide possible directions to follow to optimize sustainability. Ideally,
+such a research or innovation direction should relate to a metric that it
+aims to minimize.
+
+> then go with a structure
+
+# Potential Measurement and Monitoring Architecture Aspects
+
+## Time-series DB
+## Collect Metrics from Existing Equipment (Linblad)
+## Content Declaration for all Collected Metrics (Linblad)
+## Avoid dark-data
+## Avoid bad-data
+## Which data-model standard?
+
+# Potential Modeling Aspects
+
+## Efficiency definitions
+
+### Power efficiency
+### CO2 efficiency
+### Equipment use efficiency
+
+## Modeling aspects
+
+### Collection, Aggregation, Processing, Display, Decisions (Linblad)
+### Configurable Pipeline for Reuse and Transparency (Linblad)
+### Design Together with the Users (Lindlad)
+### Incorporating ERP data
+### ...
+### Baselining (aka as applying the models to the current state to obtain the first score...)
+
+# Potential Architectural Aspects
+
+## Dynamic scaling
+## Sleep states in transport
+## Equipment Longevity
+## ...
+
+> We may want to adapt the sub-structure (Motivation, Analysis, Recommendation) for each section.
+> Typically, we could try to enforce every item under the third section to explicitely
+> mention which metric they want to optimize...]()
 
 # Potential Architectural Aspects
 
