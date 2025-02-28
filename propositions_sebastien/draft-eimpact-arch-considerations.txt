@@ -86,44 +86,55 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
-   2.  Potential Architectural Aspects
-     2.1.  Measurement
-       2.1.1.  Motivation
-       2.1.2.  Analysis
-       2.1.3.  Recommendation
-     2.2.  Modelling
-       2.2.1.  Motivation
-       2.2.2.  Analysis
-       2.2.3.  Recommendation
-     2.3.  Dynamic Scaling
-       2.3.1.  Motivation
-       2.3.2.  Analysis
-       2.3.3.  Recommendation
-     2.4.  Transport
-       2.4.1.  Motivation
-       2.4.2.  Analysis
-       2.4.3.  Recommendation
-     2.5.  Equipment Longevity
-       2.5.1.  Motivation
-       2.5.2.  Analysis
-       2.5.3.  Recommendation
-     2.6.  Compact encoding
-       2.6.1.  Motivation
-       2.6.2.  Analysis
-       2.6.3.  Recommendation
-     2.7.  Resiliency
-       2.7.1.  Motivation
-       2.7.2.  Analysis
-       2.7.3.  Recommendation
-     2.8.  Sustainable by Design: Data Governance Perspective
-       2.8.1.  Motivation
-       2.8.2.  Analysis
-       2.8.3.  Recommendation
-     2.9.  ...
-   3.  Recommendations for Further Work and Research
-   4.  Security Considerations
-   5.  IANA Considerations
-   6.  Informative References
+   2.  Organization of the document
+   3.  Potential Measurement and Monitoring Architecture Aspects
+     3.1.  Time-series DB
+   4.  Potential Modeling Aspects
+     4.1.  Efficiency definitions
+       4.1.1.  Power efficiency
+     4.2.  Modeling aspects
+       4.2.1.  Collection, Aggregation, Processing, Display, Decisions
+               (Linblad)
+   5.  Potential Architectural Aspects
+     5.1.  Dynamic scaling
+   6.  Potential Architectural Aspects
+     6.1.  Measurement
+       6.1.1.  Motivation
+       6.1.2.  Analysis
+       6.1.3.  Recommendation
+     6.2.  Modelling
+       6.2.1.  Motivation
+       6.2.2.  Analysis
+       6.2.3.  Recommendation
+     6.3.  Dynamic Scaling
+       6.3.1.  Motivation
+       6.3.2.  Analysis
+       6.3.3.  Recommendation
+     6.4.  Transport
+       6.4.1.  Motivation
+       6.4.2.  Analysis
+       6.4.3.  Recommendation
+     6.5.  Equipment Longevity
+       6.5.1.  Motivation
+       6.5.2.  Analysis
+       6.5.3.  Recommendation
+     6.6.  Compact encoding
+       6.6.1.  Motivation
+       6.6.2.  Analysis
+       6.6.3.  Recommendation
+     6.7.  Resiliency
+       6.7.1.  Motivation
+       6.7.2.  Analysis
+       6.7.3.  Recommendation
+     6.8.  Sustainable by Design: Data Governance Perspective
+       6.8.1.  Motivation
+       6.8.2.  Analysis
+       6.8.3.  Recommendation
+     6.9.  ...
+   7.  Recommendations for Further Work and Research
+   8.  Security Considerations
+   9.  IANA Considerations
+   10. Informative References
    Acknowledgments
    Authors' Addresses
 
@@ -175,7 +186,7 @@ Table of Contents
 
    The scope of the document is advice on Internet and protocol
    architecture, such as what architecture or capabilities new protocol
-   designs or features should have, what kind of operational network
+   [designs or features should have, what kind of operational network
    architectures should be deployed, and how all of these can be
    designed to best address sustainability concerns.
 
@@ -187,9 +198,111 @@ Table of Contents
    except those that pertain to architecture or significant protocol
    features.
 
-2.  Potential Architectural Aspects
+2.  Organization of the document
 
-2.1.  Measurement
+   In general, this document aims to frame and organize efforts realized
+   at the Internet and protocal architecture level intended to maximize
+   the environmental sustainability of Internet.  This document is thus
+   about performing optimizations.
+
+   Prior to performing or proposing any optimization, it is important to
+   identify - which are the metrics that one wants to quantitatively
+   minimize or maximize - how these metrics are derived, and if they
+   stem (at least partially) from field measurements - which field
+   measurements are required, how to collect these measurements and how
+   to ensure that the measurements are relevant, calibrated and
+   represent the ground reality.
+
+   If these three requirements are not met, it is not be possible to
+   eventually verify that a proposed or implemented optimization is
+   valuable, or, on the contrary, counterproductive.
+
+   Moreover, when working on a possible optimization, the first goal
+   should be to estimate the gains it aims to realize.  This assume the
+   existence of a baseline case, i.e. initial values of the metrics-
+   under-optimization.
+
+   In light of the preceding, this document is organized in four
+   distinct sections:
+
+   *  feeding them into an information system and making them available
+      for later usage is not straighforward.  The first section thus
+      deals with *introspection* aspects of networks.  The introspection
+      system is part of the network architecture.  It has its own
+      architecture, made of sensors, aggregators, databases, etc.  There
+      are clearly aspects of this architecture to improve, notably to
+      avoid dark-data (measurements that are never consulted) and bad-
+      data (wrong measurements).  This first section of this document
+      collects proposals to improve the monitoring and measurement
+      architectures.
+
+   *  Identifying meaningful, relevant metrics to optimize for is a key
+      aspect toward improving sustainability.  We are far from having a
+      unique and obvious "sustainability score" to optimize against.
+      Once these metrics have been identified, formulas and procedures
+      to calculate them must also be identified.  Calculating a
+      sustainability metric does not necessarily need field
+      measurements.  Numbers may come out of the operator Entreprise
+      Resource Planing (ERP) system, as utility bills, number of
+      customers, or even equipment inventory.  Nonetheless, progressing
+      toward environmental sustainability generally goes by improving
+      efficiency (otherwise it is degrowth), and targeting efficiency
+      gains often goes by analysing measurements.  But which
+      measurements are needed, how must they be combined or scrutinized
+      to obtain a meaningful figure requires one or more *models*. The
+      definition of efficiency is out of the scope of this introduction.
+      Actually, this document intends to collect efficiency definition
+      proposals, as they are part of modeling efforts.  This document
+      also intends to identify gaps in network environment
+      sustainability modeling, i.e. the fine art of turning measurements
+      and other data-sources into high-level sustainability scores.
+
+   *  provide possible directions to follow to optimize sustainability.
+      Ideally, such a research or innovation direction should relate to
+      a metric that it aims to minimize.
+
+      then go with a structure
+
+3.  Potential Measurement and Monitoring Architecture Aspects
+
+3.1.  Time-series DB
+
+   ## Collect Metrics from Existing Equipment (Linblad) ## Content
+   Declaration for all Collected Metrics (Linblad) ## Avoid dark-data ##
+   Avoid bad-data ## Which data-model standard?
+
+4.  Potential Modeling Aspects
+
+4.1.  Efficiency definitions
+
+4.1.1.  Power efficiency
+
+   ### CO2 efficiency ### Equipment use efficiency
+
+4.2.  Modeling aspects
+
+4.2.1.  Collection, Aggregation, Processing, Display, Decisions
+        (Linblad)
+
+   ### Configurable Pipeline for Reuse and Transparency (Linblad) ###
+   Design Together with the Users (Lindlad) ### Incorporating ERP data
+   ### ... ### Baselining (aka as applying the models to the current
+   state to obtain the first score...)
+
+5.  Potential Architectural Aspects
+
+5.1.  Dynamic scaling
+
+   ## Sleep states in transport ## Equipment Longevity ## ...
+
+      We may want to adapt the sub-structure (Motivation, Analysis,
+      Recommendation) for each section.  Typically, we could try to
+      enforce every item under the third section to explicitely mention
+      which metric they want to optimize...]()
+
+6.  Potential Architectural Aspects
+
+6.1.  Measurement
 
    You have to know what is going on before you can improve.  Some level
    of measurements are necessary for improving sustainability.  This is
@@ -206,7 +319,7 @@ Table of Contents
    procedures, or possible need to reconfigure other other nodes in the
    network due to the shutdown.
 
-2.1.1.  Motivation
+6.1.1.  Motivation
 
    Measurements are a necessary mechanism for both post-analysis and
    potentially some of the dynamic decisions taken by systems.  Without
@@ -236,7 +349,7 @@ Table of Contents
       Finally, measurements made in the field must be collected and
       organized to allow later retrieval.
 
-2.1.2.  Analysis
+6.1.2.  Analysis
 
    While the simplest forms of sustainability-related measurements are
    about power, there's clearly room for other measurements and other
@@ -262,7 +375,7 @@ Table of Contents
    network devices either.  Still, there are a number of desirable use
    cases where the measurement situation needs to improve.
 
-2.1.2.1.  Measuring Power Efficiency
+6.1.2.1.  Measuring Power Efficiency
 
    When assessing the power consumption (Scope 2) of an IT-organization,
    emission accountants are generally looking for a metric of the
@@ -285,7 +398,7 @@ Table of Contents
    approach.  The value definition needs to be more stable than
    depending on the number of transmitted bits.
 
-2.1.2.2.  Customer Attribution
+6.1.2.2.  Customer Attribution
 
       IMO this has nothing to do with measurement.  This is more related
       with how we crunch measurement numbers.  This is falls into
@@ -312,7 +425,7 @@ Table of Contents
    contributing to better overall sustainability reporting and
    improvement efforts.
 
-2.1.2.3.  Continuous Improvement
+6.1.2.3.  Continuous Improvement
 
    In order for an organization to continuously keep pushing for a more
    power efficient operation, knowing the power consumption totals,
@@ -323,7 +436,7 @@ Table of Contents
    security, monitoring and management?  Is our cooling as efficient as
    the industry standard?
 
-2.1.2.4.  Baselining and Benchmarking
+6.1.2.4.  Baselining and Benchmarking
 
       This is also not related with measurements.  This is also
       modeling, because defining a baseline means we are making a
@@ -365,14 +478,14 @@ Table of Contents
 
    See also [Baseline] and [BenchmarkingFramework].
 
-2.1.2.5.  Development of Science
+6.1.2.5.  Development of Science
 
    Scientists working on power efficiency need real world data to work
    with.  Data collection for such purposes might not need to be always
    on, but needs to have a clear content declaration, transparent
    provenance and computation methods that allow comparisons.
 
-2.1.3.  Recommendation
+6.1.3.  Recommendation
 
    Ongoing work at the IETF's GREEN working group is already improving
    existing energy consumption metrics and frameworks.  Some further
@@ -380,14 +493,14 @@ Table of Contents
    cases discussed above, the following architectural design principles
    are proposed.
 
-2.1.3.1.  Generality
+6.1.3.1.  Generality
 
    We recommend that any measurement framework or sustainability-related
    information sharing mechanism be designed to share different types of
    information, and not limited to a single metric such as power
    consumption.
 
-2.1.3.2.  Collect Metrics from Existing Equipment
+6.1.3.2.  Collect Metrics from Existing Equipment
 
    Since the need to deliver on the use cases described is urgent, the
    industry has to accept working with the capabilities of existing
@@ -396,7 +509,7 @@ Table of Contents
    traditional networking hardware devices, cooling systems, software
    stacks, and occasionally static datasheets.
 
-2.1.3.3.  Content Declaration for all Collected Metrics
+6.1.3.3.  Content Declaration for all Collected Metrics
 
    A warehouse filled with data collected from diverse sources is
    useless without proper labling.  Create metadata that describes the
@@ -409,7 +522,7 @@ Table of Contents
    has anything to do with it, including components added by other
    organizations at a later point in time.
 
-2.1.3.4.  Collection, Aggregation, Processing, Display, Decisions
+6.1.3.4.  Collection, Aggregation, Processing, Display, Decisions
 
    The collected data passes through a pipeline from collection to
    decisions.  By processing we mean steps to reshape the data to match
@@ -420,7 +533,7 @@ Table of Contents
    enable reuse, modulear development and a transparent, configurable
    pipeline.
 
-2.1.3.5.  Configurable Pipeline for Reuse and Transparency
+6.1.3.5.  Configurable Pipeline for Reuse and Transparency
 
    Let the pipeline connections between the components be driven by
    configuration rather than hard coded.  This enables reconfiguration
@@ -428,7 +541,7 @@ Table of Contents
    transparency into what stages the data pass through, even without
    access to or understanding of the source code of the entire system.
 
-2.1.3.6.  Design Together with the Users
+6.1.3.6.  Design Together with the Users
 
    Every system should be designed involving some of its target users.
    In order for delivered metrics to be of any value, the target
@@ -443,7 +556,7 @@ Table of Contents
    understand or don't care about the produced sustainability metrics,
    the value of this work would be greatly diminished.
 
-2.2.  Modelling
+6.2.  Modelling
 
    The paucity of up-to-date information on equipment and system
    parameters, especially power consumption and maximum throughput,
@@ -453,13 +566,13 @@ Table of Contents
    and possibly inaccurate.  In almost all cases physical measurement
    has to be replaced by partial measurement and mathematical modelling.
 
-2.2.1.  Motivation
+6.2.1.  Motivation
 
    Where power optimization choices are made, accurate information is
    required to decide the right choice.  Modelling instead of
    measurements may have to be used in some cases.
 
-2.2.2.  Analysis
+6.2.2.  Analysis
 
    To date, two approaches to network power modelling are accepted as
    providing a realistic estimate of network power consumption.  These
@@ -488,13 +601,13 @@ Table of Contents
    There are plethora of publications on modeling communication networks
    and DC computing.
 
-2.2.3.  Recommendation
+6.2.3.  Recommendation
 
    It is still to be determined to what extent we need to work on
    modeling networks and devices in the architecture.  Is this outside
    the scope of architecture?
 
-2.3.  Dynamic Scaling
+6.3.  Dynamic Scaling
 
    The ability to adjust resources to need, and possibly turn some of
    them off during periods of low usage.  Examples include the set of
@@ -502,7 +615,7 @@ Table of Contents
    carry high-volume traffic, whether one needs all base stations with
    overlapping coverage areas to be on, etc.
 
-2.3.1.  Motivation
+6.3.1.  Motivation
 
    Outside implementation improvements, dynamic scaling is perhaps the
    method with most promise for reducing power consumption related
@@ -514,7 +627,7 @@ Table of Contents
    actual need at a given time, significant power consumption reductions
    can be achieved.
 
-2.3.2.  Analysis
+6.3.2.  Analysis
 
    Dynamic scaling could be seen as either an alternative or
    complementary to load stabilization, e.g., via "peak shaving".
@@ -597,14 +710,14 @@ Table of Contents
    time periods in order to reduce the server demand and the current
    energy usage, and hence, energy costs [LoadShifting].
 
-2.3.3.  Recommendation
+6.3.3.  Recommendation
 
    The guidelines above need to be considered specifically for each
    protocol and system design.
 
    TBD implementation and deployment guidance
 
-2.4.  Transport
+6.4.  Transport
 
    Transport protocols are the flexible tools that make it possible for
    communication flows between parties to adjust themselves to the
@@ -619,7 +732,7 @@ Table of Contents
    what periods the endpoint and network systems are active or when they
    could be in reduced activity or sleep states.
 
-2.4.1.  Motivation
+6.4.1.  Motivation
 
    Transport behaviour would have a possibility of impacting how much
    downtime or sleep can be had in the communication system, either on
@@ -629,7 +742,7 @@ Table of Contents
    Improvements through transport behaviour are only useful if the
    involved systems have power proportionality.
 
-2.4.2.  Analysis
+6.4.2.  Analysis
 
    A critical issue is the tradeoff involved in sending traffic.  As
    argued in [NotTradeOff], reducing the amount of time the endpoints
@@ -686,7 +799,7 @@ Table of Contents
 
    (TBD add something about LEDBAT per Emile's comment)
 
-2.4.3.  Recommendation
+6.4.3.  Recommendation
 
    What is said here is, however, just a theoretical analysis.  We
    recommend simulation and experiments to confirm what strategies would
@@ -695,7 +808,7 @@ Table of Contents
 
    TBD implementation and deployment guidance
 
-2.5.  Equipment Longevity
+6.5.  Equipment Longevity
 
    The ability to extend the useful life of protocols and/or network
    equipment in order to amortize the embedded energy costs over a
@@ -713,7 +826,7 @@ Table of Contents
    the carbon associated with the manufacturing of the equipment that is
    to be replaced, should be taken into consideration as well.
 
-2.5.1.  Motivation
+6.5.1.  Motivation
 
    Embedded carbon and raw materials can be a significant part of the
    overall environmental impact of systems.  If this can be improved for
@@ -725,7 +838,7 @@ Table of Contents
    such as when using a high-end and power-hungry router in place of
    small routers.
 
-2.5.2.  Analysis
+6.5.2.  Analysis
 
    When we engineer protocols and network equipment, we are inclined to
    design them in a highly optimized manner for a very specific set of
@@ -769,7 +882,7 @@ Table of Contents
    support such upgrades in a secure manner that does not compromise
    equipment integrity.
 
-2.5.3.  Recommendation
+6.5.3.  Recommendation
 
    The guidelines above should be considered for any new system design.
    If some aspect of protocol or network equipment design choice could
@@ -787,18 +900,18 @@ Table of Contents
    different function (e.g. move it to lower traffic geographies, core
    routers become edge/access routers etc.)
 
-2.6.  Compact encoding
+6.6.  Compact encoding
 
    This is about better encoding methods, such as using binary instead
    of text.
 
-2.6.1.  Motivation
+6.6.1.  Motivation
 
    Better encoding can obviously reduce the length of message sents.  It
    remains a question mark how big overall impact this is, however.  It
    should only be performed if it gives a measurable overall impact.
 
-2.6.2.  Analysis
+6.6.2.  Analysis
 
    Better encoding methods are clearly benefical for improving the
    detailed-level effectiveness of communications.
@@ -823,26 +936,26 @@ Table of Contents
    *  Tradeoffs related to compressing (particularly if AI-based
       computationally expensive methods are used).
 
-2.6.3.  Recommendation
+6.6.3.  Recommendation
 
    More research is needed to quantify the likely sources of measurable
    impacts.
 
    TBD implementation and deployment guidance
 
-2.7.  Resiliency
+6.7.  Resiliency
 
    This is about weight that migh impact future archs as they did not
    exist, aka where implicit, in the pass.
 
-2.7.1.  Motivation
+6.7.1.  Motivation
 
    It is not so easy to focus on impacts of this or that on
    architectural evolution because it is difficult to focus on
    architecture by itself.  But we can ask ourselves what will impact
    the future architecture that didn't exist explicitly in the pass.
 
-2.7.2.  Analysis
+6.7.2.  Analysis
 
    Resiliency might impact much more the adaptation and the design of
    the architecture in the future decades than it did in the past 20
@@ -852,11 +965,11 @@ Table of Contents
    'Resiliency to lack of material' that can be filtered wrt their
    impacts on device, network ... architectures
 
-2.7.3.  Recommendation
+6.7.3.  Recommendation
 
    TBD
 
-2.8.  Sustainable by Design: Data Governance Perspective
+6.8.  Sustainable by Design: Data Governance Perspective
 
    Incorporating sustainability into the design phase of network
    architecture is critical for ensuring long-term environmental and
@@ -865,7 +978,7 @@ Table of Contents
    and practices into the data management frameworks and processes from
    the outset.
 
-2.8.1.  Motivation
+6.8.1.  Motivation
 
    Data governance plays a pivotal role in shaping how data is
    collected, stored, processed, and used.  By integrating
@@ -874,7 +987,7 @@ Table of Contents
    reducing carbon footprints, optimizing resource usage, and minimizing
    waste.
 
-2.8.2.  Analysis
+6.8.2.  Analysis
 
    Key elements of Sustainable by Design in data governance include:
 
@@ -894,7 +1007,7 @@ Table of Contents
       governance policies that promote transparency in data usage and
       accountability for sustainability objectives.
 
-2.8.3.  Recommendation
+6.8.3.  Recommendation
 
    Organizations should adopt data governance frameworks that
    incorporate sustainability as a core principle.  This includes
@@ -904,11 +1017,11 @@ Table of Contents
    their data operations are not only effective but also environmentally
    responsible.
 
-2.9.  ...
+6.9.  ...
 
    Add other considerations as needed: Transparency etc.
 
-3.  Recommendations for Further Work and Research
+7.  Recommendations for Further Work and Research
 
    Transport-related optimizations that enable devices to consume less
    power by sleeping more appear potential, but require further
@@ -918,7 +1031,7 @@ Table of Contents
 
    ...
 
-4.  Security Considerations
+8.  Security Considerations
 
    It is possible that the introduction of features and architectural
    properties to facilitate environmentally sustainable Internet
@@ -941,11 +1054,11 @@ Table of Contents
    needs to be taken into consideration, understood, and communicated to
    allow for their mitigation.
 
-5.  IANA Considerations
+9.  IANA Considerations
 
    This document has no IANA actions.
 
-6.  Informative References
+10.  Informative References
 
    [Baseline] Livieratos, S., Panetsos, S., Fotopoulos, A., and M.
               Karagiorgas, "A New Proposed Energy Baseline Model for a
