@@ -1063,7 +1063,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">(Ed.), et al.</td>
-<td class="center">Expires 31 August 2025</td>
+<td class="center">Expires 1 September 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1076,12 +1076,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-eimpact-arch-considerations-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-02-27" class="published">27 February 2025</time>
+<time datetime="2025-02-28" class="published">28 February 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-08-31">31 August 2025</time></dd>
+<dd class="expires"><time datetime="2025-09-01">1 September 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1172,7 +1172,7 @@ may have an impact on the sustainability of network technology.<a href="#section
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 31 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 1 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1716,8 +1716,8 @@ can be achieved.<a href="#section-2.3.1-1" class="pilcrow">¶</a></p>
           </ul>
 <p id="section-2.3.2-7">From Hesham:<a href="#section-2.3.2-7" class="pilcrow">¶</a></p>
 <p id="section-2.3.2-8">Energy-aware routing generally aims at aggregating traffic flows over a subset of the network devices and links, allowing other links and interconnection devices to be switched off. These solutions shall preserve connectivity and QoS, for instance by limiting the maximum utilization over any link, or ensuring a minimum level of path diversity. The following 2 slides provides classifications of energy aware routing algorithms.<a href="#section-2.3.2-8" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-9">There are also algorithms for Green Traffic engineering. Here is an example which uses segment routing Exploiting Segment Routing and SDN Features for Green Traffic Engineering IEEE Conference Publication IEEE Xplore. The empirical analysis of this algorithm is described in Green Network Traffic Engineering Using Segment Routing: an Experiment Report IEEE Conference Publication IEEE Xplore. The results of this analysis showed that the resource usage for SRv6 could be more than 70% lower than that of the SPF-based forwarding, depending on the network topology.<a href="#section-2.3.2-9" class="pilcrow">¶</a></p>
-<p id="section-2.3.2-10">Using load adaptive technique allows the capacity of the nodes to be dynamically adjusted according to the demand. Examples include:Adaptive Link Rate (ALR): Adapt Link Rate to suit traffic demand and Dynamically or power off links in Link Aggregation based on traffic demand which is empirically estimated based on traffic arrival. LACP (Link Aggregation Control Protocol) defined in IEEE 802.1AX can be modified to power off links in an aggregation if they are not needed.<a href="#section-2.3.2-10" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-9">There are also algorithms for Green Traffic engineering. Here is an example which uses segment routing <span>[<a href="#Segment" class="cite xref">Segment</a>]</span>. The empirical analysis of this algorithm is described in <span>[<a href="#Experiment" class="cite xref">Experiment</a>]</span>. The results of this analysis showed that the resource usage for SRv6 could be more than 70% lower than that of the SPF-based forwarding, depending on the network topology.<a href="#section-2.3.2-9" class="pilcrow">¶</a></p>
+<p id="section-2.3.2-10">Using load adaptive technique allows the capacity of the nodes to be dynamically adjusted according to the demand. Examples include: Adaptive Link Rate (ALR): Adapt Link Rate to suit traffic demand and Dynamically or power off links in Link Aggregation based on traffic demand which is empirically estimated based on traffic arrival. LACP (Link Aggregation Control Protocol) defined in IEEE 802.1AX can be modified to power off links in an aggregation if they are not needed.<a href="#section-2.3.2-10" class="pilcrow">¶</a></p>
 <p id="section-2.3.2-11">We can use dynamic load shifting such as a demand-response technique where the system temporarily reduces its energy usage in response to pricing signals from a smart grid. The proposed demand-response technique involves deferring the load from elastic requests to later time periods in order to reduce the server demand and the current energy usage, and hence, energy costs (comsnets14-Vmathew.pdf)<a href="#section-2.3.2-11" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1834,6 +1834,7 @@ IRTF SUSTAIN RG.<a href="#section-2.4.3-1" class="pilcrow">¶</a></p>
 <a href="#section-2.5" class="section-number selfRef">2.5. </a><a href="#name-equipment-longevity" class="section-name selfRef">Equipment Longevity</a>
         </h3>
 <p id="section-2.5-1">The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. This includes devising tools to inform network administrators and their users of the potential benefits of network equipment upgrades, so that they can make better choices on what upgrades are necessary and when.<a href="#section-2.5-1" class="pilcrow">¶</a></p>
+<p id="section-2.5-2">It should be noted that from an environmental sustainability perspective, it is not necessarily always the best choice to upgrade network equipment whenever slightly less power-hungry and "greener" alternatives become availabe. The environmental cost of amortizing the carbon embedded inside equipment over its lifetime, for example, the carbon associated with the manufacturing of the equipment that is to be replaced, should be taken into consideration as well.<a href="#section-2.5-2" class="pilcrow">¶</a></p>
 <div id="motivation-4">
 <section id="section-2.5.1">
           <h4 id="name-motivation-5">
@@ -1879,6 +1880,7 @@ advantages:<a href="#section-2.5.2-2" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-2.5.2-4">Hence, it is very likely that extending the life of protocols and equipment with higher flexibility could provide a better environmental benefit than tightly optimizing only for today’s uses.<a href="#section-2.5.2-4" class="pilcrow">¶</a></p>
+<p id="section-2.5.2-5">Another aspect that can play an important role in extending the longevity of equipment concerns software-defined networking, in the sense of designing networking equipment in such a way that new equipment capabilities and features can be introduced via software upgrades as opposed to requiring hardware replacement. This requires system architectures that incorporate the necessary infrastructure to support such upgrades in a secure manner that does not compromise equipment integrity.<a href="#section-2.5.2-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="recommendation-4">
@@ -2015,7 +2017,9 @@ perhaps as part of the efforts in the SUSTAIN RG.<a href="#section-3-1" class="p
       <h2 id="name-security-considerations">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-4-1">This document has no security-related discussion.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">It is possible that the introduction of features and architectural properties to facilitate environmentally sustainable Internet technology introduces new attack vectors or other security ramifications.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-2">For example, the introduction of measurements and metrics for the purpose of saving energy could be misused for the opposite effect when compromised.  For example, measurements might be be tampered with in order to cause an operator to waste energy.  Energy measurements, when abused, might also result in compromised security, for example by allowing to infer usage profiles.  They could also be abused to implement a covert communications channel in which information is leaked via tampered measurement values that are being reported.<a href="#section-4-2" class="pilcrow">¶</a></p>
+<p id="section-4-3">Networking features and technology choices may have security implications regardless of why they are introduced, including for reasons of environmental sustainability.  The possibility of this needs to be taken into consideration, understood, and communicated to allow for their mitigation.<a href="#section-4-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
@@ -2032,6 +2036,10 @@ perhaps as part of the efforts in the SUSTAIN RG.<a href="#section-3-1" class="p
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
       </h2>
 <dl class="references">
+<dt id="Experiment">[Experiment]</dt>
+      <dd>
+<span class="refAuthor">Groningen, J.</span> and <span class="refAuthor">C. Lung</span>, <span class="refTitle">"Green Network Traffic Engineering Using Segment Routing: an Experiment Report"</span>, <span class="seriesInfo">2024 20th International Conference on Network and Service Management (CNSM) </span>, <time datetime="2024" class="refDate">2024</time>. </dd>
+<dd class="break"></dd>
 <dt id="I-D.ietf-tvr-alto-exposure">[I-D.ietf-tvr-alto-exposure]</dt>
       <dd>
 <span class="refAuthor">Contreras, L. M.</span>, <span class="refTitle">"Using ALTO for exposing Time-Variant Routing information"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tvr-alto-exposure-00</span>, <time datetime="2024-12-23" class="refDate">23 December 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tvr-alto-exposure-00">https://datatracker.ietf.org/doc/html/draft-ietf-tvr-alto-exposure-00</a>&gt;</span>. </dd>
@@ -2067,6 +2075,10 @@ perhaps as part of the efforts in the SUSTAIN RG.<a href="#section-3-1" class="p
 <dt id="Sammy">[Sammy]</dt>
       <dd>
 <span class="refAuthor">Bruce Spang</span>, <span class="refAuthor">Shravya Kunamalla</span>, <span class="refAuthor">Renata Teixeira</span>, <span class="refAuthor">Te-Yuan Huang</span>, <span class="refAuthor">Grenville Armitage</span>, <span class="refAuthor">Ramesh Johari</span>, and <span class="refAuthor">Nick McKeown</span>, <span class="refTitle">"Sammy: smoothing video traffic to be a friendly internet neighbor"</span>, <span class="seriesInfo">In Proceedings of the ACM SIGCOMM 2023 Conference (ACM SIGCOMM '23). Association for Computing Machinery, New York, NY, USA, 754–768. https://doi.org/10.1145/3603269.3604839 </span>, <time datetime="2023" class="refDate">2023</time>. </dd>
+<dd class="break"></dd>
+<dt id="Segment">[Segment]</dt>
+      <dd>
+<span class="refAuthor">Lung, C.</span> and <span class="refAuthor">H. ElBakoury</span>, <span class="refTitle">"Exploiting Segment Routing and SDN Features for Green Traffic Engineering"</span>, <span class="seriesInfo">IEEE 8th International Conference on Network Softwarization (NetSoft), Milan, Italy, pp. 49-54, doi: 10.1109/NetSoft54395.2022.9844091 </span>, <time datetime="2022" class="refDate">2022</time>. </dd>
 <dd class="break"></dd>
 <dt id="Unifying">[Unifying]</dt>
     <dd>

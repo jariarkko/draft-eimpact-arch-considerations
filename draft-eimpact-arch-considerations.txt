@@ -5,7 +5,7 @@
 Network Working Group                                        J. A. (Ed.)
 Internet-Draft                                                  Ericsson
 Intended status: Informational                               S. K. (Ed.)
-Expires: 31 August 2025                                            Cisco
+Expires: 1 September 2025                                          Cisco
                                                                 M. Welzl
                                                       University of Oslo
                                                                 A. Clemm
@@ -28,7 +28,7 @@ Expires: 31 August 2025                                            Cisco
                                                               Telefonica
                                                              J. Lindblad
                                                              All For Eco
-                                                        27 February 2025
+                                                        28 February 2025
 
 
     Architectural Considerations for Sustainable Internet Technology
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 31 August 2025.
+   This Internet-Draft will expire on 1 September 2025.
 
 Copyright Notice
 
@@ -477,23 +477,19 @@ Table of Contents
    aware routing algorithms.
 
    There are also algorithms for Green Traffic engineering.  Here is an
-   example which uses segment routing Exploiting Segment Routing and SDN
-   Features for Green Traffic Engineering IEEE Conference Publication
-   IEEE Xplore.  The empirical analysis of this algorithm is described
-   in Green Network Traffic Engineering Using Segment Routing: an
-   Experiment Report IEEE Conference Publication IEEE Xplore.  The
-   results of this analysis showed that the resource usage for SRv6
-   could be more than 70% lower than that of the SPF-based forwarding,
-   depending on the network topology.
+   example which uses segment routing [Segment].  The empirical analysis
+   of this algorithm is described in [Experiment].  The results of this
+   analysis showed that the resource usage for SRv6 could be more than
+   70% lower than that of the SPF-based forwarding, depending on the
+   network topology.
 
    Using load adaptive technique allows the capacity of the nodes to be
-   dynamically adjusted according to the demand.  Examples
-   include:Adaptive Link Rate (ALR): Adapt Link Rate to suit traffic
-   demand and Dynamically or power off links in Link Aggregation based
-   on traffic demand which is empirically estimated based on traffic
-   arrival.  LACP (Link Aggregation Control Protocol) defined in IEEE
-   802.1AX can be modified to power off links in an aggregation if they
-   are not needed.
+   dynamically adjusted according to the demand.  Examples include:
+   Adaptive Link Rate (ALR): Adapt Link Rate to suit traffic demand and
+   Dynamically or power off links in Link Aggregation based on traffic
+   demand which is empirically estimated based on traffic arrival.  LACP
+   (Link Aggregation Control Protocol) defined in IEEE 802.1AX can be
+   modified to power off links in an aggregation if they are not needed.
 
    We can use dynamic load shifting such as a demand-response technique
    where the system temporarily reduces its energy usage in response to
@@ -610,6 +606,14 @@ Table of Contents
    the potential benefits of network equipment upgrades, so that they
    can make better choices on what upgrades are necessary and when.
 
+   It should be noted that from an environmental sustainability
+   perspective, it is not necessarily always the best choice to upgrade
+   network equipment whenever slightly less power-hungry and "greener"
+   alternatives become availabe.  The environmental cost of amortizing
+   the carbon embedded inside equipment over its lifetime, for example,
+   the carbon associated with the manufacturing of the equipment that is
+   to be replaced, should be taken into consideration as well.
+
 2.5.1.  Motivation
 
    Embedded carbon and raw materials can be a significant part of the
@@ -656,6 +660,15 @@ Table of Contents
    Hence, it is very likely that extending the life of protocols and
    equipment with higher flexibility could provide a better
    environmental benefit than tightly optimizing only for today’s uses.
+
+   Another aspect that can play an important role in extending the
+   longevity of equipment concerns software-defined networking, in the
+   sense of designing networking equipment in such a way that new
+   equipment capabilities and features can be introduced via software
+   upgrades as opposed to requiring hardware replacement.  This requires
+   system architectures that incorporate the necessary infrastructure to
+   support such upgrades in a secure manner that does not compromise
+   equipment integrity.
 
 2.5.3.  Recommendation
 
@@ -761,13 +774,38 @@ Table of Contents
 
 4.  Security Considerations
 
-   This document has no security-related discussion.
+   It is possible that the introduction of features and architectural
+   properties to facilitate environmentally sustainable Internet
+   technology introduces new attack vectors or other security
+   ramifications.
+
+   For example, the introduction of measurements and metrics for the
+   purpose of saving energy could be misused for the opposite effect
+   when compromised.  For example, measurements might be be tampered
+   with in order to cause an operator to waste energy.  Energy
+   measurements, when abused, might also result in compromised security,
+   for example by allowing to infer usage profiles.  They could also be
+   abused to implement a covert communications channel in which
+   information is leaked via tampered measurement values that are being
+   reported.
+
+   Networking features and technology choices may have security
+   implications regardless of why they are introduced, including for
+   reasons of environmental sustainability.  The possibility of this
+   needs to be taken into consideration, understood, and communicated to
+   allow for their mitigation.
 
 5.  IANA Considerations
 
    This document has no IANA actions.
 
 6.  Informative References
+
+   [Experiment]
+              Groningen, J. and C. Lung, "Green Network Traffic
+              Engineering Using Segment Routing: an Experiment Report",
+              2024 20th International Conference on Network and Service
+              Management (CNSM) , 2024.
 
    [I-D.ietf-tvr-alto-exposure]
               Contreras, L. M., "Using ALTO for exposing Time-Variant
@@ -831,6 +869,12 @@ Table of Contents
               Conference (ACM SIGCOMM '23). Association for Computing
               Machinery, New York, NY, USA, 754–768.
               https://doi.org/10.1145/3603269.3604839 , 2023.
+
+   [Segment]  Lung, C. and H. ElBakoury, "Exploiting Segment Routing and
+              SDN Features for Green Traffic Engineering", IEEE 8th
+              International Conference on Network Softwarization
+              (NetSoft), Milan, Italy, pp. 49-54, doi: 10.1109/
+              NetSoft54395.2022.9844091 , 2022.
 
    [Unifying] Ishii, K., Kurumida, J., K.-i Sato, Kudoh, T., and S.
               Namiki, "Unifying Top-Down and Bottom-Up Approaches to
