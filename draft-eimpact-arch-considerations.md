@@ -173,6 +173,25 @@ informative:
     title: "IEEE Standard for Local and Metropolitan Area Networks--Link Aggregation"
     date: May 2020
     seriesinfo: "IEEE STD 802.1AX-2020 (Revision of IEEE STD 802.1AX-2014): 1–333. doi:10.1109/IEEESTD.2020.9105034. ISBN 978-1-5044-6428-4"
+  Baseline:
+    title: "A New Proposed Energy Baseline Model for a Data Center as a Tool for Energy Efficiency Evaluation"
+    date: April 2019
+    author:
+      - ins: S. Livieratos
+      - ins: S. Panetsos
+      - ins: A. Fotopoulos
+      - ins: M. Karagiorgas
+    seriesinfo: "International Journal of Power and Energy Research, Vol. 3, No. 1"
+  BenchmarkingFramework:
+    title: "A Power Benchmarking Framework for Network Devices"
+    date: 2009
+    author:
+      - ins: P. Mahadevan
+      - ins: P. Sharma
+      - ins: S. Banerjee
+      - ins: P. Ranganathan
+    seriesinfo: "In L. Fratta et al. (Eds.): NETWORKING 2009, LNCS 5550, pp. 795–808"
+
 
 --- abstract
 
@@ -320,6 +339,21 @@ example, might be a cloud hosting service.  In order for the supplier
 to provide an emission share value back to the customer, the provider
 needs to develop an attribution formula.
 
+A significant challenge in accurately assessing Scope 3 emissions is
+avoiding Double Counting, where the same emission is reported by
+multiple entities. According to the GHG Protocol best practices, it is
+crucial to establish clear guidelines and agreements between suppliers
+and customers to ensure that emissions are attributed correctly and
+not counted multiple times. This requires transparent communication
+and precise emission reporting standards to ensure that all parties
+involved have a consistent understanding of which emissions belong to
+which organization.
+
+By addressing the Double Counting issue, companies can achieve more
+accurate and reliable Scope 3 emissions assessments, thereby
+contributing to better overall sustainability reporting and
+improvement efforts.
+
 #### Continuous Improvement
 
 In order for an organization to continuously keep pushing for a more
@@ -330,6 +364,42 @@ In order to get information that is actionable, a more granular data
 collection is required.  How much power goes to compute, network,
 security, monitoring and management?  Is our cooling as efficient as
 the industry standard?
+
+#### Baselining and Benchmarking
+
+Establishing a baseline is a fundamental step in the process of
+improving energy efficiency and sustainability of network
+technology. Baselining involves establishing a reference point of
+typical energy usage, which is crucial for identifying inefficiencies
+and measuring improvements over time. At this step, the controller
+uses only the collected data from datasheets and other reliable
+sources.
+
+By establishing a baseline and using benchmarking, organizations can
+determine if their networking equipment is performing normally or if
+it is deviating from expected performance, guiding necessary
+improvements. Benchmarking involves collecting performance
+measurements of networking equipment under controlled laboratory
+conditions. This process helps establish standardized performance
+metrics, allowing for comparison against baselines collected during
+regular operational conditions.
+
+The initial measurement of networking equipment's energy efficiency
+and performance, known as Baselining, should be coordinated with
+vendor specifications and industry standards to understand what is
+considered normal or optimal performance. For example, if the baseline
+indicates that your switches operate at 5 Gbps per watt, while vendor
+specifications suggest 8 Gbps per watt and the industry standard is 10
+Gbps per watt, actions should be taken to implement energy-saving
+measures and upgrades. Tracking subsequent measurements can reveal if
+efficiency improves towards the benchmark of 8-10 Gbps per watt.
+
+This practice ensures that any improvements can be quantifiably
+tracked over time, providing a clear measure of the effectiveness of
+the implemented changes and guiding further enhancements in network
+sustainability.
+
+See also {{Baseline}} and {{BenchmarkingFramework}}.
 
 #### Development of Science
 
@@ -717,9 +787,52 @@ It might be divided in axis like 'Resiliency to power breakage', 'Resiliency to 
 
 TBD
 
-## Measurement Architecture
+## Sustainable by Design: Data Governance Perspective
 
-Is measurement architectures in scope of this activity or left for the GREEN WG?
+Incorporating sustainability into the design phase of network
+architecture is critical for ensuring long-term environmental and
+operational benefits. From a Data Governance point of view,
+"Sustainable by Design" involves embedding sustainability principles
+and practices into the data management frameworks and processes from
+the outset.
+
+### Motivation
+
+Data governance plays a pivotal role in shaping how data is collected,
+stored, processed, and used. By integrating sustainability into these
+processes, organizations can ensure that their data practices
+contribute to environmental goals, such as reducing carbon footprints,
+optimizing resource usage, and minimizing waste.
+
+### Analysis
+
+Key elements of Sustainable by Design in data governance include:
+
+* Data Minimization: Collecting only the data that is necessary and
+  useful, reducing storage and processing requirements, which in turn
+  lowers energy consumption.
+
+* Efficient Data Storage Solutions: Implementing energy-efficient data
+  storage technologies and practices that prioritize reduced power
+  usage and cooling needs.
+
+* Lifecycle Management: Ensuring that data is managed throughout its
+  lifecycle in a way that minimizes environmental impact, including
+  secure and sustainable data disposal practices.
+
+* Transparency and Accountability: Establishing clear data governance
+  policies that promote transparency in data usage and accountability
+  for sustainability objectives.
+
+### Recommendation
+
+Organizations should adopt data governance frameworks that incorporate
+sustainability as a core principle. This includes setting clear
+sustainability goals, measuring progress towards these goals, and
+continuously improving data management practices to enhance
+sustainability. By doing so, organizations can ensure that their data
+operations are not only effective but also environmentally
+responsible.
 
 ## ...
 
