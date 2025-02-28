@@ -277,10 +277,29 @@ to the shutdown.
 
 Measurements are a necessary mechanism for both post-analysis and
 potentially some of the dynamic decisions taken by systems. Without
-measurements, only aggregate power consumption can be measured, but
+measurements, only aggregate power consumption can be measured,
+
+> This is oddly formulated. If we can measure aggregate power consumption,
+> we do have measurements...
+
+but
 for instance no per-device data about real power usage will be
 available, and as such, there's limited basis for deciding what
 improvements are most useful.
+
+> My proposal : Measurements are a necessary mechanism for both post-analysis and
+potentially some of the dynamic decisions taken by systems. Without measurements of any kind,
+> it is impossible to assess if the networks are functioning correctly. It is impossible
+> to know if the system is efficient, to compare the system against a baseline model. It is
+> also impossible to check that changes aiming at optimizing something are valuable.
+>
+> At the same time, it is not possible to measure everything. Furthermore, any
+> measurement must be validated. Relevance of measurements must be periodically assessed.
+> One way to validate power/energy measurements consists of comparing them with
+> the utiliy bill.
+>
+> Finally, measurements made in the field must be collected and organized to allow
+> later retrieval.
 
 ### Analysis
 
@@ -293,6 +312,12 @@ more significant in terms of the actual carbon footprint.
 Secondly, for many classes of devices the embedded carbon aspects or
 use of raw materials may be a significant sustainability issue. See
 also Section 2.2.
+
+> Third, power or energy measurements alone are of meager use if the cause
+> of the consumption is not measured as well. Any power/energy measurement
+> should occur alongside at least one other measurement permitting to
+> obtain an energy efficiency. Hence a sound measurement architecture
+> implies that a prior existing of an energy efficiency framework of some kind.
 
 But when it comes to energy consumption,
 operators know their total energy consumption already (see the
@@ -312,12 +337,22 @@ of bits sent or received.  But applying this to a video conferencing
 operation, for example, would mean that if a 10% improvement of the
 compression algorithm is introduced at unchanged power usage, the
 operation would suddenly seem to be 10% less efficient.
+> This would also imply that a network is primarily meant to carry
+> traffic at full capacity. This is not the case. Some networks, especially
+> emergency networks, are designed to be **available** for an emergency
+> communication. They are designed to be poorly loaded. Thus power efficiency
+> can also be expressed at a ratio between the bandwidth made available and
+> the power required to make it available.
 
 There are many more strange effects like the one above with this
 approach.  The value definition needs to be more stable than depending
 on the number of transmitted bits.
 
 #### Customer Attribution
+
+> IMO this has nothing to do with measurement. This is more
+> related with how we crunch measurement numbers. This is falls
+> into modeling IMO.
 
 When organizations assess their Scope 3 emissions, they need to sum up
 their share of emissions from all their suppliers, one of which for
@@ -352,6 +387,11 @@ security, monitoring and management?  Is our cooling as efficient as
 the industry standard?
 
 #### Baselining and Benchmarking
+
+> This is also not related with measurements. This is also modeling,
+> because defining a baseline means we are making a comparison. To make
+> a comparison, we implicitely realise an abstraction (we are defining
+> a class of comparable things) and abstraction is modeling.
 
 Establishing a baseline is a fundamental step in the process of
 improving energy efficiency and sustainability of network
