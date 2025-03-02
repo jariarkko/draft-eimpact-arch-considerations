@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-27T01:06:09.569057+00:00",
+  "timestamp": "2025-03-02T01:10:33.140820+00:00",
   "repo": "jariarkko/draft-eimpact-arch-considerations",
   "labels": [
     {
@@ -56,26 +56,124 @@
       "id": "PR_kwDON5aSb86MdllA",
       "title": "Proposed analysis and recommendation text for the measurement section",
       "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/1",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "janlindblad",
-      "authorAssociation": "NONE",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "These are the additions I propose for the measurement section.",
       "createdAt": "2025-02-25T12:26:59Z",
-      "updatedAt": "2025-02-25T12:26:59Z",
+      "updatedAt": "2025-02-27T22:01:50Z",
       "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
       "baseRefName": "main",
-      "baseRefOid": "181d482ee9f9e23ca69e2dcf75fe7bce6ac30608",
+      "baseRefOid": "6a0be88611295ff99568476c7ce73969a12cfd34",
       "headRepository": "janlindblad/draft-eimpact-arch-considerations",
       "headRefName": "main",
-      "headRefOid": "ea5ca145a3959444398adbde7f118bd27816f5b4",
+      "headRefOid": "c213fcc8bea082c85bd352e8559043eea7d41c7a",
+      "closedAt": "2025-02-27T22:01:50Z",
+      "mergedAt": "2025-02-27T22:01:50Z",
+      "mergedBy": "jariarkko",
+      "mergeCommit": {
+        "oid": "1f12abd23cfc76213fe4355243badcdc153e71ab"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDON5aSb86d5yq0",
+          "commit": {
+            "abbreviatedOid": "ea5ca14"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "Looks good to fold in; thanks! We will in the end still need to select which final parts go to the -00.",
+          "createdAt": "2025-02-27T21:56:09Z",
+          "updatedAt": "2025-02-27T21:56:09Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDON5aSb86M1LzT",
+      "title": "I added resiliency as discussed during last week call",
+      "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/2",
+      "state": "MERGED",
+      "author": "emile22",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-27T17:14:11Z",
+      "updatedAt": "2025-02-27T21:55:09Z",
+      "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "baseRefName": "main",
+      "baseRefOid": "690e25db4ff85b7b106ab71b094d634c5f3307eb",
+      "headRepository": "emile22/draft-eimpact-arch-considerations",
+      "headRefName": "patch-1",
+      "headRefOid": "1770048bd25097f5145efcd863a68558776ba046",
+      "closedAt": "2025-02-27T21:55:09Z",
+      "mergedAt": "2025-02-27T21:55:09Z",
+      "mergedBy": "jariarkko",
+      "mergeCommit": {
+        "oid": "6a0be88611295ff99568476c7ce73969a12cfd34"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDON5aSb86d5wXv",
+          "commit": {
+            "abbreviatedOid": "1770048"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "Ok to pull this in; we will still have to review what subsections go to the -00 in the end.",
+          "createdAt": "2025-02-27T21:50:30Z",
+          "updatedAt": "2025-02-27T21:50:30Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDON5aSb86M5xM-",
+      "title": "Editorial suggestions",
+      "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/3",
+      "state": "OPEN",
+      "author": "akeranen",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Collecting here editorial suggestions (work in progress)",
+      "createdAt": "2025-02-28T07:54:54Z",
+      "updatedAt": "2025-03-01T17:20:47Z",
+      "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "baseRefName": "main",
+      "baseRefOid": "21077c77a94984a70961a4f964debc9c375bd8c0",
+      "headRepository": "akeranen/draft-eimpact-arch-considerations",
+      "headRefName": "patch-1",
+      "headRefOid": "db60b48428173e38e3217684e17a13a00185b672",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDON5aSb86eGnLV",
+          "commit": {
+            "abbreviatedOid": "db60b48"
+          },
+          "author": "cpignata",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "Loogs good -- useful ed fixes.",
+          "createdAt": "2025-03-01T17:20:47Z",
+          "updatedAt": "2025-03-01T17:20:47Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
