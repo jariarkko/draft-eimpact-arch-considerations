@@ -196,7 +196,10 @@ informative:
       - ins: S. Banerjee
       - ins: P. Ranganathan
     seriesinfo: "In L. Fratta et al. (Eds.): NETWORKING 2009, LNCS 5550, pp. 795–808"
-
+  UNSDG:
+    title: "United Nations Sustainable Development Goals"
+    date: 2017
+    seriesinfo: "https://unstats.un.org/sdgs"
 
 --- abstract
 
@@ -212,15 +215,13 @@ ensuring that networking technology can enable societies to operate in
 an environmentally sustainable manner and that the networks themselves are environmentally sustainable.
 
 This document discusses protocol and network architecture aspects that
-may have an impact on the environmental sustainability of network technology. For brevity, we will use the term sustainability to refer to environmental sustainability. We do note that sustainability as a term is widely used to refer to different notions of sustainability, and the most well-known larger definition of sustainability can be seen from the United Nations Sustainable Development Goals (UN SDG) (REF TO UN SDGs).
+may have an impact on the environmental sustainability of network technology. For brevity, we will use the term sustainability to refer to environmental sustainability. We do note that sustainability as a term is widely used to refer to different notions of sustainability, and the most well-known larger definition of sustainability can be seen from the United Nations Sustainable Development Goals (UN SDG) {{UNSDG}}.
 
-Sustainability impact and emissions from networking comes from three primary categories: hardware manufacturing, direct energy usage and construction work. This latter is out of scope of this document because networking has limited means to impact construction work. The manufacturing of networking hardware, both for fixed and wireless networks, is a significant source of emissions, and recycling of ICT equipment is still limited. Often direct energy usage of networking, and the source of the electricity, is the primary concern, but as the world moves towards greener energy production, the relative negative impact of the emissions from manufacturing rises.
+Sustainability impact and emissions from networking comes from three primary categories: hardware manufacturing, direct energy usage and construction work. This latter is out of scope of this document because networking has limited means to impact construction work itself. The manufacturing of networking hardware, both for fixed and wireless networks, is a significant source of emissions, and recycling of ICT equipment is still limited. Often direct energy usage of networking, and the source of the electricity, is the primary concern, but as the world moves towards greener energy production, the relative negative impact of the emissions from manufacturing rises.
 
 Where good design and architecture can improve the sustainability of
 networks, we should of course apply them when designing new protocols
-and building networks.
-
-But what is such good design and architecture? Are there guidelines
+and building networks. But what is such good design and architecture? Are there guidelines
 that can be given? Intuitively, protocol and network architecture may
 in some cases have an impact on sustainability. At the very least the
 right design and architecture can make it possible to have a positive
@@ -238,7 +239,7 @@ decisions or development efforts to improve the power consumption. Yet, as data 
 Other architectural examples include making it possible to scale
 resources or resource selection processes performed in a
 sustainability-aware fashion. The use of communication primitives that
-maximise utility in a given problem (e.g., using multicast) or the use
+maximise utility in a given problem (e.g., using multicast) or the use of
 technologies that reduce the number or size of messages needed for a
 given task (e.g., binary encoding instead of textual) are some further
 examples.
@@ -246,7 +247,7 @@ examples.
 Of course, some of these aspects may have a major impact on
 sustainability, where others may only have a minor effect.  There are
 also tradeoffs, such as side-effects of architectural choices, e.g.,
-dynamic scaling of a router network potentially impacting jitter.
+dynamic scaling of a router network potentially impacting jitter, or sleeping cellular base stations and activating them as capacity needs grow will introduce a delay in matching the needs of the data flows.
 
 This document discusses some of these architectural aspects and
 considerations related to them, and tries to give guidance where such
@@ -314,7 +315,7 @@ also Section 2.2.
 But when it comes to energy consumption,
 operators know their total energy consumption already (see the
 utility bill), and it's not particularly hard to measure the energy
-consumption of individial network devices either.  Still, there are a
+consumption of individual network devices either.  Still, there are a
 number of desirable use cases where the measurement situation needs to
 improve.
 
@@ -328,9 +329,7 @@ A commonly used method is to equate the delivered value with the number
 of bits sent or received.  But applying this to a video conferencing
 operation, for example, would mean that if a 10% improvement of the
 compression algorithm is introduced at unchanged power usage, the
-operation would suddenly seem to be 10% less efficient.
-
-JUKKA: why the above example ? We are talking about energy usage, so a 10% drop in bits could mean a 10% drop in energy usage, so value grows.
+operation could suddenly seem to be 10% less efficient.
 
 There are many more strange effects like the one above with this
 approach.  The value definition needs to be more stable than depending
@@ -439,7 +438,7 @@ stacks, and occasionally static datasheets.
 #### Content Declaration for all Collected Metrics
 
 A warehouse filled with data collected from diverse sources is useless
-without proper labling.  Create metadata that describes the
+without proper labeling.  Create metadata that describes the
 collected data.  What are the source(s)?  What measurement units?
 Precision?  What is included/excluded in these numbers?
 
@@ -522,13 +521,13 @@ and Testbed to Develop an Energy Model for 5G Virtualized RANs IEEE
 Conference Publication IEEE Xplore got best paper award for GreenNet
 2024, but I am not sure if we are interested to model 5G vRAN.
 
-There are plethora of publications on modeling communication networks
+There are plethora of publications on modelling communication networks
 and DC computing.
 
 ### Recommendation
 
 It is still to be determined to what extent we need to work on
-modeling networks and devices in the architecture. Is this outside the
+modelling networks and devices in the architecture. Is this outside the
 scope of architecture?
 
 ## Dynamic Scaling
@@ -539,21 +538,24 @@ servers needed for a service, how many duplicate links are needed to
 carry high-volume traffic, whether one needs all base stations with
 overlapping coverage areas to be on, etc.
 
-Often networking is a critical service and redundancy is needed in fixed and wireless networks. Yet, there is a question on how much resiliency is needed and how quickly a backup or resource increase due to capacity shortage can be activated.
+Often networking is a critical service and redundancy is needed in fixed and wireless networks. Yet, there is a question on how much resiliency is needed and how quickly a backup or resource increase due to capacity shortage can be activated. The impact of redundancy on sustainability of the network is discussed later in this document.
 
 ### Motivation
 
 Outside implementation improvements, dynamic scaling is perhaps the
 method with most promise for reducing power consumption related
-environmental impacts. Dynamic scaling would not have an impact in
-situations where there's only a single router, base station, or server
-serving a particular route, area, or function. However, most large
-systems have significant amount of redundancy and spare
+environmental impacts. Scaling can happen on a device-level (increasing performance as traffic levels grow) or a network segment level (increasing the number of active links or cellular base stations).
+
+Considering current fixed networking hardware, dynamic scaling might not have an impact in
+situations where there's only a single router or server
+serving a particular route, area, or function. Current routers and switches exhibit limited potential dynamic scaling because the focus is on high performance and a stable connectivity. Yet, technology does evolve, and e.g. Energy-Efficient Ethernet (EEE) is a good example of a networking-level specification to lower energy consumption in idle mode. EEE has limited impact on a network that has continuous traffic.
+
+Modern cellular base stations do implement numerous features to scale the energy consumption. A future revision of this draft will list such features. In general, a cellular base stations have a base energy consumption and traffic-dependent consumption, a somewhat similar behaviour we can see in modern CPUs.
+
+On the network level, most large systems have significant amount of redundancy and spare
 capacity. Where such capacity can be turned on or off to match the
 actual need at a given time, significant power consumption reductions
 can be achieved.
-
-JUKKA: The above is a false statement. Single cellular base stations do scale their power usage based on load.
 
 ### Analysis
 
@@ -580,6 +582,8 @@ Some of the strategies that are useful in implementing a well working dynamic sc
 * Dynamic scaling requires automation in most cases. See again {{I-D.pignataro-enviro-sustainability-architecture}} for a discussion of automation.
 
 From Hesham:
+
+TBD
 
 Energy-aware routing generally aims at aggregating traffic flows over a subset of the network devices and links, allowing other links and interconnection devices to be switched off. These solutions shall preserve connectivity and QoS, for instance by limiting the maximum utilization over any link, or ensuring a minimum level of path diversity. The following 2 slides provides classifications of energy aware routing algorithms.
 
@@ -612,7 +616,8 @@ This behavior will have an effect on sustainability as well, e.g., in
 what periods the endpoint and network systems are active or when they
 could be in reduced activity or sleep states.
 
-Cellular networks and mobile links can scale their energy usage based on load and enter a low-power state when a traffic flow ends. Thus, in theory, the faster the data is transferred, the faster the device radio chipset can enter a low-power state. SOME REFS HERE, I HAVE MANY.
+Cellular networks and mobile links can scale their energy usage based on load and enter a low-power state when a traffic flow ends. Thus, in theory, the faster the data is transferred, the faster the device radio chipset can enter a low-power state.
+
 
 ### Motivation
 
@@ -690,9 +695,9 @@ TBD implementation and deployment guidance
 
 ## Equipment Longevity
 
-The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. This includes devising tools to inform network administrators and their users of the potential benefits of network equipment upgrades, so that they can make better choices on what upgrades are necessary and when.
+This section discusses the ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. This includes devising tools to inform network administrators and their users of the potential benefits of network equipment upgrades, so that they can make better choices on what upgrades are necessary and when.
 
-It should be noted that from an environmental sustainability perspective, it is not necessarily always the best choice to upgrade network equipment whenever slightly less power-hungry and "greener" alternatives become availabe. The environmental cost of amortizing the carbon embedded inside equipment over its lifetime, for example, the carbon associated with the manufacturing of the equipment that is to be replaced, should be taken into consideration as well.
+It should be noted that from an environmental sustainability perspective, it is not necessarily always the best choice to upgrade network equipment whenever slightly less power-hungry and "greener" alternatives become available. The environmental cost of amortizing the carbon embedded inside equipment over its lifetime, for example, the carbon associated with the manufacturing of the equipment that is to be replaced, should be taken into consideration as well.
 
 ### Motivation
 
@@ -701,10 +706,12 @@ overall environmental impact of systems. If this can be improved for
 devices that are manufactured in large quantities, the improvements
 can be significant.
 
+The more the world moves toward low-carbon energy sources, the more the manufacturing matters in the holistic view. Today there can be an order of magnitude difference in average emissions for a kWh of electricity between two countries. Thus, any estimates that seek to compare the manufacturing and use phase emissions of a network equipment would have to be calculated per country or region, and there is no universal result for the whole planet.
+
 Long equipment lifetimes are only useful if the longer lifetimes can
 be achieved without compromising other aspects of sustainability, such
 as when using a high-end and power-hungry router in place of small
-routers.
+routers. The exact moment when a hardware change is warranted for sustainability differs between countries and regions.
 
 ### Analysis
 
@@ -712,7 +719,7 @@ When we engineer protocols and network equipment, we are inclined to
 design them in a highly optimized manner for a very specific set of
 requirements, use cases and context. While this is necessary in
 certain cases (e.g. constrained nodes with limits on processing
-capacity or long lived battery powered devices), there are cetainly
+capacity or long lived battery powered devices), there are certainly
 cases where such optimized equipment is not absolutely required. The
 vast majority of infrastucture network nodes on the Internet utilize
 only a faction of their design capacity most of the time.
@@ -742,13 +749,13 @@ This is about better encoding methods, such as using binary instead of text.
 
 ### Motivation
 
-Better encoding can obviously reduce the length of message sents. It
+Better encoding can obviously reduce the length of message sent. It
 remains a question mark how big overall impact this is, however. It
 should only be performed if it gives a measurable overall impact.
 
 ### Analysis
 
-Better encoding methods are clearly benefical for improving the detailed-level effectiveness
+Better encoding methods are clearly beneficial for improving the detailed-level effectiveness
 of communications.
 
 The main questions are, however:
@@ -772,25 +779,28 @@ More research is needed to quantify the likely sources of measurable impacts.
 
 TBD implementation and deployment guidance
 
-## Resiliency
+## Resiliency and sustainability
 
-This is about weight that migh impact future archs as they did not exist, aka where implicit, in the pass.
+Networks and communications are critical functions of the modern digital society. We cannot fully control the reliability of networking and various levels and forms of resiliency can be implemented. The more critical a network segment or connection is, the more resiliency is built.
 
 ### Motivation
 
-It is not so easy to focus on impacts of this or that on architectural evolution because it is difficult to focus on architecture by itself.
-But we can ask ourselves what will impact the future architecture that didn't exist explicitly in the pass.
+Resiliency can be implemented within a single routers, e.g. as a backup power supply, between routers and switches as multiple links between the same nodes, having different links between two end points, overlapping cellular coverage, etc. All these necessarily add more hardware to provide the same exact service. Some of that hardware can be fully operational at all times and used to serve the traffic, while other links may be in hot or cold standby depending on the use case.
+
+In cellular networks, wireless coverage is typically built with  significant overlapping coverage. Regulations might dictate how reliable the cellular service is, but also business reasons drive the design of the coverage. A cellular basestation site can consume anything from a few kWh to ten or more kWh per provider. There is extensive work world-wide to optimize the operation of this overlapping coverage, e.g. by sleeping some sites at night time when traffic volumes are low.
+
+Building resiliency is also a question of economics. Acquiring parallel hardware and links is more costly and must be weighted against the goals of the networking service quality.
 
 ### Analysis
 
-Resiliency might impact much more the adaptation and the design of the architecture in the future decades than it did in the past 20 years.
+Resiliency might impact much more the adaptation and the design of the architecture in the future decades than it did in the past 20 years. In building resiliency, there is always the trade-off on how quickly the network can recover from a failure and return full or a reduced operation.
 
 It might be divided in axis like 'Resiliency to power breakage', 'Resiliency to lack of material' that can be filtered wrt their impacts on device, network ... architectures
 
 
 ### Recommendation
 
-TBD
+In network architecture design, resiliency should be estimated carefully. In the future, we may need to consider, what is good enough resiliency, what is fast enough when recovering from a failure ? Such decisions are always tied to the impact downtime will have on the network users and applications.
 
 ## Sustainable by Design: Data Governance Perspective
 
