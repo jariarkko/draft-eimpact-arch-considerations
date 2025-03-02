@@ -35,6 +35,11 @@ author:
     email: sureshk@cisco.com
 
  -
+    fullname: Carlos Pignataro
+    organization: Blue Fern Consulting
+    email: pignata@gmail.com
+
+ -
     fullname: Michael Welzl
     organization: University of Oslo
     email: michawe@ifi.uio.no
