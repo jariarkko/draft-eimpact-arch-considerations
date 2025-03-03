@@ -199,7 +199,11 @@ Table of Contents
 
    This document discusses some of these architectural aspects and
    considerations related to them and tries to give guidance where such
-   guidance can be given.
+   guidance can be given.  The focus of this document is to provide
+   actionable design advice to protocol designers, while other documents
+   such as [I-D.cparsk-eimpact-sustainability-considerations] and
+   [I-D.pignataro-enviro-sustainability-architecture] go into more
+   details on the general principles involved.
 
    The scope of the document is advice on Internet and protocol
    architecture, such as what architecture or capabilities new protocol
@@ -1085,9 +1089,9 @@ Table of Contents
    [I-D.ietf-tvr-alto-exposure]
               Contreras, L. M., "Using ALTO for exposing Time-Variant
               Routing information", Work in Progress, Internet-Draft,
-              draft-ietf-tvr-alto-exposure-00, 23 December 2024,
+              draft-ietf-tvr-alto-exposure-01, 3 March 2025,
               <https://datatracker.ietf.org/doc/html/draft-ietf-tvr-
-              alto-exposure-00>.
+              alto-exposure-01>.
 
    [I-D.ietf-tvr-requirements]
               King, D., Contreras, L. M., Sipos, B., and L. Zhang, "TVR
