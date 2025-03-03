@@ -292,37 +292,36 @@ few.
 
 # Potential Architectural Aspects
 
-This section presents architectural and protocol design aspects that can have an impact on the sustainability of networking. In each topic, we provide an overview, motivation why it would be important to consider for more sustainable networking, an analysis and recommendations for future networking professionals.
+This section presents architectural and protocol design aspects that can have an impact on the sustainability of networking. For each topic, we provide an overview, the motivation for why it would be important to consider for more sustainable networking, an analysis and recommendations for future networking professionals.
 
 ## Measurement
 
-You have to know what is going on before you can improve. Some levels
-of measurements are necessary for improving sustainability. This is
+It is essential to understand the current state of affairs before any improvements can be made. i.e. Some levels of measurements are necessary for starting to improve sustainability. This is
 particularly the case when looking at the systems as a whole in
 post-analysis. As discussed earlier, this level of measurements is
 useful input for further actions, such as deciding what parts of the
-network need further improvement.
+network need to be targeted for further improvement.
 
 But measurements may also be useful for some dynamic situations
-where power-saving decisions for instance depend on knowing the
+where power-saving decisions, for instance, depend on knowing the
 relative power consumption of different activities, such as when a
 power-off decision involves understanding the relative savings during
 the shutdown period vs. the power cost of shutdown and startup procedures,
-or possible need to reconfigure other nodes in the network due
+or the possible need to reconfigure other nodes in the network due
 to the shutdown.
 
 ### Motivation
 
 Measurements are a necessary mechanism for both post-analysis and
-potentially some of the dynamic decisions taken by systems. Without
+potentially for some of the dynamic decisions taken by systems. Without
 measurements of any kind, it is impossible to assess if the networks
 are functioning correctly. It is impossible to know if the system is
-efficient, to compare the system against a baseline model. It is also
+efficient by comparing it against a baseline model. It is also
 impossible to check that changes aiming at optimizing something are
-valuable.
+indeed valuable.
 
 For instance, while electricity providers can make information about power
-usage available, this is only at the aggregate level. Without
+usage available, this is only done at the aggregate level. Without
 per-device data about power usage, there would be limited basis for
 deciding where power is actually consumed and consequently, what
 improvements are most useful.
@@ -340,7 +339,7 @@ While the simplest forms of sustainability-related measurements are
 about power, there's clearly room for other measurements and other
 information as well. To begin with, power consumption by itself may not be what
 matters most for sustainability, as the source of the power may be
-more significant in terms of the actual carbon footprint.
+equally important in terms of determining the actual carbon footprint.
 
 Secondly, for many classes of devices the embedded carbon aspects or
 use of raw materials may be a significant sustainability issue. See
@@ -348,9 +347,8 @@ also Section 2.2.
 
 Third, power or energy measurements alone are of meager use if the
 cause of the consumption is not measured as well. Any power/energy
-measurement should occur alongside at least one other measurement
-permitting to obtain an energy efficiency. Hence a sound measurement
-architecture implies that a prior existing of an energy efficiency
+measurement should occur alongside other measurements that can be used to determine energy efficiency. Hence a sound measurement
+architecture implies that a prior existence of an energy efficiency
 framework of some kind.
 
 But when it comes to energy consumption, as noted the aggregate
@@ -374,10 +372,9 @@ that those messages are always being sent.
 
 ### Recommendation
 
-Ongoing work at the IETF's GREEN working group is already improving
-existing energy consumption metrics and frameworks.  Some further
-considerations apply, however. In order to meet the needs of the use
-cases discussed above, the following architectural design principles
+Ongoing work at the IETF's GREEN working group is already targeted at improving
+existing energy consumption metrics and frameworks but some further
+considerations may apply. In order to meet the needs discussed above, the following architectural design principles
 are proposed.
 
 #### Generality
@@ -390,9 +387,8 @@ Similarly, the granularity of data collection needs to be configurable so that t
 #### Collect Metrics from Existing Equipment
 
 Since the need to deliver on the use cases described is urgent, the
-industry has to accept working with the capabilities of existing
-equipment in the field
-for collecting metrics.
+industry has to accomodate the capabilities (and limitations) of existing
+equipment in the field for collecting metrics.
 
 It is recommended to have a plug-in architecture with modules that can
 work with (read from and control) devices of any kind, including
@@ -402,11 +398,11 @@ stacks, and occasionally static datasheets.
 #### Content Declaration for all Collected Metrics
 
 A warehouse filled with data collected from diverse sources is useless
-without proper labeling.  Create metadata that describes the
-collected data.  What are the source(s)?  What measurement units?
-Precision?  What is included/excluded in these numbers?
+without proper labeling.  Hence, these is a need to create metadata that describes the
+collected data.  (e.g. What are the source(s)?  What measurement units are used?
+Precision?  What is included/excluded in these numbers?)
 
-The metadata itself must also have a formal description.  Use YANG for
+The metadata itself must also have a formal description.  e.g. Use YANG for
 the metadata schema.  Keep the metadata attached to the dataflow it
 describes, so that the relation is clear to each component that has
 anything to do with it, including components added by other
@@ -439,8 +435,7 @@ needs to be aware of their existence, be able to interpret them and
 understand how they can be used in their professional context.
 
 There are many target user groups for the information produced.
-Some examples are scientists, operations teams and IT-development
-organizations.  One critical group that is often overlooked is
+Some examples are network designers/engineers, scientists, operations teams and IT-development organizations.  One critical group that is often overlooked is
 the sustainability assessment experts.  If they are not aware, don't
 understand or don't care about the produced sustainability metrics,
 the value of this work would be greatly diminished.
