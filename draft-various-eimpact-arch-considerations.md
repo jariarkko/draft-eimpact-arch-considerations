@@ -296,10 +296,24 @@ to the shutdown.
 
 Measurements are a necessary mechanism for both post-analysis and
 potentially some of the dynamic decisions taken by systems. Without
-measurements, only aggregate power consumption can be measured, but
-for instance no per-device data about real power usage will be
-available, and as such, there's limited basis for deciding what
+measurements of any kind, it is impossible to assess if the networks
+are functioning correctly. It is impossible to know if the system is
+efficient, to compare the system against a baseline model. It is also
+impossible to check that changes aiming at optimizing something are
+valuable.
+
+For instance, while electricity providers can make information about power
+usage available, this is only at the aggregate level. Without
+per-device data about power usage, there would be limited basis for
+deciding where power is actually consumed and consequently, what
 improvements are most useful.
+
+At the same time, it is not possible to measure
+everything. Furthermore, any measurement must be validated. Relevance
+of measurements must be periodically assessed, e.g., with comparisons between measurements within a network and the aggregate numbers from the electricity provider.
+
+Finally, measurements made in the field must be collected and organized to allow
+later retrieval.
 
 ### Analysis
 
@@ -313,12 +327,18 @@ Secondly, for many classes of devices the embedded carbon aspects or
 use of raw materials may be a significant sustainability issue. See
 also Section 2.2.
 
-But when it comes to energy consumption,
-operators know their total energy consumption already (see the
-utility bill), and it's not particularly hard to measure the energy
-consumption of individual network devices either.  Still, there are a
-number of desirable use cases where the measurement situation needs to
-improve.
+Third, power or energy measurements alone are of meager use if the
+cause of the consumption is not measured as well. Any power/energy
+measurement should occur alongside at least one other measurement
+permitting to obtain an energy efficiency. Hence a sound measurement
+architecture implies that a prior existing of an energy efficiency
+framework of some kind.
+
+But when it comes to energy consumption, as noted the aggregate
+information is often typically available, and it's not particularly
+hard to measure the energy consumption of individual network devices
+either.  Still, there are a number of desirable use cases where the
+measurement situation needs to improve.
 
 #### Measuring Power Efficiency
 
@@ -326,38 +346,12 @@ When assessing the power consumption (Scope 2) of an IT-organization,
 emission accountants are generally looking for a metric of the
 delivered value per unit of energy.
 
-A commonly used method is to equate the delivered value with the number
-of bits sent or received.  But applying this to a video conferencing
-operation, for example, would mean that if a 10% improvement of the
-compression algorithm is introduced at unchanged power usage, the
-operation could suddenly seem to be 10% less efficient.
-
-There are many more strange effects like the one above with this
-approach.  The value definition needs to be more stable than depending
-on the number of transmitted bits.
-
-#### Customer Attribution
-
-When organizations assess their Scope 3 emissions, they need to sum up
-their share of emissions from all their suppliers, one of which for
-example, might be a cloud hosting service.  In order for the supplier
-to provide an emission share value back to the customer, the provider
-needs to develop an attribution formula.
-
-A significant challenge in accurately assessing Scope 3 emissions is
-avoiding Double Counting, where the same emission is reported by
-multiple entities. According to the GHG Protocol best practices, it is
-crucial to establish clear guidelines and agreements between suppliers
-and customers to ensure that emissions are attributed correctly and
-not counted multiple times. This requires transparent communication
-and precise emission reporting standards to ensure that all parties
-involved have a consistent understanding of which emissions belong to
-which organization.
-
-By addressing the Double Counting issue, companies can achieve more
-accurate and reliable Scope 3 emissions assessments, thereby
-contributing to better overall sustainability reporting and
-improvement efforts.
+A commonly used method is to equate the delivered value with the
+number of bits sent or received, or to the communication capacity made
+available when there's a need for it. The latter is important, as
+often communication networks have requirements to be able to send
+messages when there's a need for it, e.g., for emergency communications, not
+that those messages are always being sent.
 
 #### Continuous Improvement
 
@@ -369,42 +363,6 @@ In order to get information that is actionable, a more granular data
 collection is required.  How much power goes to compute, network,
 security, monitoring and management?  Is our cooling as efficient as
 the industry standard?
-
-#### Baselining and Benchmarking
-
-Establishing a baseline is a fundamental step in the process of
-improving energy efficiency and sustainability of network
-technology. Baselining involves establishing a reference point of
-typical energy usage, which is crucial for identifying inefficiencies
-and measuring improvements over time. At this step, the controller
-uses only the collected data from datasheets and other reliable
-sources.
-
-By establishing a baseline and using benchmarking, organizations can
-determine if their networking equipment is performing normally or if
-it is deviating from expected performance, guiding necessary
-improvements. Benchmarking involves collecting performance
-measurements of networking equipment under controlled laboratory
-conditions. This process helps establish standardized performance
-metrics, allowing for comparison against baselines collected during
-regular operational conditions.
-
-The initial measurement of networking equipment's energy efficiency
-and performance, known as Baselining, should be coordinated with
-vendor specifications and industry standards to understand what is
-considered normal or optimal performance. For example, if the baseline
-indicates that your switches operate at 5 Gbps per watt, while vendor
-specifications suggest 8 Gbps per watt and the industry standard is 10
-Gbps per watt, actions should be taken to implement energy-saving
-measures and upgrades. Tracking subsequent measurements can reveal if
-efficiency improves towards the benchmark of 8-10 Gbps per watt.
-
-This practice ensures that any improvements can be quantifiably
-tracked over time, providing a clear measure of the effectiveness of
-the implemented changes and guiding further enhancements in network
-sustainability.
-
-See also {{Baseline}} and {{BenchmarkingFramework}}.
 
 #### Development of Science
 
@@ -535,6 +493,65 @@ and DC computing.
 #### Dimensioning
 
 TODO: Evaluate if "Dimensioning" from S2.7 of {{I-D.pignataro-enviro-sustainability-architecture}} is relevant here.
+
+#### Customer Attribution
+
+When organizations assess their Scope 3 emissions, they need to sum up
+their share of emissions from all their suppliers, one of which for
+example, might be a cloud hosting service.  In order for the supplier
+to provide an emission share value back to the customer, the provider
+needs to develop an attribution formula.
+
+A significant challenge in accurately assessing Scope 3 emissions is
+avoiding Double Counting, where the same emission is reported by
+multiple entities. According to the GHG Protocol best practices, it is
+crucial to establish clear guidelines and agreements between suppliers
+and customers to ensure that emissions are attributed correctly and
+not counted multiple times. This requires transparent communication
+and precise emission reporting standards to ensure that all parties
+involved have a consistent understanding of which emissions belong to
+which organization.
+
+By addressing the Double Counting issue, companies can achieve more
+accurate and reliable Scope 3 emissions assessments, thereby
+contributing to better overall sustainability reporting and
+improvement efforts.
+
+#### Baselining and Benchmarking
+
+Establishing a baseline is a fundamental step in the process of
+improving energy efficiency and sustainability of network
+technology. Baselining involves establishing a reference point of
+typical energy usage, which is crucial for identifying inefficiencies
+and measuring improvements over time. At this step, the controller
+uses only the collected data from datasheets and other reliable
+sources.
+
+By establishing a baseline and using benchmarking, organizations can
+determine if their networking equipment is performing normally or if
+it is deviating from expected performance, guiding necessary
+improvements. Benchmarking involves collecting performance
+measurements of networking equipment under controlled laboratory
+conditions. This process helps establish standardized performance
+metrics, allowing for comparison against baselines collected during
+regular operational conditions.
+
+The initial measurement of networking equipment's energy efficiency
+and performance, known as Baselining, should be coordinated with
+vendor specifications and industry standards to understand what is
+considered normal or optimal performance. For example, if the baseline
+indicates that your switches operate at 5 Gbps per watt, while vendor
+specifications suggest 8 Gbps per watt and the industry standard is 10
+Gbps per watt, actions should be taken to implement energy-saving
+measures and upgrades. Tracking subsequent measurements can reveal if
+efficiency improves towards the benchmark of 8-10 Gbps per watt.
+
+This practice ensures that any improvements can be quantifiably
+tracked over time, providing a clear measure of the effectiveness of
+the implemented changes and guiding further enhancements in network
+sustainability.
+
+See also {{Baseline}} and {{BenchmarkingFramework}}.
 
 ### Recommendation
 
