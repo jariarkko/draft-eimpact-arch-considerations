@@ -681,11 +681,11 @@ individual flow may carry traffic at widely different rates, may pause
 for some time, etc. Various higher-level transport solutions may also
 cache or pre-fetch information.
 
-This behavior will have an effect on sustainability as well, e.g., in
+This behavior has an effect on sustainability as well, e.g., in
 what periods the endpoint and network systems are active or when they
 could be in reduced activity or sleep states.
 
-Cellular networks and mobile links can scale their energy usage based on load and enter a low-power state when a traffic flow ends. Thus, in theory, the faster the data is transferred, the faster the device radio chipset can enter a low-power state.
+Cellular networks and mobile links can scale their energy usage based on load and enter a low-power state when a traffic flow ends. Thus, in theory, the faster the data is transferred, the faster the device transmission/reception functions can enter a low-power state.
 
 
 ### Motivation
@@ -753,8 +753,8 @@ information available to the endpoints would be useful.
 
 ### Recommendation
 
-What is said here is, however, just a theoretical analysis. We
-recommend simulation and experiments to confirm what strategies would
+The techniques described above have been based on theoretical analysis. There is a need for
+further simulations and experiments to confirm what strategies would
 provide the best end-user and energy performance. This may be work
 that fits within the IRTF SUSTAIN research group.
 
