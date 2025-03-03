@@ -253,7 +253,8 @@ dynamic scaling of a router network potentially impacting jitter, or sleeping ce
 
 This document discusses some of these architectural aspects and
 considerations related to them and tries to give guidance where such
-guidance can be given.
+guidance can be given. The focus of this document is to provide actionable design advice to protocol designers, while other documents such as {{I-D.cparsk-eimpact-sustainability-considerations}} and
+{{I-D.pignataro-enviro-sustainability-architecture}} go into more details on the general principles involved.
 
 The scope of the document is advice on Internet and protocol
 architecture, such as what architecture or capabilities new protocol
