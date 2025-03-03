@@ -57,7 +57,7 @@ author:
  -
     fullname: Carlos Pignataro
     organization: Blue Fern Consulting
-    email: pignata@gmail.com
+    email: cpignata@gmail.com, carlos@bluefern.consulting
 
  -
     fullname: Marisol Palmero
