@@ -90,7 +90,8 @@ author:
 
  -
     fullname: Alexander Clemm
-    email: alex@clemm.org
+    organization: Independent
+    email: ludwig@clemm.org
 
  -
     fullname: Jari Arkko
