@@ -60,6 +60,7 @@ author:
 
  -
     fullname: Eve Schooler
+    organization: University of Oxford
     email: eve.schooler@gmail.com
 
  -
