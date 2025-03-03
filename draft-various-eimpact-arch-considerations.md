@@ -3,7 +3,7 @@ title: "Architectural Considerations for Environmentally Sustainable Internet Te
 abbrev: "Sustainable Internet Architecture"
 category: info
 
-docname: draft-eimpact-arch-considerations-latest
+docname: draft-various-eimpact-arch-considerations-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:

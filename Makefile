@@ -1,3 +1,4 @@
+
 LIBDIR := lib
 include $(LIBDIR)/main.mk
 
@@ -14,6 +15,15 @@ else
 endif
 endif
 
-copy:
+draft-eimpact-arch-considerations.txt:	draft-various-eimpact-arch-considerations.txt
+	cp draft-various-eimpact-arch-considerations.txt draft-eimpact-arch-considerations.txt
+
+drafts:	draft-various-eimpact-arch-considerations.txt \
+	draft-eimpact-arch-considerations.txt
+
+copy:	draft-various-eimpact-arch-considerations.txt \
+	draft-eimpact-arch-considerations.txt
 	ssh root@arkko.com mkdir -p /var/www/www.arkko.com/html/ietf/eimpact/arch
-	scp draft-eimpact-arch-considerations.txt root@arkko.com:/var/www/www.arkko.com/html/ietf/eimpact/arch
+	scp	draft-various-eimpact-arch-considerations.txt \
+		draft-eimpact-arch-considerations.txt \
+		root@arkko.com:/var/www/www.arkko.com/html/ietf/eimpact/arch
