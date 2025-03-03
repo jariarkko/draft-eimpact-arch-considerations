@@ -568,15 +568,18 @@ scope of architecture?
 
 ## Dynamic Scaling {#dynscale}
 
-The ability to adjust resources to need and possibly turn some of
+Dynamic scaling is about the ability to adjust resources to need and possibly turn some of
 them off during periods of low usage. Examples include the set of
 servers needed for a service, how many duplicate links are needed to
 carry high-volume traffic, whether one needs all base stations with
 overlapping coverage areas to be on, etc.
 
-Often networking is a critical service and redundancy is needed in fixed and wireless networks. Yet, there is a question on how much resiliency is needed and how quickly a backup or resource increase due to capacity shortage can be activated.
-
-The impact of redundancy on sustainability of the network is discussed later in this document.
+Networks and communications are also critical functions of the modern
+digital society. The reliability of individual networking links or
+devices cannot be guaranteed. As a result, various levels and forms of
+resiliency are often needed, for instance through redundancy. Yet,
+there is a question on how much redundancy is needed and how quickly a
+backup or resource increase due to capacity shortage can be activated.
 
 ### Motivation
 
@@ -588,7 +591,19 @@ Considering current fixed networking hardware, dynamic scaling might not have an
 situations where there's only a single router or server
 serving a particular route, area, or function. Current routers and switches exhibit limited potential dynamic scaling because the focus is on high performance and a stable connectivity. Yet, technology does evolve, and e.g. Energy-Efficient Ethernet (EEE) is a good example of a networking-level specification to lower energy consumption in idle mode. EEE has limited impact on a network that has continuous traffic.
 
-Modern cellular base stations do implement numerous features to scale the energy consumption. A future revision of this draft will list such features. In general, a cellular base stations have a base energy consumption and traffic-dependent consumption, a somewhat similar behavior we can see in modern CPUs.
+Resiliency can be implemented within a single routers, e.g. as a backup power supply, between routers and switches as multiple links between the same nodes, having different links between two end points, overlapping cellular coverage, etc. All these necessarily add more hardware to provide the same exact service. Some of that hardware can be fully operational at all times and used to serve the traffic, while other links may be in hot or cold standby depending on the use case.
+
+In cellular networks, wireless coverage is typically built with
+significant overlapping coverage. Demand and business reasons dictate
+the design of the coverage, and regulations might dictate how reliable
+the cellular service should be. There is extensive work world-wide to
+optimize the operation of this overlapping coverage, e.g. by sleeping
+some sites at night time when traffic volumes are low. A cellular
+basestation site can consume anything from a few kWh to ten or more
+kWh per provider. Modern cellular base stations do implement numerous
+features to scale the energy consumption. In general, a cellular base
+stations have a base energy consumption and traffic-dependent
+consumption, a somewhat similar behavior we can see in modern CPUs.
 
 On the network level, most large systems have significant amount of redundancy and spare
 capacity. Where such capacity can be turned on or off to match the
@@ -603,9 +618,23 @@ The most rudimentary approach to dynamic scaling is just turning some resources 
 
 A network architects need to understand the impacts of scaling changes on users and traffic. These may include fate of ongoing sessions, latency/jitter, packets in flight, or running processes, attempts to contact resources that are no longer present, and the time it takes for the network to converge to its new state.
 
-Dynamic scaling requires an understanding of load levels for the network, so information collection is required. It also requires understanding the power, time and other costs of making changes. (See {{I-D.pignataro-enviro-sustainability-architecture}} for discussion of tradeoffs and multi-objective optimization.)
+Dynamic scaling requires an understanding of load levels for the
+network, so information collection is required. It also requires
+understanding the power, time and other costs of making changes. (See
+{{I-D.pignataro-enviro-sustainability-architecture}} for discussion of
+tradeoffs and multi-objective optimization.) Understanding the resiliency requirements for a network or a piece
+  of equipment is also important for the optimal control of
+  resiliency, e.g., as an input to decisions on how many instances of
+  replicated services need to be run and where.
 
 Some of the strategies that are useful in implementing a well working dynamic scaling include:
+
+* Matching the currently used resources to the actual need, be it
+  about traffic demand or resiliency. One way to do this is to use of
+  power-proportional underlying technologies, such as chipsets or
+  transmission technologies. And where this is not sufficient, the
+  ability to turn components or systems on and off is an alternative
+  strategy.
 
 * Ability to enter "no new work" mode for equipment, to enable some resources to be eventually released/turned off.
 
@@ -621,7 +650,8 @@ Some of the strategies that are useful in implementing a well working dynamic sc
 
 * Never expect a fixed set of resources, plan for dynamic set of resources, and build mechanisms to deal with dynamic changes.
 
-* Dynamic scaling requires automation in most cases. See again {{I-D.pignataro-enviro-sustainability-architecture}} for a discussion of automation.
+* Dynamic scaling requires automation in most cases, e.g., to turn on
+  new service instances. See again {{I-D.pignataro-enviro-sustainability-architecture}} for a discussion of automation.
 
 From Hesham:
 
@@ -636,11 +666,14 @@ We can use dynamic load shifting such as a demand-response technique where the s
 
 ### Recommendation
 
-The guidelines above need to be considered specifically for each protocol and system design.
+The guidelines above need to be considered specifically for each
+protocol and system design. Further work in detailing this guidance
+would also be useful.
 
-TBD implementation and deployment guidance
-
-Note the different between fixed and cellular networks.
+It is likely that there is increased attention to resiliency in the
+future, given for instance the increased importance of the tasks
+supported by networks or the potentially increasing frequency of
+natural disasters as a result of global warming.
 
 ## Transport {#transport}
 
@@ -818,30 +851,6 @@ Of course, new protocols can generally be designed to work with
 compact encoding, unless there is a significant reason not to. But
 efforts to modify existing protocols for the sake of encoding
 efficiency should be warranted by the above mentioned quantification results.
-
-## Resiliency and sustainability
-
-Networks and communications are critical functions of the modern digital society. We cannot fully control the reliability of networking and various levels and forms of resiliency can be implemented. The more critical a network segment or connection is, the more resiliency is built.
-
-### Motivation
-
-Resiliency can be implemented within a single routers, e.g. as a backup power supply, between routers and switches as multiple links between the same nodes, having different links between two end points, overlapping cellular coverage, etc. All these necessarily add more hardware to provide the same exact service. Some of that hardware can be fully operational at all times and used to serve the traffic, while other links may be in hot or cold standby depending on the use case.
-
-In cellular networks, wireless coverage is typically built with  significant overlapping coverage. Regulations might dictate how reliable the cellular service is, but also business reasons drive the design of the coverage. A cellular basestation site can consume anything from a few kWh to ten or more kWh per provider. There is extensive work world-wide to optimize the operation of this overlapping coverage, e.g. by sleeping some sites at night time when traffic volumes are low.
-
-Building resiliency is also a question of economics. Acquiring parallel hardware and links is more costly and must be weighted against the goals of the networking service quality.
-
-### Analysis
-
-Resiliency might impact much more the adaptation and the design of the architecture in the future decades than it did in the past 20 years. In building resiliency, there is always the trade-off on how quickly the network can recover from a failure and return full or a reduced operation.
-
-It might be divided in axis like 'Resiliency to power breakage',
-'Resiliency to lack of material' that can be filtered with regards their impacts on device, network ... architectures
-
-
-### Recommendation
-
-In network architecture design, resiliency should be estimated carefully. In the future, we may need to consider, what is good enough resiliency, what is fast enough when recovering from a failure ? Such decisions are always tied to the impact downtime will have on the network users and applications.
 
 ## Sustainable by Design: Data Governance Perspective {#bydesign}
 
