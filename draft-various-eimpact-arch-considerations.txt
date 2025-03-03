@@ -17,7 +17,7 @@ Expires: 4 September 2025                                          Cisco
                                                                A. Rezaki
                                                                    Nokia
                                                              E. Schooler
-                                                                        
+                                                    University of Oxford
                                                                S. Rumley
                                                                     HEFR
                                                             H. ElBakoury
@@ -37,7 +37,7 @@ Expires: 4 September 2025                                          Cisco
 
  Architectural Considerations for Environmentally Sustainable Internet
                                Technology
-                draft-eimpact-arch-considerations-latest
+            draft-various-eimpact-arch-considerations-latest
 
 Abstract
 
@@ -52,7 +52,7 @@ About This Document
    https://jariarkko.github.io/draft-eimpact-arch-considerations/draft-
    eimpact-arch-considerations.html.  Status information for this
    document may be found at https://datatracker.ietf.org/doc/draft-
-   eimpact-arch-considerations/.
+   various-eimpact-arch-considerations/.
 
    Source for this draft and an issue tracker can be found at
    https://github.com/jariarkko/draft-eimpact-arch-considerations.
@@ -1203,6 +1203,7 @@ Authors' Addresses
 
 
    Eve Schooler
+   University of Oxford
    Email: eve.schooler@gmail.com
 
 
