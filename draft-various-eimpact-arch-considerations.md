@@ -489,7 +489,7 @@ When organizations assess their Scope 3 emissions, they need to sum up
 their share of emissions from all their suppliers, one of which for
 example, might be a cloud hosting service.  In order for the supplier
 to provide an emission share value back to the customer, the provider
-needs to develop an attribution formula.
+needs to develop a mechanism for attribution.
 
 A significant challenge in accurately assessing Scope 3 emissions is
 avoiding Double Counting, where the same emission is reported by
@@ -512,15 +512,15 @@ Establishing a baseline is a fundamental step in the process of
 improving energy efficiency and sustainability of network
 technology. Baselining involves establishing a reference point of
 typical energy usage, which is crucial for identifying inefficiencies
-and measuring improvements over time. At this step, the controller
+and measuring improvements over time. In this step, the controller
 uses only the collected data from datasheets and other reliable
 sources.
 
 By establishing a baseline and using benchmarking, organizations can
 determine if their networking equipment is performing normally or if
-it is deviating from expected performance, guiding necessary
+it is deviating from expected performance. This is the first step in identifying and guiding necessary
 improvements. Benchmarking involves collecting performance
-measurements of networking equipment under controlled laboratory
+measurements of networking equipment under controlled 
 conditions. This process helps establish standardized performance
 metrics, allowing for comparison against baselines collected during
 regular operational conditions.
@@ -544,9 +544,7 @@ See also {{Baseline}} and {{BenchmarkingFramework}}.
 
 ### Recommendation
 
-It is still to be determined to what extent we need to work on
-modeling networks and devices in the architecture. Is this outside the
-scope of architecture?
+Even though baselining is essential in identifying potential areas of improvement and tracking progress, it is still to be determined to what extent we need to work on modeling networks and devices in the architecture. 
 
 ## Dynamic Scaling {#dynscale}
 
