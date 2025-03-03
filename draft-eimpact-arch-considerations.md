@@ -25,19 +25,19 @@ venue:
 
 author:
  -
+    fullname: Carlos Pignataro (Ed.)
+    organization: Blue Fern Consulting
+    email: carlos@bluefern.consulting
+
+ -
     fullname: Jari Arkko (Ed.)
     organization: Ericsson
     email: jari.arkko@gmail.com
 
  -
-    fullname: Suresh Krishnan (Ed.)
+    fullname: Suresh Krishnan
     organization: Cisco
     email: sureshk@cisco.com
-
- -
-    fullname: Carlos Pignataro
-    organization: Blue Fern Consulting
-    email: pignata@gmail.com
 
  -
     fullname: Michael Welzl
@@ -108,6 +108,7 @@ informative:
   I-D.ietf-tvr-schedule-yang:
   I-D.ietf-tvr-alto-exposure:
   I-D.pignataro-enviro-sustainability-architecture:
+  I-D.cparsk-eimpact-sustainability-considerations:
   NotTradeOff:
     title: "Not a Trade-Off: On the Wi-Fi Energy Efficiency of Effective Internet Congestion Control"
     date: 2022
@@ -872,3 +873,6 @@ This document has no IANA actions.
 {:numbered="false"}
 
 TODO acknowledge.
+
+Parts of this document extensively leverage ideas and text from {{I-D.cparsk-eimpact-sustainability-considerations}} and {{I-D.pignataro-enviro-sustainability-architecture}}. We acknowledge and appreciate the many contributors whose work has enhanced its development.
+
