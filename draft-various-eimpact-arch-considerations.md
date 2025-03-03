@@ -637,6 +637,15 @@ Some of the strategies that are useful in implementing a well working dynamic sc
   ability to turn components or systems on and off is an alternative
   strategy.
 
+* Using load adaptive techniques allows the capacity of the nodes to
+  be dynamically adjusted according to the demand. Examples include
+  Adaptive Link Rate (ALR), which dynamically adapts the link rate to
+  suit traffic demand or power off links in Link Aggregation based on
+  traffic demand which is empirically estimated based on traffic
+  arrival. LACP (Link Aggregation Control Protocol) defined in IEEE
+  802.1AX {{LinkAggregation}} can be modified to power off links in an
+  aggregation if they are not needed.
+
 * Ability to enter "no new work" mode for equipment, to enable some resources to be eventually released/turned off.
 
 * Ability to move ongoing tasks off to other equipment, to prevent disruption of already started tasks.
@@ -654,16 +663,24 @@ Some of the strategies that are useful in implementing a well working dynamic sc
 * Dynamic scaling requires automation in most cases, e.g., to turn on
   new service instances. See again {{I-D.pignataro-enviro-sustainability-architecture}} for a discussion of automation.
 
-From Hesham:
+* Interaction with the energy grid can enable dynamic load
+  shifting. For instance, a demand-response technique can be used
+  where the system temporarily reduces its energy usage in response to
+  pricing signals from a smart grid. The proposed demand-response
+  technique involves deferring the load from elastic requests to later
+  time periods in order to reduce the server demand and the current
+  energy usage, and hence, energy costs {{LoadShifting}}.
 
-Energy-aware routing generally aims at aggregating traffic flows over a subset of the network devices and links, allowing other links and interconnection devices to be switched off. These solutions shall preserve connectivity and QoS, for instance by limiting the maximum utilization over any link, or ensuring a minimum level of path diversity. The following 2 slides provides classifications of energy aware routing algorithms.
-
-There are also algorithms for Green Traffic engineering. Here is an example which uses segment routing {{Segment}}. The empirical analysis of this algorithm is described in {{Experiment}}. The results of this analysis showed that the resource usage for SRv6 could be more than 70% lower than that of the SPF-based forwarding, depending on the network topology.
-
-Using load adaptive techniques allows the capacity of the nodes to be
-dynamically adjusted according to the demand. Examples include Adaptive Link Rate (ALR), which dynamically adapts the link rate to suit traffic demand or power off links in Link Aggregation based on traffic demand which is empirically estimated based on traffic arrival. LACP (Link Aggregation Control Protocol) defined in IEEE 802.1AX {{LinkAggregation}} can be modified to power off links in an aggregation if they are not needed.
-
-We can use dynamic load shifting such as a demand-response technique where the system temporarily reduces its energy usage in response to pricing signals from a smart grid. The proposed demand-response technique involves deferring the load from elastic requests to later time periods in order to reduce the server demand and the current energy usage, and hence, energy costs {{LoadShifting}}.
+* Energy-aware routing. This generally aims at aggregating traffic
+  flows over a subset of the network devices and links, allowing other
+  links and interconnection devices to be switched off. These
+  solutions shall preserve connectivity and QoS, for instance by
+  limiting the maximum utilization over any link, or ensuring a
+  minimum level of path diversity. There are also algorithms for Green
+  Traffic engineering. For instance {{Segment}} employs segment
+  routing. Experimental analysis results {{Experiment}} show that the
+  resource usage for SRv6 could be more than 70% lower than that of
+  the SPF-based forwarding, depending on the network topology.
 
 ### Recommendation
 
