@@ -273,7 +273,6 @@ features.
 
 This section presents architectural and protocol design aspects that can have an impact on the sustainability of networking. In each topic, we provide an overview, motivation why it would be important to consider for more sustainable networking, an analysis and recommendations for future networking professionals.
 
-
 ## Measurement
 
 You have to know what is going on before you can improve. Some level
@@ -530,7 +529,7 @@ It is still to be determined to what extent we need to work on
 modelling networks and devices in the architecture. Is this outside the
 scope of architecture?
 
-## Dynamic Scaling
+## Dynamic Scaling {#dynscale}
 
 The ability to adjust resources to need, and possibly turn some of
 them off during periods of low usage. Examples include the set of
@@ -601,7 +600,7 @@ TBD implementation and deployment guidance
 
 Note the different between fixed and cellular networks.
 
-## Transport
+## Transport {#transport}
 
 Transport protocols are the flexible tools that make it possible for
 communication flows between parties to adjust themselves to the
@@ -682,16 +681,12 @@ pattern enables power savings through sleep modes, would be beneficial
 for the communicating endpoints. Mechanisms for making such
 information available to the endpoints would be useful.
 
-(TBD add something about LEDBAT per Emile's comment)
-
 ### Recommendation
 
 What is said here is, however, just a theoretical analysis. We
 recommend simulation and experiments to confirm what strategies would
-provide the best end-user and energy performance. Perhaps work for the
-IRTF SUSTAIN RG.
-
-TBD implementation and deployment guidance
+provide the best end-user and energy performance. This may be work
+that fits within the IRTF SUSTAIN research group.
 
 ## Equipment Longevity
 
@@ -775,9 +770,13 @@ other content than, e.g., HTTP headers. Moran et al. argued in their 2022 paper 
 
 ### Recommendation
 
-More research is needed to quantify the likely sources of measurable impacts.
+More research is needed to quantify the likely sources of measurable
+impacts.
 
-TBD implementation and deployment guidance
+Of course, new protocols can generally be designed to work with
+compact encoding, unless there is a significant reason not to. But
+efforts to modify existing protocols for the sake of encoding
+efficiency should be warranted by the above mentioned quantification results.
 
 ## Resiliency and sustainability
 
@@ -855,9 +854,19 @@ Add other considerations as needed: Transparency etc.
 
 # Recommendations for Further Work and Research
 
-Transport-related optimizations that enable devices to consume less
-power by sleeping more appear potential, but require further research,
-perhaps as part of the efforts in the SUSTAIN RG.
+Dynamic scaling, i.e., the ability to respond to demand variations and
+resiliency requirements while optimizing energy consumption clearly
+has significant potential for savings. Past and ongoing work in
+various systems and protocols has looked at this, of course, but we
+believe work also remains. Any large scale system likely benefits from
+further analysis, unless already ongoing. Guidance in {dynscale}
+simple, and further work in detailing this guidance would also be useful.
+
+Transport-related optimizations (see {#transport}) that enable devices to consume less
+power by sleeping more appear to have potential for significant
+savings, but confirming this requires further research. Such research
+could be performed in the context of the recently chartered SUSTAIN
+research group.
 
 TBD
 
