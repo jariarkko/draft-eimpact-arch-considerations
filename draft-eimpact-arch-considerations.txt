@@ -124,7 +124,6 @@ Table of Contents
        2.8.1.  Motivation
        2.8.2.  Analysis
        2.8.3.  Recommendation
-     2.9.  ...
    3.  Recommendations for Further Work and Research
    4.  Security Considerations
    5.  IANA Considerations
@@ -977,10 +976,6 @@ Table of Contents
    their data operations are not only effective but also environmentally
    responsible.
 
-2.9.  ...
-
-   Add other considerations as needed: Transparency etc.
-
 3.  Recommendations for Further Work and Research
 
    Dynamic scaling, i.e., the ability to respond to demand variations
@@ -992,11 +987,16 @@ Table of Contents
    {dynscale} simple, and further work in detailing this guidance would
    also be useful.
 
-   Transport-related optimizations (see {#transport}) that enable
-   devices to consume less power by sleeping more appear to have
-   potential for significant savings, but confirming this requires
-   further research.  Such research could be performed in the context of
-   the recently chartered SUSTAIN research group.
+   Transport-related optimizations (see {transport}) that enable devices
+   to consume less power by sleeping more appear to have potential for
+   significant savings, but confirming this requires further research.
+   Such research could be performed in the context of the recently
+   chartered SUSTAIN research group.
+
+   More research is needed to quantify the likely sources of measurable
+   impacts when it comes to efficient protocol message encoding
+   discussed in {encoding}. Again, this is work that the research group
+   could take on.
 
    TBD
 
