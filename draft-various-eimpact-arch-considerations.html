@@ -5,21 +5,21 @@
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
 <title>Architectural Considerations for Environmentally Sustainable Internet Technology</title>
-<meta content="Jari Arkko" name="author">
-<meta content="Suresh Krishnan" name="author">
-<meta content="Carlos Pignataro" name="author">
 <meta content="Michael Welzl" name="author">
-<meta content="Jukka Manner" name="author">
-<meta content="Alexander Clemm" name="author">
-<meta content="Ali Rezaki" name="author">
+<meta content="Emile Stephan" name="author">
 <meta content="Eve Schooler" name="author">
 <meta content="Sebastien Rumley" name="author">
-<meta content="Hesham ElBakoury" name="author">
-<meta content="Emile Stephan" name="author">
+<meta content="Ali Rezaki" name="author">
+<meta content="Jukka Manner" name="author">
+<meta content="Carlos Pignataro" name="author">
 <meta content="Marisol Palmero" name="author">
-<meta content="Ari Keränen" name="author">
-<meta content="Luis M. Contreras" name="author">
 <meta content="Jan Lindblad" name="author">
+<meta content="Suresh Krishnan" name="author">
+<meta content="Ari Keränen" name="author">
+<meta content="Hesham ElBakoury" name="author">
+<meta content="Luis M. Contreras" name="author">
+<meta content="Alexander Clemm" name="author">
+<meta content="Jari Arkko" name="author">
 <meta content="
        This document discusses protocol and network architecture aspects that
 may have an impact on the sustainability of network technology. 
@@ -1064,7 +1064,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <td class="right">March 2025</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Arkko, et al.</td>
+<td class="left">Welzl, et al.</td>
 <td class="center">Expires 4 September 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
@@ -1087,34 +1087,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
-      <div class="author-name">J. Arkko, <span class="editor">Ed.</span>
-</div>
-<div class="org">Ericsson</div>
-</div>
-<div class="author">
-      <div class="author-name">S. Krishnan, <span class="editor">Ed.</span>
-</div>
-<div class="org">Cisco</div>
-</div>
-<div class="author">
-      <div class="author-name">C. Pignataro, <span class="editor">Ed.</span>
-</div>
-<div class="org">Blue Fern Consulting</div>
-</div>
-<div class="author">
       <div class="author-name">M. Welzl</div>
 <div class="org">University of Oslo</div>
 </div>
 <div class="author">
-      <div class="author-name">J. Manner</div>
-<div class="org">Aalto University</div>
-</div>
-<div class="author">
-      <div class="author-name">A. Clemm</div>
-</div>
-<div class="author">
-      <div class="author-name">A. Rezaki</div>
-<div class="org">Nokia</div>
+      <div class="author-name">E. Stephan</div>
+<div class="org">Orange</div>
 </div>
 <div class="author">
       <div class="author-name">E. Schooler</div>
@@ -1125,14 +1103,27 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <div class="org">HEFR</div>
 </div>
 <div class="author">
-      <div class="author-name">H. ElBakoury</div>
+      <div class="author-name">A. Rezaki</div>
+<div class="org">Nokia</div>
 </div>
 <div class="author">
-      <div class="author-name">E. Stephan</div>
-<div class="org">Orange</div>
+      <div class="author-name">J. Manner</div>
+<div class="org">Aalto University</div>
+</div>
+<div class="author">
+      <div class="author-name">C. Pignataro</div>
+<div class="org">Blue Fern Consulting</div>
 </div>
 <div class="author">
       <div class="author-name">M. Palmero</div>
+<div class="org">Cisco</div>
+</div>
+<div class="author">
+      <div class="author-name">J. Lindblad</div>
+<div class="org">All For Eco</div>
+</div>
+<div class="author">
+      <div class="author-name">S. Krishnan</div>
 <div class="org">Cisco</div>
 </div>
 <div class="author">
@@ -1140,12 +1131,18 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <div class="org">Ericsson</div>
 </div>
 <div class="author">
+      <div class="author-name">H. ElBakoury</div>
+</div>
+<div class="author">
       <div class="author-name">L. M. Contreras</div>
 <div class="org">Telefonica</div>
 </div>
 <div class="author">
-      <div class="author-name">J. Lindblad</div>
-<div class="org">All For Eco</div>
+      <div class="author-name">A. Clemm</div>
+</div>
+<div class="author">
+      <div class="author-name">J. Arkko</div>
+<div class="org">Ericsson</div>
 </div>
 </dd>
 </dl>
@@ -1442,10 +1439,21 @@ to the shutdown.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
           </h4>
 <p id="section-2.1.1-1">Measurements are a necessary mechanism for both post-analysis and
 potentially some of the dynamic decisions taken by systems. Without
-measurements, only aggregate power consumption can be measured, but
-for instance no per-device data about real power usage will be
-available, and as such, there's limited basis for deciding what
-improvements are most useful.<a href="#section-2.1.1-1" class="pilcrow">¶</a></p>
+measurements of any kind, it is impossible to assess if the networks
+are functioning correctly. It is impossible to know if the system is
+efficient, to compare the system against a baseline model. It is also
+impossible to check that changes aiming at optimizing something are
+valuable.<a href="#section-2.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.1.1-2">For instance, while electricity providers can make information about power
+usage available, this is only at the aggregate level. Without
+per-device data about power usage, there would be limited basis for
+deciding where power is actually consumed and consequently, what
+improvements are most useful.<a href="#section-2.1.1-2" class="pilcrow">¶</a></p>
+<p id="section-2.1.1-3">At the same time, it is not possible to measure
+everything. Furthermore, any measurement must be validated. Relevance
+of measurements must be periodically assessed, e.g., with comparisons between measurements within a network and the aggregate numbers from the electricity provider.<a href="#section-2.1.1-3" class="pilcrow">¶</a></p>
+<p id="section-2.1.1-4">Finally, measurements made in the field must be collected and organized to allow
+later retrieval.<a href="#section-2.1.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="analysis">
@@ -1461,12 +1469,17 @@ more significant in terms of the actual carbon footprint.<a href="#section-2.1.2
 <p id="section-2.1.2-2">Secondly, for many classes of devices the embedded carbon aspects or
 use of raw materials may be a significant sustainability issue. See
 also Section 2.2.<a href="#section-2.1.2-2" class="pilcrow">¶</a></p>
-<p id="section-2.1.2-3">But when it comes to energy consumption,
-operators know their total energy consumption already (see the
-utility bill), and it's not particularly hard to measure the energy
-consumption of individual network devices either.  Still, there are a
-number of desirable use cases where the measurement situation needs to
-improve.<a href="#section-2.1.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.1.2-3">Third, power or energy measurements alone are of meager use if the
+cause of the consumption is not measured as well. Any power/energy
+measurement should occur alongside at least one other measurement
+permitting to obtain an energy efficiency. Hence a sound measurement
+architecture implies that a prior existing of an energy efficiency
+framework of some kind.<a href="#section-2.1.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.1.2-4">But when it comes to energy consumption, as noted the aggregate
+information is often typically available, and it's not particularly
+hard to measure the energy consumption of individual network devices
+either.  Still, there are a number of desirable use cases where the
+measurement situation needs to improve.<a href="#section-2.1.2-4" class="pilcrow">¶</a></p>
 <div id="measuring-power-efficiency">
 <section id="section-2.1.2.1">
             <h5 id="name-measuring-power-efficiency">
@@ -1475,100 +1488,37 @@ improve.<a href="#section-2.1.2-3" class="pilcrow">¶</a></p>
 <p id="section-2.1.2.1-1">When assessing the power consumption (Scope 2) of an IT-organization,
 emission accountants are generally looking for a metric of the
 delivered value per unit of energy.<a href="#section-2.1.2.1-1" class="pilcrow">¶</a></p>
-<p id="section-2.1.2.1-2">A commonly used method is to equate the delivered value with the number
-of bits sent or received.  But applying this to a video conferencing
-operation, for example, would mean that if a 10% improvement of the
-compression algorithm is introduced at unchanged power usage, the
-operation could suddenly seem to be 10% less efficient.<a href="#section-2.1.2.1-2" class="pilcrow">¶</a></p>
-<p id="section-2.1.2.1-3">There are many more strange effects like the one above with this
-approach.  The value definition needs to be more stable than depending
-on the number of transmitted bits.<a href="#section-2.1.2.1-3" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="customer-attribution">
-<section id="section-2.1.2.2">
-            <h5 id="name-customer-attribution">
-<a href="#section-2.1.2.2" class="section-number selfRef">2.1.2.2. </a><a href="#name-customer-attribution" class="section-name selfRef">Customer Attribution</a>
-            </h5>
-<p id="section-2.1.2.2-1">When organizations assess their Scope 3 emissions, they need to sum up
-their share of emissions from all their suppliers, one of which for
-example, might be a cloud hosting service.  In order for the supplier
-to provide an emission share value back to the customer, the provider
-needs to develop an attribution formula.<a href="#section-2.1.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-2.1.2.2-2">A significant challenge in accurately assessing Scope 3 emissions is
-avoiding Double Counting, where the same emission is reported by
-multiple entities. According to the GHG Protocol best practices, it is
-crucial to establish clear guidelines and agreements between suppliers
-and customers to ensure that emissions are attributed correctly and
-not counted multiple times. This requires transparent communication
-and precise emission reporting standards to ensure that all parties
-involved have a consistent understanding of which emissions belong to
-which organization.<a href="#section-2.1.2.2-2" class="pilcrow">¶</a></p>
-<p id="section-2.1.2.2-3">By addressing the Double Counting issue, companies can achieve more
-accurate and reliable Scope 3 emissions assessments, thereby
-contributing to better overall sustainability reporting and
-improvement efforts.<a href="#section-2.1.2.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.1.2.1-2">A commonly used method is to equate the delivered value with the
+number of bits sent or received, or to the communication capacity made
+available when there's a need for it. The latter is important, as
+often communication networks have requirements to be able to send
+messages when there's a need for it, e.g., for emergency communications, not
+that those messages are always being sent.<a href="#section-2.1.2.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="continuous-improvement">
-<section id="section-2.1.2.3">
+<section id="section-2.1.2.2">
             <h5 id="name-continuous-improvement">
-<a href="#section-2.1.2.3" class="section-number selfRef">2.1.2.3. </a><a href="#name-continuous-improvement" class="section-name selfRef">Continuous Improvement</a>
+<a href="#section-2.1.2.2" class="section-number selfRef">2.1.2.2. </a><a href="#name-continuous-improvement" class="section-name selfRef">Continuous Improvement</a>
             </h5>
-<p id="section-2.1.2.3-1">In order for an organization to continuously keep pushing for a more
+<p id="section-2.1.2.2-1">In order for an organization to continuously keep pushing for a more
 power efficient operation, knowing the power consumption totals,
-possibly divided up by customer, is typically not enough.<a href="#section-2.1.2.3-1" class="pilcrow">¶</a></p>
-<p id="section-2.1.2.3-2">In order to get information that is actionable, a more granular data
+possibly divided up by customer, is typically not enough.<a href="#section-2.1.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.1.2.2-2">In order to get information that is actionable, a more granular data
 collection is required.  How much power goes to compute, network,
 security, monitoring and management?  Is our cooling as efficient as
-the industry standard?<a href="#section-2.1.2.3-2" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="baselining-and-benchmarking">
-<section id="section-2.1.2.4">
-            <h5 id="name-baselining-and-benchmarking">
-<a href="#section-2.1.2.4" class="section-number selfRef">2.1.2.4. </a><a href="#name-baselining-and-benchmarking" class="section-name selfRef">Baselining and Benchmarking</a>
-            </h5>
-<p id="section-2.1.2.4-1">Establishing a baseline is a fundamental step in the process of
-improving energy efficiency and sustainability of network
-technology. Baselining involves establishing a reference point of
-typical energy usage, which is crucial for identifying inefficiencies
-and measuring improvements over time. At this step, the controller
-uses only the collected data from datasheets and other reliable
-sources.<a href="#section-2.1.2.4-1" class="pilcrow">¶</a></p>
-<p id="section-2.1.2.4-2">By establishing a baseline and using benchmarking, organizations can
-determine if their networking equipment is performing normally or if
-it is deviating from expected performance, guiding necessary
-improvements. Benchmarking involves collecting performance
-measurements of networking equipment under controlled laboratory
-conditions. This process helps establish standardized performance
-metrics, allowing for comparison against baselines collected during
-regular operational conditions.<a href="#section-2.1.2.4-2" class="pilcrow">¶</a></p>
-<p id="section-2.1.2.4-3">The initial measurement of networking equipment's energy efficiency
-and performance, known as Baselining, should be coordinated with
-vendor specifications and industry standards to understand what is
-considered normal or optimal performance. For example, if the baseline
-indicates that your switches operate at 5 Gbps per watt, while vendor
-specifications suggest 8 Gbps per watt and the industry standard is 10
-Gbps per watt, actions should be taken to implement energy-saving
-measures and upgrades. Tracking subsequent measurements can reveal if
-efficiency improves towards the benchmark of 8-10 Gbps per watt.<a href="#section-2.1.2.4-3" class="pilcrow">¶</a></p>
-<p id="section-2.1.2.4-4">This practice ensures that any improvements can be quantifiably
-tracked over time, providing a clear measure of the effectiveness of
-the implemented changes and guiding further enhancements in network
-sustainability.<a href="#section-2.1.2.4-4" class="pilcrow">¶</a></p>
-<p id="section-2.1.2.4-5">See also <span>[<a href="#Baseline" class="cite xref">Baseline</a>]</span> and <span>[<a href="#BenchmarkingFramework" class="cite xref">BenchmarkingFramework</a>]</span>.<a href="#section-2.1.2.4-5" class="pilcrow">¶</a></p>
+the industry standard?<a href="#section-2.1.2.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="development-of-science">
-<section id="section-2.1.2.5">
+<section id="section-2.1.2.3">
             <h5 id="name-development-of-science">
-<a href="#section-2.1.2.5" class="section-number selfRef">2.1.2.5. </a><a href="#name-development-of-science" class="section-name selfRef">Development of Science</a>
+<a href="#section-2.1.2.3" class="section-number selfRef">2.1.2.3. </a><a href="#name-development-of-science" class="section-name selfRef">Development of Science</a>
             </h5>
-<p id="section-2.1.2.5-1">Scientists working on power efficiency need real world data to work
+<p id="section-2.1.2.3-1">Scientists working on power efficiency need real world data to work
 with.  Data collection for such purposes might not need to be always
 on, but needs to have a clear content declaration, transparent
-provenance and computation methods that allow comparisons.<a href="#section-2.1.2.5-1" class="pilcrow">¶</a></p>
+provenance and computation methods that allow comparisons.<a href="#section-2.1.2.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1719,6 +1669,67 @@ Conference Publication IEEE Xplore got best paper award for GreenNet
 2024, but I am not sure if we are interested to model 5G vRAN.<a href="#section-2.2.2-3" class="pilcrow">¶</a></p>
 <p id="section-2.2.2-4">There is a plethora of publications on modeling communication networks
 and DC computing.<a href="#section-2.2.2-4" class="pilcrow">¶</a></p>
+<div id="customer-attribution">
+<section id="section-2.2.2.1">
+            <h5 id="name-customer-attribution">
+<a href="#section-2.2.2.1" class="section-number selfRef">2.2.2.1. </a><a href="#name-customer-attribution" class="section-name selfRef">Customer Attribution</a>
+            </h5>
+<p id="section-2.2.2.1-1">When organizations assess their Scope 3 emissions, they need to sum up
+their share of emissions from all their suppliers, one of which for
+example, might be a cloud hosting service.  In order for the supplier
+to provide an emission share value back to the customer, the provider
+needs to develop an attribution formula.<a href="#section-2.2.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.2.2.1-2">A significant challenge in accurately assessing Scope 3 emissions is
+avoiding Double Counting, where the same emission is reported by
+multiple entities. According to the GHG Protocol best practices, it is
+crucial to establish clear guidelines and agreements between suppliers
+and customers to ensure that emissions are attributed correctly and
+not counted multiple times. This requires transparent communication
+and precise emission reporting standards to ensure that all parties
+involved have a consistent understanding of which emissions belong to
+which organization.<a href="#section-2.2.2.1-2" class="pilcrow">¶</a></p>
+<p id="section-2.2.2.1-3">By addressing the Double Counting issue, companies can achieve more
+accurate and reliable Scope 3 emissions assessments, thereby
+contributing to better overall sustainability reporting and
+improvement efforts.<a href="#section-2.2.2.1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="baselining-and-benchmarking">
+<section id="section-2.2.2.2">
+            <h5 id="name-baselining-and-benchmarking">
+<a href="#section-2.2.2.2" class="section-number selfRef">2.2.2.2. </a><a href="#name-baselining-and-benchmarking" class="section-name selfRef">Baselining and Benchmarking</a>
+            </h5>
+<p id="section-2.2.2.2-1">Establishing a baseline is a fundamental step in the process of
+improving energy efficiency and sustainability of network
+technology. Baselining involves establishing a reference point of
+typical energy usage, which is crucial for identifying inefficiencies
+and measuring improvements over time. At this step, the controller
+uses only the collected data from datasheets and other reliable
+sources.<a href="#section-2.2.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2.2.2-2">By establishing a baseline and using benchmarking, organizations can
+determine if their networking equipment is performing normally or if
+it is deviating from expected performance, guiding necessary
+improvements. Benchmarking involves collecting performance
+measurements of networking equipment under controlled laboratory
+conditions. This process helps establish standardized performance
+metrics, allowing for comparison against baselines collected during
+regular operational conditions.<a href="#section-2.2.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-2.2.2.2-3">The initial measurement of networking equipment's energy efficiency
+and performance, known as Baselining, should be coordinated with
+vendor specifications and industry standards to understand what is
+considered normal or optimal performance. For example, if the baseline
+indicates that your switches operate at 5 Gbps per watt, while vendor
+specifications suggest 8 Gbps per watt and the industry standard is 10
+Gbps per watt, actions should be taken to implement energy-saving
+measures and upgrades. Tracking subsequent measurements can reveal if
+efficiency improves towards the benchmark of 8-10 Gbps per watt.<a href="#section-2.2.2.2-3" class="pilcrow">¶</a></p>
+<p id="section-2.2.2.2-4">This practice ensures that any improvements can be quantifiably
+tracked over time, providing a clear measure of the effectiveness of
+the implemented changes and guiding further enhancements in network
+sustainability.<a href="#section-2.2.2.2-4" class="pilcrow">¶</a></p>
+<p id="section-2.2.2.2-5">See also <span>[<a href="#Baseline" class="cite xref">Baseline</a>]</span> and <span>[<a href="#BenchmarkingFramework" class="cite xref">BenchmarkingFramework</a>]</span>.<a href="#section-2.2.2.2-5" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="recommendation-1">
@@ -2288,11 +2299,11 @@ on.<a href="#section-3-3" class="pilcrow">¶</a></p>
       <h2 id="name-acknowledgments">
 <a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
-<p id="appendix-A-1">Parts of this document extensively leverage ideas and text from
+<p id="appendix-A-1">Everyone on the author section has contributed to the document in significant ways. The author list has been ordered in (reverse) alphabethical order.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-A-2">Parts of this document extensively leverage ideas and text from
 <span>[<a href="#I-D.cparsk-eimpact-sustainability-considerations" class="cite xref">I-D.cparsk-eimpact-sustainability-considerations</a>]</span> and
-<span>[<a href="#I-D.pignataro-enviro-sustainability-architecture" class="cite xref">I-D.pignataro-enviro-sustainability-architecture</a>]</span>. We acknowledge
-and appreciate the many contributors whose work has enhanced its
-development.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<span>[<a href="#I-D.pignataro-enviro-sustainability-architecture" class="cite xref">I-D.pignataro-enviro-sustainability-architecture</a>]</span> and associated discussions in the IETF, IRTF, and IAB groups. We acknowledge and appreciate the many contributors whose work has enhanced its
+development.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
@@ -2300,30 +2311,6 @@ development.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
       <h2 id="name-authors-addresses">
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Jari Arkko (<span class="role">editor</span>)</span></div>
-<div dir="auto" class="left"><span class="org">Ericsson</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:jari.arkko@gmail.com" class="email">jari.arkko@gmail.com</a>
-</div>
-</address>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Suresh Krishnan (<span class="role">editor</span>)</span></div>
-<div dir="auto" class="left"><span class="org">Cisco</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:sureshk@cisco.com" class="email">sureshk@cisco.com</a>
-</div>
-</address>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Carlos Pignataro (<span class="role">editor</span>)</span></div>
-<div dir="auto" class="left"><span class="org">Blue Fern Consulting</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:pignata@gmail.com" class="email">pignata@gmail.com</a>
-</div>
-</address>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Michael Welzl</span></div>
 <div dir="auto" class="left"><span class="org">University of Oslo</span></div>
@@ -2333,26 +2320,11 @@ development.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 </div>
 </address>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Jukka Manner</span></div>
-<div dir="auto" class="left"><span class="org">Aalto University</span></div>
+        <div dir="auto" class="left"><span class="fn nameRole">Emile Stephan</span></div>
+<div dir="auto" class="left"><span class="org">Orange</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:jukka.manner@aalto.fi" class="email">jukka.manner@aalto.fi</a>
-</div>
-</address>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Alexander Clemm</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:alex@clemm.org" class="email">alex@clemm.org</a>
-</div>
-</address>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Ali Rezaki</span></div>
-<div dir="auto" class="left"><span class="org">Nokia</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:ali.rezaki@nokia.com" class="email">ali.rezaki@nokia.com</a>
+<a href="mailto:emile.stephan@orange.com" class="email">emile.stephan@orange.com</a>
 </div>
 </address>
 <address class="vcard">
@@ -2372,18 +2344,27 @@ development.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 </div>
 </address>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Hesham ElBakoury</span></div>
+        <div dir="auto" class="left"><span class="fn nameRole">Ali Rezaki</span></div>
+<div dir="auto" class="left"><span class="org">Nokia</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:helbakoury@gmail.com" class="email">helbakoury@gmail.com</a>
+<a href="mailto:ali.rezaki@nokia.com" class="email">ali.rezaki@nokia.com</a>
 </div>
 </address>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Emile Stephan</span></div>
-<div dir="auto" class="left"><span class="org">Orange</span></div>
+        <div dir="auto" class="left"><span class="fn nameRole">Jukka Manner</span></div>
+<div dir="auto" class="left"><span class="org">Aalto University</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:emile.stephan@orange.com" class="email">emile.stephan@orange.com</a>
+<a href="mailto:jukka.manner@aalto.fi" class="email">jukka.manner@aalto.fi</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Carlos Pignataro</span></div>
+<div dir="auto" class="left"><span class="org">Blue Fern Consulting</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:pignata@gmail.com" class="email">pignata@gmail.com</a>
 </div>
 </address>
 <address class="vcard">
@@ -2395,11 +2376,34 @@ development.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 </div>
 </address>
 <address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Jan Lindblad</span></div>
+<div dir="auto" class="left"><span class="org">All For Eco</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:jan.lindblad+ietf@for.eco" class="email">jan.lindblad+ietf@for.eco</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Suresh Krishnan</span></div>
+<div dir="auto" class="left"><span class="org">Cisco</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:sureshk@cisco.com" class="email">sureshk@cisco.com</a>
+</div>
+</address>
+<address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Ari Keränen</span></div>
 <div dir="auto" class="left"><span class="org">Ericsson</span></div>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:ari.keranen@ericsson.com" class="email">ari.keranen@ericsson.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Hesham ElBakoury</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:helbakoury@gmail.com" class="email">helbakoury@gmail.com</a>
 </div>
 </address>
 <address class="vcard">
@@ -2411,11 +2415,18 @@ development.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 </div>
 </address>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Jan Lindblad</span></div>
-<div dir="auto" class="left"><span class="org">All For Eco</span></div>
+        <div dir="auto" class="left"><span class="fn nameRole">Alexander Clemm</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:jan.lindblad+ietf@for.eco" class="email">jan.lindblad+ietf@for.eco</a>
+<a href="mailto:alex@clemm.org" class="email">alex@clemm.org</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Jari Arkko</span></div>
+<div dir="auto" class="left"><span class="org">Ericsson</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:jari.arkko@gmail.com" class="email">jari.arkko@gmail.com</a>
 </div>
 </address>
 </section>
