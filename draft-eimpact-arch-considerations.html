@@ -24,13 +24,13 @@
        This document discusses protocol and network architecture aspects that
 may have an impact on the sustainability of network technology. 
     " name="description">
-<meta content="xml2rfc 3.27.0" name="generator">
+<meta content="xml2rfc 3.28.0" name="generator">
 <meta content="next generation" name="keyword">
 <meta content="unicorn" name="keyword">
 <meta content="sparkling distributed ledger" name="keyword">
 <meta content="draft-eimpact-arch-considerations-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.27.0
+  xml2rfc 3.28.0
     Python 3.12.9
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
@@ -1065,7 +1065,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">(Ed.), et al.</td>
-<td class="center">Expires 3 September 2025</td>
+<td class="center">Expires 4 September 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1078,12 +1078,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-eimpact-arch-considerations-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-03-02" class="published">2 March 2025</time>
+<time datetime="2025-03-03" class="published">3 March 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-09-03">3 September 2025</time></dd>
+<dd class="expires"><time datetime="2025-09-04">4 September 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1182,7 +1182,7 @@ may have an impact on the sustainability of network technology.<a href="#section
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 3 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 4 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1730,7 +1730,7 @@ scope of architecture?<a href="#section-2.2.3-1" class="pilcrow">¶</a></p>
 </div>
 </section>
 </div>
-<div id="dynamic-scaling">
+<div id="dynscale">
 <section id="section-2.3">
         <h3 id="name-dynamic-scaling">
 <a href="#section-2.3" class="section-number selfRef">2.3. </a><a href="#name-dynamic-scaling" class="section-name selfRef">Dynamic Scaling</a>
@@ -1889,7 +1889,6 @@ the network with additional traffic, and whether a certain sending
 pattern enables power savings through sleep modes, would be beneficial
 for the communicating endpoints. Mechanisms for making such
 information available to the endpoints would be useful.<a href="#section-2.4.2-6" class="pilcrow">¶</a></p>
-<p id="section-2.4.2-7">(TBD add something about LEDBAT per Emile's comment)<a href="#section-2.4.2-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="recommendation-3">
@@ -1899,9 +1898,8 @@ information available to the endpoints would be useful.<a href="#section-2.4.2-6
           </h4>
 <p id="section-2.4.3-1">What is said here is, however, just a theoretical analysis. We
 recommend simulation and experiments to confirm what strategies would
-provide the best end-user and energy performance. Perhaps work for the
-IRTF SUSTAIN RG.<a href="#section-2.4.3-1" class="pilcrow">¶</a></p>
-<p id="section-2.4.3-2">TBD implementation and deployment guidance<a href="#section-2.4.3-2" class="pilcrow">¶</a></p>
+provide the best end-user and energy performance. This may be work
+that fits within the IRTF SUSTAIN research group.<a href="#section-2.4.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2021,8 +2019,12 @@ computationally expensive methods are used).<a href="#section-2.6.2-3.3.1" class
           <h4 id="name-recommendation-6">
 <a href="#section-2.6.3" class="section-number selfRef">2.6.3. </a><a href="#name-recommendation-6" class="section-name selfRef">Recommendation</a>
           </h4>
-<p id="section-2.6.3-1">More research is needed to quantify the likely sources of measurable impacts.<a href="#section-2.6.3-1" class="pilcrow">¶</a></p>
-<p id="section-2.6.3-2">TBD implementation and deployment guidance<a href="#section-2.6.3-2" class="pilcrow">¶</a></p>
+<p id="section-2.6.3-1">More research is needed to quantify the likely sources of measurable
+impacts.<a href="#section-2.6.3-1" class="pilcrow">¶</a></p>
+<p id="section-2.6.3-2">Of course, new protocols can generally be designed to work with
+compact encoding, unless there is a significant reason not to. But
+efforts to modify existing protocols for the sake of encoding
+efficiency should be warranted by the above mentioned quantification results.<a href="#section-2.6.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2146,11 +2148,20 @@ responsible.<a href="#section-2.8.3-1" class="pilcrow">¶</a></p>
       <h2 id="name-recommendations-for-further">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-recommendations-for-further" class="section-name selfRef">Recommendations for Further Work and Research</a>
       </h2>
-<p id="section-3-1">Transport-related optimizations that enable devices to consume less
-power by sleeping more appear potential, but require further research,
-perhaps as part of the efforts in the SUSTAIN RG.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">TBD<a href="#section-3-2" class="pilcrow">¶</a></p>
-<p id="section-3-3">...<a href="#section-3-3" class="pilcrow">¶</a></p>
+<p id="section-3-1">Dynamic scaling, i.e., the ability to respond to demand variations and
+resiliency requirements while optimizing energy consumption clearly
+has significant potential for savings. Past and ongoing work in
+various systems and protocols has looked at this, of course, but we
+believe work also remains. Any large scale system likely benefits from
+further analysis, unless already ongoing. Guidance in {dynscale}
+simple, and further work in detailing this guidance would also be useful.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">Transport-related optimizations (see {#transport}) that enable devices to consume less
+power by sleeping more appear to have potential for significant
+savings, but confirming this requires further research. Such research
+could be performed in the context of the recently chartered SUSTAIN
+research group.<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-3">TBD<a href="#section-3-3" class="pilcrow">¶</a></p>
+<p id="section-3-4">...<a href="#section-3-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">

@@ -5,7 +5,7 @@
 Network Working Group                                        J. A. (Ed.)
 Internet-Draft                                                  Ericsson
 Intended status: Informational                               S. K. (Ed.)
-Expires: 3 September 2025                                          Cisco
+Expires: 4 September 2025                                          Cisco
                                                             C. Pignataro
                                                     Blue Fern Consulting
                                                                 M. Welzl
@@ -32,7 +32,7 @@ Expires: 3 September 2025                                          Cisco
                                                               Telefonica
                                                              J. Lindblad
                                                              All For Eco
-                                                            2 March 2025
+                                                            3 March 2025
 
 
  Architectural Considerations for Environmentally Sustainable Internet
@@ -72,7 +72,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 September 2025.
+   This Internet-Draft will expire on 4 September 2025.
 
 Copyright Notice
 
@@ -721,16 +721,12 @@ Table of Contents
    beneficial for the communicating endpoints.  Mechanisms for making
    such information available to the endpoints would be useful.
 
-   (TBD add something about LEDBAT per Emile's comment)
-
 2.4.3.  Recommendation
 
    What is said here is, however, just a theoretical analysis.  We
    recommend simulation and experiments to confirm what strategies would
-   provide the best end-user and energy performance.  Perhaps work for
-   the IRTF SUSTAIN RG.
-
-   TBD implementation and deployment guidance
+   provide the best end-user and energy performance.  This may be work
+   that fits within the IRTF SUSTAIN research group.
 
 2.5.  Equipment Longevity
 
@@ -875,7 +871,11 @@ Table of Contents
    More research is needed to quantify the likely sources of measurable
    impacts.
 
-   TBD implementation and deployment guidance
+   Of course, new protocols can generally be designed to work with
+   compact encoding, unless there is a significant reason not to.  But
+   efforts to modify existing protocols for the sake of encoding
+   efficiency should be warranted by the above mentioned quantification
+   results.
 
 2.7.  Resiliency and sustainability
 
@@ -983,9 +983,20 @@ Table of Contents
 
 3.  Recommendations for Further Work and Research
 
-   Transport-related optimizations that enable devices to consume less
-   power by sleeping more appear potential, but require further
-   research, perhaps as part of the efforts in the SUSTAIN RG.
+   Dynamic scaling, i.e., the ability to respond to demand variations
+   and resiliency requirements while optimizing energy consumption
+   clearly has significant potential for savings.  Past and ongoing work
+   in various systems and protocols has looked at this, of course, but
+   we believe work also remains.  Any large scale system likely benefits
+   from further analysis, unless already ongoing.  Guidance in
+   {dynscale} simple, and further work in detailing this guidance would
+   also be useful.
+
+   Transport-related optimizations (see {#transport}) that enable
+   devices to consume less power by sleeping more appear to have
+   potential for significant savings, but confirming this requires
+   further research.  Such research could be performed in the context of
+   the recently chartered SUSTAIN research group.
 
    TBD
 
