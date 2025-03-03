@@ -380,13 +380,6 @@ collection is required.  How much power goes to compute, network,
 security, monitoring and management?  Is our cooling as efficient as
 the industry standard?
 
-#### Development of Science
-
-Scientists working on power efficiency need real world data to work
-with.  Data collection for such purposes might not need to be always
-on, but needs to have a clear content declaration, transparent
-provenance and computation methods that allow comparisons.
-
 ### Recommendation
 
 Ongoing work at the IETF's GREEN working group is already improving

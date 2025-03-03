@@ -22,3 +22,9 @@ It might be divided in axis like 'Resiliency to power breakage',
 
 In network architecture design, resiliency should be estimated carefully. In the future, we may need to consider, what is good enough resiliency, what is fast enough when recovering from a failure ? Such decisions are always tied to the impact downtime will have on the network users and applications.
 
+#### Development of Science
+
+Scientists working on power efficiency need real world data to work
+with.  Data collection for such purposes might not need to be always
+on, but needs to have a clear content declaration, transparent
+provenance and computation methods that allow comparisons.
