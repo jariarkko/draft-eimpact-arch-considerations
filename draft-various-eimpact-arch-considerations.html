@@ -22,7 +22,9 @@
 <meta content="Jari Arkko" name="author">
 <meta content="
        This document discusses protocol and network architecture aspects that
-may have an impact on the sustainability of network technology. 
+may have an impact on the sustainability of network technology. The
+focus is on providing guidelines that can be helpful for protocol
+designers and network architects. 
     " name="description">
 <meta content="xml2rfc 3.28.0" name="generator">
 <meta content="next generation" name="keyword">
@@ -1151,7 +1153,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">This document discusses protocol and network architecture aspects that
-may have an impact on the sustainability of network technology.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+may have an impact on the sustainability of network technology. The
+focus is on providing guidelines that can be helpful for protocol
+designers and network architects.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1391,22 +1395,35 @@ examples.<a href="#section-1-6" class="pilcrow">¶</a></p>
 sustainability, where others may only have a minor effect.  There are
 also tradeoffs, such as side-effects of architectural choices, e.g.,
 dynamic scaling of a router network potentially impacting jitter, or sleeping cellular base stations and activating them as capacity needs grow will introduce a delay in matching the needs of the data flows.<a href="#section-1-7" class="pilcrow">¶</a></p>
-<p id="section-1-8">This document discusses some of these architectural aspects and
-considerations related to them and tries to give guidance where such
-guidance can be given. The focus of this document is to provide actionable design advice to protocol designers, while other documents such as <span>[<a href="#I-D.cparsk-eimpact-sustainability-considerations" class="cite xref">I-D.cparsk-eimpact-sustainability-considerations</a>]</span> and
-<span>[<a href="#I-D.pignataro-enviro-sustainability-architecture" class="cite xref">I-D.pignataro-enviro-sustainability-architecture</a>]</span> go into more details on the general principles involved.<a href="#section-1-8" class="pilcrow">¶</a></p>
+<p id="section-1-8">The document is intended to help engineering efforts in the IETF,
+provide operational guidance in the operator community, or point
+to research directions in the IRTF.<a href="#section-1-8" class="pilcrow">¶</a></p>
 <p id="section-1-9">The scope of the document is advice on Internet and protocol
 architecture, such as what architecture or capabilities new protocol
 designs or features should have, what kind of operational network
 architectures should be deployed, and how all of these can be designed
-to best address sustainability concerns.<a href="#section-1-9" class="pilcrow">¶</a></p>
-<p id="section-1-10">We do note that networks themselves are a service, a tool, for all the applications and services on the Internet. Networks connect data, people and services. The increase in networking and size of the Internet is driven by these applications and the usage. Therefore the emissions from networking are tied to the data volumes; with less data, the Internet would have less hardware and less energy usage. The goals of this document are not to instruct application and service developers to optimize they content. There are many forums and parties whose mission is to help these developers to implement more sustainable services, such as, the Green Software Foundation, the Green Web Foundation, Greening of Streaming, to name a few.<a href="#section-1-10" class="pilcrow">¶</a></p>
-<p id="section-1-11">The document is intended to help engineering efforts in the IETF,
-provide operational guidance in the operator community, or point
-to research directions in the IRTF.<a href="#section-1-11" class="pilcrow">¶</a></p>
-<p id="section-1-12">This document is not focused on general issues around environmental sustainability,
+to best address sustainability concerns.
+The focus of this document is to provide actionable design advice to protocol designers, while other documents such as <span>[<a href="#I-D.cparsk-eimpact-sustainability-considerations" class="cite xref">I-D.cparsk-eimpact-sustainability-considerations</a>]</span> and
+<span>[<a href="#I-D.pignataro-enviro-sustainability-architecture" class="cite xref">I-D.pignataro-enviro-sustainability-architecture</a>]</span> go into more
+details on the general principles involved. This document therefore
+addresses one aspect in the architecture question, and does not claim
+to cover the entire topic.<a href="#section-1-9" class="pilcrow">¶</a></p>
+<p id="section-1-10">This document is also not focused on general issues around environmental sustainability,
 except those that pertain to architecture or significant protocol
-features.<a href="#section-1-12" class="pilcrow">¶</a></p>
+features.<a href="#section-1-10" class="pilcrow">¶</a></p>
+<p id="section-1-11">We do note that networks themselves are a service, a tool, for all the
+applications and services on the Internet. Networks connect data,
+people and services. The increase in networking and size of the
+Internet is driven by these applications and the usage. Therefore the
+emissions from networking are tied to the applications and the data
+they; with less applications or data, the Internet would have less
+hardware and less energy usage. The goals of this document are not to
+instruct application and service developers to choose what
+applications are worthwhile or how much content is sent. There are
+many forums and parties whose mission is to help these developers to
+implement more sustainable services, such as, the Green Software
+Foundation, the Green Web Foundation, Greening of Streaming, to name a
+few.<a href="#section-1-11" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="potential-architectural-aspects">
@@ -2365,7 +2382,7 @@ development.<a href="#appendix-A-2" class="pilcrow">¶</a></p>
 <div dir="auto" class="left"><span class="org">Blue Fern Consulting</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:pignata@gmail.com" class="email">pignata@gmail.com</a>
+<a href="mailto:cpignata@gmail.com,%20carlos@bluefern.consulting" class="email">cpignata@gmail.com, carlos@bluefern.consulting</a>
 </div>
 </address>
 <address class="vcard">

@@ -43,6 +43,8 @@ Abstract
 
    This document discusses protocol and network architecture aspects
    that may have an impact on the sustainability of network technology.
+   The focus is on providing guidelines that can be helpful for protocol
+   designers and network architects.
 
 About This Document
 
@@ -197,40 +199,40 @@ Table of Contents
    sleeping cellular base stations and activating them as capacity needs
    grow will introduce a delay in matching the needs of the data flows.
 
-   This document discusses some of these architectural aspects and
-   considerations related to them and tries to give guidance where such
-   guidance can be given.  The focus of this document is to provide
-   actionable design advice to protocol designers, while other documents
-   such as [I-D.cparsk-eimpact-sustainability-considerations] and
-   [I-D.pignataro-enviro-sustainability-architecture] go into more
-   details on the general principles involved.
+   The document is intended to help engineering efforts in the IETF,
+   provide operational guidance in the operator community, or point to
+   research directions in the IRTF.
 
    The scope of the document is advice on Internet and protocol
    architecture, such as what architecture or capabilities new protocol
    designs or features should have, what kind of operational network
    architectures should be deployed, and how all of these can be
-   designed to best address sustainability concerns.
+   designed to best address sustainability concerns.  The focus of this
+   document is to provide actionable design advice to protocol
+   designers, while other documents such as
+   [I-D.cparsk-eimpact-sustainability-considerations] and
+   [I-D.pignataro-enviro-sustainability-architecture] go into more
+   details on the general principles involved.  This document therefore
+   addresses one aspect in the architecture question, and does not claim
+   to cover the entire topic.
+
+   This document is also not focused on general issues around
+   environmental sustainability, except those that pertain to
+   architecture or significant protocol features.
 
    We do note that networks themselves are a service, a tool, for all
    the applications and services on the Internet.  Networks connect
    data, people and services.  The increase in networking and size of
    the Internet is driven by these applications and the usage.
-   Therefore the emissions from networking are tied to the data volumes;
-   with less data, the Internet would have less hardware and less energy
-   usage.  The goals of this document are not to instruct application
-   and service developers to optimize they content.  There are many
-   forums and parties whose mission is to help these developers to
+   Therefore the emissions from networking are tied to the applications
+   and the data they; with less applications or data, the Internet would
+   have less hardware and less energy usage.  The goals of this document
+   are not to instruct application and service developers to choose what
+   applications are worthwhile or how much content is sent.  There are
+   many forums and parties whose mission is to help these developers to
    implement more sustainable services, such as, the Green Software
    Foundation, the Green Web Foundation, Greening of Streaming, to name
    a few.
-
-   The document is intended to help engineering efforts in the IETF,
-   provide operational guidance in the operator community, or point to
-   research directions in the IRTF.
-
-   This document is not focused on general issues around environmental
-   sustainability, except those that pertain to architecture or
-   significant protocol features.
 
 2.  Potential Architectural Aspects
 
@@ -1239,7 +1241,7 @@ Authors' Addresses
 
    Carlos Pignataro
    Blue Fern Consulting
-   Email: pignata@gmail.com
+   Email: cpignata@gmail.com, carlos@bluefern.consulting
 
 
    Marisol Palmero
