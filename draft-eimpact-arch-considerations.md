@@ -213,7 +213,7 @@ ensuring that networking technology can enable societies to operate in
 an environmentally sustainable manner and that the networks themselves are environmentally sustainable.
 
 This document discusses protocol and network architecture aspects that
-may have an impact on the environmental sustainability of network technology. For brevity, we will use the term sustainability to refer to environmental sustainability. We do note that sustainability as a term is widely used to refer to different notions of sustainability, and the most well-known larger definition of sustainability can be seen from the United Nations Sustainable Development Goals (UN SDG) [REF TO UN SDGs]. 
+may have an impact on the environmental sustainability of network technology. For brevity, we will use the term sustainability to refer to environmental sustainability. We do note that sustainability as a term is widely used to refer to different notions of sustainability, and the most well-known larger definition of sustainability can be seen from the United Nations Sustainable Development Goals (UN SDG) [REF TO UN SDGs].
 
 Sustainability impact and emissions from networking comes from three primary categories: hardware manufacturing, direct energy usage and construction work. This latter is out of scope of this document because networking has limited means to impact construction work. The manufacturing of networking hardware, both for fixed and wireless networks, is a significant source of emissions, and recycling of ICT equipment is still limited. Often direct energy usage of networking, and the source of the electricity, is the primary concern, but as the world moves towards greener energy production, the relative negative impact of the emissions from manufacturing rises.
 
