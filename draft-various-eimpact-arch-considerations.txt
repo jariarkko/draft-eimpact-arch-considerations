@@ -9,7 +9,7 @@ Expires: 4 September 2025                                         Orange
                                                              E. Schooler
                                                     University of Oxford
                                                                S. Rumley
-                                                                    HEFR
+                                                                  HES-SO
                                                                A. Rezaki
                                                                    Nokia
                                                                J. Manner
@@ -118,14 +118,10 @@ Table of Contents
        2.6.1.  Motivation
        2.6.2.  Analysis
        2.6.3.  Recommendation
-     2.7.  Resiliency and sustainability
+     2.7.  Sustainable by Design: Data Governance Perspective
        2.7.1.  Motivation
        2.7.2.  Analysis
        2.7.3.  Recommendation
-     2.8.  Sustainable by Design: Data Governance Perspective
-       2.8.1.  Motivation
-       2.8.2.  Analysis
-       2.8.3.  Recommendation
    3.  Recommendations for Further Work and Research
    4.  Security Considerations
    5.  IANA Considerations
@@ -526,19 +522,19 @@ Table of Contents
 
 2.3.  Dynamic Scaling
 
-   The ability to adjust resources to need and possibly turn some of
-   them off during periods of low usage.  Examples include the set of
-   servers needed for a service, how many duplicate links are needed to
-   carry high-volume traffic, whether one needs all base stations with
-   overlapping coverage areas to be on, etc.
+   Dynamic scaling is about the ability to adjust resources to need and
+   possibly turn some of them off during periods of low usage.  Examples
+   include the set of servers needed for a service, how many duplicate
+   links are needed to carry high-volume traffic, whether one needs all
+   base stations with overlapping coverage areas to be on, etc.
 
-   Often networking is a critical service and redundancy is needed in
-   fixed and wireless networks.  Yet, there is a question on how much
-   resiliency is needed and how quickly a backup or resource increase
-   due to capacity shortage can be activated.
-
-   The impact of redundancy on sustainability of the network is
-   discussed later in this document.
+   Networks and communications are also critical functions of the modern
+   digital society.  The reliability of individual networking links or
+   devices cannot be guaranteed.  As a result, various levels and forms
+   of resiliency are often needed, for instance through redundancy.
+   Yet, there is a question on how much redundancy is needed and how
+   quickly a backup or resource increase due to capacity shortage can be
+   activated.
 
 2.3.1.  Motivation
 
@@ -559,11 +555,27 @@ Table of Contents
    consumption in idle mode.  EEE has limited impact on a network that
    has continuous traffic.
 
-   Modern cellular base stations do implement numerous features to scale
-   the energy consumption.  A future revision of this draft will list
-   such features.  In general, a cellular base stations have a base
-   energy consumption and traffic-dependent consumption, a somewhat
-   similar behavior we can see in modern CPUs.
+   Resiliency can be implemented within a single routers, e.g. as a
+   backup power supply, between routers and switches as multiple links
+   between the same nodes, having different links between two end
+   points, overlapping cellular coverage, etc.  All these necessarily
+   add more hardware to provide the same exact service.  Some of that
+   hardware can be fully operational at all times and used to serve the
+   traffic, while other links may be in hot or cold standby depending on
+   the use case.
+
+   In cellular networks, wireless coverage is typically built with
+   significant overlapping coverage.  Demand and business reasons
+   dictate the design of the coverage, and regulations might dictate how
+   reliable the cellular service should be.  There is extensive work
+   world-wide to optimize the operation of this overlapping coverage,
+   e.g. by sleeping some sites at night time when traffic volumes are
+   low.  A cellular basestation site can consume anything from a few kWh
+   to ten or more kWh per provider.  Modern cellular base stations do
+   implement numerous features to scale the energy consumption.  In
+   general, a cellular base stations have a base energy consumption and
+   traffic-dependent consumption, a somewhat similar behavior we can see
+   in modern CPUs.
 
    On the network level, most large systems have significant amount of
    redundancy and spare capacity.  Where such capacity can be turned on
@@ -591,9 +603,29 @@ Table of Contents
    understanding the power, time and other costs of making changes.
    (See [I-D.pignataro-enviro-sustainability-architecture] for
    discussion of tradeoffs and multi-objective optimization.)
+   Understanding the resiliency requirements for a network or a piece of
+   equipment is also important for the optimal control of resiliency,
+   e.g., as an input to decisions on how many instances of replicated
+   services need to be run and where.
 
    Some of the strategies that are useful in implementing a well working
    dynamic scaling include:
+
+   *  Matching the currently used resources to the actual need, be it
+      about traffic demand or resiliency.  One way to do this is to use
+      of power-proportional underlying technologies, such as chipsets or
+      transmission technologies.  And where this is not sufficient, the
+      ability to turn components or systems on and off is an alternative
+      strategy.
+
+   *  Using load adaptive techniques allows the capacity of the nodes to
+      be dynamically adjusted according to the demand.  Examples include
+      Adaptive Link Rate (ALR), which dynamically adapts the link rate
+      to suit traffic demand or power off links in Link Aggregation
+      based on traffic demand which is empirically estimated based on
+      traffic arrival.  LACP (Link Aggregation Control Protocol) defined
+      in IEEE 802.1AX [LinkAggregation] can be modified to power off
+      links in an aggregation if they are not needed.
 
    *  Ability to enter "no new work" mode for equipment, to enable some
       resources to be eventually released/turned off.
@@ -616,51 +648,40 @@ Table of Contents
    *  Never expect a fixed set of resources, plan for dynamic set of
       resources, and build mechanisms to deal with dynamic changes.
 
-   *  Dynamic scaling requires automation in most cases.  See again
+   *  Dynamic scaling requires automation in most cases, e.g., to turn
+      on new service instances.  See again
       [I-D.pignataro-enviro-sustainability-architecture] for a
       discussion of automation.
 
-   From Hesham:
+   *  Interaction with the energy grid can enable dynamic load shifting.
+      For instance, a demand-response technique can be used where the
+      system temporarily reduces its energy usage in response to pricing
+      signals from a smart grid.  The proposed demand-response technique
+      involves deferring the load from elastic requests to later time
+      periods in order to reduce the server demand and the current
+      energy usage, and hence, energy costs [LoadShifting].
 
-   Energy-aware routing generally aims at aggregating traffic flows over
-   a subset of the network devices and links, allowing other links and
-   interconnection devices to be switched off.  These solutions shall
-   preserve connectivity and QoS, for instance by limiting the maximum
-   utilization over any link, or ensuring a minimum level of path
-   diversity.  The following 2 slides provides classifications of energy
-   aware routing algorithms.
-
-   There are also algorithms for Green Traffic engineering.  Here is an
-   example which uses segment routing [Segment].  The empirical analysis
-   of this algorithm is described in [Experiment].  The results of this
-   analysis showed that the resource usage for SRv6 could be more than
-   70% lower than that of the SPF-based forwarding, depending on the
-   network topology.
-
-   Using load adaptive techniques allows the capacity of the nodes to be
-   dynamically adjusted according to the demand.  Examples include
-   Adaptive Link Rate (ALR), which dynamically adapts the link rate to
-   suit traffic demand or power off links in Link Aggregation based on
-   traffic demand which is empirically estimated based on traffic
-   arrival.  LACP (Link Aggregation Control Protocol) defined in IEEE
-   802.1AX [LinkAggregation] can be modified to power off links in an
-   aggregation if they are not needed.
-
-   We can use dynamic load shifting such as a demand-response technique
-   where the system temporarily reduces its energy usage in response to
-   pricing signals from a smart grid.  The proposed demand-response
-   technique involves deferring the load from elastic requests to later
-   time periods in order to reduce the server demand and the current
-   energy usage, and hence, energy costs [LoadShifting].
+   *  Energy-aware routing.  This generally aims at aggregating traffic
+      flows over a subset of the network devices and links, allowing
+      other links and interconnection devices to be switched off.  These
+      solutions shall preserve connectivity and QoS, for instance by
+      limiting the maximum utilization over any link, or ensuring a
+      minimum level of path diversity.  There are also algorithms for
+      Green Traffic engineering.  For instance [Segment] employs segment
+      routing.  Experimental analysis results [Experiment] show that the
+      resource usage for SRv6 could be more than 70% lower than that of
+      the SPF-based forwarding, depending on the network topology.
 
 2.3.3.  Recommendation
 
    The guidelines above need to be considered specifically for each
-   protocol and system design.
+   protocol and system design.  Further work in detailing this guidance
+   would also be useful.
 
-   TBD implementation and deployment guidance
-
-   Note the different between fixed and cellular networks.
+   It is likely that there is increased attention to resiliency in the
+   future, given for instance the increased importance of the tasks
+   supported by networks or the potentially increasing frequency of
+   natural disasters as a result of global warming.
 
 2.4.  Transport
 
@@ -902,59 +923,7 @@ Table of Contents
    efficiency should be warranted by the above mentioned quantification
    results.
 
-2.7.  Resiliency and sustainability
-
-   Networks and communications are critical functions of the modern
-   digital society.  We cannot fully control the reliability of
-   networking and various levels and forms of resiliency can be
-   implemented.  The more critical a network segment or connection is,
-   the more resiliency is built.
-
-2.7.1.  Motivation
-
-   Resiliency can be implemented within a single routers, e.g. as a
-   backup power supply, between routers and switches as multiple links
-   between the same nodes, having different links between two end
-   points, overlapping cellular coverage, etc.  All these necessarily
-   add more hardware to provide the same exact service.  Some of that
-   hardware can be fully operational at all times and used to serve the
-   traffic, while other links may be in hot or cold standby depending on
-   the use case.
-
-   In cellular networks, wireless coverage is typically built with
-   significant overlapping coverage.  Regulations might dictate how
-   reliable the cellular service is, but also business reasons drive the
-   design of the coverage.  A cellular basestation site can consume
-   anything from a few kWh to ten or more kWh per provider.  There is
-   extensive work world-wide to optimize the operation of this
-   overlapping coverage, e.g. by sleeping some sites at night time when
-   traffic volumes are low.
-
-   Building resiliency is also a question of economics.  Acquiring
-   parallel hardware and links is more costly and must be weighted
-   against the goals of the networking service quality.
-
-2.7.2.  Analysis
-
-   Resiliency might impact much more the adaptation and the design of
-   the architecture in the future decades than it did in the past 20
-   years.  In building resiliency, there is always the trade-off on how
-   quickly the network can recover from a failure and return full or a
-   reduced operation.
-
-   It might be divided in axis like 'Resiliency to power breakage',
-   'Resiliency to lack of material' that can be filtered with regards
-   their impacts on device, network ... architectures
-
-2.7.3.  Recommendation
-
-   In network architecture design, resiliency should be estimated
-   carefully.  In the future, we may need to consider, what is good
-   enough resiliency, what is fast enough when recovering from a failure
-   ? Such decisions are always tied to the impact downtime will have on
-   the network users and applications.
-
-2.8.  Sustainable by Design: Data Governance Perspective
+2.7.  Sustainable by Design: Data Governance Perspective
 
    Incorporating sustainability into the design phase of network
    architecture is critical for ensuring long-term environmental and
@@ -963,7 +932,7 @@ Table of Contents
    and practices into the data management frameworks and processes from
    the outset.
 
-2.8.1.  Motivation
+2.7.1.  Motivation
 
    Data governance plays a pivotal role in shaping how data is
    collected, stored, processed, and used.  By integrating
@@ -972,7 +941,7 @@ Table of Contents
    reducing carbon footprints, optimizing resource usage, and minimizing
    waste.
 
-2.8.2.  Analysis
+2.7.2.  Analysis
 
    Key elements of Sustainable by Design in data governance include:
 
@@ -992,7 +961,7 @@ Table of Contents
       governance policies that promote transparency in data usage and
       accountability for sustainability objectives.
 
-2.8.3.  Recommendation
+2.7.3.  Recommendation
 
    Organizations should adopt data governance frameworks that
    incorporate sustainability as a core principle.  This includes
@@ -1225,8 +1194,8 @@ Authors' Addresses
 
 
    Sebastien Rumley
-   HEFR
-   Email: sebastien.rumley@hefr.ch
+   HES-SO
+   Email: sebastien.rumley@hes-so.ch
 
 
    Ali Rezaki
