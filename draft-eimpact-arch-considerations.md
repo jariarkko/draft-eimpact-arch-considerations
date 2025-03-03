@@ -480,7 +480,7 @@ the sustainability assessment experts.  If they are not aware, don't
 understand or don't care about the produced sustainability metrics,
 the value of this work would be greatly diminished.
 
-## Modelling
+## Modelling {#modelling}
 
 The paucity of up-to-date information on equipment and system
 parameters, especially power consumption and maximum throughput, makes
@@ -688,7 +688,7 @@ recommend simulation and experiments to confirm what strategies would
 provide the best end-user and energy performance. This may be work
 that fits within the IRTF SUSTAIN research group.
 
-## Equipment Longevity
+## Equipment Longevity {#longevity}
 
 This section discusses the ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. This includes devising tools to inform network administrators and their users of the potential benefits of network equipment upgrades, so that they can make better choices on what upgrades are necessary and when.
 
@@ -738,7 +738,7 @@ Another aspect that can play an important role in extending the longevity of equ
 
 The guidelines above should be considered for any new system design. If some aspect of protocol or network equipment design choice could be made more generic and flexible without a significant performance and sustainability impact, it needs to be studied in further detail. Specifically, the potential additional sustainability costs due to forgoing optimization need to be weighed against the potential savings in embedded carbon and raw material costs brought about by premature upgrades. There are also cases where equipment upgrades are done to provide better peak performance characteristics (e.g. higher advertised speeds towards consumers) and these need to be viewed as well with the same tradeoffs in mind. Finally, when designing networks it is recommended to consider whether it is possible to reuse retiring equipment in a different location or for a different function (e.g. move it to lower traffic geographies, core routers become edge/access routers etc.)
 
-## Compact encoding
+## Compact encoding {#encoding}
 
 This is about better encoding methods, such as using binary instead of text.
 
@@ -801,7 +801,7 @@ It might be divided in axis like 'Resiliency to power breakage', 'Resiliency to 
 
 In network architecture design, resiliency should be estimated carefully. In the future, we may need to consider, what is good enough resiliency, what is fast enough when recovering from a failure ? Such decisions are always tied to the impact downtime will have on the network users and applications.
 
-## Sustainable by Design: Data Governance Perspective
+## Sustainable by Design: Data Governance Perspective {#bydesign}
 
 Incorporating sustainability into the design phase of network
 architecture is critical for ensuring long-term environmental and
@@ -848,10 +848,6 @@ sustainability. By doing so, organizations can ensure that their data
 operations are not only effective but also environmentally
 responsible.
 
-## ...
-
-Add other considerations as needed: Transparency etc.
-
 # Recommendations for Further Work and Research
 
 Dynamic scaling, i.e., the ability to respond to demand variations and
@@ -862,11 +858,16 @@ believe work also remains. Any large scale system likely benefits from
 further analysis, unless already ongoing. Guidance in {dynscale}
 simple, and further work in detailing this guidance would also be useful.
 
-Transport-related optimizations (see {#transport}) that enable devices to consume less
+Transport-related optimizations (see {transport}) that enable devices to consume less
 power by sleeping more appear to have potential for significant
 savings, but confirming this requires further research. Such research
 could be performed in the context of the recently chartered SUSTAIN
 research group.
+
+More research is needed to quantify the likely sources of measurable
+impacts when it comes to efficient protocol message encoding discussed
+in {encoding}. Again, this is work that the research group could take
+on.
 
 TBD
 
