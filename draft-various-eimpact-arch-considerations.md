@@ -369,17 +369,6 @@ often communication networks have requirements to be able to send
 messages when there's a need for it, e.g., for emergency communications, not
 that those messages are always being sent.
 
-#### Continuous Improvement
-
-In order for an organization to continuously keep pushing for a more
-power efficient operation, knowing the power consumption totals,
-possibly divided up by customer, is typically not enough.
-
-In order to get information that is actionable, a more granular data
-collection is required.  How much power goes to compute, network,
-security, monitoring and management?  Is our cooling as efficient as
-the industry standard?
-
 ### Recommendation
 
 Ongoing work at the IETF's GREEN working group is already improving
@@ -393,6 +382,7 @@ are proposed.
 We recommend that any measurement framework or sustainability-related
 information sharing mechanism be designed to share different types of
 information and not limited to a single metric such as power consumption.
+Similarly, the granularity of data collection needs to be configurable so that the metrics collected can be as fine-grained or as aggregated as needed in order to identify potential areas of improvement.
 
 #### Collect Metrics from Existing Equipment
 
@@ -544,7 +534,7 @@ considered normal or optimal performance. For example, if the baseline
 indicates that your switches operate at 5 Gbps per watt, while vendor
 specifications suggest 8 Gbps per watt and the industry standard is 10
 Gbps per watt, actions should be taken to implement energy-saving
-measures and upgrades. Tracking subsequent measurements can reveal if
+measures and upgrades. Continuously tracking subsequent measurements can reveal if
 efficiency improves towards the benchmark of 8-10 Gbps per watt.
 
 This practice ensures that any improvements can be quantifiably
