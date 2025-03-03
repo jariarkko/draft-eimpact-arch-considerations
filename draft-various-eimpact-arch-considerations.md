@@ -762,7 +762,7 @@ that fits within the IRTF SUSTAIN research group.
 
 This section discusses the ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. This includes devising tools to inform network administrators and their users of the potential benefits of network equipment upgrades, so that they can make better choices on what upgrades are necessary and when.
 
-It should be noted that from an environmental sustainability perspective, it is not necessarily always the best choice to upgrade network equipment whenever slightly less power-hungry and "greener" alternatives become available. The environmental cost of amortizing the carbon embedded inside equipment over its lifetime, for example, the carbon associated with the manufacturing of the equipment that is to be replaced, should be taken into consideration as well.
+It should be noted that from an environmental sustainability perspective, it may not always be the best choice to upgrade network equipment whenever slightly less power-hungry and "greener" alternatives become available. The environmental cost of amortizing the carbon embedded inside equipment over its lifetime, including the carbon associated with the manufacturing of the equipment that is to be replaced, should be taken into consideration as well.
 
 ### Motivation
 
@@ -771,7 +771,7 @@ overall environmental impact of systems. If this can be improved for
 devices that are manufactured in large quantities, the improvements
 can be significant.
 
-The more the world moves toward low-carbon energy sources, the more the manufacturing matters in the holistic view. Today there can be an order of magnitude difference in average emissions for a kWh of electricity between two countries. Thus, any estimates that seek to compare the manufacturing and use phase emissions of a network equipment would have to be calculated per country or region, and there is no universal result for the whole planet.
+The more the world moves toward low-carbon energy sources, the more the manufacturing matters in the holistic view. Today there can be an order of magnitude difference in average emissions for a kWh of electricity between two countries. Thus, any estimates that seek to compare the manufacturing and use phase emissions of a network equipment would have to be calculated per country or region, and there is no universal standard for the whole planet.
 
 Long equipment lifetimes are only useful if the longer lifetimes can
 be achieved without compromising other aspects of sustainability, such
