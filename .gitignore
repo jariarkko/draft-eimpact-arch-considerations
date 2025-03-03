@@ -21,3 +21,4 @@ draft-eimpact-arch-considerations.xml
 package-lock.json
 report.xml
 !requirements.txt
+.DS_Store

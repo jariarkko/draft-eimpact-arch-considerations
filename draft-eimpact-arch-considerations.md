@@ -25,12 +25,14 @@ venue:
 
 author:
  -
-    fullname: Carlos Pignataro (Ed.)
+    fullname: Carlos Pignataro
+    role: editor
     organization: Blue Fern Consulting
     email: carlos@bluefern.consulting
 
  -
-    fullname: Jari Arkko (Ed.)
+    fullname: Jari Arkko
+    role: editor
     organization: Ericsson
     email: jari.arkko@gmail.com
 
@@ -161,7 +163,7 @@ informative:
       - ins: H. ElBakoury
     seriesinfo: "IEEE 8th International Conference on Network Softwarization (NetSoft), Milan, Italy, pp. 49-54, doi: 10.1109/NetSoft54395.2022.9844091"
   Experiment:
-    title: "Green Network Traffic Engineering Using Segment Routing: an Experiment Report"
+    title: "Green Network Traffic Engineering Using Segment Routing: An Experiment Report"
     date: 2024
     author:
       - ins: J.-V. Groningen
@@ -239,7 +241,7 @@ decisions or development efforts to improve the power consumption. Yet, as data 
 Other architectural examples include making it possible to scale
 resources or resource selection processes performed in a
 sustainability-aware fashion. The use of communication primitives that
-maximise utility in a given problem (e.g., using multicast) or the use
+maximize utility in a given problem (e.g., using multicast) or the use
 technologies that reduce the number or size of messages needed for a
 given task (e.g., binary encoding instead of textual) are some further
 examples.
@@ -250,7 +252,7 @@ also tradeoffs, such as side-effects of architectural choices, e.g.,
 dynamic scaling of a router network potentially impacting jitter.
 
 This document discusses some of these architectural aspects and
-considerations related to them, and tries to give guidance where such
+considerations related to them and tries to give guidance where such
 guidance can be given.
 
 The scope of the document is advice on Internet and protocol
@@ -259,10 +261,10 @@ designs or features should have, what kind of operational network
 architectures should be deployed, and how all of these can be designed
 to best address sustainability concerns.
 
-We do note that networks themselves are a service, a tool, for all the applications and services on the Internet. Networks connect data, people and services. The increase in networking and size of the Internet is driven by these applications and the usage. Therefore the emissions from networking are tied to the data volumes; with less data, the Internet would have less hardware and less energy usage. The goals of this document are not to instruct application and service developers to optimize they content. There are many forums and parties whose mission is to help these developers to implement more sustainable services, such as, the Green Software Foundation, the Green Web Foundation, Greening of Streaming, to name a few.
+We do note that networks themselves are a service, a tool, for all the applications and services on the Internet. Networks connect data, people and services. The increase in networking and size of the Internet is driven by these applications and the usage. Therefore, the emissions from networking are tied to the data volumes; with less data, the Internet would have less hardware and less energy usage. The goals of this document are not to instruct application and service developers to optimize they content. There are many forums and parties whose mission is to help these developers to implement more sustainable services, such as, the Green Software Foundation, the Green Web Foundation, Greening of Streaming, to name a few.
 
 The document is intended to help engineering efforts in the IETF,
-provide guidance for operationals in the operator community, or point
+provide operational guidance in the operator community, or point
 to research directions in the IRTF.
 
 This document is not focused on general issues around environmental sustainability,
@@ -276,7 +278,7 @@ This section presents architectural and protocol design aspects that can have an
 
 ## Measurement
 
-You have to know what is going on before you can improve. Some level
+You have to know what is going on before you can improve. Some levels
 of measurements are necessary for improving sustainability. This is
 particularly the case when looking at the systems as a whole in
 post-analysis. As discussed earlier, this level of measurements is
@@ -288,7 +290,7 @@ where power-saving decisions for instance depend on knowing the
 relative power consumption of different activities, such as when a
 power-off decision involves understanding the relative savings during
 the shutdown period vs. the power cost of shutdown and startup procedures,
-or possible need to reconfigure other other nodes in the network due
+or possible need to reconfigure other nodes in the network due
 to the shutdown.
 
 ### Motivation
@@ -315,7 +317,7 @@ also Section 2.2.
 But when it comes to energy consumption,
 operators know their total energy consumption already (see the
 utility bill), and it's not particularly hard to measure the energy
-consumption of individial network devices either.  Still, there are a
+consumption of individual network devices either.  Still, there are a
 number of desirable use cases where the measurement situation needs to
 improve.
 
@@ -426,7 +428,7 @@ are proposed.
 
 We recommend that any measurement framework or sustainability-related
 information sharing mechanism be designed to share different types of
-information, and not limited to a single metric such as power consumption.
+information and not limited to a single metric such as power consumption.
 
 #### Collect Metrics from Existing Equipment
 
@@ -440,7 +442,7 @@ stacks, and occasionally static datasheets.
 #### Content Declaration for all Collected Metrics
 
 A warehouse filled with data collected from diverse sources is useless
-without proper labling.  Create metadata that describes the
+without proper labeling.  Create metadata that describes the
 collected data.  What are the source(s)?  What measurement units?
 Precision?  What is included/excluded in these numbers?
 
@@ -458,7 +460,7 @@ match further aggregation and processing steps, such as unit
 conversions, sample frequency alignment, filtering, etc.
 
 Separate these architectural roles into separate modules in
-order to enable reuse, modulear development and a transparent,
+order to enable reuse, modular development and a transparent,
 configurable pipeline.
 
 #### Configurable Pipeline for Reuse and Transparency
@@ -478,7 +480,7 @@ understand how they can be used in their professional context.
 
 There are many target user groups for the information produced.
 Some examples are scientists, operations teams and IT-development
-organizations.  One crtitical group that is often overlooked is
+organizations.  One critical group that is often overlooked is
 the sustainability assessment experts.  If they are not aware, don't
 understand or don't care about the produced sustainability metrics,
 the value of this work would be greatly diminished.
@@ -488,8 +490,8 @@ the value of this work would be greatly diminished.
 The paucity of up-to-date information on equipment and system
 parameters, especially power consumption and maximum throughput, makes
 estimating the power consumption and energy efficiency of these
-systems extremely challenging. In addition the rapid evolution of
-technology and products in ICT makes the estimation quickly out-dated
+systems extremely challenging. In addition, the rapid evolution of
+technology and products in ICT makes the estimation quickly outdated
 and possibly inaccurate. In almost all cases physical measurement has
 to be replaced by partial measurement and mathematical modelling.
 
@@ -523,7 +525,7 @@ and Testbed to Develop an Energy Model for 5G Virtualized RANs IEEE
 Conference Publication IEEE Xplore got best paper award for GreenNet
 2024, but I am not sure if we are interested to model 5G vRAN.
 
-There are plethora of publications on modeling communication networks
+There is a plethora of publications on modeling communication networks
 and DC computing.
 
 ### Recommendation
@@ -534,13 +536,13 @@ scope of architecture?
 
 ## Dynamic Scaling
 
-The ability to adjust resources to need, and possibly turn some of
+The ability to adjust resources to need and possibly turn some of
 them off during periods of low usage. Examples include the set of
 servers needed for a service, how many duplicate links are needed to
 carry high-volume traffic, whether one needs all base stations with
 overlapping coverage areas to be on, etc.
 
-Often networking is a critical service and redundancy is needed in fixed and wireless networks. Yet, there is a question on how much resiliency is needed and how quickly a backup or resource increase due to capacity shortage can be activated.
+Often networking is a critical service, and redundancy is needed in fixed and wireless networks. Yet, there is a question on how much resiliency is needed and how quickly a backup or resource increase due to capacity shortage can be activated.
 
 ### Motivation
 
@@ -560,7 +562,7 @@ JUKKA: The above is a false statement. Single cellular base stations do scale th
 
 Dynamic scaling could be seen as either an alternative or complementary to load stabilization, e.g., via "peak shaving". Perhaps the most realistic angle is that both are likely needed.
 
-The most rudimentary approach to dynamic scaling is just turning some resources off. However, often this is not sufficient and a more graceful/engineered approach potentially yields better results.
+The most rudimentary approach to dynamic scaling is just turning some resources off. However, often this is not sufficient, and a more graceful/engineered approach potentially yields better results.
 
 A network architects need to understand the impacts of scaling changes on users and traffic. These may include fate of ongoing sessions, latency/jitter, packets in flight, or running processes, attempts to contact resources that are no longer present, and the time it takes for the network to converge to its new state.
 
@@ -572,7 +574,7 @@ Some of the strategies that are useful in implementing a well working dynamic sc
 
 * Ability to move ongoing tasks off to other equipment, to prevent disruption of already started tasks.
 
-* Ability to schedule changes rather than making them abruptly, with associated signaling exchanges and possible transient routing and other failures. See for instance the time-variant routing work in the IETF {{RFC9657}}{{I-D.ietf-tvr-requirements}}{{I-D.ietf-tvr-schedule-yang}}{{I-D.ietf-tvr-alto-exposure}}.
+* Ability to schedule changes rather than making them abruptly, with associated signaling exchanges and possible transient routing and other failures. See for instance the time-variant routing work in the IETF {{RFC9657}} {{I-D.ietf-tvr-requirements}} {{I-D.ietf-tvr-schedule-yang}} {{I-D.ietf-tvr-alto-exposure}}.
 
 * Efficient propagation of changes of new routes, new set of servers, etc. as to reduce the amount of time where state across the network is not synchronized. The needs for the propagation solution needs to be driven by dynamic scaling and sustainability as well as other aspects, such as recovery from failures.
 
@@ -582,11 +584,11 @@ Some of the strategies that are useful in implementing a well working dynamic sc
 
 From Hesham:
 
-Energy-aware routing generally aims at aggregating traffic flows over a subset of the network devices and links, allowing other links and interconnection devices to be switched off. These solutions shall preserve connectivity and QoS, for instance by limiting the maximum utilization over any link, or ensuring a minimum level of path diversity. The following 2 slides provides classifications of energy aware routing algorithms.
+Energy-aware routing generally aims at aggregating traffic flows over a subset of the network devices and links, allowing other links and interconnection devices to be switched off. These solutions shall preserve connectivity and QoS, for instance by limiting the maximum utilization over any link or ensuring a minimum level of path diversity. The following 2 slides provides classifications of energy aware routing algorithms.
 
 There are also algorithms for Green Traffic engineering. Here is an example which uses segment routing {{Segment}}. The empirical analysis of this algorithm is described in {{Experiment}}. The results of this analysis showed that the resource usage for SRv6 could be more than 70% lower than that of the SPF-based forwarding, depending on the network topology.
 
-Using load adaptive technique allows the capacity of the nodes to be dynamically adjusted according to the demand. Examples include: Adaptive Link Rate (ALR): Adapt Link Rate to suit traffic demand and Dynamically or power off links in Link Aggregation based on traffic demand which is empirically estimated based on traffic arrival. LACP (Link Aggregation Control Protocol) defined in IEEE 802.1AX {{LinkAggregation}} can be modified to power off links in an aggregation if they are not needed.
+Using load adaptive techniques allows the capacity of the nodes to be dynamically adjusted according to the demand. Examples include Adaptive Link Rate (ALR), which dynamically adapts the link rate to suit traffic demand or power off links in Link Aggregation based on traffic demand which is empirically estimated based on traffic arrival. LACP (Link Aggregation Control Protocol) defined in IEEE 802.1AX {{LinkAggregation}} can be modified to power off links in an aggregation if they are not needed.
 
 We can use dynamic load shifting such as a demand-response technique where the system temporarily reduces its energy usage in response to pricing signals from a smart grid. The proposed demand-response technique involves deferring the load from elastic requests to later time periods in order to reduce the server demand and the current energy usage, and hence, energy costs {{LoadShifting}}.
 
@@ -617,12 +619,12 @@ Cellular networks and mobile links can scale their energy usage based on load an
 
 ### Motivation
 
-Transport behaviour would have a possibility of impacting how much
+Transport behavior would have a possibility of impacting how much
 downtime or sleep can be had in the communication system, either on
 the end systems or routers or other equipment in between. The savings
 can be significant, at least in wireless systems.
 
-Improvements through transport behaviour are only useful if the
+Improvements through transport behavior are only useful if the
 involved systems have power proportionality.
 
 ### Analysis
@@ -655,7 +657,7 @@ default approach is the opposite: the LEDBAT congestion control
 mechanism {{RFC6817}}, which is designed for such use, will always
 "step out of the way" of other traffic, giving it a low rate when it
 competes with any other traffic. Alternatively, if the goal is to
-reduce energy, such traffic could be sent at a high rate, at a
+reduce energy, such traffic could be sent at a high-rate, at a
 strategically good moment within a longer time interval; this would
 give network equipment an opportunity to enter a sleep state in the
 remaining time period within the interval.
@@ -668,7 +670,7 @@ growth from transmission delays and scaling back if there's any buffer
 growth. This remains to be confirmed with experiments, however.
 
 Similarly, caching and pre-fetching designs need to take into account
-not only the likehood of having acquired the right content in memory,
+not only the likelihood of having acquired the right content in memory,
 but also the sustainability cost of possibly fetching too much or the
 timing of those fetching operations.
 
@@ -691,9 +693,9 @@ TBD implementation and deployment guidance
 
 ## Equipment Longevity
 
-The ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. This includes devising tools to inform network administrators and their users of the potential benefits of network equipment upgrades, so that they can make better choices on what upgrades are necessary and when.
+The ability to extend the useful life of protocols and/or network equipment to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. This includes devising tools to inform network administrators and their users of the potential benefits of network equipment upgrades, so that they can make better choices on what upgrades are necessary and when.
 
-It should be noted that from an environmental sustainability perspective, it is not necessarily always the best choice to upgrade network equipment whenever slightly less power-hungry and "greener" alternatives become availabe. The environmental cost of amortizing the carbon embedded inside equipment over its lifetime, for example, the carbon associated with the manufacturing of the equipment that is to be replaced, should be taken into consideration as well.
+It should be noted that from an environmental sustainability perspective, it is not necessarily always the best choice to upgrade network equipment whenever slightly less power-hungry and "greener" alternatives become available. The environmental cost of amortizing the carbon embedded inside equipment over its lifetime, for example, the carbon associated with the manufacturing of the equipment that is to be replaced, should be taken into consideration as well.
 
 ### Motivation
 
@@ -713,21 +715,20 @@ When we engineer protocols and network equipment, we are inclined to
 design them in a highly optimized manner for a very specific set of
 requirements, use cases and context. While this is necessary in
 certain cases (e.g. constrained nodes with limits on processing
-capacity or long lived battery powered devices), there are cetainly
-cases where such optimized equipment is not absolutely required. The
-vast majority of infrastucture network nodes on the Internet utilize
-only a faction of their design capacity most of the time.
+capacity or long-lived battery powered devices), there are certainly
+cases where such optimized equipment is not absolutely required. Most infrastructure network nodes on the Internet utilize
+only a fraction of their design capacity most of the time.
 
 Designing the equipment with an eye on longevity comes with a set of
 advantages:
 
-* It allows the same equipment and protocols could be reused in a different context in the future. e.g. A core router of today can become an edge router in a near future and an access router in the further future if the protocol implementations are adaptable.
+* It allows the same equipment and protocols to be reused in a different context in the future. e.g. A core router of today can become an edge router in a near future and an access router in the further future if the protocol implementations are adaptable.
 
 * It can reduce complexity in implementations as well as in network management that are usually indicated in highly optimized systems
 
 * It can let network equipment operate for a longer period and can reduce the frequency of hardware upgrades, in turn reducing the environmental impact associated with manufacturing, transporting, and disposing of the old/new hardware.
 
-* One key disadvantage may be that not optimizing may result in the need for premature upgrades for capacity and this needs to be taken into account.
+* One key disadvantage may be that not optimizing may result in the need for premature upgrades for capacity and this needs to be considered.
 
 Hence, it is very likely that extending the life of protocols and equipment with higher flexibility could provide a better environmental benefit than tightly optimizing only for today’s uses.
 
@@ -743,13 +744,13 @@ This is about better encoding methods, such as using binary instead of text.
 
 ### Motivation
 
-Better encoding can obviously reduce the length of message sents. It
+Better encoding can obviously reduce the length of messages sent. It
 remains a question mark how big overall impact this is, however. It
 should only be performed if it gives a measurable overall impact.
 
 ### Analysis
 
-Better encoding methods are clearly benefical for improving the detailed-level effectiveness
+Better encoding methods are clearly beneficial for improving the detailed-level effectiveness
 of communications.
 
 The main questions are, however:
@@ -761,7 +762,7 @@ other content than, e.g., HTTP headers. Moran et al. argued in their 2022 paper 
 
 * At what layer is the compactness achieved? Are link, IP, or
   transport layer mechanisms that can compact some of the verbose
-  messaging useful, or should each and every protocol have optimal
+  messaging useful, or should each protocol have optimal
   compacting?
 
 * Tradeoffs related to compressing (particularly if AI-based
@@ -775,7 +776,7 @@ TBD implementation and deployment guidance
 
 ## Resiliency
 
-This is about weight that migh impact future archs as they did not exist, aka where implicit, in the pass.
+This is about weight that might impact future architectures as they did not exist, that is, where implicit, in the pass.
 
 ### Motivation
 
@@ -786,7 +787,7 @@ But we can ask ourselves what will impact the future architecture that didn't ex
 
 Resiliency might impact much more the adaptation and the design of the architecture in the future decades than it did in the past 20 years.
 
-It might be divided in axis like 'Resiliency to power breakage', 'Resiliency to lack of material' that can be filtered wrt their impacts on device, network ... architectures
+It might be divided in axis like 'Resiliency to power breakage', 'Resiliency to lack of material' that can be filtered with regards to their impacts on device, network ... architectures
 
 
 ### Recommendation
@@ -858,7 +859,7 @@ TBD
 
 It is possible that the introduction of features and architectural properties to facilitate environmentally sustainable Internet technology introduces new attack vectors or other security ramifications.
 
-For example, the introduction of measurements and metrics for the purpose of saving energy could be misused for the opposite effect when compromised.  For example, measurements might be be tampered with in order to cause an operator to waste energy.  Energy measurements, when abused, might also result in compromised security, for example by allowing to infer usage profiles.  They could also be abused to implement a covert communications channel in which information is leaked via tampered measurement values that are being reported.
+For example, the introduction of measurements and metrics for the purpose of saving energy could be misused for the opposite effect when compromised.  For example, measurements might be tampered with in order to cause an operator to waste energy.  Energy measurements, when abused, might also result in compromised security, for example by allowing to infer usage profiles.  They could also be abused to implement a covert communications channel in which information is leaked via tampered measurement values that are being reported.
 
 Networking features and technology choices may have security implications regardless of why they are introduced, including for reasons of environmental sustainability.  The possibility of this needs to be taken into consideration, understood, and communicated to allow for their mitigation.
 
@@ -872,7 +873,7 @@ This document has no IANA actions.
 # Acknowledgments
 {:numbered="false"}
 
-TODO acknowledge.
+TODO.
 
 Parts of this document extensively leverage ideas and text from {{I-D.cparsk-eimpact-sustainability-considerations}} and {{I-D.pignataro-enviro-sustainability-architecture}}. We acknowledge and appreciate the many contributors whose work has enhanced its development.
 
