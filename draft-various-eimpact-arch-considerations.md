@@ -430,7 +430,9 @@ information, and not limited to a single metric such as power consumption.
 
 Since the need to deliver on the use cases described is urgent, the
 industry has to accept working with the capabilities of existing
-equipment in the field.  A plug-in architecture with modules that can
+equipment in the field
+for collecting metrics. 
+It is recommended to have a plug-in architecture with modules that can
 work with (read from and control) devices of any kind, including
 traditional networking hardware devices, cooling systems, software
 stacks, and occasionally static datasheets.
@@ -456,7 +458,7 @@ match further aggregation and processing steps, such as unit
 conversions, sample frequency alignment, filtering, etc.
 
 Separate these architectural roles into separate modules in
-order to enable reuse, modulear development and a transparent,
+order to enable reuse, modular development and a transparent,
 configurable pipeline.
 
 #### Configurable Pipeline for Reuse and Transparency
