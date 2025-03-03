@@ -809,7 +809,7 @@ The guidelines above should be considered for any new system design. If some asp
 
 ## Compact encoding {#encoding}
 
-This is about better encoding methods, such as using binary instead of text.
+This is about considering the effects encoding methods on sustainability, such as the use of binary encodings instead of text.
 
 ### Motivation
 
@@ -845,7 +845,7 @@ impacts.
 Of course, new protocols can generally be designed to work with
 compact encoding, unless there is a significant reason not to. But
 efforts to modify existing protocols for the sake of encoding
-efficiency should be warranted by the above mentioned quantification results.
+efficiency should be further investigated by the above mentioned quantification results.
 
 ## Sustainable by Design: Data Governance Perspective {#bydesign}
 
