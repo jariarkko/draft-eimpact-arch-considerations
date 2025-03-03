@@ -29,7 +29,7 @@ Expires: 4 September 2025                                         Orange
                                                          L. M. Contreras
                                                               Telefonica
                                                                 A. Clemm
-                                                                        
+                                                             Independent
                                                                 J. Arkko
                                                                 Ericsson
                                                             3 March 2025
@@ -1274,7 +1274,8 @@ Authors' Addresses
 
 
    Alexander Clemm
-   Email: alex@clemm.org
+   Independent
+   Email: ludwig@clemm.org
 
 
    Jari Arkko
