@@ -546,7 +546,7 @@ Even though baselining is essential in identifying potential areas of improvemen
 
 ## Dynamic Scaling {#dynscale}
 
-Dynamic scaling is about the ability to adjust resources to need and possibly turn some of
+Dynamic scaling is the ability to adjust resources according to demand, and possibly turn some of
 them off during periods of low usage. Examples include the set of
 servers needed for a service, how many duplicate links are needed to
 carry high-volume traffic, whether one needs all base stations with
@@ -554,47 +554,47 @@ overlapping coverage areas to be on, etc.
 
 Networks and communications are also critical functions of the modern
 digital society. The reliability of individual networking links or
-devices cannot be guaranteed. As a result, various levels and forms of
+devices cannot always be guaranteed. As a result, various levels and forms of
 resiliency are often needed, for instance through redundancy. Yet,
 there is a question on how much redundancy is needed and how quickly a
-backup or resource increase due to capacity shortage can be activated.
+backup or resource increase can be activated due to increased demand.
 
 ### Motivation
 
-Outside implementation improvements, dynamic scaling is perhaps the
-method with most promise for reducing power consumption related
+Outside of implementation improvements, dynamic scaling is potentially the
+most promising method for reducing power consumption related
 environmental impacts. Scaling can happen on a device-level (increasing performance as traffic levels grow) or a network segment level (increasing the number of active links or cellular base stations).
 
 Considering current fixed networking hardware, dynamic scaling might not have an impact in
 situations where there's only a single router or server
-serving a particular route, area, or function. Current routers and switches exhibit limited potential dynamic scaling because the focus is on high performance and a stable connectivity. Yet, technology does evolve, and e.g. Energy-Efficient Ethernet (EEE) is a good example of a networking-level specification to lower energy consumption in idle mode. EEE has limited impact on a network that has continuous traffic.
+serving a particular route, area, or function. Current routers and switches exhibit limited potential dynamic scaling because the focus is on high performance and a stable connectivity. There have been some recent improvements on this front as well. e.g. Energy-Efficient Ethernet (EEE) is a good example of a networking-level specification to lower energy consumption in idle mode. EEE has limited impact on a network that has continuous traffic.
 
-Resiliency can be implemented within a single routers, e.g. as a backup power supply, between routers and switches as multiple links between the same nodes, having different links between two end points, overlapping cellular coverage, etc. All these necessarily add more hardware to provide the same exact service. Some of that hardware can be fully operational at all times and used to serve the traffic, while other links may be in hot or cold standby depending on the use case.
+Resiliency can be implemented within a single router as well, e.g. as a backup power supply, between routers and switches as multiple links between the same nodes, having different links between two end points, overlapping cellular coverage, etc. All these necessarily add more hardware to provide the same exact service. Some of that hardware can be fully operational at all times and used to serve the traffic, while other links may be in hot or cold standby depending on the use case.
 
-In cellular networks, wireless coverage is typically built with
-significant overlapping coverage. Demand and business reasons dictate
+Cellular networks are typically built with
+significant overlap in coverage areas of multiple base stations. Demand and business reasons dictate
 the design of the coverage, and regulations might dictate how reliable
 the cellular service should be. There is extensive work world-wide to
-optimize the operation of this overlapping coverage, e.g. by sleeping
+optimize the operation of this overlapping coverage, e.g. by turning down
 some sites at night time when traffic volumes are low. A cellular
 basestation site can consume anything from a few kWh to ten or more
 kWh per provider. Modern cellular base stations do implement numerous
-features to scale the energy consumption. In general, a cellular base
+features to scale the energy consumption. In general, cellular base
 stations have a base energy consumption and traffic-dependent
-consumption, a somewhat similar behavior we can see in modern CPUs.
+consumption, a somewhat similar behavior to what we can observe in modern CPUs.
 
 On the network level, most large systems have significant amount of redundancy and spare
 capacity. Where such capacity can be turned on or off to match the
-actual need at a given time, significant power consumption reductions
+actual need at a given time, significant reductions in power consumption
 can be achieved.
 
 ### Analysis
 
 Dynamic scaling could be seen as either an alternative or complementary to load stabilization, e.g., via "peak shaving". Perhaps the most realistic angle is that both are likely needed.
 
-The most rudimentary approach to dynamic scaling is just turning some resources off. However, often this is not sufficient, and a more graceful/engineered approach potentially yields better results.
+The most rudimentary approach to dynamic scaling is just turning some resources off. However this may not be sufficient, and a more graceful/engineered approach potentially yields better results.
 
-A network architects need to understand the impacts of scaling changes on users and traffic. These may include fate of ongoing sessions, latency/jitter, packets in flight, or running processes, attempts to contact resources that are no longer present, and the time it takes for the network to converge to its new state.
+Network architects need to understand the impacts of scaling changes on users and traffic. These may include the fate of ongoing sessions, latency/jitter, packets in flight, or running processes, attempts to contact resources that are no longer present, and the time it takes for the network to converge to its new state.
 
 Dynamic scaling requires an understanding of load levels for the
 network, so information collection is required. It also requires
@@ -611,7 +611,7 @@ Some of the strategies that are useful in implementing a well working dynamic sc
   about traffic demand or resiliency. One way to do this is to use of
   power-proportional underlying technologies, such as chipsets or
   transmission technologies. And where this is not sufficient, the
-  ability to turn components or systems on and off is an alternative
+  ability to turn components/systems on and off is an alternative
   strategy.
 
 * Using load adaptive techniques allows the capacity of the nodes to
@@ -627,15 +627,15 @@ Some of the strategies that are useful in implementing a well working dynamic sc
 
 * Ability to move ongoing tasks off to other equipment, to prevent disruption of already started tasks.
 
-* Ability to schedule changes rather than making them abruptly, with
+* Ability to schedule changes in advance rather than making them abruptly, with
   associated signaling exchanges and possible transient routing and
   other failures. See for instance the time-variant routing work in
   the IETF {{RFC9657}} {{I-D.ietf-tvr-requirements}}
   {{I-D.ietf-tvr-schedule-yang}} {{I-D.ietf-tvr-alto-exposure}}.
 
-* Efficient propagation of changes of new routes, new set of servers, etc. as to reduce the amount of time where state across the network is not synchronized. The needs for the propagation solution needs to be driven by dynamic scaling and sustainability as well as other aspects, such as recovery from failures.
+* Efficient propagation of changes of new routes, new set of servers, etc. as to reduce the amount of time where state is not synchronized across the network. The needs for the propagation solution needs to be driven by dynamic scaling and sustainability as well as other aspects, such as recovery from failures.
 
-* Never expect a fixed set of resources, plan for dynamic set of resources, and build mechanisms to deal with dynamic changes.
+* Build mechanisms to deal with dynamic changes: Plan for dynamic set of resources, and not expect to work with a fixed set of resources.
 
 * Dynamic scaling requires automation in most cases, e.g., to turn on
   new service instances. See again {{I-D.pignataro-enviro-sustainability-architecture}} for a discussion of automation.
