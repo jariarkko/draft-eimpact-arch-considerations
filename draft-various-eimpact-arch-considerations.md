@@ -57,7 +57,7 @@ author:
  -
     fullname: Carlos Pignataro
     organization: Blue Fern Consulting
-    email: pignata@gmail.com
+    email: cpignata@gmail.com, carlos@bluefern.consulting
 
  -
     fullname: Marisol Palmero
@@ -275,7 +275,7 @@ features.
 
 This section presents architectural and protocol design aspects that can have an impact on the sustainability of networking. In each topic, we provide an overview, motivation why it would be important to consider for more sustainable networking, an analysis and recommendations for future networking professionals.
 
-## Measurement
+## Measurement of Power Efficiency
 
 You have to know what is going on before you can improve. Some levels
 of measurements are necessary for improving sustainability. This is
@@ -485,6 +485,10 @@ the sustainability assessment experts.  If they are not aware, don't
 understand or don't care about the produced sustainability metrics,
 the value of this work would be greatly diminished.
 
+## Impact on Performance and Quality of Experience
+
+TODO: Section 2.4 from {{I-D.pignataro-enviro-sustainability-architecture}}
+
 ## Modeling {#modeling}
 
 The paucity of up-to-date information on equipment and system
@@ -527,6 +531,10 @@ Conference Publication IEEE Xplore got best paper award for GreenNet
 
 There is a plethora of publications on modeling communication networks
 and DC computing.
+
+#### Dimensioning
+
+TODO: Evaluate if "Dimensioning" from S2.7 of {{I-D.pignataro-enviro-sustainability-architecture}} is relevant here.
 
 ### Recommendation
 
@@ -787,7 +795,7 @@ compact encoding, unless there is a significant reason not to. But
 efforts to modify existing protocols for the sake of encoding
 efficiency should be warranted by the above mentioned quantification results.
 
-## Resiliency and sustainability
+## Resiliency, Reliability, Redundancy, and Sustainability {resiliency}
 
 Networks and communications are critical functions of the modern digital society. We cannot fully control the reliability of networking and various levels and forms of resiliency can be implemented. The more critical a network segment or connection is, the more resiliency is built.
 
@@ -799,12 +807,28 @@ In cellular networks, wireless coverage is typically built with  significant ove
 
 Building resiliency is also a question of economics. Acquiring parallel hardware and links is more costly and must be weighted against the goals of the networking service quality.
 
+#### Qualifying the Tradoff: How Much Resiliency is Needed?
+
+TODO: Copy Section 2.3 from {{I-D.pignataro-enviro-sustainability-architecture}}
+
 ### Analysis
 
-Resiliency might impact much more the adaptation and the design of the architecture in the future decades than it did in the past 20 years. In building resiliency, there is always the trade-off on how quickly the network can recover from a failure and return full or a reduced operation.
+Resiliency and reliability might impact much more the adaptation and the design of the architecture in the future decades than it did in the past 20 years. In building resiliency and reliability, there is always the trade-off on how quickly the network can recover from a failure and return full or a reduced operation.
+
 
 It might be divided in axis like 'Resiliency to power breakage',
 'Resiliency to lack of material' that can be filtered with regards their impacts on device, network ... architectures
+
+
+#### Redundancy as an Approach
+
+Redundancy is an approach that has direct implications into resiliency and sustainability.
+
+TODO: Copy Section 2.3.1 from {{I-D.pignataro-enviro-sustainability-architecture}}
+
+#### Multi-Objective Optimization
+
+TODO: Copy Section 2.2 from {{I-D.pignataro-enviro-sustainability-architecture}}
 
 
 ### Recommendation
@@ -901,7 +925,7 @@ This document has no IANA actions.
 # Acknowledgments
 {:numbered="false"}
 
-Everyone on the author section has contributed to the document in significant ways. The author list has been ordered in (reverse) alphabethical order. 
+Everyone on the author section has contributed to the document in significant ways. The author list has been ordered in (reverse) alphabethical order.
 
 Parts of this document extensively leverage ideas and text from
 {{I-D.cparsk-eimpact-sustainability-considerations}} and
