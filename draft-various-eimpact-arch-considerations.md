@@ -25,41 +25,14 @@ venue:
 
 author:
  -
-    fullname: Jari Arkko
-    role: editor
-    organization: Ericsson
-    email: jari.arkko@gmail.com
-
- -
-    fullname: Suresh Krishnan
-    role: editor
-    organization: Cisco
-    email: sureshk@cisco.com
-
- -
-    fullname: Carlos Pignataro
-    role: editor
-    organization: Blue Fern Consulting
-    email: pignata@gmail.com
-
- -
     fullname: Michael Welzl
     organization: University of Oslo
     email: michawe@ifi.uio.no
 
  -
-    fullname: Jukka Manner
-    organization: Aalto University
-    email: jukka.manner@aalto.fi
-
- -
-    fullname: Alexander Clemm
-    email: alex@clemm.org
-
- -
-    fullname: Ali Rezaki
-    organization: Nokia
-    email: ali.rezaki@nokia.com
+    fullname: Emile Stephan
+    organization: Orange
+    email: emile.stephan@orange.com
 
  -
     fullname: Eve Schooler
@@ -72,13 +45,19 @@ author:
     email: sebastien.rumley@hefr.ch
 
  -
-    fullname: Hesham ElBakoury
-    email: helbakoury@gmail.com
+    fullname: Ali Rezaki
+    organization: Nokia
+    email: ali.rezaki@nokia.com
 
  -
-    fullname: Emile Stephan
-    organization: Orange
-    email: emile.stephan@orange.com
+    fullname: Jukka Manner
+    organization: Aalto University
+    email: jukka.manner@aalto.fi
+
+ -
+    fullname: Carlos Pignataro
+    organization: Blue Fern Consulting
+    email: pignata@gmail.com
 
  -
     fullname: Marisol Palmero
@@ -86,9 +65,23 @@ author:
     email: mpalmero@cisco.com
 
  -
+    fullname: Jan Lindblad
+    organization: All For Eco
+    email: jan.lindblad+ietf@for.eco
+
+ -
+    fullname: Suresh Krishnan
+    organization: Cisco
+    email: sureshk@cisco.com
+
+ -
     fullname: Ari Keränen
     organization: Ericsson
     email: ari.keranen@ericsson.com
+
+ -
+    fullname: Hesham ElBakoury
+    email: helbakoury@gmail.com
 
  -
     fullname: Luis M. Contreras
@@ -96,9 +89,13 @@ author:
     email: contreras.ietf@gmail.com
 
  -
-    fullname: Jan Lindblad
-    organization: All For Eco
-    email: jan.lindblad+ietf@for.eco
+    fullname: Alexander Clemm
+    email: alex@clemm.org
+
+ -
+    fullname: Jari Arkko
+    organization: Ericsson
+    email: jari.arkko@gmail.com
 
 normative:
 
@@ -904,8 +901,9 @@ This document has no IANA actions.
 # Acknowledgments
 {:numbered="false"}
 
+Everyone on the author section has contributed to the document in significant ways. The author list has been ordered in (reverse) alphabethical order. 
+
 Parts of this document extensively leverage ideas and text from
 {{I-D.cparsk-eimpact-sustainability-considerations}} and
-{{I-D.pignataro-enviro-sustainability-architecture}}. We acknowledge
-and appreciate the many contributors whose work has enhanced its
+{{I-D.pignataro-enviro-sustainability-architecture}} and associated discussions in the IETF, IRTF, and IAB groups. We acknowledge and appreciate the many contributors whose work has enhanced its
 development.
