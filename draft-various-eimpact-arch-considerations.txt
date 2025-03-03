@@ -2,11 +2,11 @@
 
 
 
-Network Working Group                                        J. A. (Ed.)
+Network Working Group                                      J. Arkko, Ed.
 Internet-Draft                                                  Ericsson
-Intended status: Informational                               S. K. (Ed.)
+Intended status: Informational                          S. Krishnan, Ed.
 Expires: 4 September 2025                                          Cisco
-                                                            C. Pignataro
+                                                       C. Pignataro, Ed.
                                                     Blue Fern Consulting
                                                                 M. Welzl
                                                       University of Oslo
@@ -96,7 +96,7 @@ Table of Contents
        2.1.1.  Motivation
        2.1.2.  Analysis
        2.1.3.  Recommendation
-     2.2.  Modelling
+     2.2.  Modeling
        2.2.1.  Motivation
        2.2.2.  Analysis
        2.2.3.  Recommendation
@@ -185,7 +185,7 @@ Table of Contents
    Other architectural examples include making it possible to scale
    resources or resource selection processes performed in a
    sustainability-aware fashion.  The use of communication primitives
-   that maximise utility in a given problem (e.g., using multicast) or
+   that maximize utility in a given problem (e.g., using multicast) or
    the use of technologies that reduce the number or size of messages
    needed for a given task (e.g., binary encoding instead of textual)
    are some further examples.
@@ -198,7 +198,7 @@ Table of Contents
    grow will introduce a delay in matching the needs of the data flows.
 
    This document discusses some of these architectural aspects and
-   considerations related to them, and tries to give guidance where such
+   considerations related to them and tries to give guidance where such
    guidance can be given.
 
    The scope of the document is advice on Internet and protocol
@@ -221,8 +221,8 @@ Table of Contents
    a few.
 
    The document is intended to help engineering efforts in the IETF,
-   provide guidance for operationals in the operator community, or point
-   to research directions in the IRTF.
+   provide operational guidance in the operator community, or point to
+   research directions in the IRTF.
 
    This document is not focused on general issues around environmental
    sustainability, except those that pertain to architecture or
@@ -238,19 +238,19 @@ Table of Contents
 
 2.1.  Measurement
 
-   You have to know what is going on before you can improve.  Some level
-   of measurements are necessary for improving sustainability.  This is
-   particularly the case when looking at the systems as a whole in post-
-   analysis.  As discussed earlier, this level of measurements is useful
-   input for further actions, such as deciding what parts of the network
-   need further improvement.
+   You have to know what is going on before you can improve.  Some
+   levels of measurements are necessary for improving sustainability.
+   This is particularly the case when looking at the systems as a whole
+   in post-analysis.  As discussed earlier, this level of measurements
+   is useful input for further actions, such as deciding what parts of
+   the network need further improvement.
 
    But measurements may also be useful for some dynamic situations where
    power-saving decisions for instance depend on knowing the relative
    power consumption of different activities, such as when a power-off
    decision involves understanding the relative savings during the
    shutdown period vs. the power cost of shutdown and startup
-   procedures, or possible need to reconfigure other other nodes in the
+   procedures, or possible need to reconfigure other nodes in the
    network due to the shutdown.
 
 2.1.1.  Motivation
@@ -387,15 +387,17 @@ Table of Contents
 
    We recommend that any measurement framework or sustainability-related
    information sharing mechanism be designed to share different types of
-   information, and not limited to a single metric such as power
+   information and not limited to a single metric such as power
    consumption.
 
 2.1.3.2.  Collect Metrics from Existing Equipment
 
    Since the need to deliver on the use cases described is urgent, the
    industry has to accept working with the capabilities of existing
-   equipment in the field.  A plug-in architecture with modules that can
-   work with (read from and control) devices of any kind, including
+   equipment in the field for collecting metrics.
+
+   It is recommended to have a plug-in architecture with modules that
+   can work with (read from and control) devices of any kind, including
    traditional networking hardware devices, cooling systems, software
    stacks, and occasionally static datasheets.
 
@@ -420,7 +422,7 @@ Table of Contents
    sample frequency alignment, filtering, etc.
 
    Separate these architectural roles into separate modules in order to
-   enable reuse, modulear development and a transparent, configurable
+   enable reuse, modular development and a transparent, configurable
    pipeline.
 
 2.1.3.5.  Configurable Pipeline for Reuse and Transparency
@@ -441,37 +443,37 @@ Table of Contents
 
    There are many target user groups for the information produced.  Some
    examples are scientists, operations teams and IT-development
-   organizations.  One crtitical group that is often overlooked is the
+   organizations.  One critical group that is often overlooked is the
    sustainability assessment experts.  If they are not aware, don't
    understand or don't care about the produced sustainability metrics,
    the value of this work would be greatly diminished.
 
-2.2.  Modelling
+2.2.  Modeling
 
    The paucity of up-to-date information on equipment and system
    parameters, especially power consumption and maximum throughput,
    makes estimating the power consumption and energy efficiency of these
    systems extremely challenging.  In addition the rapid evolution of
-   technology and products in ICT makes the estimation quickly out-dated
+   technology and products in ICT makes the estimation quickly outdated
    and possibly inaccurate.  In almost all cases physical measurement
-   has to be replaced by partial measurement and mathematical modelling.
+   has to be replaced by partial measurement and mathematical modeling.
 
 2.2.1.  Motivation
 
    Where power optimization choices are made, accurate information is
-   required to decide the right choice.  Modelling instead of
+   required to decide the right choice.  Modeling instead of
    measurements may have to be used in some cases.
 
 2.2.2.  Analysis
 
-   To date, two approaches to network power modelling are accepted as
+   To date, two approaches to network power modeling are accepted as
    providing a realistic estimate of network power consumption.  These
    approaches are referred to as "bottom-up" and "top-down".  The paper
    [Unifying] surveys both approaches and provide a new approach which
    unifies both of them.  The unified approach is used to estimate the
    power consumption of access, aggregation and core networks.
 
-   The paper [Modelling] provides a model for IP Routers and the routers
+   The paper [Modeling] provides a model for IP Routers and the routers
    of other future Internet architectures (FIA) such as SCION and
    NEBULA.  They use a generic model which captures the commonalities of
    IP router as well as the peculiarities of FIA routers.  They conduct
@@ -488,18 +490,18 @@ Table of Contents
    GreenNet 2024, but I am not sure if we are interested to model 5G
    vRAN.
 
-   There are plethora of publications on modelling communication
+   There is a plethora of publications on modeling communication
    networks and DC computing.
 
 2.2.3.  Recommendation
 
    It is still to be determined to what extent we need to work on
-   modelling networks and devices in the architecture.  Is this outside
+   modeling networks and devices in the architecture.  Is this outside
    the scope of architecture?
 
 2.3.  Dynamic Scaling
 
-   The ability to adjust resources to need, and possibly turn some of
+   The ability to adjust resources to need and possibly turn some of
    them off during periods of low usage.  Examples include the set of
    servers needed for a service, how many duplicate links are needed to
    carry high-volume traffic, whether one needs all base stations with
@@ -508,8 +510,10 @@ Table of Contents
    Often networking is a critical service and redundancy is needed in
    fixed and wireless networks.  Yet, there is a question on how much
    resiliency is needed and how quickly a backup or resource increase
-   due to capacity shortage can be activated.  The impact of redundancy
-   on sustainability of the network is discussed later in this document.
+   due to capacity shortage can be activated.
+
+   The impact of redundancy on sustainability of the network is
+   discussed later in this document.
 
 2.3.1.  Motivation
 
@@ -534,7 +538,7 @@ Table of Contents
    the energy consumption.  A future revision of this draft will list
    such features.  In general, a cellular base stations have a base
    energy consumption and traffic-dependent consumption, a somewhat
-   similar behaviour we can see in modern CPUs.
+   similar behavior we can see in modern CPUs.
 
    On the network level, most large systems have significant amount of
    redundancy and spare capacity.  Where such capacity can be turned on
@@ -548,7 +552,7 @@ Table of Contents
    Perhaps the most realistic angle is that both are likely needed.
 
    The most rudimentary approach to dynamic scaling is just turning some
-   resources off.  However, often this is not sufficient and a more
+   resources off.  However, often this is not sufficient, and a more
    graceful/engineered approach potentially yields better results.
 
    A network architects need to understand the impacts of scaling
@@ -575,8 +579,8 @@ Table of Contents
    *  Ability to schedule changes rather than making them abruptly, with
       associated signaling exchanges and possible transient routing and
       other failures.  See for instance the time-variant routing work in
-      the IETF [RFC9657][I-D.ietf-tvr-requirements][I-D.ietf-tvr-schedul
-      e-yang][I-D.ietf-tvr-alto-exposure].
+      the IETF [RFC9657] [I-D.ietf-tvr-requirements]
+      [I-D.ietf-tvr-schedule-yang] [I-D.ietf-tvr-alto-exposure].
 
    *  Efficient propagation of changes of new routes, new set of
       servers, etc. as to reduce the amount of time where state across
@@ -593,8 +597,6 @@ Table of Contents
 
    From Hesham:
 
-   TBD
-
    Energy-aware routing generally aims at aggregating traffic flows over
    a subset of the network devices and links, allowing other links and
    interconnection devices to be switched off.  These solutions shall
@@ -610,13 +612,13 @@ Table of Contents
    70% lower than that of the SPF-based forwarding, depending on the
    network topology.
 
-   Using load adaptive technique allows the capacity of the nodes to be
-   dynamically adjusted according to the demand.  Examples include:
-   Adaptive Link Rate (ALR): Adapt Link Rate to suit traffic demand and
-   Dynamically or power off links in Link Aggregation based on traffic
-   demand which is empirically estimated based on traffic arrival.  LACP
-   (Link Aggregation Control Protocol) defined in IEEE 802.1AX
-   [LinkAggregation] can be modified to power off links in an
+   Using load adaptive techniques allows the capacity of the nodes to be
+   dynamically adjusted according to the demand.  Examples include
+   Adaptive Link Rate (ALR), which dynamically adapts the link rate to
+   suit traffic demand or power off links in Link Aggregation based on
+   traffic demand which is empirically estimated based on traffic
+   arrival.  LACP (Link Aggregation Control Protocol) defined in IEEE
+   802.1AX [LinkAggregation] can be modified to power off links in an
    aggregation if they are not needed.
 
    We can use dynamic load shifting such as a demand-response technique
@@ -657,12 +659,12 @@ Table of Contents
 
 2.4.1.  Motivation
 
-   Transport behaviour would have a possibility of impacting how much
+   Transport behavior would have a possibility of impacting how much
    downtime or sleep can be had in the communication system, either on
    the end systems or routers or other equipment in between.  The
    savings can be significant, at least in wireless systems.
 
-   Improvements through transport behaviour are only useful if the
+   Improvements through transport behavior are only useful if the
    involved systems have power proportionality.
 
 2.4.2.  Analysis
@@ -690,7 +692,7 @@ Table of Contents
    to enter a "sleep" state?
 
    At the time of writing, the common choice for video is to opt for
-   high rate delivery, potentially saving energy, and possibly at the
+   higher rate delivery, potentially saving energy, and possibly at the
    expense of other traffic.  For non-urgent data transfers, the IETF-
    recommended default approach is the opposite: the LEDBAT congestion
    control mechanism [RFC6817], which is designed for such use, will
@@ -710,9 +712,9 @@ Table of Contents
    however.
 
    Similarly, caching and pre-fetching designs need to take into account
-   not only the likehood of having acquired the right content in memory,
-   but also the sustainability cost of possibly fetching too much or the
-   timing of those fetching operations.
+   not only the likelihood of having acquired the right content in
+   memory, but also the sustainability cost of possibly fetching too
+   much or the timing of those fetching operations.
 
    In general, information about the impacts of loading or not loading
    the network with additional traffic, and whether a certain sending
@@ -774,14 +776,14 @@ Table of Contents
    requirements, use cases and context.  While this is necessary in
    certain cases (e.g. constrained nodes with limits on processing
    capacity or long lived battery powered devices), there are certainly
-   cases where such optimized equipment is not absolutely required.  The
-   vast majority of infrastucture network nodes on the Internet utilize
-   only a faction of their design capacity most of the time.
+   cases where such optimized equipment is not absolutely required.
+   Most infrastucture network nodes on the Internet utilize only a
+   fraction of their design capacity most of the time.
 
    Designing the equipment with an eye on longevity comes with a set of
    advantages:
 
-   *  It allows the same equipment and protocols could be reused in a
+   *  It allows the same equipment and protocols be reused in a
       different context in the future. e.g. A core router of today can
       become an edge router in a near future and an access router in the
       further future if the protocol implementations are adaptable.
@@ -796,7 +798,7 @@ Table of Contents
 
    *  One key disadvantage may be that not optimizing may result in the
       need for premature upgrades for capacity and this needs to be
-      taken into account.
+      considered.
 
    Hence, it is very likely that extending the life of protocols and
    equipment with higher flexibility could provide a better
@@ -836,7 +838,7 @@ Table of Contents
 
 2.6.1.  Motivation
 
-   Better encoding can obviously reduce the length of message sent.  It
+   Better encoding can obviously reduce the length of messages sent.  It
    remains a question mark how big overall impact this is, however.  It
    should only be performed if it gives a measurable overall impact.
 
@@ -859,8 +861,7 @@ Table of Contents
 
    *  At what layer is the compactness achieved?  Are link, IP, or
       transport layer mechanisms that can compact some of the verbose
-      messaging useful, or should each and every protocol have optimal
-      compacting?
+      messaging useful, or should each protocol have optimal compacting?
 
    *  Tradeoffs related to compressing (particularly if AI-based
       computationally expensive methods are used).
@@ -917,8 +918,8 @@ Table of Contents
    reduced operation.
 
    It might be divided in axis like 'Resiliency to power breakage',
-   'Resiliency to lack of material' that can be filtered wrt their
-   impacts on device, network ... architectures
+   'Resiliency to lack of material' that can be filtered with regards
+   their impacts on device, network ... architectures
 
 2.7.3.  Recommendation
 
@@ -1011,13 +1012,12 @@ Table of Contents
 
    For example, the introduction of measurements and metrics for the
    purpose of saving energy could be misused for the opposite effect
-   when compromised.  For example, measurements might be be tampered
-   with in order to cause an operator to waste energy.  Energy
-   measurements, when abused, might also result in compromised security,
-   for example by allowing to infer usage profiles.  They could also be
-   abused to implement a covert communications channel in which
-   information is leaked via tampered measurement values that are being
-   reported.
+   when compromised.  For example, measurements might be tampered with
+   in order to cause an operator to waste energy.  Energy measurements,
+   when abused, might also result in compromised security, for example
+   by allowing to infer usage profiles.  They could also be abused to
+   implement a covert communications channel in which information is
+   leaked via tampered measurement values that are being reported.
 
    Networking features and technology choices may have security
    implications regardless of why they are introduced, including for
@@ -1051,9 +1051,17 @@ Table of Contents
 
    [Experiment]
               Groningen, J. and C. Lung, "Green Network Traffic
-              Engineering Using Segment Routing: an Experiment Report",
+              Engineering Using Segment Routing: An Experiment Report",
               2024 20th International Conference on Network and Service
               Management (CNSM) , 2024.
+
+   [I-D.cparsk-eimpact-sustainability-considerations]
+              Pignataro, C., Rezaki, A., Krishnan, S., ElBakoury, H.,
+              and A. Clemm, "Sustainability Considerations for
+              Internetworking", Work in Progress, Internet-Draft, draft-
+              cparsk-eimpact-sustainability-considerations-07, 24
+              January 2024, <https://datatracker.ietf.org/doc/html/
+              draft-cparsk-eimpact-sustainability-considerations-07>.
 
    [I-D.ietf-tvr-alto-exposure]
               Contreras, L. M., "Using ALTO for exposing Time-Variant
@@ -1065,9 +1073,9 @@ Table of Contents
    [I-D.ietf-tvr-requirements]
               King, D., Contreras, L. M., Sipos, B., and L. Zhang, "TVR
               (Time-Variant Routing) Requirements", Work in Progress,
-              Internet-Draft, draft-ietf-tvr-requirements-04, 13
-              September 2024, <https://datatracker.ietf.org/doc/html/
-              draft-ietf-tvr-requirements-04>.
+              Internet-Draft, draft-ietf-tvr-requirements-05, 3 March
+              2025, <https://datatracker.ietf.org/doc/html/draft-ietf-
+              tvr-requirements-05>.
 
    [I-D.ietf-tvr-schedule-yang]
               Qu, Y., Lindem, A., Kinzie, E., Fedyk, D., and M.
@@ -1099,8 +1107,7 @@ Table of Contents
               Communication Systems and Networks (COMSNETS), Bangalore,
               India, pp. 1-8, doi: 10.1109/COMSNETS.2014.6734894 , 2014.
 
-   [Modelling]
-              Chen, C., Barrera, D., and A. Perrig, "Modeling Data-Plane
+   [Modeling] Chen, C., Barrera, D., and A. Perrig, "Modeling Data-Plane
               Power Consumption of Future Internet Architectures", IEEE
               2nd International Conference on Collaboration and Internet
               Computing (CIC), Pittsburgh, PA, USA, pp. 149-158, doi:
@@ -1164,21 +1171,25 @@ Table of Contents
 
 Acknowledgments
 
-   TODO acknowledge.
+   Parts of this document extensively leverage ideas and text from
+   [I-D.cparsk-eimpact-sustainability-considerations] and
+   [I-D.pignataro-enviro-sustainability-architecture].  We acknowledge
+   and appreciate the many contributors whose work has enhanced its
+   development.
 
 Authors' Addresses
 
-   Jari Arkko (Ed.)
+   Jari Arkko (editor)
    Ericsson
    Email: jari.arkko@gmail.com
 
 
-   Suresh Krishnan (Ed.)
+   Suresh Krishnan (editor)
    Cisco
    Email: sureshk@cisco.com
 
 
-   Carlos Pignataro
+   Carlos Pignataro (editor)
    Blue Fern Consulting
    Email: pignata@gmail.com
 
