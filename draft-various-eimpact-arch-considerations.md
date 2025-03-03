@@ -208,7 +208,7 @@ informative:
 This document discusses protocol and network architecture aspects that
 may have an impact on the sustainability of network technology. The
 focus is on providing guidelines that can be helpful for protocol
-designers and network architects.
+designers and network architects, where such guidelines can be given.
 
 --- middle
 
