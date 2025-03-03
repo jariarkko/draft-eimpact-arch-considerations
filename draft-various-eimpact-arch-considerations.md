@@ -41,8 +41,8 @@ author:
 
  -
     fullname: Sebastien Rumley
-    organization: HEFR
-    email: sebastien.rumley@hefr.ch
+    organization: HES-SO
+    email: sebastien.rumley@hes-so.ch
 
  -
     fullname: Ali Rezaki
