@@ -266,9 +266,7 @@ architecture, such as what architecture or capabilities new protocol
 designs or features should have, what kind of operational network
 architectures should be deployed, and how all of these can be designed
 to best address sustainability concerns.
-The focus of this document is to provide actionable design advice to protocol designers, while other documents such as {{I-D.cparsk-eimpact-sustainability-considerations}} and
-{{I-D.pignataro-enviro-sustainability-architecture}} go into more
-details on the general principles involved. This document therefore
+The focus of this document is to provide actionable design advice to protocol designers. This document therefore
 addresses one aspect in the architecture question, and does not claim
 to cover the topic exhaustively.
 
