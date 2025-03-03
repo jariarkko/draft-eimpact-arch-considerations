@@ -266,7 +266,7 @@ The focus of this document is to provide actionable design advice to protocol de
 {{I-D.pignataro-enviro-sustainability-architecture}} go into more
 details on the general principles involved. This document therefore
 addresses one aspect in the architecture question, and does not claim
-to cover the entire topic. 
+to cover the entire topic.
 
 This document is also not focused on general issues around environmental sustainability,
 except those that pertain to architecture or significant protocol
