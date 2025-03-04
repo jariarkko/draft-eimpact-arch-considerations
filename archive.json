@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-02T01:10:33.140820+00:00",
+  "timestamp": "2025-03-04T01:07:21.764475+00:00",
   "repo": "jariarkko/draft-eimpact-arch-considerations",
   "labels": [
     {
@@ -140,25 +140,33 @@
       "id": "PR_kwDON5aSb86M5xM-",
       "title": "Editorial suggestions",
       "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/3",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "akeranen",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Collecting here editorial suggestions (work in progress)",
       "createdAt": "2025-02-28T07:54:54Z",
-      "updatedAt": "2025-03-01T17:20:47Z",
+      "updatedAt": "2025-03-03T14:12:48Z",
       "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
       "baseRefName": "main",
       "baseRefOid": "21077c77a94984a70961a4f964debc9c375bd8c0",
       "headRepository": "akeranen/draft-eimpact-arch-considerations",
       "headRefName": "patch-1",
       "headRefOid": "db60b48428173e38e3217684e17a13a00185b672",
-      "closedAt": null,
+      "closedAt": "2025-03-03T14:12:48Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "body": "It was too complex to merge, implemented the same changes in a separate commit.",
+          "createdAt": "2025-03-03T14:12:48Z",
+          "updatedAt": "2025-03-03T14:12:48Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDON5aSb86eGnLV",
@@ -172,8 +180,222 @@
           "createdAt": "2025-03-01T17:20:47Z",
           "updatedAt": "2025-03-01T17:20:47Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDON5aSb86eM7Tj",
+          "commit": {
+            "abbreviatedOid": "db60b48"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-03T13:52:30Z",
+          "updatedAt": "2025-03-03T13:52:30Z",
+          "comments": []
         }
       ]
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDON5aSb86NGGcG",
+      "title": "Carlos initial thorough editorial review",
+      "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/4",
+      "state": "CLOSED",
+      "author": "cpignata",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR includes an initial, comprehensive editorial pass across the entire document \ud83d\udcdd. It further proposes a way of aligning authorship and editorship with the pre-existing sustainability architecture draft (_Architectural Considerations for Environmental Sustainability_) as an initial step toward merging both effort-sets; this is achieved by adding one editor from each of both documents (i.e., from the existing and from the unpublished), chronologically ordered. This in turn surfaces a bug within the author metadata variables, with a fix adding a role of editor (and removing the (air quotes) 'family name' of \"Ed.\" :writing_hand:. Lastly, it incorporates acknowledgments for all contributors to the existing draft since November 2023. Oh, and adds Mac's .DS_Store to the .gitignore list :smile:",
+      "createdAt": "2025-03-03T05:07:20Z",
+      "updatedAt": "2025-03-03T14:53:37Z",
+      "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "baseRefName": "main",
+      "baseRefOid": "21b49bb98c2af6cde5ca9d3a1332084eb8e080c7",
+      "headRepository": "cpignata/draft-eimpact-arch-considerations",
+      "headRefName": "carlos-ed-review",
+      "headRefOid": "be7745e1ebeac4c1f65643a0891fc6567cc80953",
+      "closedAt": "2025-03-03T14:47:05Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "body": "Also, from some reason GitHub says I don't have permission to push to the main branch. Odd, I thought this is a PR for the my repo, does it refer to your repo (where this is coming from)? I will proceed by implementing these changes separately.",
+          "createdAt": "2025-03-03T14:26:28Z",
+          "updatedAt": "2025-03-03T14:26:28Z"
+        },
+        {
+          "author": "cpignata",
+          "authorAssociation": "NONE",
+          "body": "OK. I had not seen Suresh' actual edits, but my bad if I missed that.\r\nYes, this is a PR to your repo coming from a clone in my repo. Should be able to push, can you please try again?",
+          "createdAt": "2025-03-03T14:45:23Z",
+          "updatedAt": "2025-03-03T14:45:23Z"
+        },
+        {
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "body": "I have separately implemented the suggestions from this PR, as it was impossible to do it directly. Some edits were already done by others, a few were not taken into account. The representation of the author list is still to be determined, we want to acknowledge everyone's contribution, but it may be too early to decide the role of different parties.",
+          "createdAt": "2025-03-03T14:47:05Z",
+          "updatedAt": "2025-03-03T14:47:05Z"
+        },
+        {
+          "author": "cpignata",
+          "authorAssociation": "NONE",
+          "body": "Thanks for implementing separately.\r\nLooks like you missed updating my email address (which is now incorrect, but I'd prefer to use a different email address for this anyway)\r\nWe can discuss the editorship order, I shared the logic why I think a chronological order is more sensible (after being editing a sustainbility-architectures document for ~ 1.5 years...",
+          "createdAt": "2025-03-03T14:53:35Z",
+          "updatedAt": "2025-03-03T14:53:35Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON5aSb86eNQNn",
+          "commit": {
+            "abbreviatedOid": "be7745e"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "The editorial changes look good, thank you. The editorship situation we will need to discuss, but I will do that separately. For instance, both me and Suresh have to make major edits today, and have a grasp of where the document is at, what parts are not ready and will need to be cut from the -00. So as an example it is inappropriate to remove Suresh's editor designation. ",
+          "createdAt": "2025-03-03T14:23:37Z",
+          "updatedAt": "2025-03-03T14:23:37Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "PR_kwDON5aSb86NLUkp",
+      "title": "Update draft-various-eimpact-arch-considerations.md",
+      "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/5",
+      "state": "OPEN",
+      "author": "cpignata",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "High-level proposal on resiliency and reliability. While at it, fix my email address.\r\nPlease note that this proposal is one of minimal changes in this document. That is achieved by specifying which Sections from draft-pignataro-enviro-sustainability-architecture can to be ported (i.e., copy/paste) to the relevant sections of this document, but did not move all the text.\r\nThis allows for an easier evaluation of merge changes.",
+      "createdAt": "2025-03-03T16:22:43Z",
+      "updatedAt": "2025-03-03T16:23:52Z",
+      "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "baseRefName": "main",
+      "baseRefOid": "0b8abfaabd3baa1f95db190fe130fe185d8b9f18",
+      "headRepository": "cpignata/draft-eimpact-arch-considerations",
+      "headRefName": "carlos-resiliency",
+      "headRefOid": "77ecb93459fd339499192f6136d6f2202eadfd73",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDON5aSb86NLr0s",
+      "title": "Adding in focus on advice to protocol designers and pointers to drafts for general principles",
+      "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/6",
+      "state": "MERGED",
+      "author": "sureshkrishnan",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-03-03T17:04:26Z",
+      "updatedAt": "2025-03-03T23:18:22Z",
+      "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "baseRefName": "main",
+      "baseRefOid": "0b8abfaabd3baa1f95db190fe130fe185d8b9f18",
+      "headRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "headRefName": "sureshkrishnan-patch-1",
+      "headRefOid": "c8a3821b29abc9a240ea7cfe18528b54758dfd72",
+      "closedAt": "2025-03-03T17:16:57Z",
+      "mergedAt": "2025-03-03T17:16:57Z",
+      "mergedBy": "jariarkko",
+      "mergeCommit": {
+        "oid": "e37b0cc4902674ce358c6b0b53131d40d8631ac9"
+      },
+      "comments": [
+        {
+          "author": "cpignata",
+          "authorAssociation": "NONE",
+          "body": "@sureshkrishnan looks like this change is premature at best without a discussion of positioning of each doc (the 1.5-year-old eimpact edited and this new one)...",
+          "createdAt": "2025-03-03T17:57:02Z",
+          "updatedAt": "2025-03-03T17:57:02Z"
+        },
+        {
+          "author": "sureshkrishnan",
+          "authorAssociation": "COLLABORATOR",
+          "body": "@cpignata , this is certainly something we can discuss moving forward. We spent quite a bit of time discussing the scope in the initial DT meetings and this was the scope that people wanted for this document. ",
+          "createdAt": "2025-03-03T20:46:03Z",
+          "updatedAt": "2025-03-03T20:46:03Z"
+        },
+        {
+          "author": "cpignata",
+          "authorAssociation": "NONE",
+          "body": "@sureshkrishnan -- two comments:\r\n1. The main issue is that your text is scoping and chartering **other** drafts... \r\n> _while other documents such as {{I-D.cparsk-eimpact-sustainability-considerations}} and\r\n{{I-D.pignataro-enviro-sustainability-architecture}} go into more details on the general principles involved_\r\n2. Re- the scoping of this specific draft in your text, is that a consensus call as Chair/Leader of the IAB Program? Not sure how it works in a DT in a program, and I get confused...\r\n",
+          "createdAt": "2025-03-03T21:35:39Z",
+          "updatedAt": "2025-03-03T21:35:39Z"
+        },
+        {
+          "author": "sureshkrishnan",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Good point on 1. Carlos. The intent of the text was to point to other relevant sources and not to scope/charter them, but I will remove the text you quoted as it might be taken that way.",
+          "createdAt": "2025-03-03T23:15:57Z",
+          "updatedAt": "2025-03-03T23:15:57Z"
+        },
+        {
+          "author": "sureshkrishnan",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Regarding 2. this is an individual document and there is no program consensus call at all. In fact as stated in https://www.iab.org/programs/technical-programs/\r\n\r\n_**IAB programs cannot publish RFCs. Programs provide input to the IAB discussions on a topic, and the IAB may choose to publish an RFC that takes that input into account, but an IAB program cannot directly publish, or propose to publish, an RFC.**_\r\n",
+          "createdAt": "2025-03-03T23:18:21Z",
+          "updatedAt": "2025-03-03T23:18:21Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON5aSb86ePHD9",
+          "commit": {
+            "abbreviatedOid": "c8a3821"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-03T17:16:52Z",
+          "updatedAt": "2025-03-03T17:16:52Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDON5aSb86NNYe-",
+      "title": "Content from continuous improvement section belongs with generality a\u2026",
+      "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/7",
+      "state": "MERGED",
+      "author": "sureshkrishnan",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "\u2026s well as continuous tracking in baselining",
+      "createdAt": "2025-03-03T21:02:11Z",
+      "updatedAt": "2025-03-03T21:03:08Z",
+      "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "baseRefName": "main",
+      "baseRefOid": "b766f2df57c67c976abe9c0525cfcf370b671350",
+      "headRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "headRefName": "sureshkrishnan-patch-2",
+      "headRefOid": "1dcb151914d241809aff1a21fa02322018c9fc05",
+      "closedAt": "2025-03-03T21:03:08Z",
+      "mergedAt": "2025-03-03T21:03:08Z",
+      "mergedBy": "sureshkrishnan",
+      "mergeCommit": {
+        "oid": "cefa9264f5404c7090cd95bb4837dfe3e2bca99b"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
