@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-04T01:07:21.764475+00:00",
+  "timestamp": "2025-03-06T01:07:26.985589+00:00",
   "repo": "jariarkko/draft-eimpact-arch-considerations",
   "labels": [
     {
@@ -303,7 +303,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-03-03T17:04:26Z",
-      "updatedAt": "2025-03-03T23:18:22Z",
+      "updatedAt": "2025-03-05T03:16:08Z",
       "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
       "baseRefName": "main",
       "baseRefOid": "0b8abfaabd3baa1f95db190fe130fe185d8b9f18",
@@ -351,6 +351,20 @@
           "body": "Regarding 2. this is an individual document and there is no program consensus call at all. In fact as stated in https://www.iab.org/programs/technical-programs/\r\n\r\n_**IAB programs cannot publish RFCs. Programs provide input to the IAB discussions on a topic, and the IAB may choose to publish an RFC that takes that input into account, but an IAB program cannot directly publish, or propose to publish, an RFC.**_\r\n",
           "createdAt": "2025-03-03T23:18:21Z",
           "updatedAt": "2025-03-03T23:18:21Z"
+        },
+        {
+          "author": "cpignata",
+          "authorAssociation": "NONE",
+          "body": "@sureshkrishnan -- \r\n1. It's not that _\"might be taken that way\"_. It's what it objectively says...\r\n2. What am I missing? \"draft-_**eimpact**_-arch-considerations\". Making along as we go!...",
+          "createdAt": "2025-03-05T00:56:57Z",
+          "updatedAt": "2025-03-05T00:56:57Z"
+        },
+        {
+          "author": "sureshkrishnan",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> @sureshkrishnan --\r\n> \r\n> 1. It's not that _\"might be taken that way\"_. It's what it objectively says...\r\n\r\nHuh?? It was simply a statement of fact. I removed the text because you had read it that way, and I took your interpretation at face value when I said \"it might be taken that way\". \r\n\r\n> 2. What am I missing? \"draft-_**eimpact**_-arch-considerations\". Making along as we go!...\r\n\r\nUnclear what you mean my \"Making along as we go\"? The draft is called draft-various-eimpact based on Jari's proposal. ",
+          "createdAt": "2025-03-05T03:16:07Z",
+          "updatedAt": "2025-03-05T03:16:07Z"
         }
       ],
       "reviews": [
