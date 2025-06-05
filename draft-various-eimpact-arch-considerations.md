@@ -518,7 +518,7 @@ By establishing a baseline and using benchmarking, organizations can
 determine if their networking equipment is performing normally or if
 it is deviating from expected performance. This is the first step in identifying and guiding necessary
 improvements. Benchmarking involves collecting performance
-measurements of networking equipment under controlled 
+measurements of networking equipment under controlled
 conditions. This process helps establish standardized performance
 metrics, allowing for comparison against baselines collected during
 regular operational conditions.
@@ -542,7 +542,7 @@ See also {{Baseline}} and {{BenchmarkingFramework}}.
 
 ### Recommendation
 
-Even though baselining is essential in identifying potential areas of improvement and tracking progress, it is still to be determined to what extent we need to work on modeling networks and devices in the architecture. 
+Even though baselining is essential in identifying potential areas of improvement and tracking progress, it is still to be determined to what extent we need to work on modeling networks and devices in the architecture.
 
 ## Dynamic Scaling {#dynscale}
 
@@ -729,7 +729,7 @@ give network equipment an opportunity to enter a sleep state in the
 remaining time period within the interval.
 
 Perhaps transport protocols should, in the future,
-take energy into account in addition to the many other inputs they decide upon. For example, it is possible that a non-urgent data transfer would send as much as possible as soon as possible when 
+take energy into account in addition to the many other inputs they decide upon. For example, it is possible that a non-urgent data transfer would send as much as possible as soon as possible when
 at least one of the links along the path is known to be power proportional (e.g., a cellular link), while tracking buffer
 growth from transmission delays to scale back if delay should occur. Such ideas remain to be confirmed with experiments, however.
 
