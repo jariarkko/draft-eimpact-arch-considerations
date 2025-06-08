@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-05T01:15:32.659050+00:00",
+  "timestamp": "2025-06-08T01:22:44.998797+00:00",
   "repo": "jariarkko/draft-eimpact-arch-considerations",
   "labels": [
     {
@@ -408,6 +408,32 @@
       "mergeCommit": {
         "oid": "cefa9264f5404c7090cd95bb4837dfe3e2bca99b"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDON5aSb86ZN-h2",
+      "title": "Transport: minor updates",
+      "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/8",
+      "state": "OPEN",
+      "author": "mwelzl",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Some minor updates to the transport part",
+      "createdAt": "2025-06-05T14:50:06Z",
+      "updatedAt": "2025-06-05T14:55:46Z",
+      "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "baseRefName": "main",
+      "baseRefOid": "14b3557e554a758d3b1cd24fd4638c8d3bc2e947",
+      "headRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "headRefName": "mw-transportupdate",
+      "headRefOid": "86d079b4519b22cf4ee6955b617670d30b50699a",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
