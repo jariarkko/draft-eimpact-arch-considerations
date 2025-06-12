@@ -374,9 +374,9 @@ Ongoing work at the IETF's GREEN working group is already targeted at improving
 existing energy consumption metrics and frameworks but some further
 considerations may apply.
 While the Sustainable Internet Architecture addresses broader lifecycle aspects such as manufacturing, reuse, and recycling—essential to circular economy goals
-the GREEN framework provides a foundational model for monitoring and optimizing energy consumption across networked devices and components. 
+the GREEN framework provides a foundational model for monitoring and optimizing energy consumption across networked devices and components.
 Therefore, extending the measurements defined in the Sustainable Internet Architecture to integrate energy
-related data from the GREEN framework, such as power states, consumption patterns, and efficiency ratios will enable a more holistic approach to environmental impact assessment. 
+related data from the GREEN framework, such as power states, consumption patterns, and efficiency ratios will enable a more holistic approach to environmental impact assessment.
 Harmonizing these efforts will support the development of composite metrics that connect operational energy use with manufacturing and end-of-life considerations, establishing a coherent basis for sustainable digital infrastructure management.
 
 In order to meet the needs discussed above, the following architectural design principles
