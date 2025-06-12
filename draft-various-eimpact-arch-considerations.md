@@ -294,13 +294,16 @@ This section presents architectural and protocol design aspects that can have an
 
 ## Measurement
 
-It is essential to understand the current state of affairs before any improvements can be made. i.e. Some levels of measurements are necessary for starting to improve sustainability. This is
+It is essential to understand the current state of affairs before any improvements can be made. 
+Some levels of measurements of aspects that impact environmental sustainability, 
+for example regarding detailed energy usage, are therefore 
+necessary. This is
 particularly the case when looking at the systems as a whole in
 post-analysis. As discussed earlier, this level of measurements is
 useful input for further actions, such as deciding what parts of the
 network need to be targeted for further improvement.
 
-But measurements may also be useful for some dynamic situations
+Measurements may also be useful for some dynamic situations
 where power-saving decisions, for instance, depend on knowing the
 relative power consumption of different activities, such as when a
 power-off decision involves understanding the relative savings during
@@ -334,23 +337,23 @@ later retrieval.
 ### Analysis
 
 While the simplest forms of sustainability-related measurements are
-about power, there's clearly room for other measurements and other
-information as well. To begin with, power consumption by itself may not be what
-matters most for sustainability, as the source of the power may be
-equally important in terms of determining the actual carbon footprint.
+about energy use, there's clearly room for other measurements and other
+information as well. To begin with, energy use by itself may not be what
+matters most for sustainability, as the source of the energy may be
+just as important in terms of determining the actual carbon footprint.
 
 Secondly, for many classes of devices the embedded carbon aspects or
 use of raw materials may be a significant sustainability issue. See
 also Section 2.2.
 
 Third, power or energy measurements alone are of meager use if the
-cause of the consumption is not measured as well. Any power/energy
+cause of the energy use is not measured as well. Any power/energy
 measurement should occur alongside other measurements that can be used to determine energy efficiency. Hence a sound measurement
 architecture implies that a prior existence of an energy efficiency
 framework of some kind.
 
 But when it comes to energy consumption, as noted the aggregate
-information is often typically available, and it's not particularly
+information is often typically available, and it is not particularly
 hard to measure the energy consumption of individual network devices
 either.  Still, there are a number of desirable use cases where the
 measurement situation needs to improve.
