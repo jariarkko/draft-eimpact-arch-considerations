@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-12T01:15:49.714888+00:00",
+  "timestamp": "2025-06-15T01:24:41.645698+00:00",
   "repo": "jariarkko/draft-eimpact-arch-considerations",
   "labels": [
     {
@@ -416,26 +416,92 @@
       "id": "PR_kwDON5aSb86ZN-h2",
       "title": "Transport: minor updates",
       "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/8",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mwelzl",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Some minor updates to the transport part",
       "createdAt": "2025-06-05T14:50:06Z",
-      "updatedAt": "2025-06-05T14:55:46Z",
+      "updatedAt": "2025-06-12T15:32:17Z",
       "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
       "baseRefName": "main",
       "baseRefOid": "14b3557e554a758d3b1cd24fd4638c8d3bc2e947",
       "headRepository": "jariarkko/draft-eimpact-arch-considerations",
       "headRefName": "mw-transportupdate",
       "headRefOid": "86d079b4519b22cf4ee6955b617670d30b50699a",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-06-12T15:32:17Z",
+      "mergedAt": "2025-06-12T15:32:17Z",
+      "mergedBy": "jariarkko",
+      "mergeCommit": {
+        "oid": "fe5238f6a0e6ab2fc0e76b12c82fe03dc1631f30"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDON5aSb86uJcMC",
+          "commit": {
+            "abbreviatedOid": "86d079b"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-12T15:32:11Z",
+          "updatedAt": "2025-06-12T15:32:11Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDON5aSb86aPQa5",
+      "title": "Update draft-various-eimpact-arch-considerations.md",
+      "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/9",
+      "state": "MERGED",
+      "author": "marisolpalmero",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "as per action item to cover:\r\n** Marisol to make a proposal for the proposal related to framework/measurements by the GREEN WG in the measurements section. https://notes.ietf.org/nDRkkhBiTt2c_kOASfk8GQ?edit",
+      "createdAt": "2025-06-12T15:05:06Z",
+      "updatedAt": "2025-06-12T15:44:59Z",
+      "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "baseRefName": "main",
+      "baseRefOid": "14b3557e554a758d3b1cd24fd4638c8d3bc2e947",
+      "headRepository": "marisolpalmero/draft-eimpact-arch-considerations",
+      "headRefName": "main",
+      "headRefOid": "a53f33238233b8cfcd85768d31a7601a6f0957de",
+      "closedAt": "2025-06-12T15:44:59Z",
+      "mergedAt": "2025-06-12T15:44:59Z",
+      "mergedBy": "jariarkko",
+      "mergeCommit": {
+        "oid": "da7961ed916611099d3cf331e8f5b26d433c1f6d"
+      },
+      "comments": [
+        {
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "body": "Looks good. There's trailing whitespace that I will fix in a separate edit.",
+          "createdAt": "2025-06-12T15:44:53Z",
+          "updatedAt": "2025-06-12T15:44:53Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON5aSb86uJjnF",
+          "commit": {
+            "abbreviatedOid": "a53f332"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-06-12T15:41:23Z",
+          "updatedAt": "2025-06-12T15:41:23Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
