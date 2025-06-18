@@ -894,6 +894,28 @@ sustainability. By doing so, organizations can ensure that their data
 operations are not only effective but also environmentally
 responsible.
 
+## Power Backup Operations {#powerbackup}
+
+### Motivation
+
+Power-constrained operation represents a *race against depletion*: when operating on limited backup energy sources (like batteries or generators), the architecture must support graceful adaptation before power runs out. In such situations, networks must minimize consumption to extend operational time. This is a fundamentally different challenge than optimizing energy efficiency during normal, full-power operation and autoscaling.
+
+Whereas energy efficiency under normal conditions seeks to reduce consumption while maintaining full capabilities, power-constrained operation accepts degraded performance or functionality. This requires design-time support for decision-making under energy pressure, such as choosing what to disable and when.
+
+These situations can arise in various forms depending on the network domain: grid outages, deployment in remote or mobile environments, extreme weather events, or any sort of enforced reductions in power usage. They demand architectural foresight.
+
+### Analysis
+
+Operating in power backup mode introduces a shift in network behavior:
+
+- Network, devices and components must reduce power usage, possibly sacrificing performance, feature sets, or redundancy.
+- Each network domain (RAN, edge, and core network segments) may face different constraints and policies in power-limited operation.
+
+### Recommendation
+
+Network, devices and components should expose operational modes that reflect power status (e.g., normal, power-reduction enforcement).
+Consider the energy implications of the diversity of deployment contexts (e.g., RAN vs. datacenter) , including how they impact battery sizing, cooling requirements, and facility design.
+
 # Recommendations for Further Work and Research
 
 Dynamic scaling, i.e., the ability to respond to demand variations and
