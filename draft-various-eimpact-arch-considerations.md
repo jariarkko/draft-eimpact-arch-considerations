@@ -333,11 +333,7 @@ later retrieval.
 
 ### Analysis
 
-While the simplest forms of sustainability-related measurements are
-about power, there's clearly room for other measurements and other
-information as well. To begin with, power consumption by itself may not be what
-matters most for sustainability, as the source of the power may be
-equally important in terms of determining the actual carbon footprint.
+While power consumption is the most common sustainability metric, this draft does not attempt to define energy metrics or modeling standards. Those topics are in scope for the GREEN WG (focused on operational energy) and the SUSTAIN RG (which addresses broader life-cycle impacts and carbon modeling). This section focuses on the architectural implications of enabling measurement, not metric definitions.
 
 Secondly, for many classes of devices the embedded carbon aspects or
 use of raw materials may be a significant sustainability issue. See
@@ -368,15 +364,11 @@ often communication networks have requirements to be able to send
 messages when there's a need for it, e.g., for emergency communications, not
 that those messages are always being sent.
 
-### Recommendation
+### Recommendation for Measurement-Enabled Architecture
 
-Ongoing work at the IETF's GREEN working group is already targeted at improving
-existing energy consumption metrics and frameworks but some further
-considerations may apply.
-While the Sustainable Internet Architecture addresses broader lifecycle aspects such as manufacturing, reuse, and recycling—essential to circular economy goals
-the GREEN framework provides a foundational model for monitoring and optimizing energy consumption across networked devices and components. 
-Therefore, extending the measurements defined in the Sustainable Internet Architecture to integrate energy
-related data from the GREEN framework, such as power states, consumption patterns, and efficiency ratios will enable a more holistic approach to environmental impact assessment. 
+The GREEN WG is chartered to define energy consumption metrics and associated frameworks. The SUSTAIN RG addresses broader measurement questions such as embedded emissions, raw materials, and life-cycle modeling. This document assumes these efforts will define and validate the metrics themselves. Our focus is on ensuring that Internet architecture enables effective collection, transport, and use of such metrics for operational decisions and sustainability impact reduction.
+While the Sustainable Internet Architecture addresses broader lifecycle aspects such as manufacturing, reuse, and recycling—essential to circular economy goals the GREEN framework provides a foundational model for monitoring and optimizing energy consumption across networked devices and components. 
+Therefore, extending the measurements defined in the Sustainable Internet Architecture to integrate energy related data from the GREEN framework, such as power states, consumption patterns, and efficiency ratios will enable a more holistic approach to environmental impact assessment. 
 Harmonizing these efforts will support the development of composite metrics that connect operational energy use with manufacturing and end-of-life considerations, establishing a coherent basis for sustainable digital infrastructure management.
 
 In order to meet the needs discussed above, the following architectural design principles
@@ -458,6 +450,8 @@ to be replaced by partial measurement and mathematical modeling.
 ### Motivation
 
 Where power optimization choices are made, accurate information is required to decide the right choice. Modeling instead of measurements may have to be used in some cases.
+
+This draft assumes that the specific semantics of sustainability-related measurements (e.g., carbon factors, device-specific formulas) are defined elsewhere and focuses instead on enabling architectures to support measurement, collection, and use.
 
 ### Analysis
 
