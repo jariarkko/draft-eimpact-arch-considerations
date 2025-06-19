@@ -366,9 +366,19 @@ that those messages are always being sent.
 
 ### Recommendation for Measurement-Enabled Architecture
 
+<<<<<<< HEAD
 The GREEN WG is chartered to define energy consumption metrics and associated frameworks. The SUSTAIN RG addresses broader measurement questions such as embedded emissions, raw materials, and life-cycle modeling. This document assumes these efforts will define and validate the metrics themselves. Our focus is on ensuring that Internet architecture enables effective collection, transport, and use of such metrics for operational decisions and sustainability impact reduction.
 While the Sustainable Internet Architecture addresses broader lifecycle aspects such as manufacturing, reuse, and recycling—essential to circular economy goals the GREEN framework provides a foundational model for monitoring and optimizing energy consumption across networked devices and components. 
 Therefore, extending the measurements defined in the Sustainable Internet Architecture to integrate energy related data from the GREEN framework, such as power states, consumption patterns, and efficiency ratios will enable a more holistic approach to environmental impact assessment. 
+=======
+Ongoing work at the IETF's GREEN working group is already targeted at improving
+existing energy consumption metrics and frameworks but some further
+considerations may apply.
+While the Sustainable Internet Architecture addresses broader lifecycle aspects such as manufacturing, reuse, and recycling—essential to circular economy goals
+the GREEN framework provides a foundational model for monitoring and optimizing energy consumption across networked devices and components.
+Therefore, extending the measurements defined in the Sustainable Internet Architecture to integrate energy
+related data from the GREEN framework, such as power states, consumption patterns, and efficiency ratios will enable a more holistic approach to environmental impact assessment.
+>>>>>>> 4eb1b6bbf0aee3acf6e57bb0b944686075a47f32
 Harmonizing these efforts will support the development of composite metrics that connect operational energy use with manufacturing and end-of-life considerations, establishing a coherent basis for sustainable digital infrastructure management.
 
 In order to meet the needs discussed above, the following architectural design principles
@@ -519,7 +529,7 @@ By establishing a baseline and using benchmarking, organizations can
 determine if their networking equipment is performing normally or if
 it is deviating from expected performance. This is the first step in identifying and guiding necessary
 improvements. Benchmarking involves collecting performance
-measurements of networking equipment under controlled 
+measurements of networking equipment under controlled
 conditions. This process helps establish standardized performance
 metrics, allowing for comparison against baselines collected during
 regular operational conditions.
@@ -543,7 +553,7 @@ See also {{Baseline}} and {{BenchmarkingFramework}}.
 
 ### Recommendation
 
-Even though baselining is essential in identifying potential areas of improvement and tracking progress, it is still to be determined to what extent we need to work on modeling networks and devices in the architecture. 
+Even though baselining is essential in identifying potential areas of improvement and tracking progress, it is still to be determined to what extent we need to work on modeling networks and devices in the architecture.
 
 ## Dynamic Scaling {#dynscale}
 
@@ -673,8 +683,8 @@ natural disasters as a result of global warming.
 
 ## Transport {#transport}
 
-Transport protocols are the flexible tools that make it possible for
-communication flows between parties to adjust themselves to the
+Transport protocols make it possible for
+communication flows to adjust themselves to the
 dynamic conditions that exist in the network at any given time:
 available bandwidth, delays, congestion, the ability of a peer to send
 or receive traffic, and so on. Depending on the conditions, an
@@ -682,10 +692,9 @@ individual flow may carry traffic at widely different rates, may pause
 for some time, etc. Various higher-level transport solutions may also
 cache or pre-fetch information.
 
-This behavior has an effect on sustainability as well, e.g., in
+This behavior has an effect on sustainability---e.g., in
 what periods the endpoint and network systems are active or when they
 could be in reduced activity or sleep states.
-
 Cellular networks and mobile links can scale their energy usage based on load and enter a low-power state when a traffic flow ends. Thus, in theory, the faster the data is transferred, the faster the device transmission/reception functions can enter a low-power state.
 
 
@@ -704,11 +713,7 @@ involved systems have power proportionality.
 A critical issue is the tradeoff involved in sending traffic. As
 argued in {{NotTradeOff}}, reducing
 the amount of time the endpoints and the network are active can
-sometimes help save energy, e.g. in case the receiver is connected
-over a WiFi link. Similar logic applies for any technology that has a
-certain degree of energy proportionality, e.g. cellular
-communication. As a result, in general, delivering information as
-rapidly as possible would appear to be desirable.
+sometimes help save energy. As a result, in general, delivering information as rapidly as possible would appear to be desirable.
 
 On the other hand, bandwidth-intensive applications can influence
 other applications or users by presenting a significant load on the
@@ -734,12 +739,10 @@ strategically good moment within a longer time interval; this would
 give network equipment an opportunity to enter a sleep state in the
 remaining time period within the interval.
 
-Perhaps the issue is that the transport behavior (as with many other
-things) needs to take into account multiple parameters. For example,
-it is possible that a balanced transport algorithm would be able to
-send as much as possible as soon as possible, while tracking buffer
-growth from transmission delays and scaling back if there's any buffer
-growth. This remains to be confirmed with experiments, however.
+Perhaps transport protocols should, in the future,
+take energy into account in addition to the many other inputs they decide upon. For example, it is possible that a non-urgent data transfer would send as much as possible as soon as possible when
+at least one of the links along the path is known to be power proportional (e.g., a cellular link), while tracking buffer
+growth from transmission delays to scale back if delay should occur. Such ideas remain to be confirmed with experiments, however.
 
 Similarly, caching and pre-fetching designs need to take into account
 not only the likelihood of having acquired the right content in memory,
