@@ -809,13 +809,14 @@ On the other hand, it is very much possible that there could be new equipment av
 
 The guidelines above should be considered for any new system design. If some aspect of protocol or network equipment design choice could be made more generic and flexible without a significant performance and sustainability impact, it needs to be studied in further detail. Specifically, the potential additional sustainability costs due to forgoing optimization need to be weighed against the potential savings in embedded carbon and raw material costs brought about by premature upgrades. There are also cases where equipment upgrades are done to provide better peak performance characteristics (e.g. higher advertised speeds towards consumers) and these need to be viewed as well with the same tradeoffs in mind. Also, when newer more sustainable equipment is available there needs to be a cost benefit analysis made to decide whether to keep current equipment running for longer or upgrade to realize the benefits of newer equipment even though it incurs new embedded costs. Finally, when designing networks it is recommended to consider whether it is possible to reuse retiring equipment in a different location or for a different function (e.g. move it to lower traffic geographies, core routers become edge/access routers etc.)
 
-## Compact encoding {#encoding}
+## Encoding {#encoding}
 
 This is about considering the effects encoding methods on sustainability, such as the use of binary encodings instead of text.
 
 ### Motivation
 
-Better encoding can obviously reduce the length of messages sent. It
+Better encoding can obviously reduce the length of messages sent, or
+reduce the amount of computing required for the encoding and decoding operations. It
 remains a question mark how big overall impact this is, however. It
 should only be performed if it gives a measurable overall impact.
 
@@ -836,8 +837,8 @@ other content than, e.g., HTTP headers. Moran et al. argued in their 2022 paper 
   messaging useful, or should each protocol have optimal
   compacting?
 
-* Tradeoffs related to compressing (particularly if AI-based
-  computationally expensive methods are used).
+* Tradeoffs related to compute required to do encoding and decoding operations. These can be relatively heave operations, particularly if compressiomn is performed, particularly if AI-based
+  computationally expensive methods are used.
 
 ### Recommendation
 
@@ -848,6 +849,8 @@ Of course, new protocols can generally be designed to work with
 compact encoding, unless there is a significant reason not to. But
 efforts to modify existing protocols for the sake of encoding
 efficiency should be further investigated by the above mentioned quantification results.
+
+One particular area of interest is the impact of AI-based compression methods and their computational and energy costs vs. the achieved savings in communication efficiencies.
 
 ## Sustainable by Design: Data Governance Perspective {#bydesign}
 
