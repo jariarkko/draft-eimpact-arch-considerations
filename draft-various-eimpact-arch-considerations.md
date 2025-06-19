@@ -110,7 +110,9 @@ informative:
   I-D.ietf-tvr-schedule-yang:
   I-D.ietf-tvr-alto-exposure:
   I-D.pignataro-enviro-sustainability-architecture:
+  I-D.pignataro-enviro-sustainability-consid:
   I-D.cparsk-eimpact-sustainability-considerations:
+  I-D.irtf-nmrg-green-ps:
   NotTradeOff:
     title: "Not a Trade-Off: On the Wi-Fi Energy Efficiency of Effective Internet Congestion Control"
     date: 2022
@@ -373,43 +375,42 @@ that those messages are always being sent.
 
 ### Recommendation
 
-Ongoing work at the IETF's GREEN working group is already targeted at improving
-existing energy consumption metrics and frameworks but some further
-considerations may apply. In order to meet the needs discussed above, the following architectural design principles
-are proposed.
+Frameworks for the measurement and collection of sustainability metrics SHOULD consider the following requirements (not an inclusive list).  
 
 #### Generality
 
-We recommend that any measurement framework or sustainability-related
-information sharing mechanism be designed to share different types of
-information and not limited to a single metric such as power consumption.
-Similarly, the granularity of data collection needs to be configurable so that the metrics collected can be as fine-grained or as aggregated as needed in order to identify potential areas of improvement.
+Reuse of existing frameworks:  Sustainability metrics are just one of many different types of metrics that need to be collected, analyzed and processed for the operation of networks. In general, there is no need for dedicated special purpose frameworks. A converged infrastructure allows avoid the need for separate storage and CPU and may decrease the load on networking infrastructure, in turn reducing the environmental footprint associated with measurement collection itself.     
 
-#### Collect Metrics from Existing Equipment
+#### Granularity 
 
-Since the need to deliver on the use cases described is urgent, the
-industry has to accomodate the capabilities (and limitations) of existing
-equipment in the field for collecting metrics.
+Configurable granularity: The measurement framework used needs to meet the demands of sustainability applications.  Among other things, 
+the granularity of data collection needs to be configurable so that the metrics collected can be as fine-grained or as aggregated as needed in order to identify potential areas of improvement.
+
+#### Integration 
+
+Broad device support:  The measurement framework that is used needs to accomodate and integrate heterogeneous equipment.  This includes legacy equipment and equipment in existing deployments, whihch may have varying capabilities (and limitations) with regards to their support of metrics collecxtion.  
 
 It is recommended to have a plug-in architecture with modules that can
 work with (read from and control) devices of any kind, including
 traditional networking hardware devices, cooling systems, software
 stacks, and occasionally static datasheets.
 
-#### Content Declaration for all Collected Metrics
+#### Content annotation and metadata support 
+
+Metadata support:  The measurement framework that is used needs to support metadata to annotate contents and facilitate management of collected data.  
 
 A warehouse filled with data collected from diverse sources is useless
 without proper labeling.  Hence, these is a need to create metadata that describes the
 collected data.  (e.g. What are the source(s)?  What measurement units are used?
-Precision?  What is included/excluded in these numbers?)
-
-The metadata itself must also have a formal description.  e.g. Use YANG for
+Precision?  What is included/excluded in these numbers?).  The metadata itself must also have a formal description.  For example, YANG could be used for
 the metadata schema.  Keep the metadata attached to the dataflow it
 describes, so that the relation is clear to each component that has
 anything to do with it, including components added by other
 organizations at a later point in time.
 
 #### Collection, Aggregation, Processing, Display, Decisions
+
+NOTE AC: Not sure we need this - very far removed from the core concerned from this draft. 
 
 The collected data passes through a pipeline from collection to
 decisions. By processing we mean steps to reshape the data to
@@ -422,6 +423,8 @@ configurable pipeline.
 
 #### Configurable Pipeline for Reuse and Transparency
 
+NOTE AC: Not sure we need this - very far removed from the core concerned from this draft. 
+
 Let the pipeline connections between the components be driven by
 configuration rather than hard coded.  This enables reconfiguration of
 the processing pipeline over time, and perhaps more importantly,
@@ -429,6 +432,8 @@ transparency into what stages the data pass through, even without
 access to or understanding of the source code of the entire system.
 
 #### Design Together with the Users
+
+NOTE AC: Not sure we need this - very far removed from the core concerned from this draft. 
 
 Every system should be designed involving some of its target users.
 In order for delivered metrics to be of any value, the target audience
@@ -761,6 +766,18 @@ further simulations and experiments to confirm what strategies would
 provide the best end-user and energy performance. This may be work
 that fits within the IRTF SUSTAIN research group.
 
+Internet Draft {{I-D.pignataro-enviro-sustainability-consid}} contains a list of considerations that protocol designers should make to minimize energy consumption.   For the reader's convenience, some of these are included below.  For the full list, please refer to the draft:  
+
+- Chattiness of protocols. For a given protocol, what are the message exchange patterns? does the protocol rely on periodic updates or heartbeat messages? Could such message patterns result in preventing links or nodes from going to sleep (absent other communications), and in such a case, would an alternative pattern be feasible? 
+
+-Exploiting burstiness versus smoothening of traffic. Is it feasible to design the protocol to transmit with a smoother traffic pattern with lower traffic volumes that are sent continuously, as opposed to a way that traffic is bulked up and then sent in one fell swoop?
+
+- Rapid discovery and convergence. Does the protocol involve the exchange of state and information about other systems? In that case, how can the protocol be designed in such that any such information can be discovered quickly and protocol synchronization reconverged efficiently? Does the protocol design support stateful schemes that might accelerate this? In cases where there is a possibility of nodes going to sleep, the associated overhead of going offline and coming back online should be minimized. By shortening the time interval needed to go offline and come back online, it might be possible to enter sleep mode in situations where it would otherwise not be feasible.
+
+- Encoding schemes. How much computational effort goes into encoding and decoding? Assess the tradeoff between encoding efficiency and computational effort, which directs into carbon for cycles to perform coding operations.
+
+
+
 ## Equipment Longevity {#longevity}
 
 This section discusses the ability to extend the useful life of protocols and/or network equipment in order to amortize the embedded energy costs over a longer period, even though it may mean that the protocols/equipment may not be fully optimized for the present use. This includes devising tools to inform network administrators and their users of the potential benefits of network equipment upgrades, so that they can make better choices on what upgrades are necessary and when.
@@ -898,6 +915,8 @@ operations are not only effective but also environmentally
 responsible.
 
 # Recommendations for Further Work and Research
+
+{{I-D.irtf-nmrg-green-ps}} provides an overview of challenges and opportunities, as well as related research questions, in sustainable networking as it relates to the management and operation of networks.  
 
 Dynamic scaling, i.e., the ability to respond to demand variations and
 resiliency requirements while optimizing energy consumption clearly
