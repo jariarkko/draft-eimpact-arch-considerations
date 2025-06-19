@@ -5,7 +5,7 @@
 Network Working Group                                           M. Welzl
 Internet-Draft                                        University of Oslo
 Intended status: Informational                                E. Stephan
-Expires: 14 December 2025                                         Orange
+Expires: 21 December 2025                                         Orange
                                                              E. Schooler
                                                     University of Oxford
                                                                S. Rumley
@@ -32,7 +32,7 @@ Expires: 14 December 2025                                         Orange
                                                              Independent
                                                                 J. Arkko
                                                                 Ericsson
-                                                            12 June 2025
+                                                            19 June 2025
 
 
  Architectural Considerations for Environmentally Sustainable Internet
@@ -74,7 +74,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 December 2025.
+   This Internet-Draft will expire on 21 December 2025.
 
 Copyright Notice
 
@@ -858,6 +858,14 @@ Table of Contents
    support such upgrades in a secure manner that does not compromise
    equipment integrity.
 
+   On the other hand, it is very much possible that there could be new
+   equipment available that is significantly more sustainable in its
+   operation.  The longevity of the existing equipment and the
+   amortization of its embedded sustainability costs, needs to be
+   balanced against the potential operational savings to be realized by
+   upgrading to newer equipment over the intended lifecycle of the newer
+   equipment.
+
 2.5.3.  Recommendation
 
    The guidelines above should be considered for any new system design.
@@ -870,7 +878,11 @@ Table of Contents
    premature upgrades.  There are also cases where equipment upgrades
    are done to provide better peak performance characteristics (e.g.
    higher advertised speeds towards consumers) and these need to be
-   viewed as well with the same tradeoffs in mind.  Finally, when
+   viewed as well with the same tradeoffs in mind.  Also, when newer
+   more sustainable equipment is available there needs to be a cost
+   benefit analysis made to decide whether to keep current equipment
+   running for longer or upgrade to realize the benefits of newer
+   equipment even though it incurs new embedded costs.  Finally, when
    designing networks it is recommended to consider whether it is
    possible to reuse retiring equipment in a different location or for a
    different function (e.g. move it to lower traffic geographies, core
