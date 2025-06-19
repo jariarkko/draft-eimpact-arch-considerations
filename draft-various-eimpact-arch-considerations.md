@@ -685,8 +685,7 @@ dynamic conditions that exist in the network at any given time:
 available bandwidth, delays, congestion, the ability of a peer to send
 or receive traffic, and so on. Depending on the conditions, an
 individual flow may carry traffic at widely different rates, may pause
-for some time, etc. Various higher-level transport solutions may also
-cache or pre-fetch information.
+for some time, etc. 
 
 This behavior has an effect on sustainability---e.g., in
 what periods the endpoint and network systems are active or when they
@@ -706,12 +705,32 @@ involved systems have power proportionality.
 
 ### Analysis
 
+Various higher-level transport solutions may also
+cache or pre-fetch information. For instance, {{I-D.irtf-nmrg-green-ps}} 
+lifts CDNs as one example of technology that has reduced energy consumption, by
+moving the needed endpoints closer to each other.
+
+On a given set of endpoints, application behavior can impact environmental costs.
+For instance, {{I-D.pignataro-enviro-sustainability-consid}} observes the effect of protocol
+chattiness. Does the protocol rely on periodic updates or heartbeat messages? Could such message 
+patterns result in preventing links or nodes from going to sleep (absent other communications), 
+and in such a case, would an alternative pattern be feasible?
+
+Transport layer protocol behaviour also has an impact.
 A critical issue is the tradeoff involved in sending traffic. As
 argued in {{NotTradeOff}}, reducing
 the amount of time the endpoints and the network are active can
 sometimes help save energy. As a result, in general, delivering information as rapidly as possible would appear to be desirable.
 
-On the other hand, bandwidth-intensive applications can influence
+On the other hand, would such as rapid transmission impact peak
+traffic, and as such, contribute to a need to dimension
+networks for higher traffic volumes? And in this case the need
+could be only a perceived one as a less rapid transmission would
+not have impacted, for instance, a user's ability to view a video
+if the transmission was merely for the buffering of the rest of
+the video.
+
+Furthermore, bandwidth-intensive applications can influence
 other applications or users by presenting a significant load on the
 network, and consequently reducing capacity available for others, or
 increasing buffering (and with it, latency) across the network
@@ -735,10 +754,12 @@ strategically good moment within a longer time interval; this would
 give network equipment an opportunity to enter a sleep state in the
 remaining time period within the interval.
 
-Perhaps transport protocols should, in the future,
+A hypothesis could be made that transport protocols should
 take energy into account in addition to the many other inputs they decide upon. For example, it is possible that a non-urgent data transfer would send as much as possible as soon as possible when
 at least one of the links along the path is known to be power proportional (e.g., a cellular link), while tracking buffer
-growth from transmission delays to scale back if delay should occur. Such ideas remain to be confirmed with experiments, however.
+growth from transmission delays to scale back if delay should occur. 
+
+Such ideas remain to be confirmed with experiments, however.
 
 Similarly, caching and pre-fetching designs need to take into account
 not only the likelihood of having acquired the right content in memory,
@@ -753,8 +774,11 @@ information available to the endpoints would be useful.
 
 ### Recommendation
 
-The techniques described above have been based on theoretical analysis. There is a need for
-further simulations and experiments to confirm what strategies would
+As can be seen from the above, there are a number complex tradeoffs merely for transport
+protocol behavior on a given connection.
+
+There is a clear need for
+simulations and experiments to understand what strategies would
 provide the best end-user and energy performance. This may be work
 that fits within the IRTF SUSTAIN research group.
 
