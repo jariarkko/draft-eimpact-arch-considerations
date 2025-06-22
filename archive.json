@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-19T01:16:53.326773+00:00",
+  "timestamp": "2025-06-22T01:23:35.346332+00:00",
   "repo": "jariarkko/draft-eimpact-arch-considerations",
   "labels": [
     {
@@ -515,7 +515,7 @@
       "labels": [],
       "body": "impact of the architectural choice on the footprint energy consumption",
       "createdAt": "2025-06-18T14:37:56Z",
-      "updatedAt": "2025-06-18T14:37:56Z",
+      "updatedAt": "2025-06-19T15:18:23Z",
       "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
       "baseRefName": "main",
       "baseRefOid": "4eb1b6bbf0aee3acf6e57bb0b944686075a47f32",
@@ -526,8 +526,37 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "body": "Emile to make a new proposal based on feedback ",
+          "createdAt": "2025-06-19T15:16:07Z",
+          "updatedAt": "2025-06-19T15:16:07Z"
+        },
+        {
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "body": "Alex: as long as we can relate whatever we say here to the guidelines we have in the document, we're good. We're writing a document for the protocol designers.\r\n\r\nJari: We design protocols with a particular architecture, but it can still have an effect on how big of a data center building you...\r\n\r\nSuresh: Construction etc is still out of scope, but this is explanatory text that highlights how our choices impact the rest of the world. But the rest of the world is otherwise outside our scope.\r\n",
+          "createdAt": "2025-06-19T15:18:23Z",
+          "updatedAt": "2025-06-19T15:18:23Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON5aSb86vavhL",
+          "commit": {
+            "abbreviatedOid": "60803b2"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "Good, but I'd suggest:\r\n\r\n1/ hardware manufacturing and software design\r\n2/ the sentence ending in dots needs completion\r\n",
+          "createdAt": "2025-06-19T13:27:40Z",
+          "updatedAt": "2025-06-19T13:27:40Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 11,
@@ -541,7 +570,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-06-18T15:54:33Z",
-      "updatedAt": "2025-06-18T15:54:33Z",
+      "updatedAt": "2025-06-19T15:28:06Z",
       "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
       "baseRefName": "main",
       "baseRefOid": "4eb1b6bbf0aee3acf6e57bb0b944686075a47f32",
@@ -552,34 +581,241 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "body": "Suresh: this is related to GREEN power status etc. topics\r\n\r\nMarisol: there are some people pushing for power on/off aspects in GREEN WG, but the discussion is still open.\r\n\r\nEmile: to make it more precise, this is only about one use case that has not been discussed so much now: when there is a power shortage. I see it as different from the GREEN WG discussion which was mostly about control of power. \r\n\r\nJari: Agree\r\n\r\nEmile: this could be one subclass of scaling. I want to make the fact that we are on battery power and when the battery ends explicit.\r\n\r\nAlex: I think it is a question if this a sustainability or power constraint issue, and super important, but is this part of our scope?\r\n\r\nSuresh: agree with Alex\r\n\r\nJan: this is a bigger topic than a side comment in our document.\r\n\r\nJari: maybe an item in our \"future work\" section\r\n\r\nSuresh: if we think of this as part of scaling, then we could keep this topic.\r\n\r\nAP: Jari to make a proposal\r\n\r\n\r\n\r\n\r\n\r\n",
+          "createdAt": "2025-06-19T15:27:28Z",
+          "updatedAt": "2025-06-19T15:28:06Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON5aSb86vayug",
+          "commit": {
+            "abbreviatedOid": "f99568f"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "I don't disagree with anything said here, good stuff. However, we are quite thin on actual architectural impacts that would influence protocol design. Can we come up with some?",
+          "createdAt": "2025-06-19T13:31:43Z",
+          "updatedAt": "2025-06-19T13:31:43Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 12,
       "id": "PR_kwDON5aSb86bJ2Rs",
       "title": "Expansion of longevity section to point to evaluate potential savings\u2026",
       "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/12",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "sureshkrishnan",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "\u2026 due to upgrades",
       "createdAt": "2025-06-18T22:24:12Z",
-      "updatedAt": "2025-06-18T22:24:12Z",
+      "updatedAt": "2025-06-19T15:33:00Z",
       "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
       "baseRefName": "main",
       "baseRefOid": "4eb1b6bbf0aee3acf6e57bb0b944686075a47f32",
       "headRepository": "jariarkko/draft-eimpact-arch-considerations",
       "headRefName": "sureshkrishnan-patch-3",
       "headRefOid": "f1e0b0afd60f88c006d2f5542a87d82a720bbd43",
+      "closedAt": "2025-06-19T15:33:00Z",
+      "mergedAt": "2025-06-19T15:33:00Z",
+      "mergedBy": "sureshkrishnan",
+      "mergeCommit": {
+        "oid": "a55b3307158bb4b205cd9b3be8ba93dc9739b534"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDON5aSb86vat9c",
+          "commit": {
+            "abbreviatedOid": "f1e0b0a"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "Looks good to me",
+          "createdAt": "2025-06-19T13:25:48Z",
+          "updatedAt": "2025-06-19T14:18:48Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "id": "PR_kwDON5aSb86bL0jk",
+      "title": "Ac draft various eimpact arch considerations",
+      "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/13",
+      "state": "OPEN",
+      "author": "alexclemm",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-19T04:47:02Z",
+      "updatedAt": "2025-06-19T15:56:32Z",
+      "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "baseRefName": "main",
+      "baseRefOid": "4eb1b6bbf0aee3acf6e57bb0b944686075a47f32",
+      "headRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "headRefName": "ac-draft-various-eimpact-arch-considerations",
+      "headRefOid": "3ab4041bae0527227f336f40e8e7c24930a7cf66",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "body": "Discussion on call:\r\n\r\n- Alex presented the edits\r\n- Jari: Top part of PR is fine. AP Alex to provide a new version with just these.\r\n- Alex - Jan - Jari - Suresh: discussion about the three subsections. AP: Jan to make a proposal on more sustainability-focused and compact\r\n- Transport modifications: to be discussed under Jari's PR, based but further modified from Alex's proposal. AP: All to review.\r\n",
+          "createdAt": "2025-06-19T15:56:32Z",
+          "updatedAt": "2025-06-19T15:56:32Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON5aSb86vbcTv",
+          "commit": {
+            "abbreviatedOid": "3ab4041"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "Thank you! Extensive work.\r\n\r\nMany things in this PR.\r\n\r\nAdding new references: Great, thanks!\r\n\r\nGeneral updates on intro & measurement section: Great, thanks!\r\n\r\nOne exception is that the changes include removing a mention of the GREEN WG. Perhaps we should keep that still explicitly.\r\n\r\nThe questions on whether some subsections in measurement should be kept:\r\n- agree on \"design with users\"\r\n- but I'd suggest the two pipeline subsections could be merged under one that simply says:\r\n  \"Measurements typically pass through a pipeline from collection to processing (aggregation, unit conversions, etc.) and decisions. Such pipelines should be configurable and modular, as the needs for different type of combining or processing information evolve.\"\r\n\r\nThe edits regarding the addition of recommendations from draft-pignataro require more work, could they be separated from this PR? Specifically, I'm working on that, but I think (1) the encoding/decoding aspects belong to a different section that we already have, compact encoding. That section should address both the compactness of the encoding and the effort required to do it.\r\n\r\nSecondly, the part about rapid discovery and convergence seems close to what we already have in the dynamic scaling section. A review of what needs to change is needed.\r\n\r\nThird, chattiness probably belongs to the transport topic.\r\n\r\nFourth, the exploiting burstiness text piece probably points to a need to generalize the current text in the transport section. But I don't think we should add this text as such. It makes a recommendation for smooth traffic without really exploring the different tradeoffs at all. Not saying the current text in the transport section is perfect in this sense either, in particular it should probably be more open ended what the right behavior is. But there's very much a need talk about the detailed tradeoffs, such as impact on sleep vs. avoiding peak capacity, avoiding disturbance to others vs. taking longer to be awake, micro sleep vs. long sleep periods, etc.\r\n\r\nFinally, the I-D.irtf-nmrg-green-ps reference in the recommendations for further work. We definitely should reference it. Could we pick up the more architecture oriented conclusions from it?\r\n\r\n",
+          "createdAt": "2025-06-19T14:13:43Z",
+          "updatedAt": "2025-06-19T14:14:48Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "id": "PR_kwDON5aSb86bRe6Z",
+      "title": "Expand encode compute considerations in S2.6",
+      "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/14",
+      "state": "OPEN",
+      "author": "jariarkko",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-19T14:40:39Z",
+      "updatedAt": "2025-06-19T14:40:39Z",
+      "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "baseRefName": "main",
+      "baseRefOid": "4eb1b6bbf0aee3acf6e57bb0b944686075a47f32",
+      "headRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "headRefName": "jariarkko-patch-1-1",
+      "headRefOid": "dd354b56e466f64aa555db2144c8679979528289",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 15,
+      "id": "PR_kwDON5aSb86bRf5Z",
+      "title": "action from interim meeting June 12th",
+      "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/15",
+      "state": "OPEN",
+      "author": "marisolpalmero",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-19T14:42:08Z",
+      "updatedAt": "2025-06-19T16:11:24Z",
+      "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "baseRefName": "main",
+      "baseRefOid": "a55b3307158bb4b205cd9b3be8ba93dc9739b534",
+      "headRepository": "marisolpalmero/draft-eimpact-arch-considerations",
+      "headRefName": "main",
+      "headRefOid": "ecbf0f1e30d66d8fb253358c9cfe7ca09698e132",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "body": "Tentatively looks good. Marisol to make an update for the next week, there seems to be some merge issue. Also Suresh to provide some comments to Marisol.",
+          "createdAt": "2025-06-19T16:01:43Z",
+          "updatedAt": "2025-06-19T16:01:43Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 16,
+      "id": "PR_kwDON5aSb86bRpIx",
+      "title": "Update transport section with additional considerations",
+      "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/16",
+      "state": "OPEN",
+      "author": "jariarkko",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-19T14:57:27Z",
+      "updatedAt": "2025-06-20T06:28:46Z",
+      "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "baseRefName": "main",
+      "baseRefOid": "4eb1b6bbf0aee3acf6e57bb0b944686075a47f32",
+      "headRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "headRefName": "jariarkko-patch-2",
+      "headRefOid": "a8aa14765ebe5f8a43c1ed9841e09a0962cf1fd0",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "body": "Alex: note that you have a recommendation that's more for researchers than protocol designers. Be clear about the distinction. Concerned that the document should have an impact on the protocol designers. If we are too broad and general that's not great. But if we keep the general and protocol-designer advice clearly separated then we can perhaps avoid problems.\r\n\r\nSuresh: goes in right direction, the question is how actionable result we get. Consider putting text somewhere even if it just about future work needed.\r\n\r\nJari: I like the future work category of \"advice\". Or the separation of protocol designer advice and further work needed.\r\n",
+          "createdAt": "2025-06-19T15:39:51Z",
+          "updatedAt": "2025-06-19T15:39:51Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON5aSb86vhIXQ",
+          "commit": {
+            "abbreviatedOid": "a8aa147"
+          },
+          "author": "mwelzl",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Really nice, many thanks!",
+          "createdAt": "2025-06-20T06:23:11Z",
+          "updatedAt": "2025-06-20T06:28:46Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\nfor some time, etc.\r\n```\r\n\r\nremoving a trailing whitespace :-)",
+              "createdAt": "2025-06-20T06:23:11Z",
+              "updatedAt": "2025-06-20T06:28:46Z"
+            },
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\nfor some time, etc.\r\n```\r\n\r\nremoving a trailing whitespace :-)",
+              "createdAt": "2025-06-20T06:24:34Z",
+              "updatedAt": "2025-06-20T06:28:46Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
