@@ -109,7 +109,9 @@ informative:
   I-D.ietf-tvr-requirements:
   I-D.ietf-tvr-schedule-yang:
   I-D.ietf-tvr-alto-exposure:
+  I-D.irtf-nmrg-green-ps:
   I-D.pignataro-enviro-sustainability-architecture:
+  I-D.pignataro-enviro-sustainability-consid:
   I-D.cparsk-eimpact-sustainability-considerations:
   NotTradeOff:
     title: "Not a Trade-Off: On the Wi-Fi Energy Efficiency of Effective Internet Congestion Control"
