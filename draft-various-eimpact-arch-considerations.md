@@ -382,68 +382,58 @@ Harmonizing these efforts will support the development of composite metrics that
 In order to meet the needs discussed above, the following architectural design principles
 are proposed.
 
-#### Generality
+#### Future Proof Metrics
 
 We recommend that any measurement framework or sustainability-related
 information sharing mechanism be designed to share different types of
 information and not limited to a single metric such as power consumption.
-Similarly, the granularity of data collection needs to be configurable so that the metrics collected can be as fine-grained or as aggregated as needed in order to identify potential areas of improvement.
+Requirements, units, granularity and collection method specifications are
+sure to shift over time.
 
-#### Collect Metrics from Existing Equipment
+#### Plug-in Architecture for Collection and Control
 
 Since the need to deliver on the use cases described is urgent, the
-industry has to accomodate the capabilities (and limitations) of existing
-equipment in the field for collecting metrics.
-
-It is recommended to have a plug-in architecture with modules that can
+industry has to accommodate the capabilities (and limitations) of existing
+equipment in the field for collecting metrics. 
+It is recommended to apply a plug-in architecture with modules that can
 work with (read from and control) devices of any kind, including
 traditional networking hardware devices, cooling systems, software
-stacks, and occasionally static datasheets.
+stacks, and occasionally static data sheets.
 
-#### Content Declaration for all Collected Metrics
+#### Data with Content Declaration
 
-A warehouse filled with data collected from diverse sources is useless
-without proper labeling.  Hence, these is a need to create metadata that describes the
-collected data.  (e.g. What are the source(s)?  What measurement units are used?
-Precision?  What is included/excluded in these numbers?)
+To make sense of the collected data, it must be possible to see exactly
+where all data is coming from, what it means, its precision and how it
+has been processed.  The metadata itself must also have a formal description.
+YANG might be suitable for modeling the metadata schema.  Keep the metadata
+attached to the dataflow it describes, so that the relation is clear even when
+components are added by other organizations at a later point in time.
 
-The metadata itself must also have a formal description.  e.g. Use YANG for
-the metadata schema.  Keep the metadata attached to the dataflow it
-describes, so that the relation is clear to each component that has
-anything to do with it, including components added by other
-organizations at a later point in time.
-
-#### Collection, Aggregation, Processing, Display, Decisions
+#### Modular Processing Pipeline
 
 The collected data passes through a pipeline from collection to
 decisions. By processing we mean steps to reshape the data to
 match further aggregation and processing steps, such as unit
 conversions, sample frequency alignment, filtering, etc.
-
 Separate these architectural roles into separate modules in
-order to enable reuse, modular development and a transparent,
-configurable pipeline.
+order to enable reuse, and clarity.
 
-#### Configurable Pipeline for Reuse and Transparency
+#### Configurable and Auditable Pipeline
 
 Let the pipeline connections between the components be driven by
-configuration rather than hard coded.  This enables reconfiguration of
-the processing pipeline over time, and perhaps more importantly,
-transparency into what stages the data pass through, even without
-access to or understanding of the source code of the entire system.
+configuration rather than code.  This enables reconfiguration of
+the processing pipeline over time.  It is essential to be able
+to review the pipeline in an audit situation.  The auditing team
+is generally not likely to read code.
 
-#### Design Together with the Users
+#### Aligned with Reporting Frameworks
 
-Every system should be designed involving some of its target users.
-In order for delivered metrics to be of any value, the target audience
-needs to be aware of their existence, be able to interpret them and
-understand how they can be used in their professional context.
-
-There are many target user groups for the information produced.
-Some examples are network designers/engineers, scientists, operations teams and IT-development organizations.  One critical group that is often overlooked is
-the sustainability assessment experts.  If they are not aware, don't
-understand or don't care about the produced sustainability metrics,
-the value of this work would be greatly diminished.
+Ensure that the system output is aligned with the measurement
+requirements set forth by relevant legal frameworks, e.g. ESRS
+(Europe), TCFD and IFRS (US, Japan), BRSR (India), etc. The
+responsible corporate bodies producing the corporate reports are
+unlikely to use any technical collection system that isn't well
+aligned.
 
 ## Modeling {#modeling}
 
