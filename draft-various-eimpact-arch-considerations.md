@@ -777,9 +777,16 @@ information available to the endpoints would be useful.
 As can be seen from the above, there are a number complex tradeoffs merely for transport
 protocol behavior on a given connection.
 
+This prompts us to give two types of advice. The first type of advice is for protocol designers: 
+simple models are unlikely to guarantee optimal results, but as long as 
+normal precautions such as congestion control, monitoring queue build-up, and avoiding
+unnecessary messages are employed, systems will operate reasonably well. 
+
+The second type of advice is for further work in the research community to better understand
+what strategies would actually provide the best end-user and energy performance, and whether the choice of strategy
+depends on other factors, such as whether sleep modes are implemented in network nodes.
 There is a clear need for
-simulations and experiments to understand what strategies would
-provide the best end-user and energy performance. This may be work
+simulations and experiments to understand this better. This may be work
 that fits within the IRTF SUSTAIN research group.
 
 ## Equipment Longevity {#longevity}
