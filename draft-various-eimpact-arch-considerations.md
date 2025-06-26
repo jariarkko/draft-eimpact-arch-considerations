@@ -109,7 +109,9 @@ informative:
   I-D.ietf-tvr-requirements:
   I-D.ietf-tvr-schedule-yang:
   I-D.ietf-tvr-alto-exposure:
+  I-D.irtf-nmrg-green-ps:
   I-D.pignataro-enviro-sustainability-architecture:
+  I-D.pignataro-enviro-sustainability-consid:
   I-D.cparsk-eimpact-sustainability-considerations:
   NotTradeOff:
     title: "Not a Trade-Off: On the Wi-Fi Energy Efficiency of Effective Internet Congestion Control"
@@ -306,10 +308,11 @@ This section presents architectural and protocol design aspects that can have an
 
 ## Measurement
 
-### Motivation
-
 It is essential to understand the current state of affairs before any improvements can be made. 
 Thus, some levels of measurements are necessary for starting to improve sustainability.
+
+### Motivation
+
 Without
 measurements of any kind, it is impossible to assess if the networks
 are functioning correctly. It is impossible to know if the system is
@@ -404,68 +407,58 @@ Harmonizing these efforts will support the development of composite metrics that
 In order to meet the needs discussed above, the following architectural design principles
 are proposed.
 
-#### Generality
+#### Future Proof Metrics
 
 We recommend that any measurement framework or sustainability-related
 information sharing mechanism be designed to share different types of
 information and not limited to a single metric such as power consumption.
-Similarly, the granularity of data collection needs to be configurable so that the metrics collected can be as fine-grained or as aggregated as needed in order to identify potential areas of improvement.
+Requirements, units, granularity and collection method specifications are
+sure to shift over time.
 
-#### Collect Metrics from Existing Equipment
+#### Plug-in Architecture for Collection and Control
 
 Since the need to deliver on the use cases described is urgent, the
-industry has to accomodate the capabilities (and limitations) of existing
-equipment in the field for collecting metrics.
-
-It is recommended to have a plug-in architecture with modules that can
+industry has to accommodate the capabilities (and limitations) of existing
+equipment in the field for collecting metrics. 
+It is recommended to apply a plug-in architecture with modules that can
 work with (read from and control) devices of any kind, including
 traditional networking hardware devices, cooling systems, software
-stacks, and occasionally static datasheets.
+stacks, and occasionally static data sheets.
 
-#### Content Declaration for all Collected Metrics
+#### Data with Content Declaration
 
-A warehouse filled with data collected from diverse sources is useless
-without proper labeling.  Hence, these is a need to create metadata that describes the
-collected data.  (e.g. What are the source(s)?  What measurement units are used?
-Precision?  What is included/excluded in these numbers?)
+To make sense of the collected data, it must be possible to see exactly
+where all data is coming from, what it means, its precision and how it
+has been processed.  The metadata itself must also have a formal description.
+YANG might be suitable for modeling the metadata schema.  Keep the metadata
+attached to the dataflow it describes, so that the relation is clear even when
+components are added by other organizations at a later point in time.
 
-The metadata itself must also have a formal description.  e.g. Use YANG for
-the metadata schema.  Keep the metadata attached to the dataflow it
-describes, so that the relation is clear to each component that has
-anything to do with it, including components added by other
-organizations at a later point in time.
-
-#### Collection, Aggregation, Processing, Display, Decisions
+#### Modular Processing Pipeline
 
 The collected data passes through a pipeline from collection to
 decisions. By processing we mean steps to reshape the data to
 match further aggregation and processing steps, such as unit
 conversions, sample frequency alignment, filtering, etc.
-
 Separate these architectural roles into separate modules in
-order to enable reuse, modular development and a transparent,
-configurable pipeline.
+order to enable reuse, and clarity.
 
-#### Configurable Pipeline for Reuse and Transparency
+#### Configurable and Auditable Pipeline
 
 Let the pipeline connections between the components be driven by
-configuration rather than hard coded.  This enables reconfiguration of
-the processing pipeline over time, and perhaps more importantly,
-transparency into what stages the data pass through, even without
-access to or understanding of the source code of the entire system.
+configuration rather than code.  This enables reconfiguration of
+the processing pipeline over time.  It is essential to be able
+to review the pipeline in an audit situation.  The auditing team
+is generally not likely to read code.
 
-#### Design Together with the Users
+#### Aligned with Reporting Frameworks
 
-Every system should be designed involving some of its target users.
-In order for delivered metrics to be of any value, the target audience
-needs to be aware of their existence, be able to interpret them and
-understand how they can be used in their professional context.
-
-There are many target user groups for the information produced.
-Some examples are network designers/engineers, scientists, operations teams and IT-development organizations.  One critical group that is often overlooked is
-the sustainability assessment experts.  If they are not aware, don't
-understand or don't care about the produced sustainability metrics,
-the value of this work would be greatly diminished.
+Ensure that the system output is aligned with the measurement
+requirements set forth by relevant legal frameworks, e.g. ESRS
+(Europe), TCFD and IFRS (US, Japan), BRSR (India), etc. The
+responsible corporate bodies producing the corporate reports are
+unlikely to use any technical collection system that isn't well
+aligned.
 
 ## Modeling {#modeling}
 
@@ -707,8 +700,7 @@ dynamic conditions that exist in the network at any given time:
 available bandwidth, delays, congestion, the ability of a peer to send
 or receive traffic, and so on. Depending on the conditions, an
 individual flow may carry traffic at widely different rates, may pause
-for some time, etc. Various higher-level transport solutions may also
-cache or pre-fetch information.
+for some time, etc.
 
 This behavior has an effect on sustainability---e.g., in
 what periods the endpoint and network systems are active or when they
@@ -728,12 +720,32 @@ involved systems have power proportionality.
 
 ### Analysis
 
+Various higher-level transport solutions may also
+cache or pre-fetch information. For instance, {{I-D.irtf-nmrg-green-ps}} 
+lifts CDNs as one example of technology that has reduced energy consumption, by
+moving the needed endpoints closer to each other.
+
+On a given set of endpoints, application behavior can impact environmental costs.
+For instance, {{I-D.pignataro-enviro-sustainability-consid}} observes the effect of protocol
+chattiness. Does the protocol rely on periodic updates or heartbeat messages? Could such message 
+patterns result in preventing links or nodes from going to sleep (absent other communications), 
+and in such a case, would an alternative pattern be feasible?
+
+Transport layer protocol behaviour also has an impact.
 A critical issue is the tradeoff involved in sending traffic. As
 argued in {{NotTradeOff}}, reducing
 the amount of time the endpoints and the network are active can
 sometimes help save energy. As a result, in general, delivering information as rapidly as possible would appear to be desirable.
 
-On the other hand, bandwidth-intensive applications can influence
+On the other hand, would such as rapid transmission impact peak
+traffic, and as such, contribute to a need to dimension
+networks for higher traffic volumes? And in this case the need
+could be only a perceived one as a less rapid transmission would
+not have impacted, for instance, a user's ability to view a video
+if the transmission was merely for the buffering of the rest of
+the video.
+
+Furthermore, bandwidth-intensive applications can influence
 other applications or users by presenting a significant load on the
 network, and consequently reducing capacity available for others, or
 increasing buffering (and with it, latency) across the network
@@ -757,10 +769,12 @@ strategically good moment within a longer time interval; this would
 give network equipment an opportunity to enter a sleep state in the
 remaining time period within the interval.
 
-Perhaps transport protocols should, in the future,
+A hypothesis could be made that transport protocols should
 take energy into account in addition to the many other inputs they decide upon. For example, it is possible that a non-urgent data transfer would send as much as possible as soon as possible when
 at least one of the links along the path is known to be power proportional (e.g., a cellular link), while tracking buffer
-growth from transmission delays to scale back if delay should occur. Such ideas remain to be confirmed with experiments, however.
+growth from transmission delays to scale back if delay should occur. 
+
+Such ideas remain to be confirmed with experiments, however.
 
 Similarly, caching and pre-fetching designs need to take into account
 not only the likelihood of having acquired the right content in memory,
@@ -775,9 +789,19 @@ information available to the endpoints would be useful.
 
 ### Recommendation
 
-The techniques described above have been based on theoretical analysis. There is a need for
-further simulations and experiments to confirm what strategies would
-provide the best end-user and energy performance. This may be work
+As can be seen from the above, there are a number complex tradeoffs merely for transport
+protocol behavior on a given connection.
+
+This prompts us to give two types of advice. The first type of advice is for protocol designers: 
+simple models are unlikely to guarantee optimal results, but as long as 
+normal precautions such as congestion control, monitoring queue build-up, and avoiding
+unnecessary messages are employed, systems will operate reasonably well. 
+
+The second type of advice is for further work in the research community to better understand
+what strategies would actually provide the best end-user and energy performance, and whether the choice of strategy
+depends on other factors, such as whether sleep modes are implemented in network nodes.
+There is a clear need for
+simulations and experiments to understand this better. This may be work
 that fits within the IRTF SUSTAIN research group.
 
 ## Equipment Longevity {#longevity}
@@ -831,13 +855,14 @@ On the other hand, it is very much possible that there could be new equipment av
 
 The guidelines above should be considered for any new system design. If some aspect of protocol or network equipment design choice could be made more generic and flexible without a significant performance and sustainability impact, it needs to be studied in further detail. Specifically, the potential additional sustainability costs due to forgoing optimization need to be weighed against the potential savings in embedded carbon and raw material costs brought about by premature upgrades. There are also cases where equipment upgrades are done to provide better peak performance characteristics (e.g. higher advertised speeds towards consumers) and these need to be viewed as well with the same tradeoffs in mind. Also, when newer more sustainable equipment is available there needs to be a cost benefit analysis made to decide whether to keep current equipment running for longer or upgrade to realize the benefits of newer equipment even though it incurs new embedded costs. Finally, when designing networks it is recommended to consider whether it is possible to reuse retiring equipment in a different location or for a different function (e.g. move it to lower traffic geographies, core routers become edge/access routers etc.)
 
-## Compact encoding {#encoding}
+## Encoding {#encoding}
 
 This is about considering the effects encoding methods on sustainability, such as the use of binary encodings instead of text.
 
 ### Motivation
 
-Better encoding can obviously reduce the length of messages sent. It
+Better encoding can obviously reduce the length of messages sent, or
+reduce the amount of computing required for the encoding and decoding operations. It
 remains a question mark how big overall impact this is, however. It
 should only be performed if it gives a measurable overall impact.
 
@@ -858,8 +883,8 @@ other content than, e.g., HTTP headers. Moran et al. argued in their 2022 paper 
   messaging useful, or should each protocol have optimal
   compacting?
 
-* Tradeoffs related to compressing (particularly if AI-based
-  computationally expensive methods are used).
+* Tradeoffs related to compute required to do encoding and decoding operations. These can be relatively heave operations, particularly if compressiomn is performed, particularly if AI-based
+  computationally expensive methods are used.
 
 ### Recommendation
 
@@ -870,6 +895,8 @@ Of course, new protocols can generally be designed to work with
 compact encoding, unless there is a significant reason not to. But
 efforts to modify existing protocols for the sake of encoding
 efficiency should be further investigated by the above mentioned quantification results.
+
+One particular area of interest is the impact of AI-based compression methods and their computational and energy costs vs. the achieved savings in communication efficiencies.
 
 ## Sustainable by Design: Data Governance Perspective {#bydesign}
 
