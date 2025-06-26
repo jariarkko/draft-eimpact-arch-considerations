@@ -409,22 +409,18 @@ YANG might be suitable for modeling the metadata schema.  Keep the metadata
 attached to the dataflow it describes, so that the relation is clear even when
 components are added by other organizations at a later point in time.
 
-#### Modular Processing Pipeline
+#### Full Audit Trail
 
 The collected data passes through a pipeline from collection to
 decisions. By processing we mean steps to reshape the data to
 match further aggregation and processing steps, such as unit
 conversions, sample frequency alignment, filtering, etc.
-Separate these architectural roles into separate modules in
-order to enable reuse, and clarity.
 
-#### Configurable and Auditable Pipeline
-
-Let the pipeline connections between the components be driven by
-configuration rather than code.  This enables reconfiguration of
-the processing pipeline over time.  It is essential to be able
-to review the pipeline in an audit situation.  The auditing team
-is generally not likely to read code.
+Separate these pipeline stages into separate modules and use
+configuration to construct the pipeline.  This gives flexibility,
+reuse and enables a full audit trail.  It is essential that every
+data processing step can be reviewed in an audit situation without
+looking at code.
 
 #### Aligned with Reporting Frameworks
 
