@@ -260,14 +260,6 @@ Table of Contents
    procedures, or the possible need to reconfigure other nodes in the
    network due to the shutdown.
 
-   [S.  RUMLEY] note sure I am 100% getting the example below, also not
-   sure it must go in this motivation preamble For instance, while
-   electricity providers can make information about power usage
-   available, this is only done at the aggregate level.  Without per-
-   device data about power usage, there would be limited basis for
-   deciding where power is actually consumed and consequently, what
-   improvements are most useful.
-
    At the same time, it is not possible to measure everything.
    Furthermore, any measurement must be validated.  Relevance of
    measurements must be periodically assessed, e.g., with comparisons
@@ -302,15 +294,6 @@ Table of Contents
    related measurement is power monitoring to measure the energy
    consumption and estimate the related negative impacts.
 
-   [SUB RUMLEY] I suggest to remove this sentence because IMO splurging
-   on energy is not sustainable even if energy is low-carbon.
-   Furthermore, "power consumption may not be what matters most", yes,
-   but you only know this once the measurement is made...
-
-   To begin with, power consumption by itself may not be what matters
-   most for sustainability, as the source of the power may be equally
-   important in terms of determining the actual carbon footprint. --->
-
 2.1.2.2.  Measuring efficiency
 
    Power (in Watts, that is, in Joule/s) or energy (in Joules)
@@ -340,15 +323,6 @@ Table of Contents
    fabricating the device (pro rata temporis) [LCAandUsage].
    Sustainable efficiency can also be expressed in water used per
    traffic, for example.
-
-   [SEB RUMLEY] I believe the part below is more confusing than
-   explanatory, I suggest to remove it
-
-   But when it comes to energy consumption, as noted the aggregate
-   information is often typically available, and it's not particularly
-   hard to measure the energy consumption of individual network devices
-   either.  Still, there are a number of desirable use cases where the
-   measurement situation needs to improve.
 
 2.1.3.  Recommendation
 
