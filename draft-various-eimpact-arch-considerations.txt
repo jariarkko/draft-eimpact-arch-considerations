@@ -5,7 +5,7 @@
 Network Working Group                                           M. Welzl
 Internet-Draft                                        University of Oslo
 Intended status: Informational                                E. Stephan
-Expires: 21 December 2025                                         Orange
+Expires: 28 December 2025                                         Orange
                                                              E. Schooler
                                                     University of Oxford
                                                                S. Rumley
@@ -32,7 +32,7 @@ Expires: 21 December 2025                                         Orange
                                                              Independent
                                                                 J. Arkko
                                                                 Ericsson
-                                                            19 June 2025
+                                                            26 June 2025
 
 
  Architectural Considerations for Environmentally Sustainable Internet
@@ -74,7 +74,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 December 2025.
+   This Internet-Draft will expire on 28 December 2025.
 
 Copyright Notice
 
@@ -114,7 +114,7 @@ Table of Contents
        2.5.1.  Motivation
        2.5.2.  Analysis
        2.5.3.  Recommendation
-     2.6.  Compact encoding
+     2.6.  Encoding
        2.6.1.  Motivation
        2.6.2.  Analysis
        2.6.3.  Recommendation
@@ -888,16 +888,18 @@ Table of Contents
    different function (e.g. move it to lower traffic geographies, core
    routers become edge/access routers etc.)
 
-2.6.  Compact encoding
+2.6.  Encoding
 
    This is about considering the effects encoding methods on
    sustainability, such as the use of binary encodings instead of text.
 
 2.6.1.  Motivation
 
-   Better encoding can obviously reduce the length of messages sent.  It
-   remains a question mark how big overall impact this is, however.  It
-   should only be performed if it gives a measurable overall impact.
+   Better encoding can obviously reduce the length of messages sent, or
+   reduce the amount of computing required for the encoding and decoding
+   operations.  It remains a question mark how big overall impact this
+   is, however.  It should only be performed if it gives a measurable
+   overall impact.
 
 2.6.2.  Analysis
 
@@ -920,8 +922,10 @@ Table of Contents
       transport layer mechanisms that can compact some of the verbose
       messaging useful, or should each protocol have optimal compacting?
 
-   *  Tradeoffs related to compressing (particularly if AI-based
-      computationally expensive methods are used).
+   *  Tradeoffs related to compute required to do encoding and decoding
+      operations.  These can be relatively heave operations,
+      particularly if compressiomn is performed, particularly if AI-
+      based computationally expensive methods are used.
 
 2.6.3.  Recommendation
 
@@ -933,6 +937,10 @@ Table of Contents
    efforts to modify existing protocols for the sake of encoding
    efficiency should be further investigated by the above mentioned
    quantification results.
+
+   One particular area of interest is the impact of AI-based compression
+   methods and their computational and energy costs vs. the achieved
+   savings in communication efficiencies.
 
 2.7.  Sustainable by Design: Data Governance Perspective
 
