@@ -203,6 +203,18 @@ informative:
     title: "United Nations Sustainable Development Goals"
     date: 2017
     seriesinfo: "https://unstats.un.org/sdgs"
+  LCAandUsage:
+    title: "Carbon Topography Representation: Improving Impacts of Data Center Lifecycle"
+    date: 2025
+    author:
+      - ins: O. Weppe
+      - ins: D. Bekri
+      - ins: L. Guibert
+      - ins: L. Aubet
+      - ins: J.-C. Prévotet
+      - ins: M. Pelcat
+      - ins: S. Rumley
+    seriesinfo: "Proceedings of the 4th Workshop on Sustainable Computer Systems (HotCarbon'25)"
 
 --- abstract
 
@@ -222,8 +234,11 @@ an environmentally sustainable manner and that the networks themselves are envir
 This document discusses protocol and network architecture aspects that
 may have an impact on the environmental sustainability of network technology. For brevity, we will use the term sustainability to refer to environmental sustainability. We do note that sustainability as a term is widely used to refer to different notions of sustainability, and the most well-known larger definition of sustainability can be seen from the United Nations Sustainable Development Goals (UN SDG) {{UNSDG}}.
 
-Sustainability impact and emissions from networking comes from three primary categories: hardware manufacturing, direct energy usage and construction work.  The last category is out of scope of this document because networking has limited means to impact construction work
-itself.  The manufacturing of networking hardware, both for fixed and wireless networks, is a significant source of emissions, and recycling of ICT equipment is still limited.  Direct energy usage of networking and the source of the energy have been the primary concerns, but as the world moves towards greener energy production, the relative negative impact of the emissions from manufacturing becomes more prominent.
+Negative sustainability impacts like carbon emissions from networking comes from three primary categories: hardware manufacturing, direct energy usage and construction work.  The last category is out of scope of this document because networking has limited means to impact construction work
+itself.  The manufacturing of networking hardware, both for fixed and wireless networks,
+is a significant source of emissions, and recycling of ICT equipment is still limited.
+Direct energy usage of networking and the source of the energy have been the primary concerns,
+but as the world moves towards greener energy production, the relative negative impacts related to manufacturing becomes more prominent.
 
 When good design and architecture can improve the sustainability of
 networks, they should certainly be applied to designing new protocols
@@ -290,11 +305,27 @@ few.
 
 # Potential Architectural Aspects
 
-This section presents architectural and protocol design aspects that can have an impact on the sustainability of networking. For each topic, we provide an overview, the motivation for why it would be important to consider for more sustainable networking, an analysis and recommendations for future networking professionals.
+This section presents architectural and protocol design aspects that
+can have an impact on the sustainability of networking. For each topic,
+we provide an overview, the motivation for why it would be important to
+consider for more sustainable networking, an analysis and recommendations
+for future networking professionals.
 
 ## Measurement
 
-It is essential to understand the current state of affairs before any improvements can be made. i.e. Some levels of measurements are necessary for starting to improve sustainability. This is
+### Motivation
+
+It is essential to understand the current state of affairs before
+any improvements can be made. Thus, some levels of measurements are
+necessary for starting to improve sustainability.
+Without
+measurements of any kind, it is impossible to assess if the networks
+are functioning correctly. It is impossible to know if the system is
+efficient by comparing it against a baseline model. It is also
+impossible to check that changes aiming at optimizing something are
+indeed valuable.
+
+This is
 particularly the case when looking at the systems as a whole in
 post-analysis. As discussed earlier, this level of measurements is
 useful input for further actions, such as deciding what parts of the
@@ -308,65 +339,91 @@ the shutdown period vs. the power cost of shutdown and startup procedures,
 or the possible need to reconfigure other nodes in the network due
 to the shutdown.
 
-### Motivation
 
-Measurements are a necessary mechanism for both post-analysis and
-potentially for some of the dynamic decisions taken by systems. Without
-measurements of any kind, it is impossible to assess if the networks
-are functioning correctly. It is impossible to know if the system is
-efficient by comparing it against a baseline model. It is also
-impossible to check that changes aiming at optimizing something are
-indeed valuable.
 
-For instance, while electricity providers can make information about power
-usage available, this is only done at the aggregate level. Without
-per-device data about power usage, there would be limited basis for
-deciding where power is actually consumed and consequently, what
-improvements are most useful.
+[S. RUMLEY] note sure I am 100% getting the example below, also not sure it must go in this motivation preamble
+  For instance, while electricity providers can make information about power
+  usage available, this is only done at the aggregate level. Without
+  per-device data about power usage, there would be limited basis for
+  deciding where power is actually consumed and consequently, what
+  improvements are most useful.
 
 At the same time, it is not possible to measure
 everything. Furthermore, any measurement must be validated. Relevance
-of measurements must be periodically assessed, e.g., with comparisons between measurements within a network and the aggregate numbers from the electricity provider.
+of measurements must be periodically assessed, e.g., with comparisons between
+measurements within a network and the aggregate numbers from the electricity provider.
 
-Finally, measurements made in the field must be collected and organized to allow
-later retrieval.
+Finally, measurements made in the field must be collected and structured to allow
+later retrieval. And measurements are counterproductive if they are endlessly
+accumulated without being consulted.
 
 ### Analysis
 
-While the simplest forms of sustainability-related measurements are
-about power, there's clearly room for other measurements and other
-information as well. To begin with, power consumption by itself may not be what
-matters most for sustainability, as the source of the power may be
-equally important in terms of determining the actual carbon footprint.
+#### Measuring impacts of fabrication and usage phases
 
-Secondly, for many classes of devices the embedded carbon aspects or
-use of raw materials may be a significant sustainability issue. See
-also Section 2.2.
+Network infrastructure generates negative impacts principally during fabrication
+and usage phases. Measuring negative impacts related to fabrication falls
+in the activity of lifecycle analysis (LCA). LCAs is typically realized
+per device, either by the equipment vendor itself, or by third-party analysts. LCA
+involves modeling (see Section 2.2 on Modeling section). The analysis
+can be done in terms of climate change (CC), but can be extgended to other criteria as
+abiotic resource depletion (ARD), ecotoxicity (ET) or water usage (WU).
+LCA also involves
+information systems keeping an inventory of the devices uses.
+For many classes of devices, the embedded carbon aspects or
+use of raw materials are significant sustainability issues.
+As these measurements
+and inventories are external to the network architecture, they are considered out
+of this document scope.
 
-Third, power or energy measurements alone are of meager use if the
+Measuring negative impacts related to the usage phase falls in the scope of
+monitoring. In this phase, the most obvious sustainability-related measurement is
+power monitoring to measure the energy consumption and estimate the related negative
+impacts.
+
+[SUB RUMLEY] I suggest to remove this sentence because IMO splurging on energy is not sustainable
+    even if energy is low-carbon. Furthermore, "power consumption may not be what matters most", yes, but
+    you only know this once the measurement is made...
+
+
+   To begin with, power consumption by itself may not be what matters most for sustainability, as the source of the power may be equally important in terms of determining the actual carbon footprint. --->
+
+
+
+#### Measuring efficiency
+
+Power (in Watts, that is, in Joule/s) or energy (in Joules) measurements alone are of meager use if the
 cause of the consumption is not measured as well. Any power/energy
-measurement should occur alongside other measurements that can be used to determine energy efficiency. Hence a sound measurement
-architecture implies that a prior existence of an energy efficiency
+measurement should occur alongside other measurements that can be used to
+determine energy efficiency. Hence a sound measurement
+architecture implies the existence of an energy efficiency
 framework of some kind.
 
-But when it comes to energy consumption, as noted the aggregate
-information is often typically available, and it's not particularly
-hard to measure the energy consumption of individual network devices
-either.  Still, there are a number of desirable use cases where the
-measurement situation needs to improve.
-
-#### Measuring Power Efficiency
-
-When assessing the power consumption (Scope 2) of an IT-organization,
+In the context of carbon accounting,
 emission accountants are generally looking for a metric of the
-delivered value per unit of energy.
-
-A commonly used method is to equate the delivered value with the
-number of bits sent or received, or to the communication capacity made
-available when there's a need for it. The latter is important, as
+delivered value per unit of carbon. In networking, the most obvious delivered value
+is number of bits sent or received (traffic), or to the communication capacity made
+available during unit of time. In both case, the unit is the bit, but the two metrics
+have very different meanings. In one case, one spends a Joule to send a bit. In the
+other case, one spends a Joule to offer a bandwidth capacity of 1 bit/s during
+a second.  The latter is important, as
 often communication networks have requirements to be able to send
 messages when there's a need for it, e.g., for emergency communications, not
 that those messages are always being sent.
+
+The measurement of efficiency is not restricted to energy. Traffic or offered
+bandwidth can be related to the carbon emitted by the device traversed by this
+traffic. This carbon should include the part associated with electricity, but
+also the part associated with fabricating the device (pro rata temporis) {{LCAandUsage}}.
+Sustainable efficiency can also be expressed in water used per traffic, for example.
+
+[SEB RUMLEY] I believe the part below is more confusing than explanatory, I suggest to remove it
+
+   But when it comes to energy consumption, as noted the aggregate
+   information is often typically available, and it's not particularly
+   hard to measure the energy consumption of individual network devices
+   either.  Still, there are a number of desirable use cases where the
+   measurement situation needs to improve.
 
 ### Recommendation
 
