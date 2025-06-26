@@ -318,12 +318,6 @@ efficient by comparing it against a baseline model. It is also
 impossible to check that changes aiming at optimizing something are
 indeed valuable.
 
-For instance, while electricity providers can make information about power
-usage available, this is only done at the aggregate level. Without
-per-device data about power usage, there would be limited basis for
-deciding where power is actually consumed and consequently, what
-improvements are most useful.
-
 At the same time, it is not possible to measure
 everything. Furthermore, any measurement must be validated. Relevance
 of measurements must be periodically assessed, e.g., with comparisons between measurements within a network and the aggregate numbers from the electricity provider.
@@ -335,9 +329,7 @@ later retrieval.
 
 While the simplest forms of sustainability-related measurements are
 about power, there's clearly room for other measurements and other
-information as well. To begin with, power consumption by itself may not be what
-matters most for sustainability, as the source of the power may be
-equally important in terms of determining the actual carbon footprint.
+information as well.
 
 Secondly, for many classes of devices the embedded carbon aspects or
 use of raw materials may be a significant sustainability issue. See
@@ -348,12 +340,6 @@ cause of the consumption is not measured as well. Any power/energy
 measurement should occur alongside other measurements that can be used to determine energy efficiency. Hence a sound measurement
 architecture implies that a prior existence of an energy efficiency
 framework of some kind.
-
-But when it comes to energy consumption, as noted the aggregate
-information is often typically available, and it's not particularly
-hard to measure the energy consumption of individual network devices
-either.  Still, there are a number of desirable use cases where the
-measurement situation needs to improve.
 
 #### Measuring Power Efficiency
 
