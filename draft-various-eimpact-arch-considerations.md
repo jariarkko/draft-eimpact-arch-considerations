@@ -235,10 +235,7 @@ This document discusses protocol and network architecture aspects that
 may have an impact on the environmental sustainability of network technology. For brevity, we will use the term sustainability to refer to environmental sustainability. We do note that sustainability as a term is widely used to refer to different notions of sustainability, and the most well-known larger definition of sustainability can be seen from the United Nations Sustainable Development Goals (UN SDG) {{UNSDG}}.
 
 Negative sustainability impacts like carbon emissions from networking comes from three primary categories: hardware manufacturing, direct energy usage and construction work.  The last category is out of scope of this document because networking has limited means to impact construction work
-itself.  The manufacturing of networking hardware, both for fixed and wireless networks,
-is a significant source of emissions, and recycling of ICT equipment is still limited.
-Direct energy usage of networking and the source of the energy have been the primary concerns,
-but as the world moves towards greener energy production, the relative negative impacts related to manufacturing becomes more prominent.
+itself.  The manufacturing of networking hardware, both for fixed and wireless networks, is a significant source of emissions, and recycling of ICT equipment is still limited.  Direct energy usage of networking and the source of the energy have been the primary concerns, but as the world moves towards greener energy production, the relative negative impacts related to manufacturing becomes more prominent.
 
 When good design and architecture can improve the sustainability of
 networks, they should certainly be applied to designing new protocols
@@ -305,19 +302,14 @@ few.
 
 # Potential Architectural Aspects
 
-This section presents architectural and protocol design aspects that
-can have an impact on the sustainability of networking. For each topic,
-we provide an overview, the motivation for why it would be important to
-consider for more sustainable networking, an analysis and recommendations
-for future networking professionals.
+This section presents architectural and protocol design aspects that can have an impact on the sustainability of networking. For each topic, we provide an overview, the motivation for why it would be important to consider for more sustainable networking, an analysis and recommendations for future networking professionals.
 
 ## Measurement
 
 ### Motivation
 
-It is essential to understand the current state of affairs before
-any improvements can be made. Thus, some levels of measurements are
-necessary for starting to improve sustainability.
+It is essential to understand the current state of affairs before any improvements can be made. 
+Thus, some levels of measurements are necessary for starting to improve sustainability.
 Without
 measurements of any kind, it is impossible to assess if the networks
 are functioning correctly. It is impossible to know if the system is
@@ -341,8 +333,7 @@ to the shutdown.
 
 At the same time, it is not possible to measure
 everything. Furthermore, any measurement must be validated. Relevance
-of measurements must be periodically assessed, e.g., with comparisons between
-measurements within a network and the aggregate numbers from the electricity provider.
+of measurements must be periodically assessed, e.g., with comparisons between measurements within a network and the aggregate numbers from the electricity provider.
 
 Finally, measurements made in the field must be collected and structured to allow
 later retrieval. And measurements are counterproductive if they are endlessly
