@@ -409,7 +409,7 @@ YANG might be suitable for modeling the metadata schema.  Keep the metadata
 attached to the dataflow it describes, so that the relation is clear even when
 components are added by other organizations at a later point in time.
 
-#### Full Audit Trail
+#### Processing Flexibility and Audit Trails
 
 The collected data passes through a pipeline from collection to
 decisions. By processing we mean steps to reshape the data to
