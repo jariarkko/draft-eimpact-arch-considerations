@@ -685,7 +685,7 @@ dynamic conditions that exist in the network at any given time:
 available bandwidth, delays, congestion, the ability of a peer to send
 or receive traffic, and so on. Depending on the conditions, an
 individual flow may carry traffic at widely different rates, may pause
-for some time, etc. 
+for some time, etc.
 
 This behavior has an effect on sustainability---e.g., in
 what periods the endpoint and network systems are active or when they
