@@ -577,6 +577,8 @@ resiliency are often needed, for instance through redundancy. Yet,
 there is a question on how much redundancy is needed and how quickly a
 backup or resource increase can be activated due to increased demand.
 
+Scaling can be pulled up and down by data consumption variations and more rarely by power shortage. In such situation dynamic scaling is the ability to adjust demand resources according to resources. When operating on limited backup energy sources (like batteries or generators), the architecture must support graceful adaptation before power runs out. In such situations, networks must minimize consumption to extend operational time.
+
 ### Motivation
 
 Outside of implementation improvements, dynamic scaling is potentially the
@@ -605,6 +607,10 @@ On the network level, most large systems have significant amount of redundancy a
 capacity. Where such capacity can be turned on or off to match the
 actual need at a given time, significant reductions in power consumption
 can be achieved.
+
+Whereas scaling down under normal conditions seeks to reduce consumption while maintaining full capabilities, power-constrained operations accept degraded performance or functionality. Operating in power backup mode introduces a shift in network behavior as it differs from network-driven auto scaling:
+- Network, devices and components must reduce power usage, possibly sacrificing performance, feature sets, or redundancy.
+- Each network domain (RAN, edge, and core network segments) faces its own constraints and policies in power-limited operation.
 
 ### Analysis
 
@@ -687,6 +693,8 @@ It is likely that there is increased attention to resiliency in the
 future, given for instance the increased importance of the tasks
 supported by networks or the potentially increasing frequency of
 natural disasters as a result of global warming.
+
+Scaling steps during power shortage differ from network dynamic scaling and depend on the network domain and the events: grid outages, deployment in remote or mobile environments, extreme weather events, or any sort of enforced reductions in power usage like monththly battery testing. Nevertheless there is a gain to have a common dynamic scaling approach that includes network-driven scaling and power-shortage scaling.
 
 ## Transport {#transport}
 
