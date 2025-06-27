@@ -608,6 +608,10 @@ capacity. Where such capacity can be turned on or off to match the
 actual need at a given time, significant reductions in power consumption
 can be achieved.
 
+Whereas scaling down under normal conditions seeks to reduce consumption while maintaining full capabilities, power-constrained operations accept degraded performance or functionality. Operating in power backup mode introduces a shift in network behavior as it differs from network-driven auto scaling:
+- Network, devices and components must reduce power usage, possibly sacrificing performance, feature sets, or redundancy.
+- Each network domain (RAN, edge, and core network segments) faces its own constraints and policies in power-limited operation.
+- 
 ### Analysis
 
 Dynamic scaling could be seen as either an alternative or complementary to load stabilization, e.g., via "peak shaving". Perhaps the most realistic angle is that both are likely needed.
