@@ -308,8 +308,7 @@ This section presents architectural and protocol design aspects that can have an
 
 ## Measurement
 
-It is essential to understand the current state of affairs before any improvements can be made. 
-Thus, some levels of measurements are necessary for starting to improve sustainability.
+It is essential to understand the current state of affairs before any improvements can be made. Thus, some levels of measurements are necessary for starting to improve sustainability.
 
 ### Motivation
 
@@ -419,7 +418,7 @@ sure to shift over time.
 
 Since the need to deliver on the use cases described is urgent, the
 industry has to accommodate the capabilities (and limitations) of existing
-equipment in the field for collecting metrics. 
+equipment in the field for collecting metrics.
 It is recommended to apply a plug-in architecture with modules that can
 work with (read from and control) devices of any kind, including
 traditional networking hardware devices, cooling systems, software
@@ -577,6 +576,8 @@ resiliency are often needed, for instance through redundancy. Yet,
 there is a question on how much redundancy is needed and how quickly a
 backup or resource increase can be activated due to increased demand.
 
+Scaling can be pulled up and down by data consumption variations and more rarely by power shortage. In such situation dynamic scaling is the ability to adjust demand resources according to resources. When operating on limited backup energy sources (like batteries or generators), the architecture must support graceful adaptation before power runs out. In such situations, networks must minimize consumption to extend operational time.
+
 ### Motivation
 
 Outside of implementation improvements, dynamic scaling is potentially the
@@ -605,6 +606,10 @@ On the network level, most large systems have significant amount of redundancy a
 capacity. Where such capacity can be turned on or off to match the
 actual need at a given time, significant reductions in power consumption
 can be achieved.
+
+Whereas scaling down under normal conditions seeks to reduce consumption while maintaining full capabilities, power-constrained operations accept degraded performance or functionality. Operating in power backup mode introduces a shift in network behavior as it differs from network-driven auto scaling:
+- Network, devices and components must reduce power usage, possibly sacrificing performance, feature sets, or redundancy.
+- Each network domain (RAN, edge, and core network segments) faces its own constraints and policies in power-limited operation.
 
 ### Analysis
 
@@ -688,6 +693,8 @@ future, given for instance the increased importance of the tasks
 supported by networks or the potentially increasing frequency of
 natural disasters as a result of global warming.
 
+Scaling steps during power shortage differ from network dynamic scaling and depend on the network domain and the events: grid outages, deployment in remote or mobile environments, extreme weather events, or any sort of enforced reductions in power usage like monththly battery testing. Nevertheless there is a gain to have a common dynamic scaling approach that includes network-driven scaling and power-shortage scaling.
+
 ## Transport {#transport}
 
 Transport protocols make it possible for
@@ -717,15 +724,15 @@ involved systems have power proportionality.
 ### Analysis
 
 Various higher-level transport solutions may also
-cache or pre-fetch information. For instance, {{I-D.irtf-nmrg-green-ps}} 
-lifts CDNs as one example of technology that has reduced energy consumption, by
+cache or pre-fetch information. For instance, {{I-D.irtf-nmrg-green-ps}}
+ lifts CDNs as one example of technology that has reduced energy consumption, by
 moving the needed endpoints closer to each other.
 
 On a given set of endpoints, application behavior can impact environmental costs.
 For instance, {{I-D.pignataro-enviro-sustainability-consid}} observes the effect of protocol
-chattiness. Does the protocol rely on periodic updates or heartbeat messages? Could such message 
-patterns result in preventing links or nodes from going to sleep (absent other communications), 
-and in such a case, would an alternative pattern be feasible?
+chattiness. Does the protocol rely on periodic updates or heartbeat messages? Could such message
+ patterns result in preventing links or nodes from going to sleep (absent other communications),
+ and in such a case, would an alternative pattern be feasible?
 
 Transport layer protocol behaviour also has an impact.
 A critical issue is the tradeoff involved in sending traffic. As
@@ -768,7 +775,7 @@ remaining time period within the interval.
 A hypothesis could be made that transport protocols should
 take energy into account in addition to the many other inputs they decide upon. For example, it is possible that a non-urgent data transfer would send as much as possible as soon as possible when
 at least one of the links along the path is known to be power proportional (e.g., a cellular link), while tracking buffer
-growth from transmission delays to scale back if delay should occur. 
+growth from transmission delays to scale back if delay should occur.
 
 Such ideas remain to be confirmed with experiments, however.
 
@@ -788,10 +795,10 @@ information available to the endpoints would be useful.
 As can be seen from the above, there are a number complex tradeoffs merely for transport
 protocol behavior on a given connection.
 
-This prompts us to give two types of advice. The first type of advice is for protocol designers: 
-simple models are unlikely to guarantee optimal results, but as long as 
-normal precautions such as congestion control, monitoring queue build-up, and avoiding
-unnecessary messages are employed, systems will operate reasonably well. 
+This prompts us to give two types of advice. The first type of advice is for protocol designers:
+ simple models are unlikely to guarantee optimal results, but as long as
+ normal precautions such as congestion control, monitoring queue build-up, and avoiding
+unnecessary messages are employed, systems will operate reasonably well.
 
 The second type of advice is for further work in the research community to better understand
 what strategies would actually provide the best end-user and energy performance, and whether the choice of strategy
