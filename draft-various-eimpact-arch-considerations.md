@@ -611,7 +611,7 @@ can be achieved.
 Whereas scaling down under normal conditions seeks to reduce consumption while maintaining full capabilities, power-constrained operations accept degraded performance or functionality. Operating in power backup mode introduces a shift in network behavior as it differs from network-driven auto scaling:
 - Network, devices and components must reduce power usage, possibly sacrificing performance, feature sets, or redundancy.
 - Each network domain (RAN, edge, and core network segments) faces its own constraints and policies in power-limited operation.
-- 
+
 ### Analysis
 
 Dynamic scaling could be seen as either an alternative or complementary to load stabilization, e.g., via "peak shaving". Perhaps the most realistic angle is that both are likely needed.
@@ -693,6 +693,8 @@ It is likely that there is increased attention to resiliency in the
 future, given for instance the increased importance of the tasks
 supported by networks or the potentially increasing frequency of
 natural disasters as a result of global warming.
+
+Scaling steps during power shortage differ from network dynamic scaling and depend on the network domain and the events: grid outages, deployment in remote or mobile environments, extreme weather events, or any sort of enforced reductions in power usage like monththly battery testing. Nevertheless there is a gain to have a common dynamic scaling approach that includes network-driven scaling and power-shortage scaling.
 
 ## Transport {#transport}
 
