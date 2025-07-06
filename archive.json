@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-29T01:25:16.387414+00:00",
+  "timestamp": "2025-07-06T01:24:09.553129+00:00",
   "repo": "jariarkko/draft-eimpact-arch-considerations",
   "labels": [
     {
@@ -589,21 +589,21 @@
       "id": "PR_kwDON5aSb86bFz3B",
       "title": "Update intro",
       "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/10",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "emile22",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "impact of the architectural choice on the footprint energy consumption",
       "createdAt": "2025-06-18T14:37:56Z",
-      "updatedAt": "2025-06-26T14:52:08Z",
+      "updatedAt": "2025-07-05T20:36:53Z",
       "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
       "baseRefName": "main",
       "baseRefOid": "4eb1b6bbf0aee3acf6e57bb0b944686075a47f32",
       "headRepository": "emile22/draft-eimpact-arch-considerations",
       "headRefName": "patch-2",
       "headRefOid": "46fc126e62ac3b1ddaf52d51acdaba7df7b952ec",
-      "closedAt": null,
+      "closedAt": "2025-07-05T20:36:52Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -621,6 +621,13 @@
           "body": "Alex: as long as we can relate whatever we say here to the guidelines we have in the document, we're good. We're writing a document for the protocol designers.\r\n\r\nJari: We design protocols with a particular architecture, but it can still have an effect on how big of a data center building you...\r\n\r\nSuresh: Construction etc is still out of scope, but this is explanatory text that highlights how our choices impact the rest of the world. But the rest of the world is otherwise outside our scope.\r\n",
           "createdAt": "2025-06-19T15:18:23Z",
           "updatedAt": "2025-06-19T15:18:23Z"
+        },
+        {
+          "author": "emile22",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Yes we must keep that. I suggest to replace \"construction work\" with \"construction usage\" or similar",
+          "createdAt": "2025-07-05T20:36:52Z",
+          "updatedAt": "2025-07-05T20:36:52Z"
         }
       ],
       "reviews": [
@@ -636,6 +643,19 @@
           "createdAt": "2025-06-19T13:27:40Z",
           "updatedAt": "2025-06-19T13:27:40Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDON5aSb86xvMQ5",
+          "commit": {
+            "abbreviatedOid": "46fc126"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "Updated by Emile. There's some typos, but where are we on this otherwise, Emile, still valid?",
+          "createdAt": "2025-07-03T06:46:24Z",
+          "updatedAt": "2025-07-03T06:46:24Z",
+          "comments": []
         }
       ]
     },
@@ -644,21 +664,21 @@
       "id": "PR_kwDON5aSb86bGrOX",
       "title": "creation of Power Backup Operations section",
       "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/11",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "emile22",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-06-18T15:54:33Z",
-      "updatedAt": "2025-06-27T12:03:55Z",
+      "updatedAt": "2025-07-03T15:40:20Z",
       "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
       "baseRefName": "main",
       "baseRefOid": "4eb1b6bbf0aee3acf6e57bb0b944686075a47f32",
       "headRepository": "emile22/draft-eimpact-arch-considerations",
       "headRefName": "patch-3",
       "headRefOid": "f99568f220cc0d48a0284cfc7eac41871e5e5cca",
-      "closedAt": null,
+      "closedAt": "2025-07-03T15:40:20Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -669,6 +689,13 @@
           "body": "Suresh: this is related to GREEN power status etc. topics\r\n\r\nMarisol: there are some people pushing for power on/off aspects in GREEN WG, but the discussion is still open.\r\n\r\nEmile: to make it more precise, this is only about one use case that has not been discussed so much now: when there is a power shortage. I see it as different from the GREEN WG discussion which was mostly about control of power. \r\n\r\nJari: Agree\r\n\r\nEmile: this could be one subclass of scaling. I want to make the fact that we are on battery power and when the battery ends explicit.\r\n\r\nAlex: I think it is a question if this a sustainability or power constraint issue, and super important, but is this part of our scope?\r\n\r\nSuresh: agree with Alex\r\n\r\nJan: this is a bigger topic than a side comment in our document.\r\n\r\nJari: maybe an item in our \"future work\" section\r\n\r\nSuresh: if we think of this as part of scaling, then we could keep this topic.\r\n\r\nAP: Jari to make a proposal\r\n\r\n\r\n\r\n\r\n\r\n",
           "createdAt": "2025-06-19T15:27:28Z",
           "updatedAt": "2025-06-19T15:28:06Z"
+        },
+        {
+          "author": "emile22",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I split the request so I close this one too",
+          "createdAt": "2025-07-03T15:40:20Z",
+          "updatedAt": "2025-07-03T15:40:20Z"
         }
       ],
       "reviews": [
@@ -691,7 +718,7 @@
             "abbreviatedOid": "f99568f"
           },
           "author": "emile22",
-          "authorAssociation": "CONTRIBUTOR",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-06-26T15:06:49Z",
@@ -761,7 +788,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-06-19T04:47:02Z",
-      "updatedAt": "2025-06-19T15:56:32Z",
+      "updatedAt": "2025-07-03T06:47:44Z",
       "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
       "baseRefName": "main",
       "baseRefOid": "4eb1b6bbf0aee3acf6e57bb0b944686075a47f32",
@@ -793,6 +820,19 @@
           "body": "Thank you! Extensive work.\r\n\r\nMany things in this PR.\r\n\r\nAdding new references: Great, thanks!\r\n\r\nGeneral updates on intro & measurement section: Great, thanks!\r\n\r\nOne exception is that the changes include removing a mention of the GREEN WG. Perhaps we should keep that still explicitly.\r\n\r\nThe questions on whether some subsections in measurement should be kept:\r\n- agree on \"design with users\"\r\n- but I'd suggest the two pipeline subsections could be merged under one that simply says:\r\n  \"Measurements typically pass through a pipeline from collection to processing (aggregation, unit conversions, etc.) and decisions. Such pipelines should be configurable and modular, as the needs for different type of combining or processing information evolve.\"\r\n\r\nThe edits regarding the addition of recommendations from draft-pignataro require more work, could they be separated from this PR? Specifically, I'm working on that, but I think (1) the encoding/decoding aspects belong to a different section that we already have, compact encoding. That section should address both the compactness of the encoding and the effort required to do it.\r\n\r\nSecondly, the part about rapid discovery and convergence seems close to what we already have in the dynamic scaling section. A review of what needs to change is needed.\r\n\r\nThird, chattiness probably belongs to the transport topic.\r\n\r\nFourth, the exploiting burstiness text piece probably points to a need to generalize the current text in the transport section. But I don't think we should add this text as such. It makes a recommendation for smooth traffic without really exploring the different tradeoffs at all. Not saying the current text in the transport section is perfect in this sense either, in particular it should probably be more open ended what the right behavior is. But there's very much a need talk about the detailed tradeoffs, such as impact on sleep vs. avoiding peak capacity, avoiding disturbance to others vs. taking longer to be awake, micro sleep vs. long sleep periods, etc.\r\n\r\nFinally, the I-D.irtf-nmrg-green-ps reference in the recommendations for further work. We definitely should reference it. Could we pick up the more architecture oriented conclusions from it?\r\n\r\n",
           "createdAt": "2025-06-19T14:13:43Z",
           "updatedAt": "2025-06-19T14:14:48Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON5aSb86xvNBJ",
+          "commit": {
+            "abbreviatedOid": "3ab4041"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "Given the other PRs and discussion, can you make a new one Alex that addresses the remaining issues?",
+          "createdAt": "2025-07-03T06:47:44Z",
+          "updatedAt": "2025-07-03T06:47:44Z",
           "comments": []
         }
       ]
@@ -837,7 +877,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-06-19T14:42:08Z",
-      "updatedAt": "2025-06-19T16:11:24Z",
+      "updatedAt": "2025-07-03T06:42:39Z",
       "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
       "baseRefName": "main",
       "baseRefOid": "a55b3307158bb4b205cd9b3be8ba93dc9739b534",
@@ -857,7 +897,21 @@
           "updatedAt": "2025-06-19T16:01:43Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDON5aSb86xvJ61",
+          "commit": {
+            "abbreviatedOid": "ecbf0f1"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "Previous version of this issue had some merge problem, now seems all good. Suresh was going to provide some comments to Marisol on this, did that happen, are we ready to merge?",
+          "createdAt": "2025-07-03T06:42:39Z",
+          "updatedAt": "2025-07-03T06:42:39Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 16,
@@ -1060,26 +1114,48 @@
       "id": "PR_kwDON5aSb86cRLzw",
       "title": "moving Power Backup Operations PR#11 in dynamic scaling section",
       "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/21",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "emile22",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "moving Power Backup Operations PR#11 in dynamic scaling section",
       "createdAt": "2025-06-26T17:06:59Z",
-      "updatedAt": "2025-06-27T09:24:52Z",
+      "updatedAt": "2025-07-03T15:38:35Z",
       "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
       "baseRefName": "main",
       "baseRefOid": "541118997c953610165c462425764686351fab5d",
       "headRepository": "emile22/draft-eimpact-arch-considerations",
       "headRefName": "patch-4",
       "headRefOid": "3d2e77cf77b0cf32324674887000b274fca80420",
-      "closedAt": null,
+      "closedAt": "2025-07-03T15:37:30Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "emile22",
+          "authorAssociation": "COLLABORATOR",
+          "body": "yes it overlaps so I close it",
+          "createdAt": "2025-07-03T15:38:35Z",
+          "updatedAt": "2025-07-03T15:38:35Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON5aSb86xvInL",
+          "commit": {
+            "abbreviatedOid": "3d2e77c"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "Is this the same edits as in #27 but now with some other changes included (perhaps by others, seems to change the subsections Jan was editing) as well? Maybe we need to discuss this one on the call.",
+          "createdAt": "2025-07-03T06:40:22Z",
+          "updatedAt": "2025-07-03T06:40:22Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 25,
@@ -1088,12 +1164,12 @@
       "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/25",
       "state": "OPEN",
       "author": "emile22",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "fixes #22\r\n\r\n of power shortage in dynamic scaling",
       "createdAt": "2025-06-27T14:26:28Z",
-      "updatedAt": "2025-06-27T14:26:28Z",
+      "updatedAt": "2025-07-03T15:50:17Z",
       "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
       "baseRefName": "main",
       "baseRefOid": "a61534b5f1aec7ddcc519a890163a8381566b2c4",
@@ -1104,34 +1180,78 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "emile22",
+          "authorAssociation": "COLLABORATOR",
+          "body": "take this one as it focuses only on the move of the power shortage in dynamic scaling",
+          "createdAt": "2025-07-03T15:50:17Z",
+          "updatedAt": "2025-07-03T15:50:17Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON5aSb86xvGDu",
+          "commit": {
+            "abbreviatedOid": "9d7e6d4"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "Now I am a bit confused because this is the same edits as in #27, modulo the whitespace ones\u2026 still all good, but which one should we take, Emile?",
+          "createdAt": "2025-07-03T06:36:02Z",
+          "updatedAt": "2025-07-03T06:36:02Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 27,
       "id": "PR_kwDON5aSb86ccVLt",
       "title": "tws in other parts",
       "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/27",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "emile22",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Fixes #26\r\n\r\ntws in other parts",
       "createdAt": "2025-06-27T15:00:58Z",
-      "updatedAt": "2025-06-27T15:00:58Z",
+      "updatedAt": "2025-07-03T15:57:38Z",
       "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
       "baseRefName": "main",
       "baseRefOid": "a61534b5f1aec7ddcc519a890163a8381566b2c4",
       "headRepository": "emile22/draft-eimpact-arch-considerations",
       "headRefName": "tws-in-main",
       "headRefOid": "eaa1a3ddd84b53781b412e98618df581d15743c4",
-      "closedAt": null,
+      "closedAt": "2025-07-03T15:57:37Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "emile22",
+          "authorAssociation": "COLLABORATOR",
+          "body": "overlap so I close it",
+          "createdAt": "2025-07-03T15:57:37Z",
+          "updatedAt": "2025-07-03T15:57:37Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDON5aSb86xvEfP",
+          "commit": {
+            "abbreviatedOid": "eaa1a3d"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "This is an introduction of the power constrainted/battery mode into the scaling section. Looks good to me, thanks! One nit is where you list of RAN and core in the text as network parts, we should indicate that as an example. I can fix that.",
+          "createdAt": "2025-07-03T06:32:56Z",
+          "updatedAt": "2025-07-03T06:32:56Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
