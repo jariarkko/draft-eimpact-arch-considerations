@@ -356,7 +356,7 @@ further concrete recommendations for the designers.
 
 # Understanding {#understanding}
 
-## Measurement and Modelling {#mm}
+## Measurement and Modeling {#mm}
 
 It is essential to understand the current state of affairs before any improvements can be made. 
 Thus, some levels of measurements are necessary for starting to improve sustainability.
@@ -400,8 +400,8 @@ Network infrastructure generates negative impacts principally during fabrication
 and usage phases. Measuring negative impacts related to fabrication falls
 in the activity of lifecycle analysis (LCA). LCAs is typically realized
 per device, either by the equipment vendor itself, or by third-party analysts. LCA
-involves modeling (see Section 2.2 on Modeling section). The analysis
-can be done in terms of climate change (CC), but can be extgended to other criteria as
+involves modeling (see {{modeling}}). The analysis
+can be done in terms of climate change (CC), but can be extended to other criteria as
 abiotic resource depletion (ARD), ecotoxicity (ET) or water usage (WU).
 LCA also involves
 information systems keeping an inventory of the devices uses.
@@ -506,21 +506,19 @@ responsible corporate bodies producing the corporate reports are
 unlikely to use any technical collection system that isn't well
 aligned.
 
-## Modeling {#modeling}
+#### Modeling {#modeling}
+
+Where power optimization choices are made, accurate information is required to decide the right choice. 
 
 The paucity of up-to-date information on equipment and system
 parameters, especially power consumption and maximum throughput, makes
 estimating the power consumption and energy efficiency of these
 systems extremely challenging. In addition the rapid evolution of
 technology and products in ICT makes the estimation quickly outdated
-and possibly inaccurate. In almost all cases physical measurement has
-to be replaced by partial measurement and mathematical modeling.
+and possibly inaccurate. In some cases, physical measurements have to
+be replaced by partial measurements and mathematical modeling.
 
-### Motivation
-
-Where power optimization choices are made, accurate information is required to decide the right choice. Modeling instead of measurements may have to be used in some cases.
-
-### Analysis
+##### Power modeling
 
 To date, two approaches to network power modeling are accepted as
 providing a realistic estimate of network power consumption. These
@@ -549,7 +547,7 @@ Conference Publication IEEE Xplore got best paper award for GreenNet
 There is a plethora of publications on modeling communication networks
 and DC computing.
 
-#### Customer Attribution
+##### Customer Attribution
 
 When organizations assess their Scope 3 emissions, they need to sum up
 their share of emissions from all their suppliers, one of which for
@@ -572,7 +570,7 @@ accurate and reliable Scope 3 emissions assessments, thereby
 contributing to better overall sustainability reporting and
 improvement efforts.
 
-#### Baselining and Benchmarking
+##### Baselining and Benchmarking
 
 Establishing a baseline is a fundamental step in the process of
 improving energy efficiency and sustainability of network
@@ -607,10 +605,6 @@ the implemented changes and guiding further enhancements in network
 sustainability.
 
 See also {{Baseline}} and {{BenchmarkingFramework}}.
-
-### Recommendation
-
-Even though baselining is essential in identifying potential areas of improvement and tracking progress, it is still to be determined to what extent we need to work on modeling networks and devices in the architecture.
 
 # Actions {#actions}
 
