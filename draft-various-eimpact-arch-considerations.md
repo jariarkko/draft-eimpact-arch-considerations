@@ -343,11 +343,15 @@ implement more sustainable services, such as, the Green Software
 Foundation, the Green Web Foundation, Greening of Streaming, to name a
 few.
 
-# Potential Architectural Aspects
+The next two sections present architectural and protocol design aspects that can have an impact on the sustainability of networking. 
+{{understanding}} discusses that foundations that
+are required to prepare for sustainability improvements, and
+{{actions} discusses actions that can be taken to make improvements.
+For each topic in these sections, we provide an overview, the motivation for why it would be important to consider for more sustainable networking, an analysis and recommendations for future networking professionals.
 
-This section presents architectural and protocol design aspects that can have an impact on the sustainability of networking. For each topic, we provide an overview, the motivation for why it would be important to consider for more sustainable networking, an analysis and recommendations for future networking professionals.
+# Understanding {#understanding}
 
-## Measurement
+## Measurement and Modelling {#mm}
 
 It is essential to understand the current state of affairs before any improvements can be made. 
 Thus, some levels of measurements are necessary for starting to improve sustainability.
@@ -602,6 +606,8 @@ See also {{Baseline}} and {{BenchmarkingFramework}}.
 ### Recommendation
 
 Even though baselining is essential in identifying potential areas of improvement and tracking progress, it is still to be determined to what extent we need to work on modeling networks and devices in the architecture.
+
+# Actions {#actions}
 
 ## Dynamic Scaling {#dynscale}
 
