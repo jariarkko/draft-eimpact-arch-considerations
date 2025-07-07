@@ -229,9 +229,9 @@ designers and network architects, where such guidelines can be given.
 
 # Introduction
 
-This document discusses protocol and network architecture aspects that have an
+This document discusses protocol and network architecture aspects that can have an
 impact on the environmental sustainability of network technology. For brevity,
-we will use the term sustainability to refer to environmental sustainability.
+we will use the term sustainability in this document to refer to environmental sustainability.
 We do note that sustainability as a term is widely used to refer to different
 notions of sustainability, and the most well-known larger definition of
 sustainability can be seen from the United Nations Sustainable Development
@@ -240,22 +240,22 @@ Goals (UN SDG) [UNSDG].
 Environmental sustainability is an important consideration in society, and in
 networking, too. Networking technologies enable societies to operate in an
 environmentally sustainable manner and thereby have a positive handprint,
-yet networks themselves must be environmentally sustainable and minimise
+yet networks themselves must be environmentally sustainable and attempt to minimise
 their negative footprint.
 
-Fundamentally the question is about resource usage and the lifecycle of network
+Fundamentally the question we try to address concerns the resource usage and the lifecycle of network
 equipment. The less devices are built, and energy is used, the less emissions are
 created. Networks are built with hardware and these in turn use electrical energy
 to run. Eventually, the hardware is decommissioned and some amount of the materials
 are recycled.
 
-We can divide the lifecycle in three main phase (omitting shipping of products): 
+We can divide the lifecycle into three major phases (omitting some intermittent steps like shipping of products): 
 
 1. Manufacturing (including the raw material extraction and usage, the embedded chips and electronics, casing, and energy needed for these operations, etc.),
-2. Use phase that is about the operational energy use and repairing equipment, and
+2. Use phase that is focused on the operational energy use and repairing equipment, and
 3. End of life that can include both direct recycling of some of the materials or finding a new life and usage for an old product that still functions, after which it is finally recycled.
 
-Networks are also physically built, both wired and wireless, and this construction
+Networks also require some amount of physical construction to realize, and this construction
 work also creates emissions. This category of emissions is out of scope of this
 document because the Internet community and network engineers have limited means
 to impact construction work itself and the associated industry, but we can impact
@@ -269,11 +269,11 @@ emissions in this document, we generally refer to CO2e.
 
 The manufacturing of networking hardware, both for fixed and wireless networks,
 is a significant source of emissions, and recycling of ICT equipment is still
-limited beyond the casing and some other parts. Direct energy usage of networking
+limited to the casing and some other minor parts. Direct energy usage of networking
 and the source of the energy have often been the primary concerns. There are many
 reports and scientific papers discussing carbon emissions of the energy used by
 ICT. As of today, and the foreseeable future, the difference in emissions of the
-electric grid between countries and regions can vary significantly. In EU, there
+electric grid between countries and regions can vary significantly. e.g. In the EU, there
 are 10-fold differences between countries, and similar differences exist between
 US states. On a global level, the differences can be over 50-fold. Yet, as the
 world moves towards greener energy production, the relative negative impacts
@@ -294,7 +294,7 @@ energy consumption) and then using that information to make smarter
 decisions is one.  For instance, understanding power consumption of
 individual nodes can be valuable input to future purchasing decisions
 or development efforts to reduce the power consumption.  Yet, as
-data collection is often rather easy, we should not overdo it in such
+data collection is often rather easy, it is easy to overdo it in such
 a way that it leads to accumulation of dark data (i.e. data that is collected and stored but never used).  All data collection consumes processing power,
 network resources and storage space, and this can in turn increase the emissions
 from the network.
@@ -310,8 +310,8 @@ examples.
 Of course, some of these aspects may have a major impact on
 sustainability, where others may only have a minor effect.  There are
 also tradeoffs, such as side-effects of architectural choices, e.g.,
-dynamic scaling of a router network potentially impacting jitter, or
-putting cellular base stations to sleep and activating them as capacity needs grow may introduce a delay in matching the needs of the data flows.
+dynamic scaling of a router network potentially impacts jitter;
+putting cellular base stations to sleep and activating them as capacity needs grow potentially introduces a delay in matching the needs of the data flows.
 
 The document is intended to help engineering efforts in the IETF,
 provide operational guidance in the operator community, as well as to point to potential research directions in the IRTF.
@@ -321,11 +321,12 @@ architecture, such as what architecture or capabilities new protocol
 designs or features should have, what kind of operational network
 architectures should be deployed, and how all of these can be designed
 to best address sustainability concerns.
+
 The focus of this document is to provide actionable design advice to protocol designers. This document therefore
 addresses one aspect in the architecture question and does not claim
 to cover the topic exhaustively.
 
-This document is also not focused on general issues around environmental sustainability,
+This document is not focused on general issues around environmental sustainability,
 except those that pertain to architecture or significant protocol
 features.
 
