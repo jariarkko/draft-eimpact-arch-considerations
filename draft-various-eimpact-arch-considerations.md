@@ -357,13 +357,13 @@ further concrete recommendations for the designers.
 
 # Understanding {#understanding}
 
+It is essential to understand the current state of affairs before any improvements can be made. 
+Thus, some level of measurement is necessary for starting to improve sustainability. 
+In many cases measurements are also complemented by modeling. In some cases modeling needs to be used since direct measurements may not always be available. Modeling is also used to combine measurements in ways that make it more effective in aiding the understanding of the effects of the potential actions. e.g. Modeling could be used to play out multiple what-if scenarios based on the actions recommended in {{actions}}.
+
 ## Measurement and Modeling {#mm}
 
-It is essential to understand the current state of affairs before any improvements can be made. 
-Thus, some levels of measurements are necessary for starting to improve sustainability.
-In some cases measurements may be complemented by modeling.
-
-This draft assumes that the specific semantics of sustainability-related measurements (e.g., carbon factors, device-specific formulas) are defined elsewhere and focuses instead on enabling architectures to support measurement, collection, and use.
+The key goals of measuring and modeling are to identify potential areas of improvement, and to establish a baseline to benchmark any improvements that are effected by the performed actions. This not only helps defining an objective data-driven approach to improvement, but also can illustrate what actions can cause a bigger impact. This could help prioritize what actions can be taken and when. This draft assumes that the specific semantics of sustainability-related measurements (e.g., carbon factors, device-specific formulas) are defined elsewhere and focuses instead on enabling architectures to support measurement, collection, and use.
 
 ### Motivation
 
