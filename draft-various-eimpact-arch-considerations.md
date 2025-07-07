@@ -527,84 +527,13 @@ approaches are referred to as "bottom-up" and "top-down".  The paper
 unifies both of them. The unified approach is used to estimate the
 power consumption of access, aggregation and core networks.
 
-The paper {{Modeling}} provides a
-model for IP Routers and the routers of other future Internet
-architectures (FIA) such as SCION and NEBULA. They use a generic model
-which captures the commonalities of IP router as well as the
-peculiarities of FIA routers. They conduct a large-scale simulation
-based on this router model to estimate the power consumption for
-different network architectures.
+Modeling can also help address attribution aspects, such as those
+involved in an effort of an organization to calculate its Scope 3
+emissions. Modeling can also be used to assist in establishing a
+baseline energy consumption, and enable later comparisons to that
+baseline.
 
-Since routers and other network devices and functions can be
-virtualized, this article (1) provides comprehensive "graphical,
-analytical survey of the literature, over the period 2010–2020, on the
-measurement of power consumption and relevant power models of virtual
-entities as they apply to the telco cloud." This paper A Methodology
-and Testbed to Develop an Energy Model for 5G Virtualized RANs IEEE
-Conference Publication IEEE Xplore got best paper award for GreenNet
-2024, but I am not sure if we are interested to model 5G vRAN.
-
-There is a plethora of publications on modeling communication networks
-and DC computing.
-
-##### Customer Attribution
-
-When organizations assess their Scope 3 emissions, they need to sum up
-their share of emissions from all their suppliers, one of which for
-example, might be a cloud hosting service.  In order for the supplier
-to provide an emission share value back to the customer, the provider
-needs to develop a mechanism for attribution.
-
-A significant challenge in accurately assessing Scope 3 emissions is
-avoiding Double Counting, where the same emission is reported by
-multiple entities. According to the GHG Protocol best practices, it is
-crucial to establish clear guidelines and agreements between suppliers
-and customers to ensure that emissions are attributed correctly and
-not counted multiple times. This requires transparent communication
-and precise emission reporting standards to ensure that all parties
-involved have a consistent understanding of which emissions belong to
-which organization.
-
-By addressing the Double Counting issue, companies can achieve more
-accurate and reliable Scope 3 emissions assessments, thereby
-contributing to better overall sustainability reporting and
-improvement efforts.
-
-##### Baselining and Benchmarking
-
-Establishing a baseline is a fundamental step in the process of
-improving energy efficiency and sustainability of network
-technology. Baselining involves establishing a reference point of
-typical energy usage, which is crucial for identifying inefficiencies
-and measuring improvements over time. In this step, the controller
-uses only the collected data from datasheets and other reliable
-sources.
-
-By establishing a baseline and using benchmarking, organizations can
-determine if their networking equipment is performing normally or if
-it is deviating from expected performance. This is the first step in identifying and guiding necessary
-improvements. Benchmarking involves collecting performance
-measurements of networking equipment under controlled
-conditions. This process helps establish standardized performance
-metrics, allowing for comparison against baselines collected during
-regular operational conditions.
-
-The initial measurement of networking equipment's energy efficiency
-and performance, known as Baselining, should be coordinated with
-vendor specifications and industry standards to understand what is
-considered normal or optimal performance. For example, if the baseline
-indicates that your switches operate at 5 Gbps per watt, while vendor
-specifications suggest 8 Gbps per watt and the industry standard is 10
-Gbps per watt, actions should be taken to implement energy-saving
-measures and upgrades. Continuously tracking subsequent measurements can reveal if
-efficiency improves towards the benchmark of 8-10 Gbps per watt.
-
-This practice ensures that any improvements can be quantifiably
-tracked over time, providing a clear measure of the effectiveness of
-the implemented changes and guiding further enhancements in network
-sustainability.
-
-See also {{Baseline}} and {{BenchmarkingFramework}}.
+Additional discussion of modeling can be found in {{ModelingAppendix}}.
 
 # Actions {#actions}
 
@@ -1073,6 +1002,87 @@ This document has no IANA actions.
 
 
 --- back
+
+# Modeling Approaches and Literature {#ModelingAppendix}
+
+The paper {{Modeling}} provides a
+model for IP Routers and the routers of other future Internet
+architectures (FIA) such as SCION and NEBULA. They use a generic model
+which captures the commonalities of IP router as well as the
+peculiarities of FIA routers. They conduct a large-scale simulation
+based on this router model to estimate the power consumption for
+different network architectures.
+
+Since routers and other network devices and functions can be
+virtualized, this article (1) provides comprehensive "graphical,
+analytical survey of the literature, over the period 2010–2020, on the
+measurement of power consumption and relevant power models of virtual
+entities as they apply to the telco cloud." This paper A Methodology
+and Testbed to Develop an Energy Model for 5G Virtualized RANs IEEE
+Conference Publication IEEE Xplore got best paper award for GreenNet
+2024, but I am not sure if we are interested to model 5G vRAN.
+
+There is a plethora of publications on modeling communication networks
+and DC computing.
+
+## Customer Attribution
+
+When organizations assess their Scope 3 emissions, they need to sum up
+their share of emissions from all their suppliers, one of which for
+example, might be a cloud hosting service.  In order for the supplier
+to provide an emission share value back to the customer, the provider
+needs to develop a mechanism for attribution.
+
+A significant challenge in accurately assessing Scope 3 emissions is
+avoiding Double Counting, where the same emission is reported by
+multiple entities. According to the GHG Protocol best practices, it is
+crucial to establish clear guidelines and agreements between suppliers
+and customers to ensure that emissions are attributed correctly and
+not counted multiple times. This requires transparent communication
+and precise emission reporting standards to ensure that all parties
+involved have a consistent understanding of which emissions belong to
+which organization.
+
+By addressing the Double Counting issue, companies can achieve more
+accurate and reliable Scope 3 emissions assessments, thereby
+contributing to better overall sustainability reporting and
+improvement efforts.
+
+## Baselining and Benchmarking
+
+Establishing a baseline is a fundamental step in the process of
+improving energy efficiency and sustainability of network
+technology. Baselining involves establishing a reference point of
+typical energy usage, which is crucial for identifying inefficiencies
+and measuring improvements over time. In this step, the controller
+uses only the collected data from datasheets and other reliable
+sources.
+
+By establishing a baseline and using benchmarking, organizations can
+determine if their networking equipment is performing normally or if
+it is deviating from expected performance. This is the first step in identifying and guiding necessary
+improvements. Benchmarking involves collecting performance
+measurements of networking equipment under controlled
+conditions. This process helps establish standardized performance
+metrics, allowing for comparison against baselines collected during
+regular operational conditions.
+
+The initial measurement of networking equipment's energy efficiency
+and performance, known as Baselining, should be coordinated with
+vendor specifications and industry standards to understand what is
+considered normal or optimal performance. For example, if the baseline
+indicates that your switches operate at 5 Gbps per watt, while vendor
+specifications suggest 8 Gbps per watt and the industry standard is 10
+Gbps per watt, actions should be taken to implement energy-saving
+measures and upgrades. Continuously tracking subsequent measurements can reveal if
+efficiency improves towards the benchmark of 8-10 Gbps per watt.
+
+This practice ensures that any improvements can be quantifiably
+tracked over time, providing a clear measure of the effectiveness of
+the implemented changes and guiding further enhancements in network
+sustainability.
+
+See also {{Baseline}} and {{BenchmarkingFramework}}.
 
 # Acknowledgments
 {:numbered="false"}
