@@ -249,7 +249,7 @@ created. Networks are built with hardware and these in turn use electrical energ
 to run. Eventually, the hardware is decommissioned and some amount of the materials
 are recycled.
 
-We can divide the lifecycle into three major phases (omitting some intermittent steps like shipping of products): 
+We can divide the lifecycle into three major phases (omitting some intermittent steps like shipping of products):
 
 1. Manufacturing (including the raw material extraction and usage, the embedded chips and electronics, casing, and energy needed for these operations, etc.),
 2. Use phase that is focused on the operational energy use and repairing equipment, and
@@ -259,7 +259,7 @@ Networks also require some amount of physical construction to realize, and this 
 work also creates emissions. This category of emissions is out of scope of this
 document because the Internet community and network engineers have limited means
 to impact construction work itself and the associated industry, but we can impact
-how networks, protocols and hardware are designed, built and operated. 
+how networks, protocols and hardware are designed, built and operated.
 
 All these phases create harmful emissions, into the ground and in the air, that
 have a negative impact on our environment and people. As the type of such
@@ -344,7 +344,7 @@ implement more sustainable services, such as, the Green Software
 Foundation, the Green Web Foundation, Greening of Streaming, to name a
 few.
 
-The next two sections present architectural and protocol design aspects that can have an impact on the sustainability of networking. 
+The next two sections present architectural and protocol design aspects that can have an impact on the sustainability of networking.
 {{understanding}} discusses those foundations that
 are required to prepare for sustainability improvements, and
 {{actions}} discusses actions that can be taken to make the actual improvements.
@@ -357,8 +357,8 @@ further concrete recommendations for the designers.
 
 # Understanding {#understanding}
 
-It is essential to understand the current state of affairs before any improvements can be made. 
-Thus, some level of measurement is necessary for starting to improve sustainability. 
+It is essential to understand the current state of affairs before any improvements can be made.
+Thus, some level of measurement is necessary for starting to improve sustainability.
 In many cases measurements are also complemented by modeling. In some cases modeling needs to be used since direct measurements may not always be available. Modeling is also used to combine measurements in ways that make it more effective in aiding the understanding of the effects of the potential actions. e.g. Modeling could be used to play out multiple what-if scenarios based on the actions recommended in {{actions}}.
 
 ## Measurement and Modeling {#mm}
@@ -450,7 +450,7 @@ have very different meanings. In one case, one spends a Joule to send a bit. In 
 other case, one spends a Joule to offer a bandwidth capacity of 1 bit/s during
 a second.  The latter is important, as
 often communication networks have requirements to be able to send
-messages when there's a need for it, e.g., for emergency communications, 
+messages when there's a need for it, e.g., for emergency communications,
 even when those messages may not always be sent.
 
 The measurement of efficiency is not restricted to energy. Traffic or offered
@@ -464,7 +464,7 @@ Sustainable efficiency can also be expressed in water used per traffic, for exam
 The GREEN WG is chartered to define energy consumption metrics and associated frameworks.
 The GREEN
 framework provides a foundational building blocks for monitoring and optimizing energy consumption
-across networked devices and components. 
+across networked devices and components.
 
 The SUSTAIN RG addresses broader measurement questions such as embedded emissions, raw
 materials, and life-cycle modeling. This document assumes these efforts will define
@@ -490,7 +490,7 @@ sure to shift over time.
 
 Since the need to deliver on the use cases described is urgent, the
 industry has to accommodate the capabilities (and limitations) of existing
-equipment in the field for collecting metrics. 
+equipment in the field for collecting metrics.
 It is recommended to apply a plug-in architecture with modules that can
 work with (read from and control) devices of any kind, including
 traditional networking hardware devices, cooling systems, software
@@ -529,7 +529,7 @@ aligned.
 
 #### Modeling {#modeling}
 
-Where power optimization choices are made, accurate information is required to decide the right choice. 
+Where power optimization choices are made, accurate information is required to decide the right choice.
 
 The paucity of up-to-date information on equipment and system
 parameters, especially power consumption and maximum throughput, makes
@@ -632,7 +632,7 @@ Understanding the resiliency requirements for a network or a piece
 Some of the strategies that are useful in implementing effective dynamic scaling include:
 
 * Matching the currently used resources to the actual need, be it
-  about traffic demand or resiliency. One way to do this is to use 
+  about traffic demand or resiliency. One way to do this is to use
   power-proportional underlying technologies, such as chipsets or
   transmission technologies. And where this is not sufficient, the
   ability to turn components/systems on and off is an alternative
@@ -725,14 +725,14 @@ involved systems have power proportionality.
 ### Analysis
 
 Various higher-level transport solutions may also
-cache or pre-fetch information. For instance, {{I-D.irtf-nmrg-green-ps}} 
+cache or pre-fetch information. For instance, {{I-D.irtf-nmrg-green-ps}}
 lifts CDNs as one example of technology that has reduced energy consumption, by
 moving the needed endpoints closer to each other.
 
 On a given set of endpoints, application behavior can impact environmental costs.
 For instance, {{I-D.pignataro-enviro-sustainability-consid}} observes the effect of protocol
-chattiness. Does the protocol rely on periodic updates or heartbeat messages? Could such message 
-patterns result in preventing links or nodes from going to sleep (absent other communications), 
+chattiness. Does the protocol rely on periodic updates or heartbeat messages? Could such message
+patterns result in preventing links or nodes from going to sleep (absent other communications),
 and in such a case, would an alternative pattern be feasible?
 
 Transport layer protocol behavior also has an impact.
@@ -776,7 +776,7 @@ remaining time period within the interval.
 A hypothesis could be made that transport protocols should
 take energy into account in addition to the many other inputs they decide upon. For example, it is possible that a non-urgent data transfer would send as much as possible as soon as possible when
 at least one of the links along the path is known to be power proportional (e.g., a cellular link), while tracking buffer
-growth from transmission delays to scale back if delay should occur. 
+growth from transmission delays to scale back if delay should occur.
 
 Such ideas remain to be confirmed with experiments, however.
 
@@ -796,10 +796,10 @@ information available to the endpoints would be useful.
 As can be seen from the above, there are a number of complex tradeoffs merely for transport
 protocol behavior on a given connection.
 
-This prompts us to give two types of advice. The first type of advice is for protocol designers: 
-simple models are unlikely to guarantee optimal results, but as long as 
+This prompts us to give two types of advice. The first type of advice is for protocol designers:
+simple models are unlikely to guarantee optimal results, but as long as
 normal precautions such as congestion control, monitoring queue build-up, and avoiding
-unnecessary messages are employed, systems will operate reasonably well. 
+unnecessary messages are employed, systems will operate reasonably well.
 
 The second type of advice is for further work in the research community to better understand
 what strategies would actually provide the best end-user and energy performance, and whether the choice of strategy
@@ -867,9 +867,9 @@ performance and sustainability impact, it needs to be studied in
 further detail. Specifically, the potential additional sustainability
 costs due to forgoing optimization need to be weighed against the
 potential savings in embedded carbon and raw material costs brought
-about by premature upgrades. 
+about by premature upgrades.
 
-There are also cases where equipment upgrades are done to provide better peak performance characteristics (e.g. higher advertised speeds towards consumers) and these need to be viewed as well with the same tradeoffs in mind. Also, when newer more sustainable equipment is available there needs to be a cost benefit analysis made to decide whether to keep current equipment running for longer or upgrade to realize the benefits of newer equipment even though it incurs new embedded costs. 
+There are also cases where equipment upgrades are done to provide better peak performance characteristics (e.g. higher advertised speeds towards consumers) and these need to be viewed as well with the same tradeoffs in mind. Also, when newer more sustainable equipment is available there needs to be a cost benefit analysis made to decide whether to keep current equipment running for longer or upgrade to realize the benefits of newer equipment even though it incurs new embedded costs.
 
 Finally, when designing networks, it is recommended to consider whether it is possible to reuse retiring equipment in a different location or for a different function (e.g. move it to lower traffic geographies, core routers become edge/access routers etc.)
 
@@ -893,7 +893,7 @@ The main questions are, however:
 
 * How large are the potential remaining savings in this area, and how do they compare
 to other things? Particularly considering
-that much of the traffic on the Internet is video, 
+that much of the traffic on the Internet is video,
 which is already highly optimized and constantly updated with
 better encoding methods.
 Moran et al. argued in their 2022 paper {{CBORGreener}} {{RFC9547}} that that for a weather data example from {{RFC8428}} {{RFC9193}} there are significant savings. However, this needs more research in terms of the overall impact across different examples and the general make up of Internet traffic.
@@ -993,7 +993,7 @@ architects have been listed in {{understanding}} and
   {{recsdynscaling}}. These are about some basic techniques for being
   able to scale systems up and down while avoiding negative effects
   from these operations.
-  
+
 * Transport-related recommendations were listed in
   {{transport}}. These are about tradeoffs associated with different
   transport strategies.
