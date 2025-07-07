@@ -690,7 +690,7 @@ or receive traffic, and so on. Depending on the conditions, an
 individual flow may carry traffic at widely different rates, may pause
 for some time, etc.
 
-This behavior has an effect on sustainability---e.g., in
+This behavior has an effect on sustainability, e.g., in
 what periods the endpoint and network systems are active or when they
 could be in reduced activity or sleep states.
 Cellular networks and mobile links can scale their energy usage based on load and enter a low-power state when a traffic flow ends. Thus, in theory, the faster the data is transferred, the faster the device transmission/reception functions can enter a low-power state.
@@ -790,7 +790,10 @@ what strategies would actually provide the best end-user and energy performance,
 depends on other factors, such as whether sleep modes are implemented in network nodes.
 There is a clear need for
 simulations and experiments to understand this better. This may be work
-that fits within the IRTF SUSTAIN research group.
+that fits within the IRTF SUSTAIN research group. Also, new standards
+may be need if information
+sharing about the sustainability and sleep mode characteristics of
+network systems is needed for applications to make the best transport decisions.
 
 ## Equipment Longevity {#longevity}
 
