@@ -960,13 +960,15 @@ The recommendations that can be applied by protocol designers and
 architects have been listed in {{understanding}} and
 {{actions}}. Specifically:
 
-* Measurement and modelling are a necessary foundation to understand
+* Measurement and modeling are a necessary foundation to understand
   where environmental impacts are generated, and to quantify any
   improvements.
   The recommendations related to this topic were listed in
   {{measurementrecs}}. These are primarily about ensuring that the
   measurement frameworks are generic enough to support data collection
-  for an evolving set of metrics.
+  for an evolving set of metrics, and to prepare for the possibility
+  that
+  mathematical modeling may have to replace measurements in some cases.
 
 * Dynamic scaling is the ability to respond to demand variations and
    resiliency requirements while optimizing energy consumption clearly
@@ -982,7 +984,7 @@ architects have been listed in {{understanding}} and
 
 * Longevity-related recommendations were listed in {{recslongevity}}.
    These are primarily about how equipment can fulfill evolving roles
-   over its lifetime.
+   over its lifetime, and associated tradeoffs.
 
 * Encoding-related recommendations were listed in
   {{recsencoding}}. These are about the effects of encoding size in
