@@ -239,31 +239,31 @@ Goals (UN SDG) [UNSDG].
 
 Environmental sustainability is an important consideration in society, and in
 networking, too. Networking technologies enable societies to operate in an
-environmentally sustainable manner and thereby have a positive hand print,
+environmentally sustainable manner and thereby have a positive handprint,
 yet networks themselves must be environmentally sustainable and minimise
-their negative foot print.
+their negative footprint.
 
 Fundamentally the question is about resource usage and the lifecycle of network
-equipment. The less devices are built and energy is used, the less emissions are
+equipment. The less devices are built, and energy is used, the less emissions are
 created. Networks are built with hardware and these in turn use electrical energy
-to run. Eventually, the hardware is decomissioned and some amount of the materials
+to run. Eventually, the hardware is decommissioned and some amount of the materials
 are recycled.
 
 We can divide the lifecycle in three main phase (omitting shipping of products): 
 
 1. Manufacturing (including the raw material extraction and usage, the embedded chips and electronics, casing, and energy needed for these operations, etc.),
 2. Use phase that is about the operational energy use and repairing equipment, and
-3. End of life that can include both direct recycling of some of the materials, or finding a new life and usage for an old product that still functions, after which it is finally recycled.
+3. End of life that can include both direct recycling of some of the materials or finding a new life and usage for an old product that still functions, after which it is finally recycled.
 
 Networks are also physically built, both wired and wireless, and this construction
-work also creates emisssions. This category of emissions is out of scope of this
+work also creates emissions. This category of emissions is out of scope of this
 document because the Internet community and network engineers have limited means
 to impact construction work itself and the associated industry, but we can impact
 how networks, protocols and hardware are designed, built and operated. 
 
 All these phases create harmful emissions, into the ground and in the air, that
 have a negative impact on our environment and people. As the type of such
-emissions vary, they are often standardised as carbon dioxide equivalent (CO2e)
+emissions vary, they are often standardized as carbon dioxide equivalent (CO2e)
 to allow comparing sources and amounts of emissions. When discussing (carbon)
 emissions in this document, we generally refer to CO2e.
 
@@ -295,7 +295,7 @@ decisions is one.  For instance, understanding power consumption of
 individual nodes can be valuable input to future purchasing decisions
 or development efforts to reduce the power consumption.  Yet, as
 data collection is often rather easy, we should not overdo it in such
-a way that it leads to accumulation of dark data (i.e. data that is collected and stored, but never used).  All data collection consumes processing power,
+a way that it leads to accumulation of dark data (i.e. data that is collected and stored but never used).  All data collection consumes processing power,
 network resources and storage space, and this can in turn increase the emissions
 from the network.
 
@@ -322,7 +322,7 @@ designs or features should have, what kind of operational network
 architectures should be deployed, and how all of these can be designed
 to best address sustainability concerns.
 The focus of this document is to provide actionable design advice to protocol designers. This document therefore
-addresses one aspect in the architecture question, and does not claim
+addresses one aspect in the architecture question and does not claim
 to cover the topic exhaustively.
 
 This document is also not focused on general issues around environmental sustainability,
@@ -332,7 +332,7 @@ features.
 It is to be noted that networks themselves are a service, a tool, for all the
 applications and services on the Internet. Networks connect data,
 people and services. The increase in networking and size of the
-Internet is driven by these applications and the usage. Therefore the
+Internet is driven by these applications and the usage. Therefore, the
 emissions from networking are tied to the applications and the data
 they consume; with less applications or data, the Internet would have less
 hardware and less energy usage. The goals of this document are not to
@@ -343,11 +343,20 @@ implement more sustainable services, such as, the Green Software
 Foundation, the Green Web Foundation, Greening of Streaming, to name a
 few.
 
-# Potential Architectural Aspects
+The next two sections present architectural and protocol design aspects that can have an impact on the sustainability of networking. 
+{{understanding}} discusses that foundations that
+are required to prepare for sustainability improvements, and
+{{actions}} discusses actions that can be taken to make improvements.
+For each topic in these sections, we provide an overview, the motivation for why it would be important to consider for more sustainable networking, an analysis and recommendations for future networking professionals.
 
-This section presents architectural and protocol design aspects that can have an impact on the sustainability of networking. For each topic, we provide an overview, the motivation for why it would be important to consider for more sustainable networking, an analysis and recommendations for future networking professionals.
+Recommendations for protocol designers are discussed throughout the
+document, but {{recsdesigners}} summarizes them. Finally,
+{{recsfurtherwork}} discusses further work that is needed to make
+further concrete recommendations for the designers.
 
-## Measurement
+# Understanding {#understanding}
+
+## Measurement and Modeling {#mm}
 
 It is essential to understand the current state of affairs before any improvements can be made. 
 Thus, some levels of measurements are necessary for starting to improve sustainability.
@@ -400,7 +409,7 @@ and usage phases. Measuring negative impacts related to fabrication falls
 in the activity of lifecycle analysis (LCA). LCAs is typically realized
 per device, either by the equipment vendor itself, or by third-party analysts. LCA
 involves modeling (see {{modeling}}). The analysis
-can be done in terms of climate change (CC), but can be extgended to other criteria as
+can be done in terms of climate change (CC) but can be extended to other criteria as
 abiotic resource depletion (ARD), ecotoxicity (ET) or water usage (WU).
 LCA also involves
 information systems keeping an inventory of the devices uses.
@@ -444,7 +453,7 @@ traffic. This carbon should include the part associated with electricity, but
 also the part associated with fabricating the device (pro rata temporis) {{LCAandUsage}}.
 Sustainable efficiency can also be expressed in water used per traffic, for example.
 
-### Recommendation
+### Recommendation {#measurementrecs}
 
 The GREEN WG is chartered to define energy consumption metrics and associated frameworks.
 The GREEN
@@ -512,21 +521,19 @@ responsible corporate bodies producing the corporate reports are
 unlikely to use any technical collection system that isn't well
 aligned.
 
-## Modeling {#modeling}
+#### Modeling {#modeling}
+
+Where power optimization choices are made, accurate information is required to decide the right choice. 
 
 The paucity of up-to-date information on equipment and system
 parameters, especially power consumption and maximum throughput, makes
 estimating the power consumption and energy efficiency of these
-systems extremely challenging. In addition the rapid evolution of
+systems extremely challenging. In addition, the rapid evolution of
 technology and products in ICT makes the estimation quickly outdated
-and possibly inaccurate. In almost all cases physical measurement has
-to be replaced by partial measurement and mathematical modeling.
+and possibly inaccurate. In some cases, physical measurements have to
+be replaced by partial measurements and mathematical modeling.
 
-### Motivation
-
-Where power optimization choices are made, accurate information is required to decide the right choice. Modeling instead of measurements may have to be used in some cases.
-
-### Analysis
+##### Power modeling
 
 To date, two approaches to network power modeling are accepted as
 providing a realistic estimate of network power consumption. These
@@ -535,92 +542,19 @@ approaches are referred to as "bottom-up" and "top-down".  The paper
 unifies both of them. The unified approach is used to estimate the
 power consumption of access, aggregation and core networks.
 
-The paper {{Modeling}} provides a
-model for IP Routers and the routers of other future Internet
-architectures (FIA) such as SCION and NEBULA. They use a generic model
-which captures the commonalities of IP router as well as the
-peculiarities of FIA routers. They conduct a large-scale simulation
-based on this router model to estimate the power consumption for
-different network architectures.
+Modeling can also help address attribution aspects, such as those
+involved in an effort of an organization to calculate its Scope 3
+emissions. Modeling can also be used to assist in establishing a
+baseline energy consumption, and enable later comparisons to that
+baseline.
 
-Since routers and other network devices and functions can be
-virtualized, this article (1) provides comprehensive "graphical,
-analytical survey of the literature, over the period 2010–2020, on the
-measurement of power consumption and relevant power models of virtual
-entities as they apply to the telco cloud." This paper A Methodology
-and Testbed to Develop an Energy Model for 5G Virtualized RANs IEEE
-Conference Publication IEEE Xplore got best paper award for GreenNet
-2024, but I am not sure if we are interested to model 5G vRAN.
+Additional discussion of modeling can be found in {{ModelingAppendix}}.
 
-There is a plethora of publications on modeling communication networks
-and DC computing.
-
-#### Customer Attribution
-
-When organizations assess their Scope 3 emissions, they need to sum up
-their share of emissions from all their suppliers, one of which for
-example, might be a cloud hosting service.  In order for the supplier
-to provide an emission share value back to the customer, the provider
-needs to develop a mechanism for attribution.
-
-A significant challenge in accurately assessing Scope 3 emissions is
-avoiding Double Counting, where the same emission is reported by
-multiple entities. According to the GHG Protocol best practices, it is
-crucial to establish clear guidelines and agreements between suppliers
-and customers to ensure that emissions are attributed correctly and
-not counted multiple times. This requires transparent communication
-and precise emission reporting standards to ensure that all parties
-involved have a consistent understanding of which emissions belong to
-which organization.
-
-By addressing the Double Counting issue, companies can achieve more
-accurate and reliable Scope 3 emissions assessments, thereby
-contributing to better overall sustainability reporting and
-improvement efforts.
-
-#### Baselining and Benchmarking
-
-Establishing a baseline is a fundamental step in the process of
-improving energy efficiency and sustainability of network
-technology. Baselining involves establishing a reference point of
-typical energy usage, which is crucial for identifying inefficiencies
-and measuring improvements over time. In this step, the controller
-uses only the collected data from datasheets and other reliable
-sources.
-
-By establishing a baseline and using benchmarking, organizations can
-determine if their networking equipment is performing normally or if
-it is deviating from expected performance. This is the first step in identifying and guiding necessary
-improvements. Benchmarking involves collecting performance
-measurements of networking equipment under controlled
-conditions. This process helps establish standardized performance
-metrics, allowing for comparison against baselines collected during
-regular operational conditions.
-
-The initial measurement of networking equipment's energy efficiency
-and performance, known as Baselining, should be coordinated with
-vendor specifications and industry standards to understand what is
-considered normal or optimal performance. For example, if the baseline
-indicates that your switches operate at 5 Gbps per watt, while vendor
-specifications suggest 8 Gbps per watt and the industry standard is 10
-Gbps per watt, actions should be taken to implement energy-saving
-measures and upgrades. Continuously tracking subsequent measurements can reveal if
-efficiency improves towards the benchmark of 8-10 Gbps per watt.
-
-This practice ensures that any improvements can be quantifiably
-tracked over time, providing a clear measure of the effectiveness of
-the implemented changes and guiding further enhancements in network
-sustainability.
-
-See also {{Baseline}} and {{BenchmarkingFramework}}.
-
-### Recommendation
-
-Even though baselining is essential in identifying potential areas of improvement and tracking progress, it is still to be determined to what extent we need to work on modeling networks and devices in the architecture.
+# Actions {#actions}
 
 ## Dynamic Scaling {#dynscale}
 
-Dynamic scaling is the ability to adjust resources according to demand, and possibly turn some of
+Dynamic scaling is the ability to adjust resources according to demand and possibly turn some of
 them off during periods of low usage. Examples include the set of
 servers needed for a service, how many duplicate links are needed to
 carry high-volume traffic, whether one needs all base stations with
@@ -653,7 +587,7 @@ the design of the coverage, and regulations might dictate how reliable
 the cellular service should be. There is extensive work world-wide to
 optimize the operation of this overlapping coverage, e.g. by turning down
 some sites at night time when traffic volumes are low. A cellular
-basestation site can consume anything from a few kWh to ten or more
+base station site can consume anything from a few kWh to ten or more
 kWh per provider. Modern cellular base stations do implement numerous
 features to scale the energy consumption. In general, cellular base
 stations have a base energy consumption and traffic-dependent
@@ -715,7 +649,7 @@ Some of the strategies that are useful in implementing a well working dynamic sc
 
 * Efficient propagation of changes of new routes, new set of servers, etc. as to reduce the amount of time where state is not synchronized across the network. The needs for the propagation solution needs to be driven by dynamic scaling and sustainability as well as other aspects, such as recovery from failures.
 
-* Build mechanisms to deal with dynamic changes: Plan for dynamic set of resources, and not expect to work with a fixed set of resources.
+* Build mechanisms to deal with dynamic changes: Plan for dynamic set of resources and not expect to work with a fixed set of resources.
 
 * Dynamic scaling requires automation in most cases, e.g., to turn on
   new service instances. See again {{I-D.pignataro-enviro-sustainability-architecture}} for a discussion of automation.
@@ -732,14 +666,14 @@ Some of the strategies that are useful in implementing a well working dynamic sc
   flows over a subset of the network devices and links, allowing other
   links and interconnection devices to be switched off. These
   solutions shall preserve connectivity and QoS, for instance by
-  limiting the maximum utilization over any link, or ensuring a
+  limiting the maximum utilization over any link or ensuring a
   minimum level of path diversity. There are also algorithms for Green
-  Traffic engineering. For instance {{Segment}} employs segment
+  Traffic engineering. For instance, {{Segment}} employs segment
   routing. Experimental analysis results {{Experiment}} show that the
   resource usage for SRv6 could be more than 70% lower than that of
   the SPF-based forwarding, depending on the network topology.
 
-### Recommendation
+### Recommendation {#recsdynscaling}
 
 The guidelines above need to be considered specifically for each
 protocol and system design. Further work in detailing this guidance
@@ -750,7 +684,7 @@ future, given for instance the increased importance of the tasks
 supported by networks or the potentially increasing frequency of
 natural disasters as a result of global warming.
 
-Scaling steps during power shortage differ from network dynamic scaling and depend on the network domain and the events: grid outages, deployment in remote or mobile environments, extreme weather events, or any sort of enforced reductions in power usage like monththly battery testing. Nevertheless there is a gain to have a common dynamic scaling approach that includes network-driven scaling and power-shortage scaling.
+Scaling steps during power shortage differ from network dynamic scaling and depend on the network domain and the events: grid outages, deployment in remote or mobile environments, extreme weather events, or any sort of enforced reductions in power usage like monthly battery testing. Nevertheless, there is a gain to have a common dynamic scaling approach that includes network-driven scaling and power-shortage scaling.
 
 ## Transport {#transport}
 
@@ -791,7 +725,7 @@ chattiness. Does the protocol rely on periodic updates or heartbeat messages? Co
 patterns result in preventing links or nodes from going to sleep (absent other communications), 
 and in such a case, would an alternative pattern be feasible?
 
-Transport layer protocol behaviour also has an impact.
+Transport layer protocol behavior also has an impact.
 A critical issue is the tradeoff involved in sending traffic. As
 argued in {{NotTradeOff}}, reducing
 the amount of time the endpoints and the network are active can
@@ -836,7 +770,7 @@ growth from transmission delays to scale back if delay should occur.
 
 Such ideas remain to be confirmed with experiments, however.
 
-Similarly, caching and pre-fetching designs need to take into account
+Similarly, caching and pre-fetching designs need to consider
 not only the likelihood of having acquired the right content in memory,
 but also the sustainability cost of possibly fetching too much or the
 timing of those fetching operations.
@@ -847,9 +781,9 @@ pattern enables power savings through sleep modes, would be beneficial
 for the communicating endpoints. Mechanisms for making such
 information available to the endpoints would be useful.
 
-### Recommendation
+### Recommendation {#recstransport}
 
-As can be seen from the above, there are a number complex tradeoffs merely for transport
+As can be seen from the above, there are a number of complex tradeoffs merely for transport
 protocol behavior on a given connection.
 
 This prompts us to give two types of advice. The first type of advice is for protocol designers: 
@@ -890,8 +824,8 @@ When we engineer protocols and network equipment, we are inclined to
 design them in a highly optimized manner for a very specific set of
 requirements, use cases and context. While this is necessary in
 certain cases (e.g. constrained nodes with limits on processing
-capacity or long lived battery powered devices), there are certainly
-cases where such optimized equipment is not absolutely required. Most infrastucture network nodes on the Internet utilize
+capacity or long-lived battery powered devices), there are certainly
+cases where such optimized equipment is not absolutely required. Most infrastructure network nodes on the Internet utilize
 only a fraction of their design capacity most of the time.
 
 Designing the equipment with an eye on longevity comes with a set of
@@ -911,9 +845,9 @@ Another aspect that can play an important role in extending the longevity of equ
 
 On the other hand, it is very much possible that there could be new equipment available that is significantly more sustainable in its operation. The longevity of the existing equipment and the amortization of its embedded sustainability costs, needs to be balanced against the potential operational savings to be realized by upgrading to newer equipment over the intended lifecycle of the newer equipment.
 
-### Recommendation
+### Recommendation {#recslongevity}
 
-The guidelines above should be considered for any new system design. If some aspect of protocol or network equipment design choice could be made more generic and flexible without a significant performance and sustainability impact, it needs to be studied in further detail. Specifically, the potential additional sustainability costs due to forgoing optimization need to be weighed against the potential savings in embedded carbon and raw material costs brought about by premature upgrades. There are also cases where equipment upgrades are done to provide better peak performance characteristics (e.g. higher advertised speeds towards consumers) and these need to be viewed as well with the same tradeoffs in mind. Also, when newer more sustainable equipment is available there needs to be a cost benefit analysis made to decide whether to keep current equipment running for longer or upgrade to realize the benefits of newer equipment even though it incurs new embedded costs. Finally, when designing networks it is recommended to consider whether it is possible to reuse retiring equipment in a different location or for a different function (e.g. move it to lower traffic geographies, core routers become edge/access routers etc.)
+The guidelines above should be considered for any new system design. If some aspect of protocol or network equipment design choice could be made more generic and flexible without a significant performance and sustainability impact, it needs to be studied in further detail. Specifically, the potential additional sustainability costs due to forgoing optimization need to be weighed against the potential savings in embedded carbon and raw material costs brought about by premature upgrades. There are also cases where equipment upgrades are done to provide better peak performance characteristics (e.g. higher advertised speeds towards consumers) and these need to be viewed as well with the same tradeoffs in mind. Also, when newer more sustainable equipment is available there needs to be a cost benefit analysis made to decide whether to keep current equipment running for longer or upgrade to realize the benefits of newer equipment even though it incurs new embedded costs. Finally, when designing networks, it is recommended to consider whether it is possible to reuse retiring equipment in a different location or for a different function (e.g. move it to lower traffic geographies, core routers become edge/access routers etc.)
 
 ## Encoding {#encoding}
 
@@ -921,7 +855,7 @@ This is about considering the effects encoding methods on sustainability, such a
 
 ### Motivation
 
-Better encoding can obviously reduce the length of messages sent, or
+Better encoding can obviously reduce the length of messages sent or
 reduce the amount of computing required for the encoding and decoding operations. It
 remains a question mark how big overall impact this is, however. It
 should only be performed if it gives a measurable overall impact.
@@ -943,10 +877,10 @@ other content than, e.g., HTTP headers. Moran et al. argued in their 2022 paper 
   messaging useful, or should each protocol have optimal
   compacting?
 
-* Tradeoffs related to compute required to do encoding and decoding operations. These can be relatively heave operations, particularly if compressiomn is performed, particularly if AI-based
+* Tradeoffs related to compute required to do encoding and decoding operations. These can be relatively heavy operations, particularly if compression is performed, particularly if AI-based
   computationally expensive methods are used.
 
-### Recommendation
+### Recommendation {#recsencoding}
 
 More research is needed to quantify the likely sources of measurable
 impacts.
@@ -954,9 +888,9 @@ impacts.
 Of course, new protocols can generally be designed to work with
 compact encoding, unless there is a significant reason not to. But
 efforts to modify existing protocols for the sake of encoding
-efficiency should be further investigated by the above mentioned quantification results.
+efficiency should be further investigated by the above-mentioned quantification results.
 
-One particular area of interest is the impact of AI-based compression methods and their computational and energy costs vs. the achieved savings in communication efficiencies.
+One particular area of interest is the impact of AI-based compression methods and their computational and energy costs vs. achieved savings in communication efficiencies.
 
 ## Sustainable by Design: Data Governance Perspective {#bydesign}
 
@@ -995,7 +929,7 @@ Key elements of Sustainable by Design in data governance include:
   policies that promote transparency in data usage and accountability
   for sustainability objectives.
 
-### Recommendation
+### Recommendation {#recsdatagov}
 
 Organizations should adopt data governance frameworks that incorporate
 sustainability as a core principle. This includes setting clear
@@ -1005,30 +939,69 @@ sustainability. By doing so, organizations can ensure that their data
 operations are not only effective but also environmentally
 responsible.
 
-# Recommendations for Further Work and Research
+# Recommendations for Protocol Design {#recsdesigners}
 
-Dynamic scaling, i.e., the ability to respond to demand variations and
-resiliency requirements while optimizing energy consumption clearly
-has significant potential for savings. Past and ongoing work in
-various systems and protocols has looked at this, of course, but we
-believe work also remains. Any large scale system likely benefits from
-further analysis, unless already ongoing. Guidance in {dynscale}
+The recommendations that can be applied by protocol designers and
+architects have been listed in {{understanding}} and
+{{actions}}. Specifically:
+
+* Measurement and modelling are a necessary foundation to understand
+  where environmental impacts are generated, and to quantify any
+  improvements.
+  The recommendations related to this topic were listed in
+  {{measurementrecs}}. These are primarily about ensuring that the
+  measurement frameworks are generic enough to support data collection
+  for an evolving set of metrics.
+
+* Dynamic scaling is the ability to respond to demand variations and
+   resiliency requirements while optimizing energy consumption clearly
+   has significant potential for savings. Recommendations related to
+   this were listed in
+  {{recsdynscaling}}. These are about some basic techniques for being
+  able to scale systems up and down while avoiding negative effects
+  from these operations.
+  
+* Transport-related recommendations were listed in
+  {{transport}}. These are about tradeoffs associated with different
+  transport strategies.
+
+* Longevity-related recommendations were listed in {{recslongevity}}.
+   These are primarily about how equipment can fulfill evolving roles
+   over its lifetime.
+
+* Encoding-related recommendations were listed in
+  {{recsencoding}}. These are about the effects of encoding size in
+  protocols, and the associated compression computing impacts.
+
+* Data governance-related recommendations were listed in
+  {{recsdatagov}}. These are primarily about ensuring the right amount
+  of data is collected, stored, and processed, in view of the effort
+  required to do so.
+
+# Recommendations for Further Work and Research {#recsfurtherwork}
+
+There are several areas where concrete advice for protocol designers
+could not be given, or additional advice would be useful, but we do not
+understand the situation well enough to give a practical advice.
+
+These include:
+
+* Past and ongoing work in
+various systems and protocols has looked at dynamic scaling extensively, but we
+believe work also remains. Any large-scale system likely benefits from
+further analysis, unless already ongoing. Guidance in {{dynscale}}
 simple, and further work in detailing this guidance would also be useful.
 
-Transport-related optimizations (see {transport}) that enable devices to consume less
+* Transport-related optimizations (see {{transport}}) that enable devices to consume less
 power by sleeping more appear to have potential for significant
-savings, but confirming this requires further research. Such research
+savings but confirming this requires further research. Such research
 could be performed in the context of the recently chartered SUSTAIN
 research group.
 
-More research is needed to quantify the likely sources of measurable
+* More research is needed to quantify the likely sources of measurable
 impacts when it comes to efficient protocol message encoding discussed
-in {encoding}. Again, this is work that the research group could take
+in {{encoding}}. Again, this is work that the research group could take
 on.
-
-TBD
-
-...
 
 # Security Considerations
 
@@ -1044,6 +1017,87 @@ This document has no IANA actions.
 
 
 --- back
+
+# Modeling Approaches and Literature {#ModelingAppendix}
+
+The paper {{Modeling}} provides a
+model for IP Routers and the routers of other future Internet
+architectures (FIA) such as SCION and NEBULA. They use a generic model
+which captures the commonalities of IP router as well as the
+peculiarities of FIA routers. They conduct a large-scale simulation
+based on this router model to estimate the power consumption for
+different network architectures.
+
+Since routers and other network devices and functions can be
+virtualized, this article (1) provides comprehensive "graphical,
+analytical survey of the literature, over the period 2010–2020, on the
+measurement of power consumption and relevant power models of virtual
+entities as they apply to the telco cloud." This paper A Methodology
+and Testbed to Develop an Energy Model for 5G Virtualized RANs IEEE
+Conference Publication IEEE Xplore got best paper award for GreenNet
+2024, but I am not sure if we are interested to model 5G vRAN.
+
+There is a plethora of publications on modeling communication networks
+and DC computing.
+
+## Customer Attribution
+
+When organizations assess their Scope 3 emissions, they need to sum up
+their share of emissions from all their suppliers, one of which for
+example, might be a cloud hosting service.  In order for the supplier
+to provide an emission share value back to the customer, the provider
+needs to develop a mechanism for attribution.
+
+A significant challenge in accurately assessing Scope 3 emissions is
+avoiding Double Counting, where the same emission is reported by
+multiple entities. According to the GHG Protocol best practices, it is
+crucial to establish clear guidelines and agreements between suppliers
+and customers to ensure that emissions are attributed correctly and
+not counted multiple times. This requires transparent communication
+and precise emission reporting standards to ensure that all parties
+involved have a consistent understanding of which emissions belong to
+which organization.
+
+By addressing the Double Counting issue, companies can achieve more
+accurate and reliable Scope 3 emissions assessments, thereby
+contributing to better overall sustainability reporting and
+improvement efforts.
+
+## Baselining and Benchmarking
+
+Establishing a baseline is a fundamental step in the process of
+improving energy efficiency and sustainability of network
+technology. Baselining involves establishing a reference point of
+typical energy usage, which is crucial for identifying inefficiencies
+and measuring improvements over time. In this step, the controller
+uses only the collected data from datasheets and other reliable
+sources.
+
+By establishing a baseline and using benchmarking, organizations can
+determine if their networking equipment is performing normally or if
+it is deviating from expected performance. This is the first step in identifying and guiding necessary
+improvements. Benchmarking involves collecting performance
+measurements of networking equipment under controlled
+conditions. This process helps establish standardized performance
+metrics, allowing for comparison against baselines collected during
+regular operational conditions.
+
+The initial measurement of networking equipment's energy efficiency
+and performance, known as Baselining, should be coordinated with
+vendor specifications and industry standards to understand what is
+considered normal or optimal performance. For example, if the baseline
+indicates that your switches operate at 5 Gbps per watt, while vendor
+specifications suggest 8 Gbps per watt and the industry standard is 10
+Gbps per watt, actions should be taken to implement energy-saving
+measures and upgrades. Continuously tracking subsequent measurements can reveal if
+efficiency improves towards the benchmark of 8-10 Gbps per watt.
+
+This practice ensures that any improvements can be quantifiably
+tracked over time, providing a clear measure of the effectiveness of
+the implemented changes and guiding further enhancements in network
+sustainability.
+
+See also {{Baseline}} and {{BenchmarkingFramework}}.
 
 # Acknowledgments
 {:numbered="false"}
