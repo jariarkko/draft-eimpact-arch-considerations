@@ -401,7 +401,7 @@ accumulated without being consulted.
 This section discusses how measurements relate to the fabrication and
 usage phases and how efficiency can be measured.
 
-While power consumption is the most common sustainability metric, this document does
+While power consumption is the most commonly used sustainability metric, this document does
 not attempt to define energy metrics or modeling standards. Those topics are in
 scope for the GREEN WG (focused on operational energy) and the SUSTAIN RG (which
 addresses broader life-cycle impacts and carbon modeling). This section focuses
@@ -462,17 +462,17 @@ Sustainable efficiency can also be expressed in water used per traffic, for exam
 
 The GREEN WG is chartered to define energy consumption metrics and associated frameworks.
 The GREEN
-framework provides a foundational model for monitoring and optimizing energy consumption
+framework provides a foundational building blocks for monitoring and optimizing energy consumption
 across networked devices and components. 
 
 The SUSTAIN RG addresses broader measurement questions such as embedded emissions, raw
 materials, and life-cycle modeling. This document assumes these efforts will define
 and validate the metrics themselves. Our focus is on ensuring that Internet architecture
 enables effective collection, transport, and use of such metrics for operational decisions
-and sustainability impact reduction.
+and reduction of environmental impacts.
 
-Harmonizing these efforts will support the development of composite metrics that connect operational
-energy use with manufacturing and end-of-life considerations, establishing a coherent basis for
+Aligning these efforts will support the development of composite metrics that connect operational
+energy use along with manufacturing/end-of-life considerations in order to establish a coherent basis for
 sustainable digital infrastructure management.
 
 In order to meet the needs discussed above, the following architectural design principles are proposed.
