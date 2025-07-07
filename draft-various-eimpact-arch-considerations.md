@@ -352,6 +352,8 @@ This section presents architectural and protocol design aspects that can have an
 It is essential to understand the current state of affairs before any improvements can be made. 
 Thus, some levels of measurements are necessary for starting to improve sustainability.
 
+This draft assumes that the specific semantics of sustainability-related measurements (e.g., carbon factors, device-specific formulas) are defined elsewhere and focuses instead on enabling architectures to support measurement, collection, and use.
+
 ### Motivation
 
 Without
@@ -523,8 +525,6 @@ to be replaced by partial measurement and mathematical modeling.
 ### Motivation
 
 Where power optimization choices are made, accurate information is required to decide the right choice. Modeling instead of measurements may have to be used in some cases.
-
-This draft assumes that the specific semantics of sustainability-related measurements (e.g., carbon factors, device-specific formulas) are defined elsewhere and focuses instead on enabling architectures to support measurement, collection, and use.
 
 ### Analysis
 
