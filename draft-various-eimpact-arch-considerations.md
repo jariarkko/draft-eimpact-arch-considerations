@@ -875,10 +875,12 @@ of communications.
 
 The main questions are, however:
 
-* Is the effect of this is at a magnitude comparable to the other
-things, or if it is just absolutely tiny? Particularly considering
-that much of the traffic on the Internet is video, and much of that is
-other content than, e.g., HTTP headers. Moran et al. argued in their 2022 paper {{CBORGreener}} {{RFC9547}} that that for a weather data example from {{RFC8428}} {{RFC9193}} there are significant savings. However, this needs more research in terms of the overall impact across different examples and the general make up of Internet traffic.
+* How large are the potential remaining savings in this area, and how do they compare
+to other things? Particularly considering
+that much of the traffic on the Internet is video, 
+which is already highly optimized and constantly updated with
+better encoding methods.
+Moran et al. argued in their 2022 paper {{CBORGreener}} {{RFC9547}} that that for a weather data example from {{RFC8428}} {{RFC9193}} there are significant savings. However, this needs more research in terms of the overall impact across different examples and the general make up of Internet traffic.
 
 * At what layer is the compactness achieved? Are link, IP, or
   transport layer mechanisms that can compact some of the verbose
