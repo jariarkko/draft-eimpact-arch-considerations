@@ -556,7 +556,7 @@ resiliency are often needed, for instance through redundancy. Yet,
 there is a question on how much redundancy is needed and how quickly a
 backup or resource increase can be activated due to increased demand.
 
-Scaling can be pulled up and down by data consumption variations and more rarely by power shortage. In such situation dynamic scaling is the ability to adjust demand resources according to resources. When operating on limited backup energy sources (like batteries or generators), the architecture must support graceful adaptation before power runs out. In such situations, networks must minimize consumption to extend operational time.
+Scaling can be pulled up and down by data consumption variations and more rarely by power shortage. In such situation dynamic scaling is the ability to adjust demand resources according to resources. When operating on limited backup energy sources such as batteries or generators, the architecture must support graceful adaptation before power runs out. In such situations, networks must minimize consumption to extend operational time.
 
 ### Motivation
 
@@ -588,12 +588,14 @@ actual need at a given time, significant reductions in power consumption
 can be achieved.
 
 Whereas scaling down under normal conditions seeks to reduce consumption while maintaining full capabilities, power-constrained operations accept degraded performance or functionality. Operating in power backup mode introduces a shift in network behavior as it differs from network-driven auto scaling:
-- Network, devices and components must reduce power usage, possibly sacrificing performance, feature sets, or redundancy.
-- Each network domain (RAN, edge, and core network segments) faces its own constraints and policies in power-limited operation.
+
+* Network, devices and components must reduce power usage, possibly sacrificing performance, feature sets, or redundancy.
+
+* Each network domain (RAN, edge, and core network segments) faces its own constraints and policies in power-limited operation.
 
 ### Analysis
 
-Dynamic scaling could be seen as either an alternative or complementary to load stabilization, e.g., via "peak shaving". Perhaps the most realistic angle is that both are likely needed.
+Dynamic scaling could be seen as either an alternative or complementary to load stabilization, e.g., via "peak shaving". Perhaps the most realistic view is that both are likely needed.
 
 The most rudimentary approach to dynamic scaling is just turning some resources off. However this may not be sufficient, and a more graceful/engineered approach potentially yields better results.
 
@@ -603,7 +605,9 @@ Dynamic scaling requires an understanding of load levels for the
 network, so information collection is required. It also requires
 understanding the power, time and other costs of making changes. (See
 {{I-D.pignataro-enviro-sustainability-architecture}} for discussion of
-tradeoffs and multi-objective optimization.) Understanding the resiliency requirements for a network or a piece
+tradeoffs and multi-objective optimization.)
+
+Understanding the resiliency requirements for a network or a piece
   of equipment is also important for the optimal control of
   resiliency, e.g., as an input to decisions on how many instances of
   replicated services need to be run and where.
