@@ -363,6 +363,8 @@ It is essential to understand the current state of affairs before any improvemen
 Thus, some levels of measurements are necessary for starting to improve sustainability.
 In some cases measurements may be complemented by modeling.
 
+This draft assumes that the specific semantics of sustainability-related measurements (e.g., carbon factors, device-specific formulas) are defined elsewhere and focuses instead on enabling architectures to support measurement, collection, and use.
+
 ### Motivation
 
 Without
@@ -399,7 +401,13 @@ accumulated without being consulted.
 This section discusses how measurements relate to the fabrication and
 usage phases and how efficiency can be measured.
 
-#### Measuring impacts of fabrication and usage phases
+While power consumption is the most common sustainability metric, this document does
+not attempt to define energy metrics or modeling standards. Those topics are in
+scope for the GREEN WG (focused on operational energy) and the SUSTAIN RG (which
+addresses broader life-cycle impacts and carbon modeling). This section focuses
+on the architectural implications of enabling measurement, not metric definitions.
+
+#### Measuring impacts of fabrication phase
 
 Network infrastructure generates negative impacts principally during fabrication
 and usage phases. Measuring negative impacts related to fabrication falls
@@ -416,12 +424,12 @@ As these measurements
 and inventories are external to the network architecture, they are considered out
 of this document scope.
 
+#### Measuring impacts of usage phase
+
 Measuring negative impacts related to the usage phase falls in the scope of
 monitoring. In this phase, the most obvious sustainability-related measurement is
 power monitoring to measure the energy consumption and estimate the related negative
 impacts.
-
-#### Measuring efficiency
 
 Power (in Watts, that is, in Joule/s) or energy (in Joules) measurements alone are of meager use if the
 cause of the consumption is not measured as well. Any power/energy
@@ -429,6 +437,8 @@ measurement should occur alongside other measurements that can be used to
 determine energy efficiency. Hence a sound measurement
 architecture implies the existence of an energy efficiency
 framework of some kind.
+
+#### Measuring efficiency
 
 In the context of carbon accounting,
 emission accountants are generally looking for a metric of the
@@ -450,17 +460,22 @@ Sustainable efficiency can also be expressed in water used per traffic, for exam
 
 ### Recommendation {#measurementrecs}
 
-Ongoing work at the IETF's GREEN working group is already targeted at improving
-existing energy consumption metrics and frameworks but some further
-considerations may apply.
-While the Sustainable Internet Architecture addresses broader lifecycle aspects such as manufacturing, reuse, and recycling—essential to circular economy goals
-the GREEN framework provides a foundational model for monitoring and optimizing energy consumption across networked devices and components.
-Therefore, extending the measurements defined in the Sustainable Internet Architecture to integrate energy
-related data from the GREEN framework, such as power states, consumption patterns, and efficiency ratios will enable a more holistic approach to environmental impact assessment.
-Harmonizing these efforts will support the development of composite metrics that connect operational energy use with manufacturing and end-of-life considerations, establishing a coherent basis for sustainable digital infrastructure management.
+The GREEN WG is chartered to define energy consumption metrics and associated frameworks.
+The GREEN
+framework provides a foundational model for monitoring and optimizing energy consumption
+across networked devices and components. 
 
-In order to meet the needs discussed above, the following architectural design principles
-are proposed.
+The SUSTAIN RG addresses broader measurement questions such as embedded emissions, raw
+materials, and life-cycle modeling. This document assumes these efforts will define
+and validate the metrics themselves. Our focus is on ensuring that Internet architecture
+enables effective collection, transport, and use of such metrics for operational decisions
+and sustainability impact reduction.
+
+Harmonizing these efforts will support the development of composite metrics that connect operational
+energy use with manufacturing and end-of-life considerations, establishing a coherent basis for
+sustainable digital infrastructure management.
+
+In order to meet the needs discussed above, the following architectural design principles are proposed.
 
 #### Future Proof Metrics
 
