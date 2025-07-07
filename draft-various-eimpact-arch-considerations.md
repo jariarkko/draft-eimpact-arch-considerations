@@ -229,45 +229,86 @@ designers and network architects, where such guidelines can be given.
 
 # Introduction
 
-Environmental sustainability is an important consideration in networking. Both for
-ensuring that networking technology can enable societies to operate in
-an environmentally sustainable manner and that the networks themselves are environmentally sustainable.
+This document discusses protocol and network architecture aspects that have an
+impact on the environmental sustainability of network technology. For brevity,
+we will use the term sustainability to refer to environmental sustainability.
+We do note that sustainability as a term is widely used to refer to different
+notions of sustainability, and the most well-known larger definition of
+sustainability can be seen from the United Nations Sustainable Development
+Goals (UN SDG) [UNSDG].
 
-This document discusses protocol and network architecture aspects that
-may have an impact on the environmental sustainability of network technology. For brevity, we will use the term sustainability to refer to environmental sustainability. We do note that sustainability as a term is widely used to refer to different notions of sustainability, and the most well-known larger definition of sustainability can be seen from the United Nations Sustainable Development Goals (UN SDG) {{UNSDG}}.
+Environmental sustainability is an important consideration in society, and in
+networking, too. Networking technologies enable societies to operate in an
+environmentally sustainable manner and thereby have a positive hand print,
+yet networks themselves must be environmentally sustainable and minimise
+their negative foot print.
 
-Negative sustainability impacts like carbon emissions from networking comes from three primary categories: hardware manufacturing, direct energy usage and construction work.  The last category is out of scope of this document because networking has limited means to impact construction work
-itself.  The manufacturing of networking hardware, both for fixed and wireless networks, is a significant source of emissions, and recycling of ICT equipment is still limited.  Direct energy usage of networking and the source of the energy have been the primary concerns, but as the world moves towards greener energy production, the relative negative impacts related to manufacturing becomes more prominent.
+Fundamentally the question is about resource usage and the lifecycle of network
+equipment. The less devices are built and energy is used, the less emissions are
+created. Networks are built with hardware and these in turn use electrical energy
+to run. Eventually, the hardware is decomissioned and some amount of the materials
+are recycled.
+
+We can divide the lifecycle in three main phase (omitting shipping of products): 
+
+1. Manufacturing (including the raw material extraction and usage, the embedded chips and electronics, casing, and energy needed for these operations, etc.),
+2. Use phase that is about the operational energy use and repairing equipment, and
+3. End of life that can include both direct recycling of some of the materials, or finding a new life and usage for an old product that still functions, after which it is finally recycled.
+
+Networks are also physically built, both wired and wireless, and this construction
+work also creates emisssions. This category of emissions is out of scope of this
+document because the Internet community and network engineers have limited means
+to impact construction work itself and the associated industry, but we can impact
+how networks, protocols and hardware are designed, built and operated. 
+
+All these phases create harmful emissions, into the ground and in the air, that
+have a negative impact on our environment and people. As the type of such
+emissions vary, they are often standardised as carbon dioxide equivalent (CO2e)
+to allow comparing sources and amounts of emissions. When discussing (carbon)
+emissions in this document, we generally refer to CO2e.
+
+The manufacturing of networking hardware, both for fixed and wireless networks,
+is a significant source of emissions, and recycling of ICT equipment is still
+limited beyond the casing and some other parts. Direct energy usage of networking
+and the source of the energy have often been the primary concerns. There are many
+reports and scientific papers discussing carbon emissions of the energy used by
+ICT. As of today, and the foreseeable future, the difference in emissions of the
+electric grid between countries and regions can vary significantly. In EU, there
+are 10-fold differences between countries, and similar differences exist between
+US states. On a global level, the differences can be over 50-fold. Yet, as the
+world moves towards greener energy production, the relative negative impacts
+related to manufacturing becomes more prominent and the importance of equipment
+longevity grows.
 
 When good design and architecture can improve the sustainability of
 networks, they should certainly be applied to designing new protocols
-and building networks. Intuitively, protocol and network architecture choices can have an impact on sustainability.  At the very least the right design and architecture
+and building networks. Intuitively, protocol and network architecture choices can have an impact on sustainability. At the very least the right design and architecture
 can make it possible to have a positive impact, but of course the
-architecture alone is not enough.  The possibilities offered by the
+architecture alone is not enough. The possibilities offered by the
 architecture need to be realized by implementations and practical
 deployments.
 
 To give an example of an architectural aspect that potentially has a
 sustainability impact, enabling the collection of information (e.g.,
 energy consumption) and then using that information to make smarter
-decisions is one.  For instance, understanding power consumption of
+decisions is one. For instance, understanding power consumption of
 individual nodes can be valuable input to future purchasing decisions
-or development efforts to reduce the power consumption.  Yet, as
+or development efforts to reduce the power consumption. Yet, as
 data collection is often rather easy, we should not overdo it in such
-a way that it leads to accumulation of dark data (i.e. data that is collected and stored, but never used).  All data collection consumes processing power,
+a way that it leads to accumulation of dark data (i.e. data that is collected and stored, but never used). All data collection consumes processing power,
 network resources and storage space, and this can in turn increase the emissions
 from the network.
 
 Other architectural examples include making it possible to scale
-resources or resource selection processes performed in a
-sustainability-aware fashion. The use of communication primitives that
+resources or resource selection processes performed in
+a sustainability-aware fashion. The use of communication primitives that
 maximize utility in a given problem (e.g., using multicast) or the use of
 technologies that reduce the number or size of messages needed for a
 given task (e.g., binary encoding instead of textual) are some further
 examples.
 
 Of course, some of these aspects may have a major impact on
-sustainability, where others may only have a minor effect.  There are
+sustainability, where others may only have a minor effect. There are
 also tradeoffs, such as side-effects of architectural choices, e.g.,
 dynamic scaling of a router network potentially impacting jitter, or
 putting cellular base stations to sleep and activating them as capacity needs grow may introduce a delay in matching the needs of the data flows.
@@ -276,8 +317,7 @@ The document is intended to help engineering efforts in the IETF,
 provide operational guidance in the operator community, as well as to point to potential research directions in the IRTF.
 
 The scope of the document is advice on Internet and protocol
-architecture, such as what architecture or capabilities new protocol
-designs or features should have, what kind of operational network
+architecture, such as what architecture or capabilities new protocol designs or features should have, what kind of operational network
 architectures should be deployed, and how all of these can be designed
 to best address sustainability concerns.
 The focus of this document is to provide actionable design advice to protocol designers. This document therefore
@@ -288,8 +328,8 @@ This document is also not focused on general issues around environmental sustain
 except those that pertain to architecture or significant protocol
 features.
 
-It is to be noted that networks themselves are a service, a tool, for all the
-applications and services on the Internet. Networks connect data,
+It is to be noted that networks themselves are a service, a tool, for all the applications
+and services on the Internet. Networks connect data,
 people and services. The increase in networking and size of the
 Internet is driven by these applications and the usage. Therefore the
 emissions from networking are tied to the applications and the data
@@ -299,8 +339,7 @@ instruct application and service developers to choose what
 applications are worthwhile or how much content is sent. There are
 many forums and parties whose mission is to help these developers to
 implement more sustainable services, such as, the Green Software
-Foundation, the Green Web Foundation, Greening of Streaming, to name a
-few.
+Foundation, the Green Web Foundation, Greening of Streaming, to name a few.
 
 # Potential Architectural Aspects
 
