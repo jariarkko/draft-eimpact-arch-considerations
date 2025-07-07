@@ -919,7 +919,7 @@ processes, organizations can ensure that their data practices
 contribute to environmental goals, such as reducing carbon footprints,
 optimizing resource usage, and minimizing waste.
 
-### Analysis
+### Analysis {#analysisdatagov}
 
 Key elements of Sustainable by Design in data governance include:
 
@@ -948,6 +948,11 @@ continuously improving data management practices to enhance
 sustainability. By doing so, organizations can ensure that their data
 operations are not only effective but also environmentally
 responsible.
+
+The protocol designer aspect of data governance should include at
+least the minimization aspects from {{analysisdatagov}}, and may
+including providing mechanisms for the lifecycle management and
+transparency aspects.
 
 # Recommendations for Protocol Design {#recsdesigners}
 
