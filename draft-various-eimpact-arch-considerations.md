@@ -412,7 +412,7 @@ on the architectural implications of enabling measurement, not metric definition
 
 Network infrastructure generates negative impacts principally during fabrication
 and usage phases. Measuring negative impacts related to fabrication falls
-in the activity of lifecycle analysis (LCA). LCAs is typically realized
+in the activity of lifecycle analysis (LCA). LCAs are typically performed
 per device, either by the equipment vendor itself, or by third-party analysts. LCA
 involves modeling (see {{modeling}}). The analysis
 can be done in terms of climate change (CC) but can be extended to other criteria as
@@ -445,7 +445,7 @@ In the context of carbon accounting,
 emission accountants are generally looking for a metric of the
 delivered value per unit of carbon. In networking, the most obvious delivered value
 is number of bits sent or received (traffic), or to the communication capacity made
-available during unit of time. In both case, the unit is the bit, but the two metrics
+available during unit of time. In both cases, the unit is the bit, but the two metrics
 have very different meanings. In one case, one spends a Joule to send a bit. In the
 other case, one spends a Joule to offer a bandwidth capacity of 1 bit/s during
 a second.  The latter is important, as
@@ -629,10 +629,10 @@ Understanding the resiliency requirements for a network or a piece
   resiliency, e.g., as an input to decisions on how many instances of
   replicated services need to be run and where.
 
-Some of the strategies that are useful in implementing a well working dynamic scaling include:
+Some of the strategies that are useful in implementing effective dynamic scaling include:
 
 * Matching the currently used resources to the actual need, be it
-  about traffic demand or resiliency. One way to do this is to use of
+  about traffic demand or resiliency. One way to do this is to use 
   power-proportional underlying technologies, such as chipsets or
   transmission technologies. And where this is not sufficient, the
   ability to turn components/systems on and off is an alternative
@@ -657,7 +657,7 @@ Some of the strategies that are useful in implementing a well working dynamic sc
   the IETF {{RFC9657}} {{I-D.ietf-tvr-requirements}}
   {{I-D.ietf-tvr-schedule-yang}} {{I-D.ietf-tvr-alto-exposure}}.
 
-* Efficient propagation of changes of new routes, new set of servers, etc. as to reduce the amount of time where state is not synchronized across the network. The needs for the propagation solution needs to be driven by dynamic scaling and sustainability as well as other aspects, such as recovery from failures.
+* Efficient propagation of changes of new routes, new set of servers, etc. in order to reduce the amount of time where state is not synchronized across the network. The needs for the propagation solution needs to be driven by dynamic scaling and sustainability as well as other aspects, such as recovery from failures.
 
 * Build mechanisms to deal with dynamic changes: Plan for dynamic set of resources and not expect to work with a fixed set of resources.
 
@@ -807,7 +807,7 @@ depends on other factors, such as whether sleep modes are implemented in network
 There is a clear need for
 simulations and experiments to understand this better. This may be work
 that fits within the IRTF SUSTAIN research group. Also, new standards
-may be need if information
+may be needed if information
 sharing about the sustainability and sleep mode characteristics of
 network systems is needed for applications to make the best transport decisions.
 
@@ -846,7 +846,7 @@ advantages:
 
 * It allows the same equipment and protocols be reused in a different context in the future. e.g. A core router of today can become an edge router in a near future and an access router in the further future if the protocol implementations are adaptable.
 
-* It can reduce complexity in implementations as well as in network management that are usually indicated in highly optimized systems
+* It can reduce complexity in implementations as well as in network management that are usually inherent in highly optimized systems
 
 * It can let network equipment operate for a longer period and can reduce the frequency of hardware upgrades, in turn reducing the environmental impact associated with manufacturing, transporting, and disposing of the old/new hardware.
 
@@ -1137,7 +1137,7 @@ See also {{Baseline}} and {{BenchmarkingFramework}}.
 # Acknowledgments
 {:numbered="false"}
 
-Everyone on the author section has contributed to the document in significant ways. The author list has been ordered in (reverse) alphabethical order.
+Everyone on the author section has contributed to the document in significant ways. The author list has been ordered in (reverse) alphabetical order.
 
 Parts of this document extensively leverage ideas and text from
 {{I-D.cparsk-eimpact-sustainability-considerations}} and
