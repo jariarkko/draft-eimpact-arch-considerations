@@ -109,7 +109,9 @@ informative:
   I-D.ietf-tvr-requirements:
   I-D.ietf-tvr-schedule-yang:
   I-D.ietf-tvr-alto-exposure:
+  I-D.irtf-nmrg-green-ps:
   I-D.pignataro-enviro-sustainability-architecture:
+  I-D.pignataro-enviro-sustainability-consid:
   I-D.cparsk-eimpact-sustainability-considerations:
   NotTradeOff:
     title: "Not a Trade-Off: On the Wi-Fi Energy Efficiency of Effective Internet Congestion Control"
@@ -203,6 +205,18 @@ informative:
     title: "United Nations Sustainable Development Goals"
     date: 2017
     seriesinfo: "https://unstats.un.org/sdgs"
+  LCAandUsage:
+    title: "Carbon Topography Representation: Improving Impacts of Data Center Lifecycle"
+    date: 2025
+    author:
+      - ins: O. Weppe
+      - ins: D. Bekri
+      - ins: L. Guibert
+      - ins: L. Aubet
+      - ins: J.-C. Prévotet
+      - ins: M. Pelcat
+      - ins: S. Rumley
+    seriesinfo: "Proceedings of the 4th Workshop on Sustainable Computer Systems (HotCarbon'25)"
 
 --- abstract
 
@@ -215,15 +229,56 @@ designers and network architects, where such guidelines can be given.
 
 # Introduction
 
-Environmental sustainability is an important consideration in networking. Both for
-ensuring that networking technology can enable societies to operate in
-an environmentally sustainable manner and that the networks themselves are environmentally sustainable.
+This document discusses protocol and network architecture aspects that have an
+impact on the environmental sustainability of network technology. For brevity,
+we will use the term sustainability to refer to environmental sustainability.
+We do note that sustainability as a term is widely used to refer to different
+notions of sustainability, and the most well-known larger definition of
+sustainability can be seen from the United Nations Sustainable Development
+Goals (UN SDG) [UNSDG].
 
-This document discusses protocol and network architecture aspects that
-may have an impact on the environmental sustainability of network technology. For brevity, we will use the term sustainability to refer to environmental sustainability. We do note that sustainability as a term is widely used to refer to different notions of sustainability, and the most well-known larger definition of sustainability can be seen from the United Nations Sustainable Development Goals (UN SDG) {{UNSDG}}.
+Environmental sustainability is an important consideration in society, and in
+networking, too. Networking technologies enable societies to operate in an
+environmentally sustainable manner and thereby have a positive hand print,
+yet networks themselves must be environmentally sustainable and minimise
+their negative foot print.
 
-Sustainability impact and emissions from networking comes from three primary categories: hardware manufacturing, direct energy usage and construction work.  The last category is out of scope of this document because networking has limited means to impact construction work
-itself.  The manufacturing of networking hardware, both for fixed and wireless networks, is a significant source of emissions, and recycling of ICT equipment is still limited.  Direct energy usage of networking and the source of the energy have been the primary concerns, but as the world moves towards greener energy production, the relative negative impact of the emissions from manufacturing becomes more prominent.
+Fundamentally the question is about resource usage and the lifecycle of network
+equipment. The less devices are built and energy is used, the less emissions are
+created. Networks are built with hardware and these in turn use electrical energy
+to run. Eventually, the hardware is decomissioned and some amount of the materials
+are recycled.
+
+We can divide the lifecycle in three main phase (omitting shipping of products): 
+
+1. Manufacturing (including the raw material extraction and usage, the embedded chips and electronics, casing, and energy needed for these operations, etc.),
+2. Use phase that is about the operational energy use and repairing equipment, and
+3. End of life that can include both direct recycling of some of the materials, or finding a new life and usage for an old product that still functions, after which it is finally recycled.
+
+Networks are also physically built, both wired and wireless, and this construction
+work also creates emisssions. This category of emissions is out of scope of this
+document because the Internet community and network engineers have limited means
+to impact construction work itself and the associated industry, but we can impact
+how networks, protocols and hardware are designed, built and operated. 
+
+All these phases create harmful emissions, into the ground and in the air, that
+have a negative impact on our environment and people. As the type of such
+emissions vary, they are often standardised as carbon dioxide equivalent (CO2e)
+to allow comparing sources and amounts of emissions. When discussing (carbon)
+emissions in this document, we generally refer to CO2e.
+
+The manufacturing of networking hardware, both for fixed and wireless networks,
+is a significant source of emissions, and recycling of ICT equipment is still
+limited beyond the casing and some other parts. Direct energy usage of networking
+and the source of the energy have often been the primary concerns. There are many
+reports and scientific papers discussing carbon emissions of the energy used by
+ICT. As of today, and the foreseeable future, the difference in emissions of the
+electric grid between countries and regions can vary significantly. In EU, there
+are 10-fold differences between countries, and similar differences exist between
+US states. On a global level, the differences can be over 50-fold. Yet, as the
+world moves towards greener energy production, the relative negative impacts
+related to manufacturing becomes more prominent and the importance of equipment
+longevity grows.
 
 When good design and architecture can improve the sustainability of
 networks, they should certainly be applied to designing new protocols
@@ -294,7 +349,19 @@ This section presents architectural and protocol design aspects that can have an
 
 ## Measurement
 
-It is essential to understand the current state of affairs before any improvements can be made. i.e. Some levels of measurements are necessary for starting to improve sustainability. This is
+It is essential to understand the current state of affairs before any improvements can be made. 
+Thus, some levels of measurements are necessary for starting to improve sustainability.
+
+### Motivation
+
+Without
+measurements of any kind, it is impossible to assess if the networks
+are functioning correctly. It is impossible to know if the system is
+efficient by comparing it against a baseline model. It is also
+impossible to check that changes aiming at optimizing something are
+indeed valuable.
+
+This is
 particularly the case when looking at the systems as a whole in
 post-analysis. As discussed earlier, this level of measurements is
 useful input for further actions, such as deciding what parts of the
@@ -308,141 +375,140 @@ the shutdown period vs. the power cost of shutdown and startup procedures,
 or the possible need to reconfigure other nodes in the network due
 to the shutdown.
 
-### Motivation
-
-Measurements are a necessary mechanism for both post-analysis and
-potentially for some of the dynamic decisions taken by systems. Without
-measurements of any kind, it is impossible to assess if the networks
-are functioning correctly. It is impossible to know if the system is
-efficient by comparing it against a baseline model. It is also
-impossible to check that changes aiming at optimizing something are
-indeed valuable.
-
-For instance, while electricity providers can make information about power
-usage available, this is only done at the aggregate level. Without
-per-device data about power usage, there would be limited basis for
-deciding where power is actually consumed and consequently, what
-improvements are most useful.
-
 At the same time, it is not possible to measure
 everything. Furthermore, any measurement must be validated. Relevance
 of measurements must be periodically assessed, e.g., with comparisons between measurements within a network and the aggregate numbers from the electricity provider.
 
-Finally, measurements made in the field must be collected and organized to allow
-later retrieval.
+Finally, measurements made in the field must be collected and structured to allow
+later retrieval. And measurements are counterproductive if they are endlessly
+accumulated without being consulted.
 
 ### Analysis
 
-While power consumption is the most common sustainability metric, this draft does not attempt to define energy metrics or modeling standards. Those topics are in scope for the GREEN WG (focused on operational energy) and the SUSTAIN RG (which addresses broader life-cycle impacts and carbon modeling). This section focuses on the architectural implications of enabling measurement, not metric definitions.
+While power consumption is the most common sustainability metric, this document does
+not attempt to define energy metrics or modeling standards. Those topics are in
+scope for the GREEN WG (focused on operational energy) and the SUSTAIN RG (which
+addresses broader life-cycle impacts and carbon modeling). This section focuses
+on the architectural implications of enabling measurement, not metric definitions.
 
-Secondly, for many classes of devices the embedded carbon aspects or
-use of raw materials may be a significant sustainability issue. See
-also Section 2.2.
+#### Measuring impacts of fabrication phase
 
-Third, power or energy measurements alone are of meager use if the
+Network infrastructure generates negative impacts principally during fabrication
+and usage phases. Measuring negative impacts related to fabrication falls
+in the activity of lifecycle analysis (LCA). LCAs is typically realized
+per device, either by the equipment vendor itself, or by third-party analysts. LCA
+involves modeling (see {{modeling}}). The analysis
+can be done in terms of climate change (CC), but can be extgended to other criteria as
+abiotic resource depletion (ARD), ecotoxicity (ET) or water usage (WU).
+LCA also involves
+information systems keeping an inventory of the devices uses.
+For many classes of devices, the embedded carbon aspects or
+use of raw materials are significant sustainability issues.
+As these measurements
+and inventories are external to the network architecture, they are considered out
+of this document scope.
+
+#### Measuring impacts of usage phase
+
+Measuring negative impacts related to the usage phase falls in the scope of
+monitoring. In this phase, the most obvious sustainability-related measurement is
+power monitoring to measure the energy consumption and estimate the related negative
+impacts.
+
+Power (in Watts, that is, in Joule/s) or energy (in Joules) measurements alone are of meager use if the
 cause of the consumption is not measured as well. Any power/energy
-measurement should occur alongside other measurements that can be used to determine energy efficiency. Hence a sound measurement
-architecture implies that a prior existence of an energy efficiency
+measurement should occur alongside other measurements that can be used to
+determine energy efficiency. Hence a sound measurement
+architecture implies the existence of an energy efficiency
 framework of some kind.
 
-But when it comes to energy consumption, as noted the aggregate
-information is often typically available, and it's not particularly
-hard to measure the energy consumption of individual network devices
-either.  Still, there are a number of desirable use cases where the
-measurement situation needs to improve.
+#### Measuring efficiency
 
-#### Measuring Power Efficiency
-
-When assessing the power consumption (Scope 2) of an IT-organization,
+In the context of carbon accounting,
 emission accountants are generally looking for a metric of the
-delivered value per unit of energy.
-
-A commonly used method is to equate the delivered value with the
-number of bits sent or received, or to the communication capacity made
-available when there's a need for it. The latter is important, as
+delivered value per unit of carbon. In networking, the most obvious delivered value
+is number of bits sent or received (traffic), or to the communication capacity made
+available during unit of time. In both case, the unit is the bit, but the two metrics
+have very different meanings. In one case, one spends a Joule to send a bit. In the
+other case, one spends a Joule to offer a bandwidth capacity of 1 bit/s during
+a second.  The latter is important, as
 often communication networks have requirements to be able to send
 messages when there's a need for it, e.g., for emergency communications, not
 that those messages are always being sent.
 
-### Recommendation for Measurement-Enabled Architecture
+The measurement of efficiency is not restricted to energy. Traffic or offered
+bandwidth can be related to the carbon emitted by the device traversed by this
+traffic. This carbon should include the part associated with electricity, but
+also the part associated with fabricating the device (pro rata temporis) {{LCAandUsage}}.
+Sustainable efficiency can also be expressed in water used per traffic, for example.
 
-The GREEN WG is chartered to define energy consumption metrics and associated frameworks. The SUSTAIN RG addresses broader measurement questions such as embedded emissions, raw materials, and life-cycle modeling. This document assumes these efforts will define and validate the metrics themselves. Our focus is on ensuring that Internet architecture enables effective collection, transport, and use of such metrics for operational decisions and sustainability impact reduction.
+### Recommendation
 
-While the Sustainable Internet Architecture addresses broader lifecycle aspects such as manufacturing, reuse, and recycling—essential to circular economy goals the GREEN framework provides a foundational model for monitoring and optimizing energy consumption across networked devices and components. 
+The GREEN WG is chartered to define energy consumption metrics and associated frameworks.
+The GREEN
+framework provides a foundational model for monitoring and optimizing energy consumption
+across networked devices and components. 
 
-Therefore, extending the measurements defined in the Sustainable Internet Architecture to integrate energy related data from the GREEN framework, such as power states, consumption patterns, and efficiency ratios will enable a more holistic approach to environmental impact assessment. 
+The SUSTAIN RG addresses broader measurement questions such as embedded emissions, raw
+materials, and life-cycle modeling. This document assumes these efforts will define
+and validate the metrics themselves. Our focus is on ensuring that Internet architecture
+enables effective collection, transport, and use of such metrics for operational decisions
+and sustainability impact reduction.
 
-Ongoing work at the IETF's GREEN working group is already targeted at improving existing energy consumption metrics and frameworks but some further considerations may apply.
-
-While the Sustainable Internet Architecture addresses broader lifecycle aspects such as manufacturing, reuse, and recycling—essential to circular economy goals the GREEN framework provides a foundational model for monitoring and optimizing energy consumption across networked devices and components.
-
-Therefore, extending the measurements defined in the Sustainable Internet Architecture to integrate energy related data from the GREEN framework, such as power states, consumption patterns, and efficiency ratios will enable a more holistic approach to environmental impact assessment.
-
-Harmonizing these efforts will support the development of composite metrics that connect operational energy use with manufacturing and end-of-life considerations, establishing a coherent basis for sustainable digital infrastructure management.
+Harmonizing these efforts will support the development of composite metrics that connect operational
+energy use with manufacturing and end-of-life considerations, establishing a coherent basis for
+sustainable digital infrastructure management.
 
 In order to meet the needs discussed above, the following architectural design principles are proposed.
 
-#### Generality
+#### Future Proof Metrics
 
-We recommend that any measurement framework or sustainability-related information sharing mechanism be designed to share different types of information and not limited to a single metric such as power consumption.
+We recommend that any measurement framework or sustainability-related
+information sharing mechanism be designed to share different types of
+information and not limited to a single metric such as power consumption.
+Requirements, units, granularity and collection method specifications are
+sure to shift over time.
 
-Similarly, the granularity of data collection needs to be configurable so that the metrics collected can be as fine-grained or as aggregated as needed in order to identify potential areas of improvement.
-
-#### Collect Metrics from Existing Equipment
+#### Plug-in Architecture for Collection and Control
 
 Since the need to deliver on the use cases described is urgent, the
-industry has to accomodate the capabilities (and limitations) of existing
-equipment in the field for collecting metrics.
-
-It is recommended to have a plug-in architecture with modules that can
+industry has to accommodate the capabilities (and limitations) of existing
+equipment in the field for collecting metrics. 
+It is recommended to apply a plug-in architecture with modules that can
 work with (read from and control) devices of any kind, including
 traditional networking hardware devices, cooling systems, software
-stacks, and occasionally static datasheets.
+stacks, and occasionally static data sheets.
 
-#### Content Declaration for all Collected Metrics
+#### Data with Content Declaration
 
-A warehouse filled with data collected from diverse sources is useless
-without proper labeling.  Hence, these is a need to create metadata that describes the
-collected data.  (e.g. What are the source(s)?  What measurement units are used?
-Precision?  What is included/excluded in these numbers?)
+To make sense of the collected data, it must be possible to see exactly
+where all data is coming from, what it means, its precision and how it
+has been processed.  The metadata itself must also have a formal description.
+YANG might be suitable for modeling the metadata schema.  Keep the metadata
+attached to the dataflow it describes, so that the relation is clear even when
+components are added by other organizations at a later point in time.
 
-The metadata itself must also have a formal description.  e.g. Use YANG for
-the metadata schema.  Keep the metadata attached to the dataflow it
-describes, so that the relation is clear to each component that has
-anything to do with it, including components added by other
-organizations at a later point in time.
-
-#### Collection, Aggregation, Processing, Display, Decisions
+#### Processing Flexibility and Audit Trails
 
 The collected data passes through a pipeline from collection to
 decisions. By processing we mean steps to reshape the data to
 match further aggregation and processing steps, such as unit
 conversions, sample frequency alignment, filtering, etc.
 
-Separate these architectural roles into separate modules in
-order to enable reuse, modular development and a transparent,
-configurable pipeline.
+Separate these pipeline stages into separate modules and use
+configuration to construct the pipeline.  This gives flexibility,
+reuse and enables a full audit trail.  It is essential that every
+data processing step can be reviewed in an audit situation without
+looking at code.
 
-#### Configurable Pipeline for Reuse and Transparency
+#### Aligned with Reporting Frameworks
 
-Let the pipeline connections between the components be driven by
-configuration rather than hard coded.  This enables reconfiguration of
-the processing pipeline over time, and perhaps more importantly,
-transparency into what stages the data pass through, even without
-access to or understanding of the source code of the entire system.
-
-#### Design Together with the Users
-
-Every system should be designed involving some of its target users.
-In order for delivered metrics to be of any value, the target audience
-needs to be aware of their existence, be able to interpret them and
-understand how they can be used in their professional context.
-
-There are many target user groups for the information produced.
-Some examples are network designers/engineers, scientists, operations teams and IT-development organizations.  One critical group that is often overlooked is
-the sustainability assessment experts.  If they are not aware, don't
-understand or don't care about the produced sustainability metrics,
-the value of this work would be greatly diminished.
+Ensure that the system output is aligned with the measurement
+requirements set forth by relevant legal frameworks, e.g. ESRS
+(Europe), TCFD and IFRS (US, Japan), BRSR (India), etc. The
+responsible corporate bodies producing the corporate reports are
+unlikely to use any technical collection system that isn't well
+aligned.
 
 ## Modeling {#modeling}
 
@@ -567,6 +633,8 @@ resiliency are often needed, for instance through redundancy. Yet,
 there is a question on how much redundancy is needed and how quickly a
 backup or resource increase can be activated due to increased demand.
 
+Scaling can be pulled up and down by data consumption variations and more rarely by power shortage. In such situation dynamic scaling is the ability to adjust demand resources according to resources. When operating on limited backup energy sources (like batteries or generators), the architecture must support graceful adaptation before power runs out. In such situations, networks must minimize consumption to extend operational time.
+
 ### Motivation
 
 Outside of implementation improvements, dynamic scaling is potentially the
@@ -595,6 +663,10 @@ On the network level, most large systems have significant amount of redundancy a
 capacity. Where such capacity can be turned on or off to match the
 actual need at a given time, significant reductions in power consumption
 can be achieved.
+
+Whereas scaling down under normal conditions seeks to reduce consumption while maintaining full capabilities, power-constrained operations accept degraded performance or functionality. Operating in power backup mode introduces a shift in network behavior as it differs from network-driven auto scaling:
+- Network, devices and components must reduce power usage, possibly sacrificing performance, feature sets, or redundancy.
+- Each network domain (RAN, edge, and core network segments) faces its own constraints and policies in power-limited operation.
 
 ### Analysis
 
@@ -678,6 +750,8 @@ future, given for instance the increased importance of the tasks
 supported by networks or the potentially increasing frequency of
 natural disasters as a result of global warming.
 
+Scaling steps during power shortage differ from network dynamic scaling and depend on the network domain and the events: grid outages, deployment in remote or mobile environments, extreme weather events, or any sort of enforced reductions in power usage like monththly battery testing. Nevertheless there is a gain to have a common dynamic scaling approach that includes network-driven scaling and power-shortage scaling.
+
 ## Transport {#transport}
 
 Transport protocols make it possible for
@@ -686,8 +760,7 @@ dynamic conditions that exist in the network at any given time:
 available bandwidth, delays, congestion, the ability of a peer to send
 or receive traffic, and so on. Depending on the conditions, an
 individual flow may carry traffic at widely different rates, may pause
-for some time, etc. Various higher-level transport solutions may also
-cache or pre-fetch information.
+for some time, etc.
 
 This behavior has an effect on sustainability---e.g., in
 what periods the endpoint and network systems are active or when they
@@ -707,12 +780,32 @@ involved systems have power proportionality.
 
 ### Analysis
 
+Various higher-level transport solutions may also
+cache or pre-fetch information. For instance, {{I-D.irtf-nmrg-green-ps}} 
+lifts CDNs as one example of technology that has reduced energy consumption, by
+moving the needed endpoints closer to each other.
+
+On a given set of endpoints, application behavior can impact environmental costs.
+For instance, {{I-D.pignataro-enviro-sustainability-consid}} observes the effect of protocol
+chattiness. Does the protocol rely on periodic updates or heartbeat messages? Could such message 
+patterns result in preventing links or nodes from going to sleep (absent other communications), 
+and in such a case, would an alternative pattern be feasible?
+
+Transport layer protocol behaviour also has an impact.
 A critical issue is the tradeoff involved in sending traffic. As
 argued in {{NotTradeOff}}, reducing
 the amount of time the endpoints and the network are active can
 sometimes help save energy. As a result, in general, delivering information as rapidly as possible would appear to be desirable.
 
-On the other hand, bandwidth-intensive applications can influence
+On the other hand, would such as rapid transmission impact peak
+traffic, and as such, contribute to a need to dimension
+networks for higher traffic volumes? And in this case the need
+could be only a perceived one as a less rapid transmission would
+not have impacted, for instance, a user's ability to view a video
+if the transmission was merely for the buffering of the rest of
+the video.
+
+Furthermore, bandwidth-intensive applications can influence
 other applications or users by presenting a significant load on the
 network, and consequently reducing capacity available for others, or
 increasing buffering (and with it, latency) across the network
@@ -736,10 +829,12 @@ strategically good moment within a longer time interval; this would
 give network equipment an opportunity to enter a sleep state in the
 remaining time period within the interval.
 
-Perhaps transport protocols should, in the future,
+A hypothesis could be made that transport protocols should
 take energy into account in addition to the many other inputs they decide upon. For example, it is possible that a non-urgent data transfer would send as much as possible as soon as possible when
 at least one of the links along the path is known to be power proportional (e.g., a cellular link), while tracking buffer
-growth from transmission delays to scale back if delay should occur. Such ideas remain to be confirmed with experiments, however.
+growth from transmission delays to scale back if delay should occur. 
+
+Such ideas remain to be confirmed with experiments, however.
 
 Similarly, caching and pre-fetching designs need to take into account
 not only the likelihood of having acquired the right content in memory,
@@ -754,9 +849,19 @@ information available to the endpoints would be useful.
 
 ### Recommendation
 
-The techniques described above have been based on theoretical analysis. There is a need for
-further simulations and experiments to confirm what strategies would
-provide the best end-user and energy performance. This may be work
+As can be seen from the above, there are a number complex tradeoffs merely for transport
+protocol behavior on a given connection.
+
+This prompts us to give two types of advice. The first type of advice is for protocol designers: 
+simple models are unlikely to guarantee optimal results, but as long as 
+normal precautions such as congestion control, monitoring queue build-up, and avoiding
+unnecessary messages are employed, systems will operate reasonably well. 
+
+The second type of advice is for further work in the research community to better understand
+what strategies would actually provide the best end-user and energy performance, and whether the choice of strategy
+depends on other factors, such as whether sleep modes are implemented in network nodes.
+There is a clear need for
+simulations and experiments to understand this better. This may be work
 that fits within the IRTF SUSTAIN research group.
 
 ## Equipment Longevity {#longevity}
@@ -810,13 +915,14 @@ On the other hand, it is very much possible that there could be new equipment av
 
 The guidelines above should be considered for any new system design. If some aspect of protocol or network equipment design choice could be made more generic and flexible without a significant performance and sustainability impact, it needs to be studied in further detail. Specifically, the potential additional sustainability costs due to forgoing optimization need to be weighed against the potential savings in embedded carbon and raw material costs brought about by premature upgrades. There are also cases where equipment upgrades are done to provide better peak performance characteristics (e.g. higher advertised speeds towards consumers) and these need to be viewed as well with the same tradeoffs in mind. Also, when newer more sustainable equipment is available there needs to be a cost benefit analysis made to decide whether to keep current equipment running for longer or upgrade to realize the benefits of newer equipment even though it incurs new embedded costs. Finally, when designing networks it is recommended to consider whether it is possible to reuse retiring equipment in a different location or for a different function (e.g. move it to lower traffic geographies, core routers become edge/access routers etc.)
 
-## Compact encoding {#encoding}
+## Encoding {#encoding}
 
 This is about considering the effects encoding methods on sustainability, such as the use of binary encodings instead of text.
 
 ### Motivation
 
-Better encoding can obviously reduce the length of messages sent. It
+Better encoding can obviously reduce the length of messages sent, or
+reduce the amount of computing required for the encoding and decoding operations. It
 remains a question mark how big overall impact this is, however. It
 should only be performed if it gives a measurable overall impact.
 
@@ -837,8 +943,8 @@ other content than, e.g., HTTP headers. Moran et al. argued in their 2022 paper 
   messaging useful, or should each protocol have optimal
   compacting?
 
-* Tradeoffs related to compressing (particularly if AI-based
-  computationally expensive methods are used).
+* Tradeoffs related to compute required to do encoding and decoding operations. These can be relatively heave operations, particularly if compressiomn is performed, particularly if AI-based
+  computationally expensive methods are used.
 
 ### Recommendation
 
@@ -849,6 +955,8 @@ Of course, new protocols can generally be designed to work with
 compact encoding, unless there is a significant reason not to. But
 efforts to modify existing protocols for the sake of encoding
 efficiency should be further investigated by the above mentioned quantification results.
+
+One particular area of interest is the impact of AI-based compression methods and their computational and energy costs vs. the achieved savings in communication efficiencies.
 
 ## Sustainable by Design: Data Governance Perspective {#bydesign}
 
