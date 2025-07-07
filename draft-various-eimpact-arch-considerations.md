@@ -949,10 +949,10 @@ sustainability. By doing so, organizations can ensure that their data
 operations are not only effective but also environmentally
 responsible.
 
-The protocol designer aspect of data governance should include at
-least the minimization aspects from {{analysisdatagov}}, and may
-including providing mechanisms for the lifecycle management and
-transparency aspects.
+There is a protocol designer angle in this as well. Protocol designers
+should consider at least the data minimization aspects from
+{{analysisdatagov}}, and may additionally consider providing
+mechanisms for the lifecycle management and transparency aspects.
 
 # Recommendations for Protocol Design {#recsdesigners}
 
