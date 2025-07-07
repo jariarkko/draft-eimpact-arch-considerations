@@ -295,7 +295,7 @@ decisions is one.  For instance, understanding power consumption of
 individual nodes can be valuable input to future purchasing decisions
 or development efforts to reduce the power consumption.  Yet, as
 data collection is often rather easy, we should not overdo it in such
-a way that it leads to accumulation of dark data (i.e. data that is collected and stored, but never used). All data collection consumes processing power,
+a way that it leads to accumulation of dark data (i.e. data that is collected and stored, but never used).  All data collection consumes processing power,
 network resources and storage space, and this can in turn increase the emissions
 from the network.
 
