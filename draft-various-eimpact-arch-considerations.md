@@ -388,8 +388,9 @@ the shutdown period vs. the power cost of shutdown and startup procedures,
 or the possible need to reconfigure other nodes in the network due
 to the shutdown.
 
-At the same time, it is not possible to measure
-everything. Furthermore, any measurement must be validated. Relevance
+At the same time, it is not possible (or even desirable) to measure
+everything. Excessive measurement collection without clear objectives can have a negative impact by itself and some considerations in this regard can be found in {{bydesign}}
+Furthermore, any measurement must be validated. Relevance
 of measurements must be periodically assessed, e.g., with comparisons between measurements within a network and the aggregate numbers from the electricity provider.
 
 Finally, measurements made in the field must be collected and structured to allow
