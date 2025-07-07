@@ -229,15 +229,56 @@ designers and network architects, where such guidelines can be given.
 
 # Introduction
 
-Environmental sustainability is an important consideration in networking. Both for
-ensuring that networking technology can enable societies to operate in
-an environmentally sustainable manner and that the networks themselves are environmentally sustainable.
+This document discusses protocol and network architecture aspects that have an
+impact on the environmental sustainability of network technology. For brevity,
+we will use the term sustainability to refer to environmental sustainability.
+We do note that sustainability as a term is widely used to refer to different
+notions of sustainability, and the most well-known larger definition of
+sustainability can be seen from the United Nations Sustainable Development
+Goals (UN SDG) [UNSDG].
 
-This document discusses protocol and network architecture aspects that
-may have an impact on the environmental sustainability of network technology. For brevity, we will use the term sustainability to refer to environmental sustainability. We do note that sustainability as a term is widely used to refer to different notions of sustainability, and the most well-known larger definition of sustainability can be seen from the United Nations Sustainable Development Goals (UN SDG) {{UNSDG}}.
+Environmental sustainability is an important consideration in society, and in
+networking, too. Networking technologies enable societies to operate in an
+environmentally sustainable manner and thereby have a positive hand print,
+yet networks themselves must be environmentally sustainable and minimise
+their negative foot print.
 
-Negative sustainability impacts like carbon emissions from networking comes from three primary categories: hardware manufacturing, direct energy usage and construction work.  The last category is out of scope of this document because networking has limited means to impact construction work
-itself.  The manufacturing of networking hardware, both for fixed and wireless networks, is a significant source of emissions, and recycling of ICT equipment is still limited.  Direct energy usage of networking and the source of the energy have been the primary concerns, but as the world moves towards greener energy production, the relative negative impacts related to manufacturing becomes more prominent.
+Fundamentally the question is about resource usage and the lifecycle of network
+equipment. The less devices are built and energy is used, the less emissions are
+created. Networks are built with hardware and these in turn use electrical energy
+to run. Eventually, the hardware is decomissioned and some amount of the materials
+are recycled.
+
+We can divide the lifecycle in three main phase (omitting shipping of products): 
+
+1. Manufacturing (including the raw material extraction and usage, the embedded chips and electronics, casing, and energy needed for these operations, etc.),
+2. Use phase that is about the operational energy use and repairing equipment, and
+3. End of life that can include both direct recycling of some of the materials, or finding a new life and usage for an old product that still functions, after which it is finally recycled.
+
+Networks are also physically built, both wired and wireless, and this construction
+work also creates emisssions. This category of emissions is out of scope of this
+document because the Internet community and network engineers have limited means
+to impact construction work itself and the associated industry, but we can impact
+how networks, protocols and hardware are designed, built and operated. 
+
+All these phases create harmful emissions, into the ground and in the air, that
+have a negative impact on our environment and people. As the type of such
+emissions vary, they are often standardised as carbon dioxide equivalent (CO2e)
+to allow comparing sources and amounts of emissions. When discussing (carbon)
+emissions in this document, we generally refer to CO2e.
+
+The manufacturing of networking hardware, both for fixed and wireless networks,
+is a significant source of emissions, and recycling of ICT equipment is still
+limited beyond the casing and some other parts. Direct energy usage of networking
+and the source of the energy have often been the primary concerns. There are many
+reports and scientific papers discussing carbon emissions of the energy used by
+ICT. As of today, and the foreseeable future, the difference in emissions of the
+electric grid between countries and regions can vary significantly. In EU, there
+are 10-fold differences between countries, and similar differences exist between
+US states. On a global level, the differences can be over 50-fold. Yet, as the
+world moves towards greener energy production, the relative negative impacts
+related to manufacturing becomes more prominent and the importance of equipment
+longevity grows.
 
 When good design and architecture can improve the sustainability of
 networks, they should certainly be applied to designing new protocols
