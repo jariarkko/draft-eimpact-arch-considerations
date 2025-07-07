@@ -360,6 +360,7 @@ further concrete recommendations for the designers.
 
 It is essential to understand the current state of affairs before any improvements can be made. 
 Thus, some levels of measurements are necessary for starting to improve sustainability.
+In some cases measurements may be complemented by modeling.
 
 ### Motivation
 
@@ -372,7 +373,7 @@ indeed valuable.
 
 This is
 particularly the case when looking at the systems as a whole in
-post-analysis. As discussed earlier, this level of measurements is
+post-analysis. As discussed earlier, some level of measurements is
 useful input for further actions, such as deciding what parts of the
 network need to be targeted for further improvement.
 
@@ -393,6 +394,9 @@ later retrieval. And measurements are counterproductive if they are endlessly
 accumulated without being consulted.
 
 ### Analysis
+
+This section discusses how measurements relate to the fabrication and
+usage phases and how efficiency can be measured.
 
 #### Measuring impacts of fabrication and usage phases
 
@@ -434,8 +438,8 @@ have very different meanings. In one case, one spends a Joule to send a bit. In 
 other case, one spends a Joule to offer a bandwidth capacity of 1 bit/s during
 a second.  The latter is important, as
 often communication networks have requirements to be able to send
-messages when there's a need for it, e.g., for emergency communications, not
-that those messages are always being sent.
+messages when there's a need for it, e.g., for emergency communications, 
+even when those messages may not always be sent.
 
 The measurement of efficiency is not restricted to energy. Traffic or offered
 bandwidth can be related to the carbon emitted by the device traversed by this
