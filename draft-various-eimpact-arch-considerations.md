@@ -344,13 +344,13 @@ Foundation, the Green Web Foundation, Greening of Streaming, to name a
 few.
 
 The next two sections present architectural and protocol design aspects that can have an impact on the sustainability of networking. 
-{{understanding}} discusses that foundations that
+{{understanding}} discusses those foundations that
 are required to prepare for sustainability improvements, and
-{{actions}} discusses actions that can be taken to make improvements.
+{{actions}} discusses actions that can be taken to make the actual improvements.
 For each topic in these sections, we provide an overview, the motivation for why it would be important to consider for more sustainable networking, an analysis and recommendations for future networking professionals.
 
 Recommendations for protocol designers are discussed throughout the
-document, but {{recsdesigners}} summarizes them. Finally,
+document and summarized in {{recsdesigners}}. Finally,
 {{recsfurtherwork}} discusses further work that is needed to make
 further concrete recommendations for the designers.
 
