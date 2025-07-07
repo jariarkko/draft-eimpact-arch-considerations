@@ -346,8 +346,13 @@ few.
 The next two sections present architectural and protocol design aspects that can have an impact on the sustainability of networking. 
 {{understanding}} discusses that foundations that
 are required to prepare for sustainability improvements, and
-{{actions} discusses actions that can be taken to make improvements.
+{{actions}} discusses actions that can be taken to make improvements.
 For each topic in these sections, we provide an overview, the motivation for why it would be important to consider for more sustainable networking, an analysis and recommendations for future networking professionals.
+
+Recommendations for protocol designers are discussed throughout the
+document, but {{recsdesigners}} summarizes them. Finally,
+{{recsfurtherwork}} discusses further work that is needed to make
+further concrete recommendations for the designers.
 
 # Understanding {#understanding}
 
@@ -438,7 +443,7 @@ traffic. This carbon should include the part associated with electricity, but
 also the part associated with fabricating the device (pro rata temporis) {{LCAandUsage}}.
 Sustainable efficiency can also be expressed in water used per traffic, for example.
 
-### Recommendation
+### Recommendation {#measurementrecs}
 
 Ongoing work at the IETF's GREEN working group is already targeted at improving
 existing energy consumption metrics and frameworks but some further
@@ -730,7 +735,7 @@ Some of the strategies that are useful in implementing a well working dynamic sc
   resource usage for SRv6 could be more than 70% lower than that of
   the SPF-based forwarding, depending on the network topology.
 
-### Recommendation
+### Recommendation {#recsdynscaling}
 
 The guidelines above need to be considered specifically for each
 protocol and system design. Further work in detailing this guidance
@@ -838,7 +843,7 @@ pattern enables power savings through sleep modes, would be beneficial
 for the communicating endpoints. Mechanisms for making such
 information available to the endpoints would be useful.
 
-### Recommendation
+### Recommendation {#recstransport}
 
 As can be seen from the above, there are a number complex tradeoffs merely for transport
 protocol behavior on a given connection.
@@ -902,7 +907,7 @@ Another aspect that can play an important role in extending the longevity of equ
 
 On the other hand, it is very much possible that there could be new equipment available that is significantly more sustainable in its operation. The longevity of the existing equipment and the amortization of its embedded sustainability costs, needs to be balanced against the potential operational savings to be realized by upgrading to newer equipment over the intended lifecycle of the newer equipment.
 
-### Recommendation
+### Recommendation {#recslongevity}
 
 The guidelines above should be considered for any new system design. If some aspect of protocol or network equipment design choice could be made more generic and flexible without a significant performance and sustainability impact, it needs to be studied in further detail. Specifically, the potential additional sustainability costs due to forgoing optimization need to be weighed against the potential savings in embedded carbon and raw material costs brought about by premature upgrades. There are also cases where equipment upgrades are done to provide better peak performance characteristics (e.g. higher advertised speeds towards consumers) and these need to be viewed as well with the same tradeoffs in mind. Also, when newer more sustainable equipment is available there needs to be a cost benefit analysis made to decide whether to keep current equipment running for longer or upgrade to realize the benefits of newer equipment even though it incurs new embedded costs. Finally, when designing networks it is recommended to consider whether it is possible to reuse retiring equipment in a different location or for a different function (e.g. move it to lower traffic geographies, core routers become edge/access routers etc.)
 
@@ -937,7 +942,7 @@ other content than, e.g., HTTP headers. Moran et al. argued in their 2022 paper 
 * Tradeoffs related to compute required to do encoding and decoding operations. These can be relatively heave operations, particularly if compressiomn is performed, particularly if AI-based
   computationally expensive methods are used.
 
-### Recommendation
+### Recommendation {#recsencoding}
 
 More research is needed to quantify the likely sources of measurable
 impacts.
@@ -986,7 +991,7 @@ Key elements of Sustainable by Design in data governance include:
   policies that promote transparency in data usage and accountability
   for sustainability objectives.
 
-### Recommendation
+### Recommendation {#recsdatagov}
 
 Organizations should adopt data governance frameworks that incorporate
 sustainability as a core principle. This includes setting clear
@@ -996,30 +1001,69 @@ sustainability. By doing so, organizations can ensure that their data
 operations are not only effective but also environmentally
 responsible.
 
-# Recommendations for Further Work and Research
+# Recommendations to Use In Protocol Design {#recsdesigners}
 
-Dynamic scaling, i.e., the ability to respond to demand variations and
-resiliency requirements while optimizing energy consumption clearly
-has significant potential for savings. Past and ongoing work in
-various systems and protocols has looked at this, of course, but we
+The recommendations that can be applied by protocol designers and
+architects have been listed in {{understanding}} and
+{{actions}}. Specifically:
+
+* Measurement and modelling are a necessary foundation to understand
+  where environmental impacts are generated, and to quantify any
+  improvements.
+  The recommendations related to this topic were listed in
+  {{measurementrecs}}. These are primarily about ensuring that the
+  measurement frameworks are generic enough to support data collection
+  for an evolving set of metrics.
+
+* Dynamic scaling is the ability to respond to demand variations and
+   resiliency requirements while optimizing energy consumption clearly
+   has significant potential for savings. Recommendations related to
+   this were listed in
+  {{recsdynscaling}}. These are about some basic techniques for being
+  able to scale systems up and down while avoiding negative effects
+  from these operations.
+  
+* Transport-related recommendations were listed in
+  {{transport}}. These are about tradeoffs associated with different
+  transport strategies.
+
+* Longevity-related recommendations were listed in {{recslongevity}}.
+   These are primarily about how equipment can fulfill evolving roles
+   over its lifetimew.
+
+* Encoding-related recommendations were listed in
+  {{recsencoding}}. These are about the effects of encoding size in
+  protocols, and the associated compression computing impacts.
+
+* Data governance-related recommendations were listed in
+  {{recsdatagov}}. These are primarily about ensuring the right amount
+  of data is collected, stored, and processed, in view of the effort
+  required to do so.
+
+# Recommendations for Further Work and Research {#recsfurtherwork}
+
+There are several areas where concrete advice for protocol designers
+could not be given, or additional advice would be useful but we do not
+understand the situation well enough to give a practical advice.
+
+These include:
+
+* Past and ongoing work in
+various systems and protocols has looked at dynamic scaling extensively, but we
 believe work also remains. Any large scale system likely benefits from
-further analysis, unless already ongoing. Guidance in {dynscale}
+further analysis, unless already ongoing. Guidance in {{dynscale}}
 simple, and further work in detailing this guidance would also be useful.
 
-Transport-related optimizations (see {transport}) that enable devices to consume less
+* Transport-related optimizations (see {{transport}}) that enable devices to consume less
 power by sleeping more appear to have potential for significant
 savings, but confirming this requires further research. Such research
 could be performed in the context of the recently chartered SUSTAIN
 research group.
 
-More research is needed to quantify the likely sources of measurable
+* More research is needed to quantify the likely sources of measurable
 impacts when it comes to efficient protocol message encoding discussed
-in {encoding}. Again, this is work that the research group could take
+in {{encoding}}. Again, this is work that the research group could take
 on.
-
-TBD
-
-...
 
 # Security Considerations
 
