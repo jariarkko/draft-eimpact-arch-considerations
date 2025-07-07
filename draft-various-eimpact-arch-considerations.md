@@ -999,7 +999,7 @@ architects have been listed in {{understanding}} and
 
 There are several areas where concrete advice for protocol designers
 could not be given, or additional advice would be useful, but we do not
-understand the situation well enough to give a practical advice.
+understand the situation well enough to give practical advice.
 
 These include:
 
@@ -1017,7 +1017,9 @@ research group.
 
 * More research is needed to quantify the likely sources of measurable
 impacts when it comes to efficient protocol message encoding discussed
-in {{encoding}}. Again, this is work that the research group could take
+in {{encoding}}. Also, the tradeoffs involving the use AI-based
+compression
+methods deserve further study. Again, these are topics that the research group could take
 on.
 
 # Security Considerations
