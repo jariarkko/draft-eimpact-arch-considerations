@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-06T01:24:09.553129+00:00",
+  "timestamp": "2025-07-08T01:17:58.954725+00:00",
   "repo": "jariarkko/draft-eimpact-arch-considerations",
   "labels": [
     {
@@ -71,15 +71,15 @@
       "id": "I_kwDON5aSb869syBk",
       "title": "moving part 1 of PR#11 Power Backup in dynamic scaling section",
       "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/issues/22",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "emile22",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "moving part1\n\n",
       "createdAt": "2025-06-27T12:18:35Z",
-      "updatedAt": "2025-06-27T12:31:43Z",
-      "closedAt": null,
+      "updatedAt": "2025-07-07T08:53:20Z",
+      "closedAt": "2025-07-07T08:53:20Z",
       "comments": []
     },
     {
@@ -87,15 +87,15 @@
       "id": "I_kwDON5aSb869tu9v",
       "title": "moving part 2 of PR#11 Power Backup in dynamic scaling section",
       "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/issues/23",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "emile22",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "moving part 2 of PR#11 Power Backup in dynamic scaling section",
       "createdAt": "2025-06-27T13:40:21Z",
-      "updatedAt": "2025-06-27T13:40:21Z",
-      "closedAt": null,
+      "updatedAt": "2025-07-07T08:53:21Z",
+      "closedAt": "2025-07-07T08:53:21Z",
       "comments": []
     },
     {
@@ -103,15 +103,15 @@
       "id": "I_kwDON5aSb869tvQf",
       "title": "moving part 3 of PR#11 Power Backup in dynamic scaling section",
       "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/issues/24",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "emile22",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "moving part 3 of PR#11 Power Backup in dynamic scaling section",
       "createdAt": "2025-06-27T13:40:41Z",
-      "updatedAt": "2025-06-27T13:40:41Z",
-      "closedAt": null,
+      "updatedAt": "2025-07-07T08:53:21Z",
+      "closedAt": "2025-07-07T08:53:21Z",
       "comments": []
     },
     {
@@ -119,15 +119,15 @@
       "id": "I_kwDON5aSb869uiud",
       "title": "tws remaining",
       "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/issues/26",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "emile22",
-      "authorAssociation": "CONTRIBUTOR",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "tws remaining",
       "createdAt": "2025-06-27T14:46:17Z",
-      "updatedAt": "2025-06-27T14:46:17Z",
-      "closedAt": null,
+      "updatedAt": "2025-07-07T13:08:33Z",
+      "closedAt": "2025-07-07T13:08:33Z",
       "comments": []
     }
   ],
@@ -870,24 +870,26 @@
       "id": "PR_kwDON5aSb86bRf5Z",
       "title": "action from interim meeting June 12th",
       "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/15",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "marisolpalmero",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-06-19T14:42:08Z",
-      "updatedAt": "2025-07-03T06:42:39Z",
+      "updatedAt": "2025-07-07T21:48:20Z",
       "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
       "baseRefName": "main",
-      "baseRefOid": "a55b3307158bb4b205cd9b3be8ba93dc9739b534",
+      "baseRefOid": "2346b500ca64590b5984e1a96cb947cb192f9ca6",
       "headRepository": "marisolpalmero/draft-eimpact-arch-considerations",
       "headRefName": "main",
-      "headRefOid": "ecbf0f1e30d66d8fb253358c9cfe7ca09698e132",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "c2db392f73b9116af5e5935797f27c1646d0e568",
+      "closedAt": "2025-07-07T21:48:20Z",
+      "mergedAt": "2025-07-07T21:48:20Z",
+      "mergedBy": "sureshkrishnan",
+      "mergeCommit": {
+        "oid": "d20949bfb328781142437f0f86c904cd3e7b162d"
+      },
       "comments": [
         {
           "author": "jariarkko",
@@ -895,6 +897,34 @@
           "body": "Tentatively looks good. Marisol to make an update for the next week, there seems to be some merge issue. Also Suresh to provide some comments to Marisol.",
           "createdAt": "2025-06-19T16:01:43Z",
           "updatedAt": "2025-06-19T16:01:43Z"
+        },
+        {
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "body": "THere's some merge conflicts to current document. Need to look at what to do.",
+          "createdAt": "2025-07-07T09:36:18Z",
+          "updatedAt": "2025-07-07T09:36:18Z"
+        },
+        {
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "body": "This one was difficult to merge, with parallel edits going on while this PR was waiting to be applied. \r\n\r\nI integrated and reduced text quite a bit. Please see the current change. \r\n\r\nI think it should be ready for merge now. Marisol, Suresh, any objections.\r\n",
+          "createdAt": "2025-07-07T13:04:42Z",
+          "updatedAt": "2025-07-07T13:04:42Z"
+        },
+        {
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "body": "There were some additional merge conflicts, due to Jari's other parallel edits (a spell/grammar check). These have now been also resolved.",
+          "createdAt": "2025-07-07T19:13:32Z",
+          "updatedAt": "2025-07-07T19:13:32Z"
+        },
+        {
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "body": "Yet another merge conflict arose. Fixed that too.",
+          "createdAt": "2025-07-07T20:40:52Z",
+          "updatedAt": "2025-07-07T20:40:52Z"
         }
       ],
       "reviews": [
@@ -1162,24 +1192,26 @@
       "id": "PR_kwDON5aSb86cb_DK",
       "title": "text for part 1 of power shortage in dynamic scaling",
       "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/25",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "emile22",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "fixes #22\r\n\r\n of power shortage in dynamic scaling",
       "createdAt": "2025-06-27T14:26:28Z",
-      "updatedAt": "2025-07-03T15:50:17Z",
+      "updatedAt": "2025-07-07T08:53:20Z",
       "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
       "baseRefName": "main",
       "baseRefOid": "a61534b5f1aec7ddcc519a890163a8381566b2c4",
       "headRepository": "emile22/draft-eimpact-arch-considerations",
       "headRefName": "emile-power-shortage",
       "headRefOid": "9d7e6d457419626077b0714dbc3a214b36a1e2e7",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-07-07T08:53:20Z",
+      "mergedAt": "2025-07-07T08:53:20Z",
+      "mergedBy": "jariarkko",
+      "mergeCommit": {
+        "oid": "83c1acd8225d28ef1fbcee83f91d408fba435150"
+      },
       "comments": [
         {
           "author": "emile22",
@@ -1201,6 +1233,19 @@
           "body": "Now I am a bit confused because this is the same edits as in #27, modulo the whitespace ones\u2026 still all good, but which one should we take, Emile?",
           "createdAt": "2025-07-03T06:36:02Z",
           "updatedAt": "2025-07-03T06:36:02Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDON5aSb86yYt7Y",
+          "commit": {
+            "abbreviatedOid": "9d7e6d4"
+          },
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "Looks good!",
+          "createdAt": "2025-07-07T08:52:59Z",
+          "updatedAt": "2025-07-07T08:52:59Z",
           "comments": []
         }
       ]
@@ -1252,6 +1297,77 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 28,
+      "id": "PR_kwDON5aSb86duAnO",
+      "title": "Update introduction per Jukka's wording",
+      "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/28",
+      "state": "MERGED",
+      "author": "jariarkko",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-07-07T09:30:36Z",
+      "updatedAt": "2025-07-07T09:43:49Z",
+      "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "baseRefName": "main",
+      "baseRefOid": "83c1acd8225d28ef1fbcee83f91d408fba435150",
+      "headRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "headRefName": "jariarkko-patch-3",
+      "headRefOid": "4080c3a85ddb26a2534efa4f3d22b6c6d44a9f95",
+      "closedAt": "2025-07-07T09:43:49Z",
+      "mergedAt": "2025-07-07T09:43:49Z",
+      "mergedBy": "jariarkko",
+      "mergeCommit": {
+        "oid": "530273494620ffc20c76215505975f356d8a896d"
+      },
+      "comments": [
+        {
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "body": "This PR was created per Jukka's email. I incorporated my suggested nit change. There's a bit of formatting/line break changes as well, though I tried to follow the same line break as in the previous version... you should be able to see what the actual changes are though.",
+          "createdAt": "2025-07-07T09:32:17Z",
+          "updatedAt": "2025-07-07T09:32:17Z"
+        },
+        {
+          "author": "jariarkko",
+          "authorAssociation": "OWNER",
+          "body": "Only the actual changes from Jukka are now included, line break stuff was fixed.",
+          "createdAt": "2025-07-07T09:43:26Z",
+          "updatedAt": "2025-07-07T09:43:26Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 29,
+      "id": "PR_kwDON5aSb86d0Wqh",
+      "title": "Changes to Introduction text",
+      "url": "https://github.com/jariarkko/draft-eimpact-arch-considerations/pull/29",
+      "state": "MERGED",
+      "author": "sureshkrishnan",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-07-07T19:58:26Z",
+      "updatedAt": "2025-07-07T19:59:10Z",
+      "baseRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "baseRefName": "main",
+      "baseRefOid": "dc7d2cb2082b510ba06d4c114c4cd5116c61dcc3",
+      "headRepository": "jariarkko/draft-eimpact-arch-considerations",
+      "headRefName": "sureshkrishnan-patch-4",
+      "headRefOid": "54d4386736d30979a1057bb5b02e6d3f1b389717",
+      "closedAt": "2025-07-07T19:59:10Z",
+      "mergedAt": "2025-07-07T19:59:10Z",
+      "mergedBy": "sureshkrishnan",
+      "mergeCommit": {
+        "oid": "71d21655f7d08fc7abfc0b698eccf2bc322ce134"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
