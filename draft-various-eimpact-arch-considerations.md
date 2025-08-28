@@ -57,7 +57,10 @@ author:
  -
     fullname: Carlos Pignataro
     organization: Blue Fern Consulting
-    email: cpignata@gmail.com
+    email:
+     - carlos@bluefern.consulting
+     - cpignata@gmail.com
+    uri: https://bluefern.consulting
 
  -
     fullname: Marisol Palmero
@@ -112,6 +115,7 @@ informative:
   I-D.irtf-nmrg-green-ps:
   I-D.pignataro-enviro-sustainability-architecture:
   I-D.pignataro-enviro-sustainability-consid:
+  I-D.pignataro-green-enviro-sust-terminology:
   I-D.cparsk-eimpact-sustainability-considerations:
   NotTradeOff:
     title: "Not a Trade-Off: On the Wi-Fi Energy Efficiency of Effective Internet Congestion Control"
@@ -221,21 +225,27 @@ informative:
 --- abstract
 
 This document discusses protocol and network architecture aspects that
-may have an impact on the sustainability of network technology. The
-focus is on providing guidelines that can be helpful for protocol
-designers and network architects, where such guidelines can be given.
+may have an impact on the sustainability of network technology.
+The focus is on offering actionable guidelines for protocol designers and
+network architects, wherever such guidance is possible.
 
 --- middle
 
 # Introduction
 
-This document discusses protocol and network architecture aspects that can have an
-impact on the environmental sustainability of network technology. For brevity,
-we will use the term sustainability in this document to refer to environmental sustainability.
+This document discusses protocol and network architectural aspects that can have an
+impact on the environmental sustainability of internetworking technology.
+
+For brevity,
+we will use the term "sustainability" in this document to always refer to
+environmental sustainability.
 We do note that sustainability as a term is widely used to refer to different
 notions of sustainability, and the most well-known larger definition of
 sustainability can be seen from the United Nations Sustainable Development
-Goals (UN SDG) [UNSDG].
+Goals (UN SDG) [UNSDG]. It is recommended to be familiar with the terms and
+definitions from {{I-D.pignataro-green-enviro-sust-terminology}}, as well
+as the challenges and opportunities presented in {{I-D.irtf-nmrg-green-ps}}.
+
 
 Environmental sustainability is an important consideration in society, and in
 networking, too. Networking technologies enable societies to operate in an
@@ -244,8 +254,9 @@ yet networks themselves must be environmentally sustainable and attempt to minim
 their negative footprint.
 
 Fundamentally the question we try to address concerns the resource usage and the lifecycle of network
-equipment. The less devices are built, and energy is used, the less emissions are
-created. Networks are built with hardware and these in turn use electrical energy
+equipment.
+The fewer devices are built and the less energy is consumed, the fewer emissions are generated.
+Networks are built with hardware and these in turn use electrical energy
 to run. Eventually, the hardware is decommissioned and some amount of the materials
 are recycled.
 
@@ -583,7 +594,9 @@ environmental impacts. Scaling can happen on a device-level (increasing performa
 
 Considering current fixed networking hardware, dynamic scaling might not have an impact in
 situations where there's only a single router or server
-serving a particular route, area, or function. Current routers and switches exhibit limited potential dynamic scaling because the focus is on high performance and a stable connectivity. There have been some recent improvements on this front as well. e.g. Energy-Efficient Ethernet (EEE) is a good example of a networking-level specification to lower energy consumption in idle mode. EEE has limited impact on a network that has continuous traffic.
+serving a particular route, area, or function. Current routers and switches exhibit limited potential dynamic scaling because the focus is on high performance and a stable connectivity. There have been some recent improvements on this front as well.
+For example, Energy-Efficient Ethernet (EEE) illustrates a networking-level specification that reduces energy consumption during idle periods.
+EEE has limited impact on a network that has continuous traffic.
 
 Resiliency can be implemented within a single router as well, e.g. as a backup power supply, between routers and switches as multiple links between the same nodes, having different links between two end points, overlapping cellular coverage, etc. All these necessarily add more hardware to provide the same exact service. Some of that hardware can be fully operational at all times and used to serve the traffic, while other links may be in hot or cold standby depending on the use case.
 
@@ -620,9 +633,10 @@ Network architects need to understand the impacts of scaling changes on users an
 
 Dynamic scaling requires an understanding of load levels for the
 network, so information collection is required. It also requires
-understanding the power, time and other costs of making changes. (See
-{{I-D.pignataro-enviro-sustainability-architecture}} for discussion of
-tradeoffs and multi-objective optimization.)
+understanding the power, time, and other costs of making changes.
+The relationship of these costs can be comples. See
+{{I-D.pignataro-enviro-sustainability-architecture}} for discussions
+of tradeoffs and multi-objective optimization.
 
 Understanding the resiliency requirements for a network or a piece
   of equipment is also important for the optimal control of
@@ -662,7 +676,9 @@ Some of the strategies that are useful in implementing effective dynamic scaling
 * Build mechanisms to deal with dynamic changes: Plan for dynamic set of resources and not expect to work with a fixed set of resources.
 
 * Dynamic scaling requires automation in most cases, e.g., to turn on
-  new service instances. See again {{I-D.pignataro-enviro-sustainability-architecture}} for a discussion of automation.
+  new service instances. Please refer to
+  {{I-D.pignataro-enviro-sustainability-architecture}}
+  for a deeper discussion of automation.
 
 * Interaction with the energy grid can enable dynamic load
   shifting. For instance, a demand-response technique can be used
@@ -841,8 +857,7 @@ capacity or long-lived battery powered devices), there are certainly
 cases where such optimized equipment is not absolutely required. Most infrastructure network nodes on the Internet utilize
 only a fraction of their design capacity most of the time.
 
-Designing the equipment with an eye on longevity comes with a set of
-advantages:
+Designing equipment with longevity in mind provides several advantages:
 
 * It allows the same equipment and protocols be reused in a different context in the future. e.g. A core router of today can become an edge router in a near future and an access router in the further future if the protocol implementations are adaptable.
 
@@ -875,7 +890,7 @@ Finally, when designing networks, it is recommended to consider whether it is po
 
 ## Encoding {#encoding}
 
-This is about considering the effects encoding methods on sustainability, such as the use of binary encodings instead of text.
+This section considers how encoding methods affect sustainability, such as using binary instead of textual encodings.
 
 ### Motivation
 
@@ -1011,6 +1026,32 @@ architects have been listed in {{understanding}} and
   of data is collected, stored, and processed, in view of the effort
   required to do so.
 
+# Broader System-Level Effects {#systemlevel}
+
+There are systemic effects that present blindspots, that are
+fundamental challenges to the entire premise of architectural optimization.
+
+## Rebound Effects and Indirect Impacts in Networking Efficiency {#rebound}
+
+While many architectural strategies outlined in this document target
+reductions in direct energy use, there is a risk of rebound effects.
+For instance, more energy-efficient encodings, faster transports, or
+dynamic scaling that lowers costs may inadvertently encourage higher
+data consumption, increased device proliferation, or faster upgrade
+cycles.
+
+This “efficiency paradox” could offset or even outweigh the
+intended sustainability benefits. It is therefore important that protocol
+design and architectural recommendations be coupled with holistic analyses
+of system-level impacts, user behavior, and economic incentives.
+
+Network designers
+should explicitly investigate how rebound effects manifest in
+networking, including whether architectural optimizations lead to
+long-term reductions in absolute emissions, or merely shift the baseline
+upward through higher demand.
+
+
 # Recommendations for Further Work and Research {#recsfurtherwork}
 
 There are several areas where concrete advice for protocol designers
@@ -1139,7 +1180,9 @@ See also {{Baseline}} and {{BenchmarkingFramework}}.
 
 Everyone on the author section has contributed to the document in significant ways. The author list has been ordered in (reverse) alphabetical order.
 
-Parts of this document extensively leverage ideas and text from
+Portions of this document extensively leverage ideas and text from
 {{I-D.cparsk-eimpact-sustainability-considerations}} and
-{{I-D.pignataro-enviro-sustainability-architecture}} and associated discussions in the IETF, IRTF, and IAB groups. We acknowledge and appreciate the many contributors whose work has enhanced its
-development.
+{{I-D.pignataro-enviro-sustainability-architecture}}.
+
+The authors acknowledge and appreciate the many contributors whose work has enhanced its
+development, including relevant discussions in the IETF, IRTF, and IAB groups.
