@@ -225,8 +225,8 @@ informative:
 --- abstract
 
 This document discusses protocol and network architecture aspects that
-may have an impact on the sustainability of network technology. 
-The focus is on offering actionable guidelines for protocol designers and 
+may have an impact on the sustainability of network technology.
+The focus is on offering actionable guidelines for protocol designers and
 network architects, wherever such guidance is possible.
 
 --- middle
@@ -254,7 +254,7 @@ yet networks themselves must be environmentally sustainable and attempt to minim
 their negative footprint.
 
 Fundamentally the question we try to address concerns the resource usage and the lifecycle of network
-equipment. 
+equipment.
 The fewer devices are built and the less energy is consumed, the fewer emissions are generated.
 Networks are built with hardware and these in turn use electrical energy
 to run. Eventually, the hardware is decommissioned and some amount of the materials
@@ -594,7 +594,7 @@ environmental impacts. Scaling can happen on a device-level (increasing performa
 
 Considering current fixed networking hardware, dynamic scaling might not have an impact in
 situations where there's only a single router or server
-serving a particular route, area, or function. Current routers and switches exhibit limited potential dynamic scaling because the focus is on high performance and a stable connectivity. There have been some recent improvements on this front as well. 
+serving a particular route, area, or function. Current routers and switches exhibit limited potential dynamic scaling because the focus is on high performance and a stable connectivity. There have been some recent improvements on this front as well.
 For example, Energy-Efficient Ethernet (EEE) illustrates a networking-level specification that reduces energy consumption during idle periods.
 EEE has limited impact on a network that has continuous traffic.
 
@@ -1033,22 +1033,22 @@ fundamental challenges to the entire premise of architectural optimization.
 
 ## Rebound Effects and Indirect Impacts in Networking Efficiency {#rebound}
 
-While many architectural strategies outlined in this document target 
-reductions in direct energy use, there is a risk of rebound effects. 
-For instance, more energy-efficient encodings, faster transports, or 
-dynamic scaling that lowers costs may inadvertently encourage higher 
-data consumption, increased device proliferation, or faster upgrade 
-cycles. 
+While many architectural strategies outlined in this document target
+reductions in direct energy use, there is a risk of rebound effects.
+For instance, more energy-efficient encodings, faster transports, or
+dynamic scaling that lowers costs may inadvertently encourage higher
+data consumption, increased device proliferation, or faster upgrade
+cycles.
 
-This “efficiency paradox” could offset or even outweigh the 
-intended sustainability benefits. It is therefore important that protocol 
-design and architectural recommendations be coupled with holistic analyses 
-of system-level impacts, user behavior, and economic incentives. 
+This “efficiency paradox” could offset or even outweigh the
+intended sustainability benefits. It is therefore important that protocol
+design and architectural recommendations be coupled with holistic analyses
+of system-level impacts, user behavior, and economic incentives.
 
 Network designers
-should explicitly investigate how rebound effects manifest in 
-networking, including whether architectural optimizations lead to 
-long-term reductions in absolute emissions, or merely shift the baseline 
+should explicitly investigate how rebound effects manifest in
+networking, including whether architectural optimizations lead to
+long-term reductions in absolute emissions, or merely shift the baseline
 upward through higher demand.
 
 
