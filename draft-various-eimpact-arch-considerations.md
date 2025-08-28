@@ -527,6 +527,11 @@ responsible corporate bodies producing the corporate reports are
 unlikely to use any technical collection system that isn't well
 aligned.
 
+
+#### Impact on Performance and Quality of Experience
+
+TODO: Section 2.4 from {{I-D.pignataro-enviro-sustainability-architecture}}
+
 #### Modeling {#modeling}
 
 Where power optimization choices are made, accurate information is required to decide the right choice.
@@ -555,6 +560,11 @@ baseline energy consumption, and enable later comparisons to that
 baseline.
 
 Additional discussion of modeling can be found in {{ModelingAppendix}}.
+
+##### Dimensioning
+
+TODO: Evaluate if "Dimensioning" from S2.7 of {{I-D.pignataro-enviro-sustainability-architecture}} is relevant here.
+
 
 # Actions {#actions}
 
@@ -917,6 +927,46 @@ efforts to modify existing protocols for the sake of encoding
 efficiency should be further investigated by the above-mentioned quantification results.
 
 One particular area of interest is the impact of AI-based compression methods and their computational and energy costs vs. achieved savings in communication efficiencies.
+
+## Resiliency, Reliability, Redundancy, and Sustainability {resiliency}
+
+Networks and communications are critical functions of the modern digital society. We cannot fully control the reliability of networking and various levels and forms of resiliency can be implemented. The more critical a network segment or connection is, the more resiliency is built.
+
+### Motivation
+
+Resiliency can be implemented within a single routers, e.g. as a backup power supply, between routers and switches as multiple links between the same nodes, having different links between two end points, overlapping cellular coverage, etc. All these necessarily add more hardware to provide the same exact service. Some of that hardware can be fully operational at all times and used to serve the traffic, while other links may be in hot or cold standby depending on the use case.
+
+In cellular networks, wireless coverage is typically built with  significant overlapping coverage. Regulations might dictate how reliable the cellular service is, but also business reasons drive the design of the coverage. A cellular basestation site can consume anything from a few kWh to ten or more kWh per provider. There is extensive work world-wide to optimize the operation of this overlapping coverage, e.g. by sleeping some sites at night time when traffic volumes are low.
+
+Building resiliency is also a question of economics. Acquiring parallel hardware and links is more costly and must be weighted against the goals of the networking service quality.
+
+#### Qualifying the Tradoff: How Much Resiliency is Needed?
+
+TODO: Copy Section 2.3 from {{I-D.pignataro-enviro-sustainability-architecture}}
+
+### Analysis
+
+Resiliency and reliability might impact much more the adaptation and the design of the architecture in the future decades than it did in the past 20 years. In building resiliency and reliability, there is always the trade-off on how quickly the network can recover from a failure and return full or a reduced operation.
+
+
+It might be divided in axis like 'Resiliency to power breakage',
+'Resiliency to lack of material' that can be filtered with regards their impacts on device, network ... architectures
+
+
+#### Redundancy as an Approach
+
+Redundancy is an approach that has direct implications into resiliency and sustainability.
+
+TODO: Copy Section 2.3.1 from {{I-D.pignataro-enviro-sustainability-architecture}}
+
+#### Multi-Objective Optimization
+
+TODO: Copy Section 2.2 from {{I-D.pignataro-enviro-sustainability-architecture}}
+
+
+### Recommendation
+
+In network architecture design, resiliency should be estimated carefully. In the future, we may need to consider, what is good enough resiliency, what is fast enough when recovering from a failure ? Such decisions are always tied to the impact downtime will have on the network users and applications.
 
 ## Sustainable by Design: Data Governance Perspective {#bydesign}
 
