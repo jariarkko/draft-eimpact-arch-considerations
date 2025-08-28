@@ -2,10 +2,14 @@
 *.pdf
 *.redxml
 *.swp
-*.txt
+draft-various-eimpact-arch-considerations.txt
+draft-eimpact-merged-arch-considerations.md
+draft-eimpact-merged-arch-considerations.txt
+draft-eimpact-arch-considerations.txt
 *.upload
 *~
 .tags
+backup
 /*-[0-9][0-9].xml
 /.*.mk
 /.gems/
